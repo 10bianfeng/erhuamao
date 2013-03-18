@@ -1,4 +1,4 @@
-Travel
+##Travel
 	have gallery
 	have right top pic
 	"name" :string
@@ -15,7 +15,7 @@ Travel
 	"extensions_ids" :text
 	"itinerary_pic"	:text
 
-Itinerary
+##Itinerary
 	have gallery
 	"name" 	:string
 	"travel_id" :integer
@@ -25,7 +25,7 @@ Itinerary
 	"start_day_num" :integer
 	"end_day_num"	:integer
 
-Datesprice
+##Datesprice
 	"travel_id" :integer
 	"start_date" :datetime
 	"end_date" :datetime
@@ -35,21 +35,21 @@ Datesprice
 	"availability" :integer(多种状态: "Available", "Call for Availability", "Limited Availability")
 	"available_people_count"
 
-Offers
+##Offers
 
 
-Booking
+##Booking
 	"travel_id" :integer
 	"datesprice_id" :integer
 	"people_count"	:integer
 
-Hotel
+##Hotel
 	have gallery
 	"name"
 	"country_id"
 	"city_id"
 
-Question
+##Question
 	"preferred_contact_method" :integer
 	"email"	:string
 	"mrs_title"	:string
@@ -60,12 +60,12 @@ Question
 	"question"	:text
 	"travel_id" :integer
 
-Brochure(PDF)
+##Brochure(PDF)
 	"name"
 	"file"
 	"travel_ids"
 
-Destination
+##Destination
 	have gallery
 	"name" 	:string
 	"desc_title" :string
@@ -79,37 +79,37 @@ Destination
 	"voltage"	:text
 	"currency"	:text
 
-Destination_Travel
+##Destination_Travel
 
 
-Interest
+##Interest
 
 
-Interest_Travel
+##Interest_Travel
 
 
-News
+##News
 
 
-News_Travel
+##News_Travel
 
 
-Page
+##Page
 
 
-Gallery
+##Gallery
 	"name" :string
 	"photo" :string
 	"type" :string
 	"type_id" :integer
 
-User
+##User
 
 
-Saves_trip(Compare)
+##Saves_trip(Compare)
 
 
-Setting
+##Setting
 	400电话
 
 ::::::::::
