@@ -36,7 +36,7 @@ Datesprice
 	"available_people_count"
 
 Offers
-
+	
 
 Booking
 	"travel_id" :integer
@@ -70,7 +70,7 @@ Destination
 	"name" 	:string
 	"desc_title" :string
 	"desc"	:text
-	"banner_pic" :string
+	"banner_pic" :string/
 	"map_pic" :string
 	"flights"	:text
 	"timezone" :string
