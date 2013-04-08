@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # insub's admin scaffold template
 # rails g scaffold_controller_admin <%= plural_table_name %> <% for attribute in attributes -%><%= attribute.name %>:<%= attribute.type %> <% end -%>
 

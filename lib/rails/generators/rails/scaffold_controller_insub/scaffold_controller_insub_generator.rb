@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Insub's InsubScaffold
 # how to use: rails g scaffold_controller_insub admin/notes title:string ...
 require 'rails/generators/resource_helpers'
