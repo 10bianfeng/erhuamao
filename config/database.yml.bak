@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 春明每次check的时候请把sqlite 改成 ming_development.sqlite3
 
 # SQLite version 3.x
