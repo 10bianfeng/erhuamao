@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  sub_name: MyString
+  series_name: MyString
+  series_cont: MyText
+  priced_from: 1
+  days_count: 1
+  departures: 1
+  max_group_size: 1
+  overview_desc: MyText
+  overview_advantage: MyText
+  notes: MyText
+  extensions_ids: MyText
+  itinerary_pic: MyText
+
+two:
+  name: MyString
+  sub_name: MyString
+  series_name: MyString
+  series_cont: MyText
+  priced_from: 1
+  days_count: 1
+  departures: 1
+  max_group_size: 1
+  overview_desc: MyText
+  overview_advantage: MyText
+  notes: MyText
+  extensions_ids: MyText
+  itinerary_pic: MyText

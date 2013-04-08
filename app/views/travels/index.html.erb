@@ -1,0 +1,47 @@
+<h1>Listing travels</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sub name</th>
+    <th>Series name</th>
+    <th>Series cont</th>
+    <th>Priced from</th>
+    <th>Days count</th>
+    <th>Departures</th>
+    <th>Max group size</th>
+    <th>Overview desc</th>
+    <th>Overview advantage</th>
+    <th>Notes</th>
+    <th>Extensions ids</th>
+    <th>Itinerary pic</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @travels.each do |travel| %>
+  <tr>
+    <td><%= travel.name %></td>
+    <td><%= travel.sub_name %></td>
+    <td><%= travel.series_name %></td>
+    <td><%= travel.series_cont %></td>
+    <td><%= travel.priced_from %></td>
+    <td><%= travel.days_count %></td>
+    <td><%= travel.departures %></td>
+    <td><%= travel.max_group_size %></td>
+    <td><%= travel.overview_desc %></td>
+    <td><%= travel.overview_advantage %></td>
+    <td><%= travel.notes %></td>
+    <td><%= travel.extensions_ids %></td>
+    <td><%= travel.itinerary_pic %></td>
+    <td><%= link_to 'Show', travel %></td>
+    <td><%= link_to 'Edit', edit_travel_path(travel) %></td>
+    <td><%= link_to 'Destroy', travel, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Travel', new_travel_path %>

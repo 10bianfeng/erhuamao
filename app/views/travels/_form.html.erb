@@ -1,0 +1,69 @@
+<%= form_for(@travel) do |f| %>
+  <% if @travel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel.errors.count, "error") %> prohibited this travel from being saved:</h2>
+
+      <ul>
+      <% @travel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_name %><br />
+    <%= f.text_field :sub_name %>
+  </div>
+  <div class="field">
+    <%= f.label :series_name %><br />
+    <%= f.text_field :series_name %>
+  </div>
+  <div class="field">
+    <%= f.label :series_cont %><br />
+    <%= f.text_area :series_cont %>
+  </div>
+  <div class="field">
+    <%= f.label :priced_from %><br />
+    <%= f.text_field :priced_from %>
+  </div>
+  <div class="field">
+    <%= f.label :days_count %><br />
+    <%= f.text_field :days_count %>
+  </div>
+  <div class="field">
+    <%= f.label :departures %><br />
+    <%= f.text_field :departures %>
+  </div>
+  <div class="field">
+    <%= f.label :max_group_size %><br />
+    <%= f.text_field :max_group_size %>
+  </div>
+  <div class="field">
+    <%= f.label :overview_desc %><br />
+    <%= f.text_area :overview_desc %>
+  </div>
+  <div class="field">
+    <%= f.label :overview_advantage %><br />
+    <%= f.text_area :overview_advantage %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :extensions_ids %><br />
+    <%= f.text_area :extensions_ids %>
+  </div>
+  <div class="field">
+    <%= f.label :itinerary_pic %><br />
+    <%= f.text_area :itinerary_pic %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

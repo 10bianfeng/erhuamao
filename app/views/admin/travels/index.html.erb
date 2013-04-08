@@ -1,0 +1,50 @@
+<div class="row">
+<h3>后台管理 > Travel列表 <div class="pull-right"><%= link_to '创建新Travels', new_admin_travel_path %></div></h3>
+<hr>
+<table class="table table-striped table-bordered"> 
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Sub name</th>
+    <th>Series name</th>
+    <th>Series cont</th>
+    <th>Priced from</th>
+    <th>Days count</th>
+    <th>Departures</th>
+    <th>Max group size</th>
+    <th>Overview desc</th>
+    <th>Overview advantage</th>
+    <th>Notes</th>
+    <th>Extensions ids</th>
+    <th>Itinerary pic</th>
+    <th>操作</th>
+  </tr>
+
+<% @travels.each do |travel| %>
+  <tr>
+    <td>
+      <%= travel.id %>
+    </td>
+    <td><%= travel.name %></td>
+    <td><%= travel.sub_name %></td>
+    <td><%= travel.series_name %></td>
+    <td><%= travel.series_cont %></td>
+    <td><%= travel.priced_from %></td>
+    <td><%= travel.days_count %></td>
+    <td><%= travel.departures %></td>
+    <td><%= travel.max_group_size %></td>
+    <td><%= travel.overview_desc %></td>
+    <td><%= travel.overview_advantage %></td>
+    <td><%= travel.notes %></td>
+    <td><%= travel.extensions_ids %></td>
+    <td><%= travel.itinerary_pic %></td>
+    <td>
+      <%= link_to '查看', [:admin, travel] %> | 
+      <%= link_to '编辑', edit_admin_travel_path(travel) %> | 
+      <%= link_to '删除', [:admin, travel], :confirm => '确定要删除么?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @travels %>
+</div>

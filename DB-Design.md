@@ -5,7 +5,7 @@
 	"sub_name" :string
 	"series_name" :string
 	"series_cont"	:text
-	"priced From" :integer
+	"priced_from" :integer
 	"days_count"	:integer
 	"departures" :integer
 	"max_group_size" :integer

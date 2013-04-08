@@ -1,0 +1,97 @@
+<%= form_for([:admin, @travel],:html => {:class => "form-horizontal" }) do |f| %>
+  <% if @travel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@travel.errors.count, "error") %> prohibited this travel from being saved:</h2>
+
+      <ul>
+      <% @travel.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <label class="control-label">name</label>
+    <div class="controls">
+    <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">sub_name</label>
+    <div class="controls">
+    <%= f.text_field :sub_name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">series_name</label>
+    <div class="controls">
+    <%= f.text_field :series_name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">series_cont</label>
+    <div class="controls">
+    <%= f.text_area :series_cont %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">priced_from</label>
+    <div class="controls">
+    <%= f.text_field :priced_from %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">days_count</label>
+    <div class="controls">
+    <%= f.text_field :days_count %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">departures</label>
+    <div class="controls">
+    <%= f.text_field :departures %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">max_group_size</label>
+    <div class="controls">
+    <%= f.text_field :max_group_size %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">overview_desc</label>
+    <div class="controls">
+    <%= f.text_area :overview_desc %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">overview_advantage</label>
+    <div class="controls">
+    <%= f.text_area :overview_advantage %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">notes</label>
+    <div class="controls">
+    <%= f.text_area :notes %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">extensions_ids</label>
+    <div class="controls">
+    <%= f.text_area :extensions_ids %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">itinerary_pic</label>
+    <div class="controls">
+    <%= f.text_area :itinerary_pic %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>

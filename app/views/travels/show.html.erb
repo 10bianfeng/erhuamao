@@ -1,0 +1,70 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @travel.name %>
+</p>
+
+<p>
+  <b>Sub name:</b>
+  <%= @travel.sub_name %>
+</p>
+
+<p>
+  <b>Series name:</b>
+  <%= @travel.series_name %>
+</p>
+
+<p>
+  <b>Series cont:</b>
+  <%= @travel.series_cont %>
+</p>
+
+<p>
+  <b>Priced from:</b>
+  <%= @travel.priced_from %>
+</p>
+
+<p>
+  <b>Days count:</b>
+  <%= @travel.days_count %>
+</p>
+
+<p>
+  <b>Departures:</b>
+  <%= @travel.departures %>
+</p>
+
+<p>
+  <b>Max group size:</b>
+  <%= @travel.max_group_size %>
+</p>
+
+<p>
+  <b>Overview desc:</b>
+  <%= @travel.overview_desc %>
+</p>
+
+<p>
+  <b>Overview advantage:</b>
+  <%= @travel.overview_advantage %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @travel.notes %>
+</p>
+
+<p>
+  <b>Extensions ids:</b>
+  <%= @travel.extensions_ids %>
+</p>
+
+<p>
+  <b>Itinerary pic:</b>
+  <%= @travel.itinerary_pic %>
+</p>
+
+
+<%= link_to 'Edit', edit_travel_path(@travel) %> |
+<%= link_to 'Back', travels_path %>
