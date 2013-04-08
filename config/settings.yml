@@ -1,0 +1,24 @@
+# config/setting.yml 使用 settingslogic gem来加载，开发环境下可无需重启生效，且可赋值
+# Use: @mpath = Setting['musicbase_path']
+# 注意，不可以使用Tab键，只能使用空格
+defaults: &defaults
+  admin_emails:
+    - "insub@126.com"
+    - "insuber@gmail.com"
+  domain: 127.0.0.1
+  email_sender: support@xxx.com
+  email_password: this-is-password
+
+
+development:  
+  <<: *defaults
+  
+test: 
+  <<: *defaults
+  
+production:  
+  <<: *defaults
+  domain: xxx.com
+  #perform_authentication: true
+  #username: admin
+  #password: secret
