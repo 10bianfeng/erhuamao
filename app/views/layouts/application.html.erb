@@ -1,14 +1,561 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Erhuamao</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
+	<title>Luxury Travel | Luxury Vacations | Abercrombie &amp; Kent</title>
+	<meta name="Description" id="Description" content="Abercrombie &amp; Kent is the world&#39;s foremost luxury travel company, offering adventure and luxury vacations in the world&#39;s greatest destinations since 1962." />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="Keywords" id="Keywords" content="Travel Destinations, abercrombie and kent, adventure travel, luxury travel, luxury trips, luxury vacations" />
+	<meta name="Generator" id="Generator" content="erhuamao Content Server Build 6.2.1.16" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/default_1.1.4.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/uni-form-generic.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="/stylesheets/trip_1.0.4.css" media="screen" />
+	<link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+	<!-- add some extra style for travel -->.
+	<%= csrf_meta_tag %>
 </head>
-<body>
+<body lang="en" class="two_column_layout">
+	<a name="__topdoc__"></a>
+	<a name="top"></a>
+	<div id="erhuamao">
+		<div class="hide_from_print">
+			<!-- BRANDING-CONTENT -->
+			<div id="branding-content">
+				<div id="contact">
+					<span class="phone">800 554 7016</span>
+					<ul class="clear_list_style self_clear">
+						<li>M-F 8-7, Sat 9-1 CST</li>
+						<li>
+							<a href="/compare.cfm" id="compare_trips_btn" title="Compare Trips">
+								Compare Trips -
+								<span id="saved_trip_count">0</span>
+							</a>
+						</li>
+						<li>
+							<a href="/login.cfm" title="Login" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('title'));">Login</a>
+						</li>
+					</ul>
+					<form id="keword-search-form" class="light-form" action="/search.cfm" method="">
+						<input name="kwf" id="kwf" type="text" size="25" value="" class="ui-autocomplete-input" autocomplete="on" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+						<input type="submit" value="search" />
+					</form>
+				</div>
+				<a class="logo" href="/" title="Abercrombie &amp; Kent" gatext="Logo" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">
+					<img src="/images/abercrombie_and_kent.gif" width="255" height="21" alt="Abercrombie &amp; Kent" />
+				</a>
+				<div id="web-country">
+					select your home region:
+					<a class="current" href="/">USA</a>
+				</div>
+			</div>
+			<!-- PRIMARY-NAVIGATION -->
+			<table id="primary_navigation">
+				<tbody>
+					<tr>
+						<td nowrap="nowrap">
+							<a href="/search.cfm" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Search</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/travel-destinations/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Destinations</a>
+							<div class="block menu">
+								<ul>
+									<li>
+										<a href="/travel-destinations/africa-safari/" gatext="Destinations - Africa" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Africa</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/antarctica-cruise/" gatext="Destinations - Antarctica" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Antarctica</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/arctic-cruise/" gatext="Destinations - Arctic" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Arctic</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/asia-luxury-travel/" gatext="Destinations - Asia" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Asia</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/australia-new-zealand-luxury-travel/" gatext="Destinations - Australia & New Zealand" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Australia &amp; New Zealand</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/middle-east-luxury-travel/" gatext="Destinations - Egypt & Middle East" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Egypt &amp; Middle East</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/europe-luxury-holidays/" gatext="Destinations - Europe" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Europe</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/india-luxury-travel/" gatext="Destinations - India" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">India</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/latin-america-luxury-travel/" gatext="Destinations - Latin America" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Latin America</a>
+									</li>
+									<li>
+										<a href="/travel-destinations/north-america-luxury-travel/" gatext="Destinations - North America" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">North America</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/discover/" title="" gatext="Travel Interests" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Travel Interests</a>
+							<div class="block menu">
+								<ul>
+									<li>
+										<a href="/discover/luxury-small-group-travel/" gatext="Discover A&K - Luxury Small Group Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Luxury Small Group Journeys</a>
+									</li>
+									<li>
+										<a href="/discover/connections-group-travel/" gatext="Connections Group Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Connections Group Journeys</a>
+									</li>
+									<li>
+										<a href="/discover/private-travel/" gatext="Discover A&K - Private Luxury Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Private Luxury Journeys</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/Invitation_Only_Travel.cfm" gatext="Discover A&K - MPC Limited Edition Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">MPC Invitational Journeys</a>
+									</li>
+									<li>
+										<a href="/discover/private-jet/" gatext="Discover A&K - Private Jet Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Private Jet Journeys</a>
+									</li>
+									<li>
+										<a href="/discover/adventure-cruising/" gatext="Discover A&K - Adventure Cruising" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Adventure Cruises</a>
+									</li>
+									<li>
+										<a href="/discover/african-safari/" gatext="Discover A&K - African Safari" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">African Safari</a>
+									</li>
+									<li>
+										<a href="/discover/canal-river-cruising/" gatext="Discover A&K - Canal & River Cruising" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Canal &amp; River Cruising</a>
+									</li>
+									<li>
+										<a href="http://www.akextremeadventures.com" target="_blank" gatext="Discover A&K - Extreme Adventures" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Extreme Adventures</a>
+									</li>
+									<li>
+										<a href="/discover/family-holidays/" gatext="Discover A&K - Family Holidays" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Family Travel</a>
+									</li>
+									<li>
+										<a href="/discover/luxury-train-travel/" gatext="Discover A&K - Luxury Train Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Luxury Train Travel</a>
+									</li>
+									<li>
+										<a href="/discover/luxury-sailing/" gatext="Discover A&K - Luxury Sailing" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Luxury Sailing</a>
+									</li>
+									<li>
+										<a href="/discover/romance.cfm" gatext="Discover A&K - Romantic Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Romantic Journeys</a>
+									</li>
+									<li>
+										<a href="/discover/solo-travel/" gatext="Discover A&K - Solo Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Solo Travel</a>
+									</li>
+									<li>
+										<a href="/discover/fly/" gatext="Discover A&K - Fly with A&amp;K" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Fly with A&amp;K</a>
+									</li>
+									<li>
+										<a href="/discover/trip-extensions/" gatext="Discover A&K - Trip Extensions" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Trip Extensions</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/news/" title="" gatext="News & Events" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">News</a>
+							<div class="block menu">
+								<ul>
+									<li>
+										<a href="/news/press_releases/" gatext="News & Events - Press Releases" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Press Releases</a>
+									</li>
+									<li>
+										<a href="/news/awards.cfm" gatext="News & Events - Awards" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Travel Awards</a>
+									</li>
+									<li>
+										<a href="/news/ak_magazine.cfm" gatext="News & Events - A&K Magazine" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">A&amp;K Magazine</a>
+									</li>
+									<li>
+										<a href="http://portfolio.abercrombiekent.com/photo_request.cfm" target="_blank" gatext="News & Events - Photo Request" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">Request Travel Photos</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/travel_specials/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Special Offers</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="http://www.akvillas.com" title="" target="_blank" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('text'));">Villas</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/marcopoloclub/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Marco Polo Club</a>
+							<div class="block menu">
+								<ul>
+									<li>
+										<a href="/marcopoloclub/Benefits.cfm" gatext="MPC - Member Benefits" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Member Benefits</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/Invitation_Only_Travel.cfm" gatext="MPC - Invitational Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Invitational Journeys</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/mpc_tour_directors.cfm" gatext="MPC - Tour Directors" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Invitational Tour Directors</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/photo-contest/" gatext="MPC - Photo Contest" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Photo Contest</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/Membership_Application.cfm" gatext="MPC - Membership Application" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Membership Application</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/history_marco_polo.cfm" gatext="MPC - History of MPC" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">History of Marco Polo</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/membership_terms_conditions.cfm" gatext="MPC - Membership T&C" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Membership Terms &amp; Conditions</a>
+									</li>
+									<li>
+										<a href="/marcopoloclub/welcome.cfm" gatext="MPC - New Member Registration" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">New Membership Registration</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/about_us/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">About A&amp;K</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="#">A&K Portfolio</a>
+							<div class="block menu right-last">
+								<ul>
+									<li>
+										<a href="http://akextremeadventures.com/" gatext="A&K Extreme Adventures" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">A&K Extreme Adventures</a>
+									</li>
+									<li>
+										<a href="http://www.akinternationalestates.com/" gatext="Portfolio - A&K International Estates" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">A&K International Estates</a>
+									</li>
+									<li>
+										<a href="http://akphilanthropy.org/" gatext="Portfolio - A&K Philanthropy" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">A&K Philanthropy</a>
+									</li>
+									<li>
+										<a href="http://www.akvillas.com/" gatext="Portfolio - A&K Villas" target="_blank" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">A&amp;K Villas</a>
+									</li>
+									<li>
+										<a href="http://www.akski.com" gatext="Portfolio - A&K Ski" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">A&K Ski</a>
+									</li>
+									<li>
+										<a href="/lifestyle-club/" gatext="Portfolio - A&K Lifestyle Club" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">A&K Lifestyle Club</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 
-<%= yield %>
+			<!-- BRAND-MARKETING -->
+			<div id="brand_marketing">
+				<div id="cs_control_1580" class="cs_control CS_Element_Image">
+					<img src="/images/india.jpg" border="0" class="CS_Image_IMG" title="Africa Safari" alt="Africa Safari" width="960" height="300"></div>
+			</div>
+		</div>
 
+
+
+		<%= yield %>
+
+	
+
+		<div class="hide_from_print">
+			<!-- SECONDARY NAVIGATION -->
+			<table id="secondary_navigation">
+				<tbody>
+					<tr>
+						<td nowrap="nowrap">
+							<a href="/agent_services/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', $(this).get('text'));">Agent Services</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/travel_brochures/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', $(this).get('text'));">Brochure Request</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="http://travelblog.abercrombiekent.com" title="Travel Logs" target="_blank" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Travel Logs</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="http://www.akphilanthropy.org/" title="" target="_blank" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('text'));">Philanthropy</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/travel_store/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', $(this).get('text'));">Travel Store</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/legal/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', $(this).get('text'));">Legal</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/sitemap.cfm" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', $(this).get('text'));">Site Map</a>
+						</td>
+						<td nowrap="nowrap">
+							<a href="/travel_questions/" title="" target="_blank" onclick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));" class="">Contact Us</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- SITE INFORMATION -->
+			<div id="social_media" class="self_clear">
+				<div id="price-assurance-footer">
+					<p class="base_font_size clear_margins">
+						<a href="/legal/price_assurance.cfm">
+							<img src="/images/price_assurance_small.gif" class="float_left" width="82" height="27" />
+						</a>
+						If the price goes down after you book, we will
+						<br />
+						refund the difference &mdash; guaranteed.
+					</p>
+				</div>
+				<ul class="clear_list_style clear_margins">
+					<li>
+						<a href="http://www.facebook.com/AbercrombieKent" target="_blank" title="Facebook" onClick="pageTracker._trackEvent('Content', 'Social Media', jQuery(this).attr('title'));">
+							<img src="/images/facebook.gif" width="20" height="20" />
+						</a>
+					</li>
+					<li>
+						<a href="http://www.youtube.com/user/abercrombiekent" target="_blank" title="You Tube" onClick="pageTracker._trackEvent('Content', 'Social Media', jQuery(this).attr('title'));">
+							<img src="/images/you_tube.gif" width="20" height="20" />
+						</a>
+					</li>
+					<li>
+						<a href="http://pinterest.com/abercrombiekent/" target="_blank" title="Pinterest" onClick="pageTracker._trackEvent('Content', 'Social Media', jQuery(this).attr('title'));">
+							<img src="/images/pinterest.gif" width="20" height="20" />
+						</a>
+					</li>
+					<li>
+						<a href="http://twitter.com/AKTravel_USA" target="_blank" title="Twitter" onClick="pageTracker._trackEvent('Content', 'Social Media',jQuery(this).attr('title'));">
+							<img src="/images/twitter.gif" width="20" height="20" />
+						</a>
+					</li>
+				</ul>
+				<p class="base_font_size float_left twitter_feed">
+					<span class="twitter_blue">
+						<a href="http://twitter.com/AKTravel_USA" target="_blank">Latest from @AKTravel_USA:</a>
+					</span>
+					Vanessa Williams shares why Egypt draws her back again and again.   http://t.co/GPwfRjdFN4 @elite_traveler @vwofficial 9 hours ago
+				</p>
+			</div>
+			<p class="base_font_size apple_trademark">
+				iPad <sup><span style="font-size:8px">&reg;</span></sup> 
+				and App Store <sup><span style="font-size:7px">SM</span></sup> 
+				are registered trademarks of Apple Inc.
+			</p>
+			<hr />
+			<!-- SEO LINKS -->
+			<div id="seo_links">
+				<!-- AFRICA -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/africa-safari/" title="Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Africa Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/east-africa/" title="East Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">East Africa Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/east-africa/mobile-tented-safaris.cfm" title="Camping Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Camping Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/east-africa/kenya/" title="Kenya Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Kenya Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/east-africa/tanzania/" title="Tanzania Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Tanzania Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/east-africa/tanzania/kilimanjaro-climb.cfm" title="Kilimanjaro Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Kilimanjaro Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/east-africa/uganda/" title="Uganda Gorilla Safaris" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Uganda Gorilla Safaris</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/southern-africa/" title="Southern Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Southern Africa Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/southern-africa/botswana/" title="Botswana Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Botswana Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/southern-africa/south-africa/" title="South Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">South Africa Safari</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/africa-safari/southern-africa/zambia/" title="Zambia Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Zambia Safari</a>
+					</li>
+				</ul>
+				<!-- ANTARCTICA -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/antarctica-cruise/" title="Antarctica Cruises" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Antarctica Cruises</a>
+					</li>
+				</ul>
+				<!-- AUSTRALIA & NEW ZEALAND -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/australia-new-zealand-luxury-travel/" title="Australia & New Zealand" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Australia &amp; New Zealand</a>
+					</li>
+				</ul>
+				<!-- ASIA -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/asia-luxury-travel/" title="Asia Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Asia Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/asia-luxury-travel/china/" title="China Adventure Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">China Adventure Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/asia-luxury-travel/china/yangtze-river-yangzi-cruise.cfm" title="Yangzi Cruise" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Yangzi Cruise</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/asia-luxury-travel/japan/" title="Japan Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Japan Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/asia-luxury-travel/southeast/" title="Southeast Asia Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Southeast Asia Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/asia-luxury-travel/southeast/cambodia/" title="Cambodia Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Cambodia Luxury Travel</a>
+					</li>
+				</ul>
+				<!-- EGYPT & MIDDLE EAST -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/middle-east-luxury-travel/" title="Egypt & Middle East Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Egypt &amp; Middle East Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/middle-east-luxury-travel/egypt/" title="Egypt Nile Cruise" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Egypt Nile Cruise</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/middle-east-luxury-travel/jordan/" title="Jordan & Petra Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Jordan &amp; Petra Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/middle-east-luxury-travel/morocco/" title="Morocco Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Morocco Luxury Travel</a>
+					</li>
+				</ul>
+				<!-- EUROPE -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/europe-luxury-holidays/" title="European Luxury Holidays" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">European Luxury Holidays</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/europe-luxury-holidays/britain-ireland-france-travel/" title="British, Ireland & France" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">British, Ireland &amp; France</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/europe-luxury-holidays/spain-portugal-italy-travel/" title="Spain, Portugal & Italy" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Spain, Portugal &amp; Italy</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/europe-luxury-holidays/greece-turkey-travel/" title="Greece & Turkey" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Greece &amp; Turkey</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/europe-luxury-holidays/central-eastern-europe-travel/" title="Central & Eastern Europe" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Central &amp; Eastern Europe</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/europe-luxury-holidays/russia-scandinavia-baltics/" title="Russia, Scandinavia & the Baltic States" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Russia, Scandinavia &amp; the Baltic States</a>
+					</li>
+				</ul>
+				<!-- INDIA -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/india-luxury-travel/" title="India Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">India Luxury Travel</a>
+					</li>
+				</ul>
+				<!-- LATIN AMERICA -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/latin-america-luxury-travel/" title="Latin America Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Latin America Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/latin-america-luxury-travel/argentina/" title="Argentina Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Argentina Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/latin-america-luxury-travel/chile/" title="Chile Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Chile Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/latin-america-luxury-travel/costa-rica/" title="Costa Rica Luxury Vacation" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Costa Rica Luxury Vacation</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/latin-america-luxury-travel/galapagos-ecuador/" title="Galápagos & Ecuador Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Gal&aacute;pagos & Ecuador Luxury Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/latin-america-luxury-travel/peru-machu-picchu/" title="Machu Picchu Holiday" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Machu Picchu Holiday</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/latin-america-luxury-travel/mexico/" title="Mexico Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Mexico Luxury Travel</a>
+					</li>
+				</ul>
+				<!-- NORTH AMERICA -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="/travel-destinations/north-america-luxury-travel/" title="North American Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">North American Travel</a>
+					</li>
+					<li>
+						|
+						<a href="/travel-destinations/north-america-luxury-travel/alaska/" title="Alaska Adventure Cruise" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Alaska Adventure Cruise</a>
+					</li>
+				</ul>
+				<!-- IINTERNATIONAL ESTATES -->
+				<ul class="clear_list_style">
+					<li>
+						<a href="http://www.akinternationalestates.com/" title="Luxury Real Estate" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Luxury Real Estate</a>
+					</li>
+					<li>
+						| If you are interested in purchasing a luxury holiday home, visit A&K International Estates.
+					</li>
+				</ul>
+			</div>
+			<p class="base_font_size">
+				&copy;1996-2013 Abercrombie &amp; Kent USA, LLC. All rights reserved.
+				<a href="/legal/privacy_statement_and_security.cfm" title="Privacy Statement & Security" onClick="pageTracker._trackEvent('Content', 'Navigation', $(this).get('title'));">Privacy Statement &amp; Security</a>
+			</p>
+		</div>
+		<a class='akOverlay' href='/assets/cf/apps/lifestyle-club/overlay-links.cfm'>&nbsp;</a>
+		<!-- Google Code for A&amp;K Website Remarketing Remarketing List -->
+		<!-- Begin SearchForce tracking code for landing page (4.0) -->
+		<!-- Copyright 2004-2010 SearchForce Inc. All rights reserved. -->
+		<div id="sf_fl_content"></div>
+		<!-- End SearchForce tracking code -->
+	</div>
+	<div style="display:block; clear:left; padding:0px; font-family:Verdana,Arial; font-size:10px; color:gray;"></div>
+
+
+	<script type="text/javascript" src="/javascripts/jquery1.7.2.js"></script>
+	<script type="text/javascript" src="/javascripts/form_validation.js"></script>
+	<script type="text/javascript" src="/javascripts/erhuamao.js"></script>	
+  <script>
+		$("document").ready(function(){
+		if(window.location.hash){
+			$("#trip_navigation_top li").removeClass("current");
+			$(".tab_item").addClass("hide");
+			$('#trip_navigation_top a[href='+window.location.hash+']').parent().addClass("current");
+			$(window.location.hash).removeClass("hide");
+		}
+		})
+		$("#trip_navigation_top li a").live("click", function(){
+		$("#trip_navigation_top li").removeClass("current");
+		$(".tab_item").addClass("hide");
+		$(this).parent().addClass("current");
+		$($(this).attr("href")).removeClass("hide");
+		return false;
+		})
+		</script>
+		<!-- INITIALIZE APPLICATION -->
+		<script type="text/javascript">
+		$("#primary_navigation>tbody>tr>td").hover(function(){
+			$(this).child("a").addClass("show_menu");
+			$(this).child("div.block.menu").addClass("show_menu");
+		},function(){});
+		$("#dates_prices dl.expando dt").click(function(){
+			$(this).next().toggleClass("show");
+		})
+	</script>
 </body>
 </html>
