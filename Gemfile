@@ -2,6 +2,8 @@ source 'http://ruby.taobao.org'
 
 gem 'rails', '3.0.19'
 
+gem 'devise'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -31,7 +33,7 @@ gem 'mini_magick', '3.4' # 可用，包括windows上
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
