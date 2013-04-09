@@ -1,55 +1,198 @@
-<div class="container" id="login">
-	<h3>Login</h3>
-	<p class="gray">Welcome back to Pageimg.</p>
-	<hr class="gray">
-	<div class="error_msg hide">Email/Username or password is error. Try again. or  <a href="/pageimg/contact">contact us</a>.</div>
-	<form class="bs-docs-example form-horizontal" accept-charset="UTF-8" action="/login" class="user_new" id="user_login" method="post">
-		<div class="control-group">
-		  <label class="control-label" for="inputEmail">Username</label>
-		  <div class="controls">
-		    <input id="user_username" name="user[username]" size="30" type="text" />
-		  </div>
+		<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+			<li>
+				<img src="" width="90" height="1"></li>
+			<li>
+				<a href="/">Home</a>
+				&nbsp;&nbsp;/&nbsp;&nbsp;
+			</li>
+			<li>
+				<a href="/travel-destinations/">Travel Destinations</a>
+				&nbsp;&nbsp;/&nbsp;&nbsp;
+			</li>
+			<li>Africa</li>
+		</ul>
+		<div class="self_clear">
+			<div id="secondary_content" class="hide_from_print">
+				<div id="cs_control_3131" class="">
+					<div class="CS_Element_Schedule" title="" id="CS_Element_contentleft">
+						<a name="custom12234" id="custom12234"></a>
+						<a name="CP_JUMP_12234" id="CP_JUMP_12234"></a>
+						<div id="cs_control_12234" class="cs_control CS_Element_Custom">
+							<div class="hl3">Navigate By</div>
+							<!-- OHSU Nav -->		
+							<ul class="section cspot_nav">
+								<li class="icon bullet_arrow">
+									<a href="/marcopoloclub/benefits.cfm">Member Benefits</a>
+								</li>
+								<li class="icon bullet_arrow">
+									<a href="/marcopoloclub/invitation_only_travel.cfm">Invitational Journeys</a>
+								</li>
+								<li class="icon bullet_arrow">
+									<a href="/marcopoloclub/mpc_tour_directors.cfm">Invitational Tour Directors</a>
+								</li>
+								<li class="icon expando_hide">
+									<a href="/marcopoloclub/photo-contest/">Photo Contest</a>
+								</li>
+								<li class="navigation_active icon bullet_arrow">
+									<a href="/marcopoloclub/">Membership Application</a>
+								</li>
+								<li class="icon bullet_arrow">
+									<a href="/marcopoloclub/history_marco_polo.cfm">History of Marco Polo</a>
+								</li>
+								<li class="icon bullet_arrow">
+									<a href="/marcopoloclub/membership_terms_conditions.cfm">Membership Terms &amp; Conditions</a>
+								</li>
+								<li class="icon bullet_arrow">
+									<a href="/marcopoloclub/welcome.cfm">New Member Login</a>
+								</li>
+							</ul>
+						</div>
+						<a name="customcf3475" id="customcf3475"></a>
+						<a name="CP_JUMP_3475" id="CP_JUMP_3475"></a>
+						<div id="cs_control_3475" class="cs_control CS_Element_CustomCF">
+							<div id="CS_CCF_2421_3475">
+								<div class="hl3">Member Login</div>
+								<!-- <form id="mpc_login" name="mpc_login" action="/loader.cfm" method="post">		
+								-->
+								<form class="section" action="https://www.abercrombiekent.com/services/?fuseaction=login" method="post">
+									<input type="hidden" name="url" value="/commonspot/security/login-validate.cfm">		
+									<input type="hidden" name="hidePendingActions" value="0">		
+									<input type="hidden" name="hideAutoLogin" value="1">		
+									<input type="hidden" name="hideChangePassword" value="1">		
+									<input type="hidden" name="WindowType" value="">		
+									<input type="hidden" name="bNewWindow" value="0">		
+									<input type="hidden" name="SpellCheckOn" value="0">		
+									<input type="hidden" name="remember_me" value="0">		
+									<input type="hidden" name="targetURL" value="/marcopoloclub/membership_application.cfm?">		
+									<dl class="clear_list_style base_font_size">
+										<dt style="font-weight:400">
+											<label for="username">Username:</label>
+										</dt>
+										<dd>
+											<input id="mpc_username" name="UserID" type="text" size="30"></dd>
+										<dt style="font-weight:400">
+											<label for="password">Password:</label>
+										</dt>
+										<dd>
+											<input id="mpc_password" name="password" type="password" size="30"></dd>
+									</dl>
+									<input type="submit" value="Login">		
+									<br>		
+									<br></form>
+							</div>
+						</div>
+						<a name="custom14737" id="custom14737"></a>
+						<a name="CP_JUMP_14737" id="CP_JUMP_14737"></a>
+						<div id="cs_control_14737" class="cs_control CS_Element_Custom">
+							<div class="hl3">Related Brochures</div>
+							<div class="section">
+								<div class="related_brochure self_clear">
+									<p>
+										<img src="/images/travel-brochure-mpc-may-dec-2013.jpg" width="93" height="120" alt="Marco Polo Invitational Journeys May-December 2013" title="Marco Polo Invitational Journeys May-December 2013 brochure">Marco Polo Invitational Journeys May-December 2013</p>
+									<ul>
+										<li>
+											<a class="icon page_flip" href="/travel_brochures/?fuseaction=act_brochure_view&amp;brid=234" title="View Marco Polo Invitational Journeys May-December 2013" rel="Marco Polo Invitational Journeys May-December 2013 [234]" target="_blank" onclick="window.open($(this).attr('href'),'page_flip_win','toolbar=no,fullscreen=yes,channelmode=yes'); pageTracker._trackEvent('Brochure', 'Pageflip', $(this).attr('rel')); return false;">View</a>
+										</li>
+										<li>
+											<a class="icon download" href="/travel_brochures/?fuseaction=act_brochure_download&amp;brid=234" onclick="recordIt('Brochure Download PDF','','')">Download</a>
+										</li>
+										<li>
+											<a class="icon request_brochure" href="/travel_brochures/?brid=234">Request</a>
+										</li>
+									</ul>
+								</div>
+								<p>
+									<a class="icon swirl_arrow" href="/travel_brochures/">View All Brochures</a>
+								</p>
+							</div>
+						</div>
+						<a name="customcf8569" id="customcf8569"></a>
+						<a name="CP_JUMP_8569" id="CP_JUMP_8569"></a>
+						<div id="cs_control_8569" class="cs_control CS_Element_CustomCF">
+							<div id="CS_CCF_2421_8569">
+								<div class="end_cap"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="join_mpc" style="">
+					<a class="self_clear" href="/marcopoloclub/membership_application.cfm">
+						<img class="chicken" src="/images/mpc_chicken.gif" width="39" height="38">Become a member</a>
+				</div>
+				<div id="dMainFBContest"></div>
+			</div>
+			<div id="primary_content" class="align_edges">
+			<div id="cs_control_1329" class="">
+				<div class="CS_Element_Schedule" title="" id="CS_Element_content">
+					<a name="textblocknohdr9208" id="textblocknohdr9208"></a>
+					<a name="CP_JUMP_9208" id="CP_JUMP_9208"></a>
+					<div id="cs_control_9208" class="cs_control CS_Element_Textblock">
+						<div class="CS_Textblock_Text">
+							<h1>New Membership Registration</h1>
+						</div>
+					</div>
+					<a name="customcf5122" id="customcf5122"></a>
+					<a name="CP_JUMP_5122" id="CP_JUMP_5122"></a>
+					<div id="cs_control_5122" class="cs_control CS_Element_CustomCF">
+						<div id="CS_CCF_3360_5122">
+							<p>
+								Please enter your temporary login and password from the Welcome Letter included in your Welcome Kit.
+							</p>
+							<div style="width:99%">
+								<div class="self-clear">
+									<p id="requiredText">
+										Required <em>*</em>
+									</p>
+								</div>
+								<form action="/marcopoloclub/welcome.cfm?fuseaction=act_mpc_welcome" id="welcome_form" method="post" name="welcome_form" class="uniForm">
+									<fieldset class="inlineLabels">
+										<h3>Marco Polo Club Members - Please Register</h3>
+										<div id="ctrlHolder_temporary_login" class="ctrlHolder borderTop">
+											<p class="errorFieldHide" id="temporary_login_err">Enter your temporary login. It may only contain numbers.</p>
+											<label for="temporary_login" class="required"> <em>*</em>
+												Temporary Login
+											</label>
+											<input name="temporary_login" id="temporary_login" value="" type="text" class="required integer textInput" tabindex="1"></div>
+										<div id="ctrlHolder_temporary_pwd" class="ctrlHolder">
+											<p class="errorFieldHide" id="temporary_pwd_err">Enter your temporary password.</p>
+											<label for="temporary_pwd" class="required">
+												<em>*</em>
+												Password
+											</label>
+											<input name="temporary_pwd" id="temporary_pwd" value="" type="password" class="required textInput" tabindex="2"></div>
+									</fieldset>
+									<div class="buttonHolder">
+										<input type="submit" name="submit_btn" id="submit_btn" value="Submit" class="uniFormButton" onclick="" tabindex="3"></div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
 		</div>
-		<div class="control-group">
-		  <label class="control-label" for="inputPassword">Password</label>
-		  <div class="controls">
-			<input id="user_password" name="user[password]" size="30" type="password">
-		  </div>
-		</div>
-		<div class="control-group">
-		  <div class="controls">
-		  	<% if devise_mapping.rememberable? -%>
-				<input class="hide" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" checked >
-		    <% end -%>
-		    <input id="user_submit" class="btn btn-primary" name="commit" type="submit" value="Login">
-				<a href="/users/password/new">Forget password? </a>
-		  </div>
-		</div>
-	</form>
-	<div class="login_box_right">
-		<p class="or">or</p>
-		<a href="/signup" class="btn signup_btn btn-primary">Create a new account</a>
-	</div>
-	<div class="clear"></div>
-</div>
+
+
+
 
 <% content_for :footer do %>
-<%= javascript_include_tag "happy.js" %>
-<%= javascript_include_tag "happy.methods.js" %>
-<script>
-  $(document).ready(function () {
-    $('#user_login').isHappy({
-      fields: {
-        '#user_username': {
-          required: true,
-          message: 'Required ! ',
-        },
-        '#user_password': {
-          required: true,
-          message: 'Required ! ',
-        }
-      }
-    });
-  }); 
-</script>
+	<script type="text/javascript" src="/javascripts/happy.js"></script>
+	<script>
+	  $(document).ready(function () {
+	    $('#welcome_form').isHappy({
+	      fields: {
+	        // reference the field you're talking about, probably by `id`
+	        // but you could certainly do $('[name=name]') as well.
+	        '#temporary_login': {
+	          required: true,
+	          message: 'Please input a username.',
+	        },	        
+	        '#temporary_pwd': {
+	          required: true,
+	          message: 'Please input a Password.',
+	        }
+	      }
+	    });
+	  }); 
+	</script>
 <% end %>
