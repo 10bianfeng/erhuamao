@@ -1,0 +1,55 @@
+<div class="container" id="login">
+	<h3>Login</h3>
+	<p class="gray">Welcome back to Pageimg.</p>
+	<hr class="gray">
+	<div class="error_msg hide">Email/Username or password is error. Try again. or  <a href="/pageimg/contact">contact us</a>.</div>
+	<form class="bs-docs-example form-horizontal" accept-charset="UTF-8" action="/login" class="user_new" id="user_login" method="post">
+		<div class="control-group">
+		  <label class="control-label" for="inputEmail">Username</label>
+		  <div class="controls">
+		    <input id="user_username" name="user[username]" size="30" type="text" />
+		  </div>
+		</div>
+		<div class="control-group">
+		  <label class="control-label" for="inputPassword">Password</label>
+		  <div class="controls">
+			<input id="user_password" name="user[password]" size="30" type="password">
+		  </div>
+		</div>
+		<div class="control-group">
+		  <div class="controls">
+		  	<% if devise_mapping.rememberable? -%>
+				<input class="hide" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1" checked >
+		    <% end -%>
+		    <input id="user_submit" class="btn btn-primary" name="commit" type="submit" value="Login">
+				<a href="/users/password/new">Forget password? </a>
+		  </div>
+		</div>
+	</form>
+	<div class="login_box_right">
+		<p class="or">or</p>
+		<a href="/signup" class="btn signup_btn btn-primary">Create a new account</a>
+	</div>
+	<div class="clear"></div>
+</div>
+
+<% content_for :footer do %>
+<%= javascript_include_tag "happy.js" %>
+<%= javascript_include_tag "happy.methods.js" %>
+<script>
+  $(document).ready(function () {
+    $('#user_login').isHappy({
+      fields: {
+        '#user_username': {
+          required: true,
+          message: 'Required ! ',
+        },
+        '#user_password': {
+          required: true,
+          message: 'Required ! ',
+        }
+      }
+    });
+  }); 
+</script>
+<% end %>

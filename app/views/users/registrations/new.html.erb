@@ -1,0 +1,84 @@
+<div class="container" id="register">
+  <h3>Signup</h3>
+  <p class="gray">Sign up as a finder. discover , find the best design website and save, and share it.</p>
+  <hr class="gray">
+  <div class="error_msg hide">Something is error. Try again. or  <a href="/pageimg/contact">contact us</a>.</div>
+    <form accept-charset="UTF-8" action="/signup" class="user_new bs-docs-example form-horizontal" id="user_new" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ZeYGeXa1IYLhyja/9ZQGaH/H6mtI7yVF+lxQ7oi4JIk=" /></div>
+      <div class="control-group">
+        <label class="control-label" for="user_username">Username</label>
+        <div class="controls">
+          <input class="user_name" id="user_username" name="user[username]" size="30" type="text">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="user_email">Email</label>
+        <div class="controls">
+          <input id="user_email" name="user[email]" size="30" type="email" value="">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="user_password">Password</label>
+        <div class="controls">
+          <input id="user_password" name="user[password]" size="30" type="password">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="user_password_confirmation">Confirm Password</label>
+        <div class="controls">
+          <input id="user_password_confirmation" name="user[password_confirmation]" size="30" type="password">
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="mycode">Are you a human?</label>
+        <div class="controls">
+          <a href="/welcome/change_capcha" class="get"><%= raw captcha_block %>Click to change image.</a>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input id="user_submit" class="btn btn-primary" name="commit" type="submit" value="Sign UP">
+        </div>
+      </div>
+    </form>
+</div>
+
+<% content_for :footer do %>
+<%= javascript_include_tag "happy.js" %>
+<%= javascript_include_tag "happy.methods.js" %>
+<script>
+  $(document).ready(function () {
+    $('#user_new').isHappy({
+      fields: {
+        // reference the field you're talking about, probably by `id`
+        // but you could certainly do $('[name=name]') as well.
+        '#user_username': {
+          required: true,
+          message: 'Please input a username.',
+          test: happy.nickname
+        },
+        '#user_email': {
+          required: true,
+          message: 'Please input RIGHT Email address.',
+          test: happy.email // this can be *any* function that returns true or false
+        },
+        '#user_password': {
+          required: true,
+          message: 'Password is required.',
+          test: happy.password // this can be *any* function that returns true or false
+        },
+        '#user_password_confirmation': {
+          required: true,
+          message: 'Please Confirm your password. ',
+          test: happy.password_confirmation // this can be *any* function that returns true or false
+        },
+        '#mycode':{
+          required: true,
+          message: 'Are you a human? '
+        }
+      }
+    });
+  }); 
+</script>
+<% end %>
+
+    

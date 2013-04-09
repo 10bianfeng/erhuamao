@@ -1,0 +1,12 @@
+.unhappyMessage {
+background: #F00;
+margin-left: 10px;
+color: #FFF;
+line-height: 20px;
+display: initial;
+display: inline-block;
+padding: 0px 3px;
+padding-right: 10px;
+border-radius: 3px;
+background: #B18674;
+}

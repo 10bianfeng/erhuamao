@@ -1,5 +1,21 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
+  devise_for :users
+  as :user do
+    get 'login' => 'devise/sessions#new', :as => :new_user_session
+    post 'login' => 'devise/sessions#create', :as => :user_session
+    match 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session#, :via => Devise.mappings[:user].sign_out_via
+    get 'signup' => 'devise/registrations#new', :as => :new_user_registration
+    post 'signup' => 'devise/registrations#create', :as => :user_registration
+    put 'signup' => 'devise/registrations#update'
+    get "setting", :to => "users#setting"
+    put "update_setting", :to => "users#update_setting"
+    put "update_password", :to => "users#update_password"
+    put "update_avatar", :to => "users#update_avatar"
+    get "/users/:id", :to => "users#show", :as => :user # 对外的访问主页，也可作为自己的主页，尚有待完善，字段是否使用login?
+  end
+
+
   resources :travels
 
   # The priority is based upon order of creation:
