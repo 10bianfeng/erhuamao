@@ -10,12 +10,12 @@ class User < ActiveRecord::Base
          :recoverable, # 找回密码
          :rememberable, # Remember
          :trackable, # 用户登录IP等追踪记录
-         :validatable, # 校验字段
-         :lockable#, # 禁用解锁用户
+         :validatable # 校验字段
+         #:lockable#, # 禁用解锁用户
          #:confirmable # 再次（邮件激活）确认才可登录
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  #attr_accessible :email, :password, :password_confirmation, :remember_me
 
   validates_presence_of :email
   validates_uniqueness_of :email

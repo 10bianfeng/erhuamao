@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409071804) do
+ActiveRecord::Schema.define(:version => 20130411094458) do
 
   create_table "travels", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,20 @@ ActiveRecord::Schema.define(:version => 20130409071804) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "login"
+    t.string   "home_phone"
+    t.string   "cellphone"
+    t.string   "address"
+    t.string   "city"
+    t.string   "region"
+    t.string   "country"
+    t.string   "postal_code"
+    t.boolean  "has_past"
+    t.string   "title"
+    t.datetime "birth_date"
+    t.string   "travel_agent"
+    t.string   "travel_agent_code"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

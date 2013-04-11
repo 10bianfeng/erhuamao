@@ -103,6 +103,20 @@ Offers
 	"type_id" :integer
 
 ##User
+	has_past:boolean
+	title:string
+	name:string
+	login:string
+	address:string
+	city:string
+	region:string
+	postal_code:string
+	country:string
+	home_phone:string
+	cellphone:string
+	birth_date:datetime
+	travel_agent:string
+	travel_agent_code:string
 
 
 ##Saves_trip(Compare)
