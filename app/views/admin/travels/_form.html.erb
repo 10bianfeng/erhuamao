@@ -33,6 +33,7 @@
     <label class="control-label">series_cont</label>
     <div class="controls">
     <%= f.text_area :series_cont %>
+ 
     </div>
   </div>
   <div class="control-group">
@@ -94,4 +95,20 @@
       <%= f.submit %>
     </div>
   </div>
+<% end %>
+
+
+<% content_for :footer do %>
+    <script type="text/javascript" src="/plugins/u/editor_config.js"></script>
+    <script type="text/javascript" src="/plugins/u/editor_all.min.js"></script>
+    <link rel="stylesheet" href="/plugins/u/themes/default/css/ueditor.css" />   
+    <script type="text/javascript">
+      var editor = new UE.ui.Editor();
+      editor.render('travel_series_cont');
+      editor.render('travel_overview_desc');
+      editor.render('travel_overview_advantage');
+      editor.render('travel_notes');
+      editor.render('travel_extensions_ids');
+      editor.render('travel_itinerary_pic');
+    </script>
 <% end %>
