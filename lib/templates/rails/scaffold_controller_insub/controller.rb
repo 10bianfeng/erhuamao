@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 # insub's scaffold template
 # rails g scaffold_controller_insub <%= plural_table_name %> <% for attribute in attributes -%><%= attribute.name %>:<%= attribute.type %> <% end -%>
+# and if you want to scaffold admin template
+# rails g scaffold_controller_admin <%= plural_table_name %> <% for attribute in attributes -%><%= attribute.name %>:<%= attribute.type %> <% end -%>
 
 class <%= controller_class_name %>Controller < ApplicationController
 
