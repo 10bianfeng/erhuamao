@@ -17,13 +17,14 @@
 
 ##Itinerary
 	have gallery
-	"name" 	:string
-	"travel_id" :integer
-	"sort" :integer
-	"hotel_id" :integer
-	"meals" :string
-	"start_day_num" :integer
-	"end_day_num"	:integer
+	name:string
+	desc:text
+	travel_id:integer
+	sort:integer
+	hotel_id:integer
+	meals:string
+	start_day_num:integer
+	end_day_num:integer
 
 ##Datesprice
 	"travel_id" :integer

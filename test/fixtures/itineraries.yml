@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  travel_id: 1
+  sort: 1
+  hotel_id: 1
+  meals: MyString
+  start_day_num: 1
+  end_day_num: 1
+
+two:
+  name: MyString
+  travel_id: 1
+  sort: 1
+  hotel_id: 1
+  meals: MyString
+  start_day_num: 1
+  end_day_num: 1

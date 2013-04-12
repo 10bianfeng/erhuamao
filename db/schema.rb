@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130411094458) do
+ActiveRecord::Schema.define(:version => 20130412100147) do
+
+  create_table "itineraries", :force => true do |t|
+    t.string   "name"
+    t.text     "desc"
+    t.integer  "travel_id"
+    t.integer  "sort"
+    t.integer  "hotel_id"
+    t.string   "meals"
+    t.integer  "start_day_num"
+    t.integer  "end_day_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "travels", :force => true do |t|
     t.string   "name"

@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
+  resources :itineraries
+
   devise_for :users
   as :user do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
@@ -67,6 +69,7 @@ Erhuamao::Application.routes.draw do
       end
     end
     resources :travels
+    resources :itineraries
   end
 
 
