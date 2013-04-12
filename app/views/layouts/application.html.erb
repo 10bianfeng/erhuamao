@@ -24,13 +24,33 @@
 					<ul class="clear_list_style self_clear">
 						<li>M-F 8-7, Sat 9-1 CST</li>
 						<li>
-							<a href="/compare.cfm" id="compare_trips_btn" title="Compare Trips">
-								Compare Trips -
+							<a href="/#" id="compare_trips_btn" title="Compare Trips">
+								线路比较 -
 								<span id="saved_trip_count">0</span>
 							</a>
 						</li>
+
+							<% if user_signed_in? %>
+              <li class='user_nav'>
+                <a href=""><%= current_user.login %> <span class="caret"></span></a>
+              </li>
+	              <% if current_user.admin? %>
+	                <li><a href="/admin">后台管理</a></li>
+	              <% end %>
+              <li class="">
+                <%= link_to "退出", destroy_user_session_path %>
+              </li>
+              <% else %>
+                <li class="">
+                <a href="/signup">注册</a>
+                </li>
+                <li class="">
+                <a href="/login">登录</a>
+                </li>
+              <% end %>
+
 						<li>
-							<a href="/login.cfm" title="Login" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('title'));">Login</a>
+							
 						</li>
 					</ul>
 					<form id="keword-search-form" class="light-form" action="/search.cfm" method="">
@@ -480,7 +500,7 @@
 					</li>
 					<li>
 						|
-						<a href="/travel-destinations/latin-america-luxury-travel/galapagos-ecuador/" title="Galápagos & Ecuador Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Gal&aacute;pagos & Ecuador Luxury Travel</a>
+						<a href="/travel-destinations/latin-america-luxury-travel/galapagos-ecuador/" title="Galรกpagos & Ecuador Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Gal&aacute;pagos & Ecuador Luxury Travel</a>
 					</li>
 					<li>
 						|
