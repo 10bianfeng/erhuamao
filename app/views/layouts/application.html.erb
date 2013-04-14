@@ -77,39 +77,16 @@
 							<a href="/travels" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Travels</a>
 						</td>
 						<td nowrap="nowrap">
-							<a href="/travel-destinations/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Destinations</a>
+							<a href="/destinations" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Destinations</a>
 							<div class="block menu">
 								<ul>
-									<li>
-										<a href="/travel-destinations/africa-safari/" gatext="Destinations - Africa" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Africa</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/antarctica-cruise/" gatext="Destinations - Antarctica" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Antarctica</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/arctic-cruise/" gatext="Destinations - Arctic" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Arctic</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/asia-luxury-travel/" gatext="Destinations - Asia" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Asia</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/australia-new-zealand-luxury-travel/" gatext="Destinations - Australia & New Zealand" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Australia &amp; New Zealand</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/middle-east-luxury-travel/" gatext="Destinations - Egypt & Middle East" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Egypt &amp; Middle East</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/europe-luxury-holidays/" gatext="Destinations - Europe" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Europe</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/india-luxury-travel/" gatext="Destinations - India" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">India</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/latin-america-luxury-travel/" gatext="Destinations - Latin America" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Latin America</a>
-									</li>
-									<li>
-										<a href="/travel-destinations/north-america-luxury-travel/" gatext="Destinations - North America" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">North America</a>
-									</li>
+									<% Destination.all.each do |destination| %>
+										<% if destination.is_root?  %>
+										<li>
+											<a href="/destinations/<%= destination.id %>"><%= destination.name %></a>
+										</li>
+										<% end %>
+									<% end %>
 								</ul>
 							</div>
 						</td>

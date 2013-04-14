@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
+  resources :destinations
+
   resources :itineraries
 
   devise_for :users
@@ -20,6 +22,10 @@ Erhuamao::Application.routes.draw do
 
   resources :travels do 
     resources :itineraries
+  end
+
+  resources :destinations do
+    resources :travels
   end
 
   # The priority is based upon order of creation:
@@ -74,6 +80,7 @@ Erhuamao::Application.routes.draw do
       resources :itineraries
     end
     resources :itineraries
+    resources :destinations
   end
 
 

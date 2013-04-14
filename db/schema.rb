@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412100147) do
+ActiveRecord::Schema.define(:version => 20130414123819) do
+
+  create_table "destinations", :force => true do |t|
+    t.string   "name"
+    t.string   "desc_title"
+    t.text     "desc"
+    t.string   "banner_pic"
+    t.string   "map_pic"
+    t.text     "flights"
+    t.string   "timezone"
+    t.text     "climate"
+    t.text     "health_requirements"
+    t.text     "voltage"
+    t.text     "currency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+  end
+
+  add_index "destinations", ["ancestry"], :name => "index_destinations_on_ancestry"
 
   create_table "itineraries", :force => true do |t|
     t.string   "name"

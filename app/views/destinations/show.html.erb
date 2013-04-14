@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @destination.name %>
+</p>
+
+<p>
+  <b>Desc title:</b>
+  <%= @destination.desc_title %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @destination.desc %>
+</p>
+
+<p>
+  <b>Banner pic:</b>
+  <%= @destination.banner_pic %>
+</p>
+
+<p>
+  <b>Map pic:</b>
+  <%= @destination.map_pic %>
+</p>
+
+<p>
+  <b>Flights:</b>
+  <%= @destination.flights %>
+</p>
+
+<p>
+  <b>Timezone:</b>
+  <%= @destination.timezone %>
+</p>
+
+<p>
+  <b>Climate:</b>
+  <%= @destination.climate %>
+</p>
+
+<p>
+  <b>Health requirements:</b>
+  <%= @destination.health_requirements %>
+</p>
+
+<p>
+  <b>Voltage:</b>
+  <%= @destination.voltage %>
+</p>
+
+<p>
+  <b>Currency:</b>
+  <%= @destination.currency %>
+</p>
+
+
+<%= link_to 'Edit', edit_destination_path(@destination) %> |
+<%= link_to 'Back', destinations_path %>

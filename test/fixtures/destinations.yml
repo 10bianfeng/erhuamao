@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  desc_title: MyString
+  desc: MyText
+  banner_pic: MyString
+  map_pic: MyString
+  flights: MyText
+  timezone: MyString
+  climate: MyText
+  health_requirements: MyText
+  voltage: MyText
+  currency: MyText
+
+two:
+  name: MyString
+  desc_title: MyString
+  desc: MyText
+  banner_pic: MyString
+  map_pic: MyString
+  flights: MyText
+  timezone: MyString
+  climate: MyText
+  health_requirements: MyText
+  voltage: MyText
+  currency: MyText

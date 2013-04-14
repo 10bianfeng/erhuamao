@@ -1,0 +1,91 @@
+<%= form_for([:admin, @destination],:html => {:class => "form-horizontal" }) do |f| %>
+  <% if @destination.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@destination.errors.count, "error") %> prohibited this destination from being saved:</h2>
+
+      <ul>
+      <% @destination.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <label class="control-label">name</label>
+    <div class="controls">
+    <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">desc_title</label>
+    <div class="controls">
+    <%= f.text_field :desc_title %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">desc</label>
+    <div class="controls">
+    <%= f.text_area :desc %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">banner_pic</label>
+    <div class="controls">
+    <%= f.text_field :banner_pic %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">map_pic</label>
+    <div class="controls">
+    <%= f.text_field :map_pic %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">flights</label>
+    <div class="controls">
+    <%= f.text_area :flights %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">timezone</label>
+    <div class="controls">
+    <%= f.text_field :timezone %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">climate</label>
+    <div class="controls">
+    <%= f.text_area :climate %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">health_requirements</label>
+    <div class="controls">
+    <%= f.text_area :health_requirements %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">voltage</label>
+    <div class="controls">
+    <%= f.text_area :voltage %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">currency</label>
+    <div class="controls">
+    <%= f.text_area :currency %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">parent_id</label>
+    <div class="controls">
+    <%= f.text_field :parent_id %>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit %>
+    </div>
+  </div>
+<% end %>
