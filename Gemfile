@@ -26,6 +26,7 @@ gem 'whenever', '0.7.3' # 定时任务
 #gem 'rmagick-win32', :group => :development
 #gem 'rmagick' #生成图片验证码前需要先打开
 gem 'mini_magick', '3.4' # 可用，包括windows上
+gem 'ancestry' # 树形结构
 
 # Use unicorn as the web server
 # gem 'unicorn'

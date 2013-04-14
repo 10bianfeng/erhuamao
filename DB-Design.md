@@ -15,6 +15,7 @@
 	"extensions_ids" :text
 	"itinerary_pic"	:text
 
+
 ##Itinerary
 	have gallery
 	name:string
@@ -26,15 +27,38 @@
 	start_day_num:integer
 	end_day_num:integer
 
+
+##Destination
+	have gallery
+	name:string
+	desc_title:string
+	desc:text
+	banner_pic:string/
+	map_pic:string
+	flights:text
+	timezone:string
+	climate:text
+	health_requirements:text
+	voltage:text
+	currency:text
+
+##Destination_Travel
+
+
+##Interest
+
+
+##Interest_Travel
+
 ##Datesprice
-	"travel_id" :integer
-	"start_date" :datetime
-	"end_date" :datetime
-	"prices"	:integer
-	"single_supplement" :integer
-	"internal_air_from" :integer
-	"availability" :integer(多种状态: "Available", "Call for Availability", "Limited Availability")
-	"available_people_count"
+	travel_id:integer
+	start_date:datetime
+	end_date:datetime
+	prices:integer
+	single_supplement:integer
+	internal_air_from:integer
+	availability:integer (多种状态: "Available", "Call for Availability", "Limited Availability")
+	available_people_count:integer
 
 Offers
 	
@@ -64,28 +88,6 @@ Offers
 	"name"
 	"file"
 	"travel_ids"
-
-##Destination
-	have gallery
-	"name" 	:string
-	"desc_title" :string
-	"desc"	:text
-	"banner_pic" :string/
-	"map_pic" :string
-	"flights"	:text
-	"timezone" :string
-	"climate"	:text
-	"health_requirements" :text
-	"voltage"	:text
-	"currency"	:text
-
-##Destination_Travel
-
-
-##Interest
-
-
-##Interest_Travel
 
 
 ##News

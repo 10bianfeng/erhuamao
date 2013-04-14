@@ -5,18 +5,7 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>Sub name</th>
-    <th>Series name</th>
-    <th>Series cont</th>
-    <th>Priced from</th>
-    <th>Days count</th>
-    <th>Departures</th>
-    <th>Max group size</th>
-    <th>Overview desc</th>
-    <th>Overview advantage</th>
-    <th>Notes</th>
-    <th>Extensions ids</th>
-    <th>Itinerary pic</th>
+    <th>日程</th>
     <th>操作</th>
   </tr>
 
@@ -26,22 +15,26 @@
       <%= travel.id %>
     </td>
     <td><%= travel.name %></td>
-    <td><%= travel.sub_name %></td>
-    <td><%= travel.series_name %></td>
-    <td><%= travel.series_cont %></td>
-    <td><%= travel.priced_from %></td>
-    <td><%= travel.days_count %></td>
-    <td><%= travel.departures %></td>
-    <td><%= travel.max_group_size %></td>
-    <td><%= travel.overview_desc %></td>
-    <td><%= travel.overview_advantage %></td>
-    <td><%= travel.notes %></td>
-    <td><%= travel.extensions_ids %></td>
-    <td><%= travel.itinerary_pic %></td>
+    <td>
+      <table>
+
+        <tbody>
+          <% travel.itineraries.each do |itinerary| %>
+          <tr>
+            <td><%= itinerary.sort %></td>
+            <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>"><%= itinerary.name %></a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
     <td>
       <%= link_to '查看', [:admin, travel] %> | 
       <%= link_to '编辑', edit_admin_travel_path(travel) %> | 
-      <%= link_to '删除', [:admin, travel], :confirm => '确定要删除么?', :method => :delete %>
+      <%= link_to '删除', [:admin, travel], :confirm => '确定要删除么?', :method => :delete %> |
+      <a href="/admin/travels/<%= travel.id %>/itineraries/new">添加日程</a>
     </td>
   </tr>
 <% end %>

@@ -18,7 +18,9 @@ Erhuamao::Application.routes.draw do
   end
 
 
-  resources :travels
+  resources :travels do 
+    resources :itineraries
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,7 +70,9 @@ Erhuamao::Application.routes.draw do
         get :lock, :unlock, :generate_new_password_email
       end
     end
-    resources :travels
+    resources :travels do 
+      resources :itineraries
+    end
     resources :itineraries
   end
 

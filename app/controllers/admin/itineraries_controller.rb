@@ -9,6 +9,7 @@ class Admin::ItinerariesController < ApplicationController
   # GET /itineraries
   # GET /itineraries.xml
   def index
+    @travel = Travel.find(params[:travel_id])
     @itineraries = Itinerary.order("updated_at DESC").page(params[:page])
 
     respond_to do |format|
@@ -20,6 +21,7 @@ class Admin::ItinerariesController < ApplicationController
   # GET /itineraries/1
   # GET /itineraries/1.xml
   def show
+    @travel = Travel.find(params[:travel_id])
     @itinerary = Itinerary.find(params[:id])
 
     respond_to do |format|
@@ -31,6 +33,7 @@ class Admin::ItinerariesController < ApplicationController
   # GET /itineraries/new
   # GET /itineraries/new.xml
   def new
+    @travel = Travel.find(params[:travel_id])
     @itinerary = Itinerary.new
 
     respond_to do |format|
@@ -41,17 +44,19 @@ class Admin::ItinerariesController < ApplicationController
 
   # GET /itineraries/1/edit
   def edit
+    @travel = Travel.find(params[:travel_id])
     @itinerary = Itinerary.find(params[:id])
   end
 
   # POST /itineraries
   # POST /itineraries.xml
   def create
-    @itinerary = Itinerary.new(params[:itinerary])
+    @travel = Travel.find(params[:travel_id])
+    @itinerary = @travel.itineraries.new(params[:itinerary])
 
     respond_to do |format|
       if @itinerary.save
-        format.html { redirect_to(admin_itineraries_url, :notice => 'Itinerary was successfully created.') }
+        format.html { redirect_to(admin_travel_itineraries_url(@travel), :notice => 'Itinerary was successfully created.') }
         format.xml  { render :xml => @itinerary, :status => :created, :location => @itinerary }
       else
         format.html { render :action => "new" }
@@ -63,11 +68,12 @@ class Admin::ItinerariesController < ApplicationController
   # PUT /itineraries/1
   # PUT /itineraries/1.xml
   def update
-    @itinerary = Itinerary.find(params[:id])
+    @travel = Travel.find(params[:travel_id])
+    @itinerary = @travel.itineraries.find(params[:id])
 
     respond_to do |format|
       if @itinerary.update_attributes(params[:itinerary])
-        format.html { redirect_to([:admin, @itinerary], :notice => 'Itinerary was successfully updated.') }
+        format.html { redirect_to([:admin, @travel, @itinerary], :notice => 'Itinerary was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
