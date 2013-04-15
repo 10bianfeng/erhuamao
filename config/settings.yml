@@ -5,6 +5,7 @@ defaults: &defaults
   admin_emails:
     - "insub@126.com"
     - "xxx@gmail.com"
+    - "cming.xu@gmail.com"
   domain: 127.0.0.1
   email_sender: support@xxx.com
   email_password: this-is-password

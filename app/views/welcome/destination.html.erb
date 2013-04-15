@@ -1,7 +1,5 @@
 		<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
 			<li>
-				<img src="" width="90" height="1"></li>
-			<li>
 				<a href="/">Home</a>
 				&nbsp;&nbsp;/&nbsp;&nbsp;
 			</li>
@@ -173,9 +171,39 @@
 						<div class="cbr"></div>
 						<div class="cbl"></div>
 						<div class="inline_gallery self_clear">
-							<div id="ak_image_rotator" style="height:276px;" class="ak-image-rotator"></div>
+							<div id="destination_slides" style="height:276px;">
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/dv031034.jpg" alt="botswana safari sunset" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/90979408.jpg" alt="cape town and table mountain" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/91312493.jpg" alt="hand-carved mokoro" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/94975206.jpg" alt="african safari hippopotamus" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/91615871.jpg" alt="victoria falls" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/dv031108.jpg" alt="mt. kilimanjaro view from amboseli" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/95733029.jpg" alt="namibia sand dunes" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/96367850.jpg" alt="buffalo in manyara park" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/87819893.jpg" alt="maasai warriors" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/200328616-001.jpg" alt="lioness and cub in africa" >
+								<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/200329128-001.jpg" alt="the great migration" >
+							</div>	
+							<div id="popout_modal">
+								<div class="close_modal" onclick="modal_close();">X</div>
+								<div id="destination_slides_modal">
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/dv031034.jpg" alt="botswana safari sunset" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/90979408.jpg" alt="cape town and table mountain" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/91312493.jpg" alt="hand-carved mokoro" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/94975206.jpg" alt="african safari hippopotamus" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/91615871.jpg" alt="victoria falls" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/dv031108.jpg" alt="mt. kilimanjaro view from amboseli" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/95733029.jpg" alt="namibia sand dunes" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/96367850.jpg" alt="buffalo in manyara park" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/87819893.jpg" alt="maasai warriors" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/200328616-001.jpg" alt="lioness and cub in africa" >
+									<img src="http://www.abercrombiekent.com/assets_global/media/images/photo_gallery/country_group/4/200329128-001.jpg" alt="the great migration" >
+								</div>
+								<p class="slide_img_title"></p>
+							</div>
+							<p class="slide_img_title"></p>						
 							<p>
-								<a class="icon open_window" href="javascript:void(0);" onclick="getSlideShowImages2('get_photo_gallery','id=202');">View full size gallery</a>
+								<a class="icon open_window" href="javascript:void(0);" onclick="modal_slides();">View full size gallery</a>
 							</p>
 						</div>
 					</div>
@@ -223,3 +251,64 @@
 				</div>
 			</div>
 		</div>
+
+
+<% content_for :footer do %>
+<%= javascript_include_tag "jquery.slides.min.js" %>
+<script>
+$(function() {
+      $('#destination_slides').slidesjs({
+        width: 386,
+        height: 258,
+        navigation: {
+          effect: "fade"
+        },
+        pagination: {
+          effect: "fade"
+        },
+        effect: {
+          fade: {
+            speed: 800
+          }
+        },
+        callback:{
+        	loaded: function(number) {
+	            $('p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
+	          },
+        	complete: function(number) {
+	            $('p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
+          }
+      	}
+      });
+    });
+$('#destination_slides_modal').slidesjs({
+	width: 514,
+	height: 344,
+	navigation: false,
+	pagination: {
+	  effect: "fade"
+	},
+	effect: {
+	  fade: {
+	    speed: 800
+	  }
+	},
+	callback:{
+		loaded: function(number) {
+	        $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+	      },
+		complete: function(number) {
+	        $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+	  }
+	}
+});
+var modal_slides=function(){
+	$("#popout_modal").show();
+	$('<div id="popout_modal_mask"></div>').appendTo("body");
+}
+var modal_close=function(){
+	$("#popout_modal").hide();
+	$('#popout_modal_mask').remove();
+}
+</script>
+<% end %>		

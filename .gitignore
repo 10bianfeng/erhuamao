@@ -4,3 +4,5 @@ config/database.yml
 log/*.log
 tmp/
 database.yml
+db/schema.rb
+Gemfile.lock
