@@ -30,6 +30,7 @@
 
 ##Destination
 	have gallery
+	has_tree
 	name:string
 	desc_title:string
 	desc:text
@@ -42,13 +43,27 @@
 	voltage:text
 	currency:text
 
-##Destination_Travel
+
+##Destination_travel
+	destination_id:integer
+	travel_id:integer
 
 
 ##Interest
+	has_tree
+	title:string
+	cont:text
 
 
-##Interest_Travel
+##Interest_travel
+	interest_id:integer
+	travel_id:integer
+
+##Hotel
+	have gallery
+	name:string
+	country_id:integer
+	city_id:integer
 
 ##Datesprice
 	travel_id:integer
@@ -60,18 +75,16 @@
 	availability:integer (多种状态: "Available", "Call for Availability", "Limited Availability")
 	available_people_count:integer
 
+
 Offers
 	
+
 ##Booking
 	"travel_id" :integer
 	"datesprice_id" :integer
 	"people_count"	:integer
 
-##Hotel
-	have gallery
-	"name"
-	"country_id"
-	"city_id"
+
 
 ##Question
 	"preferred_contact_method" :integer

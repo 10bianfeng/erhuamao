@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
+  resources :interests
+
   resources :destinations
 
   resources :itineraries
@@ -25,6 +27,10 @@ Erhuamao::Application.routes.draw do
   end
 
   resources :destinations do
+    resources :travels
+  end
+
+  resources :interests do
     resources :travels
   end
 
@@ -81,6 +87,7 @@ Erhuamao::Application.routes.draw do
     end
     resources :itineraries
     resources :destinations
+    resources :interests
   end
 
 

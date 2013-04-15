@@ -6,6 +6,8 @@
     <th>ID</th>
     <th>Name</th>
     <th>日程</th>
+    <th>所属地区</th>
+    <th>所属地兴趣点</th>
     <th>操作</th>
   </tr>
 
@@ -17,13 +19,38 @@
     <td><%= travel.name %></td>
     <td>
       <table>
-
         <tbody>
           <% travel.itineraries.each do |itinerary| %>
           <tr>
             <td><%= itinerary.sort %></td>
             <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>"><%= itinerary.name %></a></td>
             <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tbody>
+          <% travel.destinations.each do |destination| %>
+          <tr>
+            <td><a href="/admin/destinations/<%= destination.id %>"><%= destination.name %></a></td>
+            <td><a href="/admin/destinations/<%= destination.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tbody>
+          <% travel.interests.each do |interest| %>
+          <tr>
+            <td><a href="/admin/interests/<%= interest.id %>"><%= interest.name %></a></td>
+            <td><a href="/admin/interests/<%= interest.id %>/edit">编辑</a> / <a href="">删除</a></td>
             <td></td>
           </tr>
           <% end %>

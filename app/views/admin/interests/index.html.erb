@@ -1,0 +1,28 @@
+<div class="row">
+<h3>后台管理 > Interest列表 <div class="pull-right"><%= link_to '创建新Interests', new_admin_interest_path %></div></h3>
+<hr>
+<table class="table table-striped table-bordered"> 
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Ancestry</th>
+    <th>操作</th>
+  </tr>
+
+<% @interests.each do |interest| %>
+  <tr>
+    <td>
+      <%= interest.id %>
+    </td>
+    <td><%= interest.title %></td>
+    <td><%= interest.ancestry %></td>
+    <td>
+      <%= link_to '查看', [:admin, interest] %> | 
+      <%= link_to '编辑', edit_admin_interest_path(interest) %> | 
+      <%= link_to '删除', [:admin, interest], :confirm => '确定要删除么?', :method => :delete %>
+    </td>
+  </tr>
+<% end %>
+</table>
+<%= paginate @interests %>
+</div>
