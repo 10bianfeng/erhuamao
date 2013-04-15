@@ -740,9 +740,6 @@ absolute image paths.
 	/*IE6;*/
 	-float:right;
 }
-#breadcrumb_navigation li:first-child{
-	float:right;
-}
 /*@END--------------------------------*/
 /*@PRIMARY CONTENT LINK OVERRIDE
 --------------------------------------*/
