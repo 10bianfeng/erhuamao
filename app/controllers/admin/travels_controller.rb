@@ -87,4 +87,31 @@ class Admin::TravelsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # 绑定相关地区
+  def new_destination_travel
+    @travel = Travel.find(params[:id])
+  end
+
+  def create_destination_travel
+    @travel = Travel.find(params[:id])
+    @destination = Destination.find(params[:destination_id])
+    @travel.destinations << @destination
+
+    respond_to do |format|
+      if @travel.save
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_destinations_travel" }
+        format.xml  { render :xml => @travel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  #绑定相关兴趣点
+
+
+  #绑定相关优惠信息
+
 end

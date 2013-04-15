@@ -1,8 +1,19 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
-  resources :interests
+  
+  resources :travels do 
+    resources :itineraries
+  end
 
-  resources :destinations
+  resources :destinations do
+    resources :travels
+  end
+
+  resources :interests do
+    resources :travels
+  end
+
+  resources :specialoffers
 
   resources :itineraries
 
@@ -22,17 +33,7 @@ Erhuamao::Application.routes.draw do
   end
 
 
-  resources :travels do 
-    resources :itineraries
-  end
 
-  resources :destinations do
-    resources :travels
-  end
-
-  resources :interests do
-    resources :travels
-  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -83,15 +84,21 @@ Erhuamao::Application.routes.draw do
       end
     end
     resources :travels do 
+      member do
+        get :new_destination_travel
+        post :create_destination_travel
+      end
       resources :itineraries
     end
     resources :itineraries
     resources :destinations
     resources :interests
     resources :hotels
+    resources :specialoffers
+    resources :news
   end
 
-
+  match "admin/travels/:id/create_destination_travel" => "admin/travels#create_destination_travel"
   get 'admin' => 'admin/base#index'
   get 'admin/handle' => 'admin/base#handle'
 

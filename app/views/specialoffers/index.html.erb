@@ -1,0 +1,27 @@
+<h1>Listing specialoffers</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Cont</th>
+    <th>Pic</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @specialoffers.each do |specialoffer| %>
+  <tr>
+    <td><%= specialoffer.title %></td>
+    <td><%= specialoffer.cont %></td>
+    <td><%= specialoffer.pic %></td>
+    <td><%= link_to 'Show', specialoffer %></td>
+    <td><%= link_to 'Edit', edit_specialoffer_path(specialoffer) %></td>
+    <td><%= link_to 'Destroy', specialoffer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Specialoffer', new_specialoffer_path %>
