@@ -10,7 +10,7 @@
 <h5>绑定新地区</h5>
 <%= form_for(@travel, :url => "/admin/travels/#{@travel.id}/create_destination_travel", :method => :get) do |f| %>
   <div class="control-group">
-    <label class="control-label">destinations</label>
+    <label class="control-label">地区</label>
     <div class="controls">
     	<select name="destination_id">
 				<%= Destination.find(:all, :order => 'id').each do |destination| %>

@@ -40,7 +40,7 @@
           <% travel.destinations.each do |destination| %>
           <tr>
             <td><a href="/admin/destinations/<%= destination.id %>"><%= destination.name %></a></td>
-            <td><a href="/admin/destinations/<%= destination.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/destroy_destination_travel/<%= destination.id %>">删除</a></td>
             <td></td>
           </tr>
           <% end %>
@@ -48,13 +48,13 @@
       </table>
     </td>
     <td>
-      <h5><a href="">绑定相关兴趣点</a></h5>
+      <h5><a href="/admin/travels/<%= travel.id %>/new_interest_travel">绑定相关兴趣点</a></h5>
       <table>
         <tbody>
           <% travel.interests.each do |interest| %>
           <tr>
-            <td><a href="/admin/interests/<%= interest.id %>"><%= interest.name %></a></td>
-            <td><a href="/admin/interests/<%= interest.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td><a href="/admin/interests/<%= interest.id %>"><%= interest.title %></a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/destroy_interest_travel/<%= interest.id %>">删除</a></td>
             <td></td>
           </tr>
           <% end %>
@@ -62,13 +62,13 @@
       </table>
     </td>
     <td>
-      <h5><a href="">绑定相关优惠信息</a></h5>
+      <h5><a href="/admin/travels/<%= travel.id %>/new_specialoffer_travel">绑定相关优惠信息</a></h5>
       <table>
         <tbody>
           <% travel.specialoffers.each do |specialoffer| %>
           <tr>
-            <td><a href="/admin/specialoffers/<%= specialoffer.id %>"><%= specialoffer.name %></a></td>
-            <td><a href="/admin/specialoffers/<%= specialoffer.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td><a href="/admin/specialoffers/<%= specialoffer.id %>"><%= specialoffer.title %></a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/destroy_specialoffer_travel/<%= specialoffer.id %>">删除</a></td>
             <td></td>
           </tr>
           <% end %>

@@ -103,15 +103,91 @@ class Admin::TravelsController < ApplicationController
         format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
         format.xml  { head :ok }
       else
-        format.html { render :action => "new_destinations_travel" }
+        format.html { render :action => "new_destination_travel" }
         format.xml  { render :xml => @travel.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  #绑定相关兴趣点
+  def destroy_destination_travel
+    @travel = Travel.find(params[:id])
+    @destination = Destination.find(params[:destination_id])
+    
 
+    respond_to do |format|
+      if DestinationTravel.where("travel_id = ? AND destination_id = ?", @travel.id , @destination.id ).destroy_all
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      end
+    end
+  end
+
+  #绑定相关兴趣点
+  def new_interest_travel
+    @travel = Travel.find(params[:id])
+  end
+
+  def create_interest_travel
+    @travel = Travel.find(params[:id])
+    @interest = Interest.find(params[:interest_id])
+    @travel.interests << @interest
+
+    respond_to do |format|
+      if @travel.save
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_interest_travel" }
+        format.xml  { render :xml => @travel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy_interest_travel
+    @travel = Travel.find(params[:id])
+    @interest = Interest.find(params[:interest_id])
+    
+
+    respond_to do |format|
+      if InterestTravel.where("travel_id = ? AND interest_id = ?", @travel.id , @interest.id ).destroy_all
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      end
+    end
+  end
 
   #绑定相关优惠信息
+  def new_specialoffer_travel
+    @travel = Travel.find(params[:id])
+  end
+
+  def create_specialoffer_travel
+    @travel = Travel.find(params[:id])
+    @specialoffer = Specialoffer.find(params[:specialoffer_id])
+    @travel.specialoffers << @specialoffer
+
+    respond_to do |format|
+      if @travel.save
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_specialoffer_travel" }
+        format.xml  { render :xml => @travel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy_specialoffer_travel
+    @travel = Travel.find(params[:id])
+    @specialoffer = Specialoffer.find(params[:specialoffer_id])
+    
+
+    respond_to do |format|
+      if SpecialofferTravel.where("travel_id = ? AND specialoffer_id = ?", @travel.id , @specialoffer.id ).destroy_all
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      end
+    end
+  end
 
 end
