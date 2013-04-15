@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415081643) do
+ActiveRecord::Schema.define(:version => 20130415085209) do
 
   create_table "destination_travels", :force => true do |t|
     t.integer  "destination_id"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20130415081643) do
   end
 
   add_index "destinations", ["ancestry"], :name => "index_destinations_on_ancestry"
+
+  create_table "hotels", :force => true do |t|
+    t.string   "name"
+    t.integer  "destination_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "interest_travels", :force => true do |t|
     t.integer  "interest_id"

@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>Luxury Travel | Luxury Vacations | Abercrombie &amp; Kent</title>
+	<title>Erhuamao</title>
 	<meta name="Description" id="Description" content="Abercrombie &amp; Kent is the world&#39;s foremost luxury travel company, offering adventure and luxury vacations in the world&#39;s greatest destinations since 1962." />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta name="Keywords" id="Keywords" content="Travel Destinations, abercrombie and kent, adventure travel, luxury travel, luxury trips, luxury vacations" />
@@ -91,57 +91,16 @@
 							</div>
 						</td>
 						<td nowrap="nowrap">
-							<a href="/discover/" title="" gatext="Travel Interests" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Travel Interests</a>
+							<a href="/interests" title="" gatext="Travel Interests" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Travel Interests</a>
 							<div class="block menu">
 								<ul>
-									<li>
-										<a href="/discover/luxury-small-group-travel/" gatext="Discover A&K - Luxury Small Group Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Luxury Small Group Journeys</a>
-									</li>
-									<li>
-										<a href="/discover/connections-group-travel/" gatext="Connections Group Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Connections Group Journeys</a>
-									</li>
-									<li>
-										<a href="/discover/private-travel/" gatext="Discover A&K - Private Luxury Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Private Luxury Journeys</a>
-									</li>
-									<li>
-										<a href="/marcopoloclub/Invitation_Only_Travel.cfm" gatext="Discover A&K - MPC Limited Edition Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">MPC Invitational Journeys</a>
-									</li>
-									<li>
-										<a href="/discover/private-jet/" gatext="Discover A&K - Private Jet Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Private Jet Journeys</a>
-									</li>
-									<li>
-										<a href="/discover/adventure-cruising/" gatext="Discover A&K - Adventure Cruising" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Adventure Cruises</a>
-									</li>
-									<li>
-										<a href="/discover/african-safari/" gatext="Discover A&K - African Safari" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">African Safari</a>
-									</li>
-									<li>
-										<a href="/discover/canal-river-cruising/" gatext="Discover A&K - Canal & River Cruising" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Canal &amp; River Cruising</a>
-									</li>
-									<li>
-										<a href="http://www.akextremeadventures.com" target="_blank" gatext="Discover A&K - Extreme Adventures" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Extreme Adventures</a>
-									</li>
-									<li>
-										<a href="/discover/family-holidays/" gatext="Discover A&K - Family Holidays" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Family Travel</a>
-									</li>
-									<li>
-										<a href="/discover/luxury-train-travel/" gatext="Discover A&K - Luxury Train Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Luxury Train Travel</a>
-									</li>
-									<li>
-										<a href="/discover/luxury-sailing/" gatext="Discover A&K - Luxury Sailing" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Luxury Sailing</a>
-									</li>
-									<li>
-										<a href="/discover/romance.cfm" gatext="Discover A&K - Romantic Journeys" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Romantic Journeys</a>
-									</li>
-									<li>
-										<a href="/discover/solo-travel/" gatext="Discover A&K - Solo Travel" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Solo Travel</a>
-									</li>
-									<li>
-										<a href="/discover/fly/" gatext="Discover A&K - Fly with A&amp;K" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Fly with A&amp;K</a>
-									</li>
-									<li>
-										<a href="/discover/trip-extensions/" gatext="Discover A&K - Trip Extensions" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('gatext'));">Trip Extensions</a>
-									</li>
+									<% Interest.all.each do |interest| %>
+										<% if interest.is_root?  %>
+										<li>
+											<a href="/interests/<%= interest.id %>"><%= interest.title %></a>
+										</li>
+										<% end %>
+									<% end %>
 								</ul>
 							</div>
 						</td>
@@ -166,9 +125,6 @@
 						</td>
 						<td nowrap="nowrap">
 							<a href="/travel_specials/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Special Offers</a>
-						</td>
-						<td nowrap="nowrap">
-							<a href="http://www.akvillas.com" title="" target="_blank" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('text'));">Villas</a>
 						</td>
 						<td nowrap="nowrap">
 							<a href="/marcopoloclub/" title="" onClick="pageTracker._trackEvent('Content', 'Navigation', jQuery(this).attr('text'));">Marco Polo Club</a>

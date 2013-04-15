@@ -88,6 +88,7 @@ Erhuamao::Application.routes.draw do
     resources :itineraries
     resources :destinations
     resources :interests
+    resources :hotels
   end
 
 

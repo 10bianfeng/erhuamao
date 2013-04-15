@@ -34,7 +34,7 @@
 	name:string
 	desc_title:string
 	desc:text
-	banner_pic:string/
+	banner_pic:string
 	map_pic:string
 	flights:text
 	timezone:string
@@ -59,11 +59,12 @@
 	interest_id:integer
 	travel_id:integer
 
+
 ##Hotel
 	have gallery
 	name:string
-	country_id:integer
-	city_id:integer
+	destination_id:integer
+
 
 ##Datesprice
 	travel_id:integer
@@ -76,8 +77,39 @@
 	available_people_count:integer
 
 
-Offers
-	
+##Specialoffer
+	title:string
+	cont:text
+	pic:string
+
+
+##Specialoffer_travel
+	specialoffer_id:integer
+	travel_id:integer
+
+
+##News
+
+
+##News_Travel
+
+
+##Gallery
+	"name" :string
+	"photo" :string
+	"type" :string
+	"type_id" :integer
+
+
+##Brochure(PDF)
+	"name"
+	"file"
+	"travel_ids"
+
+
+
+##Page
+
 
 ##Booking
 	"travel_id" :integer
@@ -97,26 +129,7 @@ Offers
 	"question"	:text
 	"travel_id" :integer
 
-##Brochure(PDF)
-	"name"
-	"file"
-	"travel_ids"
 
-
-##News
-
-
-##News_Travel
-
-
-##Page
-
-
-##Gallery
-	"name" :string
-	"photo" :string
-	"type" :string
-	"type_id" :integer
 
 ##User
 	has_past:boolean
