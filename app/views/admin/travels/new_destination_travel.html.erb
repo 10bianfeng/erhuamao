@@ -8,7 +8,7 @@
 <% end %>
 
 <h5>绑定新地区</h5>
-<%= form_for(@travel, :url => create_destination_travel_admin_travel_path(@travel), :method => :post) do |f| %>
+<%= form_tag(create_destination_travel_admin_travel_path(@travel)) do %>
   <div class="control-group">
     <label class="control-label">地区</label>
     <div class="controls">
@@ -21,7 +21,7 @@
   </div>
   <div class="control-group">
     <div class="controls">
-      <%= f.submit %>
+      <%= submit_tag %>
     </div>
   </div>
 <% end %>
