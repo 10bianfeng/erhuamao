@@ -92,3 +92,120 @@ min-width: 100%;
 #popout_modal p.slide_img_title{
 	font-size: 14px;
 }
+/*news*/
+#media h3, #media_footer{
+	margin:0;
+}
+#media, #media_footer{
+	margin-top:25px;
+}
+.press_contact, .photo_contact, .news_special{
+	padding:15px;
+}
+#media .photo_contact, #ak_magazine span{
+	float:right;
+}
+
+#press_releases dt, #ak_magazine dt{
+	margin-top:14px;
+	padding-top:14px;
+}
+
+#ak_magazine img, #ak_magazine div img{
+	float:left;
+	
+}
+#news dt{
+	font-size:14px;
+	padding-top:14px;
+}
+
+#media_footer{
+	padding:10px 15px;
+}
+
+#media .press_contact{
+	margin-right:400px;
+	
+}
+#media .photo_contact{
+	width:364px;
+	
+}
+.news_special{
+	color:#444;
+	background:#e5ecf2;
+	margin:20px 0;
+	
+}
+#press_releases p{
+	margin-top:0;
+
+}
+
+#ak_magazine div{
+	margin-left:275px;
+}
+/*news end*/
+
+/* SPECIAL-OFFERS  ---------------------------------------*/
+#special_offers .special_offer{
+	padding:1em 0;
+	background:url(/assets/images/graphics/h_dotted_line.gif) repeat-x;
+}
+#special_offers .special_offer.nth-child-first{
+	padding-top:0;
+	background:none;
+}
+#special_offers h3{
+	margin-top:0;
+	color:#555;
+}
+#special_offers .nth-child-first h3{
+	margin-top:0;
+}
+#special_offers .special_offer div{
+	margin-left:11.5em;
+	padding-right:5px;
+
+}
+#special_offers img{
+	float:left;
+} 
+#special-savings dt{
+	margin-top:2em;
+
+}
+#special-savings ul.line-rule li{
+	overflow:hidden;
+	padding:3px 0;
+
+}
+* * body #special-savings ul.line-rule li{
+	height:1%
+
+}
+#special-savings li span{
+	float:right;
+	text-align:right;
+	
+}
+/* Special Offers END -----------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
