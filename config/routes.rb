@@ -86,14 +86,11 @@ Erhuamao::Application.routes.draw do
     resources :travels do 
       member do
         get :new_destination_travel
-        get :new_interest_travel
-        get :new_specialoffer_travel
         post :create_destination_travel
-        delete :destroy_destination_travel
+        get :new_interest_travel
         post :create_interest_travel
-        delete :destroy_interest_travel
+        get :new_specialoffer_travel
         post :create_specialoffer_travel
-        delete :destroy_specialoffer_travel
       end
       resources :itineraries
     end
@@ -105,6 +102,9 @@ Erhuamao::Application.routes.draw do
     resources :news
   end
 
+  match "admin/travels/:id/destroy_destination_travel/:destination_id" => "admin/travels#destroy_destination_travel"
+  match "admin/travels/:id/destroy_interest_travel/:interest_id" => "admin/travels#destroy_interest_travel"
+  match "admin/travels/:id/destroy_specialoffer_travel/:specialoffer_id" => "admin/travels#destroy_specialoffer_travel"
   get 'admin' => 'admin/base#index'
   get 'admin/handle' => 'admin/base#handle'
 
