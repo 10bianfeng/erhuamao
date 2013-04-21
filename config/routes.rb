@@ -3,6 +3,7 @@ Erhuamao::Application.routes.draw do
   
   resources :travels do 
     resources :itineraries
+    resources :datesprices
   end
 
   resources :destinations do
@@ -16,6 +17,7 @@ Erhuamao::Application.routes.draw do
   resources :specialoffers
 
   resources :itineraries
+  resources :datesprices
 
   devise_for :users
   as :user do
@@ -93,6 +95,7 @@ Erhuamao::Application.routes.draw do
         post :create_specialoffer_travel
       end
       resources :itineraries
+      resources :datesprices
     end
     resources :itineraries
     resources :destinations
@@ -100,6 +103,7 @@ Erhuamao::Application.routes.draw do
     resources :hotels
     resources :specialoffers
     resources :news
+    resources :datesprices
   end
 
   match "admin/travels/:id/destroy_destination_travel/:destination_id" => "admin/travels#destroy_destination_travel"

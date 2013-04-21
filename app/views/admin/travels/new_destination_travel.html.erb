@@ -13,7 +13,7 @@
     <label class="control-label">地区</label>
     <div class="controls">
     	<select name="destination_id">
-				<%= Destination.find(:all, :order => 'id').each do |destination| %>
+				<% Destination.find(:all, :order => 'id').each do |destination| %>
 					<option value="<%= destination.id %>" selected="selected"><%= destination.name %></option>  
 				<% end %>
 			</select>

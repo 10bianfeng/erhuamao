@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  travel_id: 1
+  start_date: 2013-04-21 15:29:23
+  end_date: 2013-04-21 15:29:23
+  prices: 1
+  single_supplement: 1
+  internal_airfare: 1
+  availability_status: 1
+  available_people_count: 1
+
+two:
+  travel_id: 1
+  start_date: 2013-04-21 15:29:23
+  end_date: 2013-04-21 15:29:23
+  prices: 1
+  single_supplement: 1
+  internal_airfare: 1
+  availability_status: 1
+  available_people_count: 1

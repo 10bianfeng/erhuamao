@@ -72,8 +72,8 @@
 	end_date:datetime
 	prices:integer
 	single_supplement:integer
-	internal_air_from:integer
-	availability:integer (多种状态: "Available", "Call for Availability", "Limited Availability")
+	internal_airfare:integer
+	availability_status:integer (多种状态: "Available", "Call for Availability", "Limited Availability")
 	available_people_count:integer
 
 
@@ -86,6 +86,9 @@
 ##Specialoffer_travel
 	specialoffer_id:integer
 	travel_id:integer
+
+
+##Extensions
 
 
 ##News
@@ -105,6 +108,7 @@
 	"name"
 	"file"
 	"travel_ids"
+	"comment"
 
 
 
@@ -149,6 +153,7 @@
 
 
 ##Saves_trip(Compare)
+
 
 
 ##Setting

@@ -1,5 +1,6 @@
 class Travel < ActiveRecord::Base
 	has_many :itineraries
+	has_many :datesprices
 
 	has_many :destination_travels
 	has_many :destinations, :through => :destination_travels
