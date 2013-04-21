@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :photos
+
   resources :travels do 
     resources :itineraries
     resources :datesprices
@@ -100,7 +102,10 @@ Erhuamao::Application.routes.draw do
     resources :itineraries
     resources :destinations
     resources :interests
-    resources :hotels
+    resources :hotels do
+      resources :photos
+    end
+    resources :photos
     resources :specialoffers
     resources :news
     resources :datesprices

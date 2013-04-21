@@ -88,6 +88,14 @@
 	travel_id:integer
 
 
+##Photo
+	sort:integer
+	pic:string
+	desc:string
+	resource:string
+	resource_id:integer
+
+
 ##Extensions
 
 
@@ -95,14 +103,6 @@
 
 
 ##News_Travel
-
-
-##Gallery
-	"name" :string
-	"photo" :string
-	"type" :string
-	"type_id" :integer
-
 
 ##Brochure(PDF)
 	"name"

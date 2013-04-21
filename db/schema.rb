@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421072923) do
+ActiveRecord::Schema.define(:version => 20130421130220) do
 
   create_table "datesprices", :force => true do |t|
     t.integer  "travel_id"
@@ -85,6 +85,16 @@ ActiveRecord::Schema.define(:version => 20130421072923) do
     t.string   "meals"
     t.integer  "start_day_num"
     t.integer  "end_day_num"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "photos", :force => true do |t|
+    t.integer  "sort"
+    t.string   "pic"
+    t.string   "desc"
+    t.string   "resource_type"
+    t.integer  "resource_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
