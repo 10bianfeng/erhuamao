@@ -21,6 +21,7 @@ gem 'delayed_job_active_record', '0.3.3' #后台任务队列升级版本
 gem 'whenever', '0.7.3' # 定时任务
 gem 'mini_magick', '3.4' # 可用，包括windows上
 gem 'ancestry' # 树形结构
+gem 'rest-client'
 
 
 # Deploy with Capistrano

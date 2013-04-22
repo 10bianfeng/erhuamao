@@ -111,6 +111,9 @@ Erhuamao::Application.routes.draw do
     resources :datesprices
   end
 
+  match 'weibo_login', 'welcome#weibo_login'
+  match 'weibo_callback', 'welcome#weibo_callback'
+
   match "admin/travels/:id/destroy_destination_travel/:destination_id" => "admin/travels#destroy_destination_travel"
   match "admin/travels/:id/destroy_interest_travel/:interest_id" => "admin/travels#destroy_interest_travel"
   match "admin/travels/:id/destroy_specialoffer_travel/:specialoffer_id" => "admin/travels#destroy_specialoffer_travel"
