@@ -13,7 +13,7 @@
     <label class="control-label">优惠信息</label>
     <div class="controls">
     	<select name="specialoffer_id">
-				<%= Specialoffer.find(:all, :order => 'id').each do |specialoffer| %>
+				<% Specialoffer.find(:all, :order => 'id').each do |specialoffer| %>
 					<option value="<%= specialoffer.id %>" selected="selected"><%= specialoffer.title %></option>  
 				<% end %>
 			</select>

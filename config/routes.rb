@@ -1,8 +1,11 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :photos
+
   resources :travels do 
     resources :itineraries
+    resources :datesprices
   end
 
   resources :destinations do
@@ -16,6 +19,7 @@ Erhuamao::Application.routes.draw do
   resources :specialoffers
 
   resources :itineraries
+  resources :datesprices
 
   devise_for :users
   as :user do
@@ -93,14 +97,22 @@ Erhuamao::Application.routes.draw do
         post :create_specialoffer_travel
       end
       resources :itineraries
+      resources :datesprices
     end
     resources :itineraries
     resources :destinations
     resources :interests
-    resources :hotels
+    resources :hotels do
+      resources :photos
+    end
+    resources :photos
     resources :specialoffers
     resources :news
+    resources :datesprices
   end
+
+  match 'weibo_login', 'welcome#weibo_login'
+  match 'weibo_callback', 'welcome#weibo_callback'
 
   match "admin/travels/:id/destroy_destination_travel/:destination_id" => "admin/travels#destroy_destination_travel"
   match "admin/travels/:id/destroy_interest_travel/:interest_id" => "admin/travels#destroy_interest_travel"

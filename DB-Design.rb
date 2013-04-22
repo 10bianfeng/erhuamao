@@ -72,8 +72,8 @@
 	end_date:datetime
 	prices:integer
 	single_supplement:integer
-	internal_air_from:integer
-	availability:integer (多种状态: "Available", "Call for Availability", "Limited Availability")
+	internal_airfare:integer
+	availability_status:integer (多种状态: "Available", "Call for Availability", "Limited Availability")
 	available_people_count:integer
 
 
@@ -88,23 +88,27 @@
 	travel_id:integer
 
 
+##Photo
+	sort:integer
+	pic:string
+	desc:string
+	resource:string
+	resource_id:integer
+
+
+##Extensions
+
+
 ##News
 
 
 ##News_Travel
 
-
-##Gallery
-	"name" :string
-	"photo" :string
-	"type" :string
-	"type_id" :integer
-
-
 ##Brochure(PDF)
 	"name"
 	"file"
 	"travel_ids"
+	"comment"
 
 
 
@@ -149,6 +153,7 @@
 
 
 ##Saves_trip(Compare)
+
 
 
 ##Setting

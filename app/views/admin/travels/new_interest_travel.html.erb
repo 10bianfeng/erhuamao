@@ -13,7 +13,7 @@
     <label class="control-label">兴趣点</label>
     <div class="controls">
     	<select name="interest_id">
-				<%= Interest.find(:all, :order => 'id').each do |interest| %>
+				<% Interest.find(:all, :order => 'id').each do |interest| %>
 					<option value="<%= interest.id %>" selected="selected"><%= interest.title %></option>  
 				<% end %>
 			</select>

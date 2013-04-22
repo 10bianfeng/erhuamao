@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  pic: MyString
+  desc: MyString
+  resource: MyString
+  resource_id: 1
+
+two:
+  pic: MyString
+  desc: MyString
+  resource: MyString
+  resource_id: 1
