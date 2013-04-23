@@ -104,6 +104,10 @@ Erhuamao::Application.routes.draw do
     resources :interests
     resources :hotels do
       resources :photos
+      member do
+        get :new_photo
+        post :upload_photo
+      end
     end
     resources :photos
     resources :specialoffers
@@ -119,6 +123,7 @@ Erhuamao::Application.routes.draw do
   match "admin/travels/:id/destroy_specialoffer_travel/:specialoffer_id" => "admin/travels#destroy_specialoffer_travel"
   get 'admin' => 'admin/base#index'
   get 'admin/handle' => 'admin/base#handle'
+  get 'search' => 'welcome#search'
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
