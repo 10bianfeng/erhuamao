@@ -5389,4 +5389,54 @@ button.ui-button::-moz-focus-inner {
 .compare_link a:hover{
 	text-decoration:underline !important;
 }
+/*********************************************/
+/**************   SEARCH   *******************/
+/*********************************************/
+#search-results {/*padding:15px 0 0 !important; background:url(/assets/images/graphics/h_dotted_line.gif) repeat-x top;*/}
+#search-results > li {padding-bottom:15px; margin-bottom:15px; background:url(/assets/images/graphics/h_dotted_line.gif) repeat-x bottom;}
+#search-results h3 {font-size:15px !important; margin-top:0;}
+#search-results img {float:left; width:150px; height:150px; margin-right:15px;}
+#search-results .specialoffer {float:right; padding-left:20px;}
+#search-results .search-details {color:#777; font-size:14px; font-weight:bold; float:right;}
+#search-results .search-description {border-top:#eaebec 1px solid; margin-top:3px; padding-top:5px;}
+#search-results p {margin:10px 0;}
+#search-results input {height:12px; width:12px; margin:3px 6px 0 0;}
+#search-results .quicklinks {text-align:right;}
 
+/*@CUSTOMIZE TRIP BAR FOR SEARCH
+--------------------------------------*/
+#customize_trip{
+	margin:10px 0 20px;
+	background-color:#ebebeb;
+	padding:15px;
+}
+#customize_trip p{
+	line-height:normal;
+}
+#customize_trip .customize_trip_button,
+.copy-block span{
+	background:#a7a9ac;
+	text-transform:uppercase;
+	padding:4px 16px;
+	zoom:1;
+	display:inline;
+	float:right;
+	margin:12px 0 0 10px;
+	-webkit-border-radius:6px;
+	-moz-border-radius:6px;
+}
+#customize_trip .customize_trip_button a,
+.copy-block span a{
+	color:#fff;
+	
+}
+#customize_trip .customize_trip_button a:hover,
+.copy-block span a:hover{
+	text-decoration:none;
+	
+}
+/*@END--------------------------------*/
+/* Connections Lead-in Block */
+#search-results .copy-block span {margin-top:0;}
+#search-results .connections-leadin div {border:#ffd14f 1px solid; padding:12px; overflow:hidden;}
+#search-results .connections-leadin div img {float:left; padding-right:12px; margin-right:15px; border-right:1px solid #e4e5e6; width:214px; height:56px;}
