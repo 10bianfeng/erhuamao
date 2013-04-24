@@ -87,4 +87,24 @@ class Admin::HotelsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def new_photo
+    @hotel = Hotel.find(params[:id])
+  end
+
+  def upload_photo
+    @hotel = Hotel.find(params[:id])
+    @photo = @hotel.photos.create(:pic => params[:photo][:pic], :desc => params[:photo][:desc])
+
+    respond_to do |format|
+      if @hotel.update_attributes(params[:hotel])
+        format.html { redirect_to([:admin, @hotel], :notice => 'Hotel was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @hotel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
 end

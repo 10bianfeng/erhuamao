@@ -5,6 +5,15 @@ class WelcomeController < ApplicationController
   def index
   end
 
+  def search
+    @travels = Travel.all
+    @destinations = Destination.all
+    @interests = Interest.all
+    #@departure_dates = Datesprice.all.group_by{|d| d.start_date.strftime("%Y %m")}
+    @departure_dates_years = Datesprice.all.map{|d| d.start_date.strftime("%Y")}.uniq.sort
+    @departure_dates = Datesprice.all.map{|d| d.start_date.strftime("%Y.%m")}.uniq.sort
+  end
+
   # weibo authentication
   def weibo_login 
     session[:quick_login] = true if params[:quick_login]
