@@ -11,5 +11,9 @@ class Travel < ActiveRecord::Base
 	has_many :specialoffer_travels
 	has_many :specialoffers, :through => :specialoffer_travels
 
+	# 上传
+	mount_uploader :cover, CoverUploader
+
+	# 默认排序
 	default_scope order('created_at DESC')
 end

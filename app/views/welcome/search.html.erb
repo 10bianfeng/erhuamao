@@ -88,16 +88,16 @@
 			<% @travels.each do |travel| %>
 			<li class="self_clear">
 				<a href="/travels/<%= travel.id %>" title="<%= travel.name %>">
-					<img src="/assets_global/media/images/thumbnails/orient_india_and_the_pacific/treasures_of_northern_india.jpg" alt="<%= travel.name %>" title="<%= travel.name %>"></a>
+					<img src="<%= travel.cover.url %>" alt="<%= travel.name %>" title="<%= travel.name %>"></a>
 				<h3>
-					<a href="/travel/<%= travel.id %>" title="<%= travel.name %>"><%= travel.name %></a>
+					<a href="/travels/<%= travel.id %>" title="<%= travel.name %>"><%= travel.name %></a>
 				</h3>
 				<span class="search-details">
 					From 
-                      $8,295
+                      $<%= travel.priced_from %>
 				</span>
 				<span>
-					<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="Luxury Small Group Journeys">Luxury Small Group Journeys</a>
+					<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= travel.interests.first.title %>"><%= travel.interests.first.title %></a>
 				</span>
 				<ul class="self_clear clear_list_style clear_margins">
 					<li class="search-description">
@@ -105,14 +105,13 @@
 							<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5628">
 							<span>Compare</span>
 						</span>
-						15 days |
+						<%= travel.days_count %> days |
                     
-                    Limited to 18 guests
+                    Limited to <%= travel.max_group_size %> guests
 					</li>
 					<li>
 						<p>
-							This journey offers a delightful panorama of India's best. Visit the Taj Mahal, observe a holy ceremony on the banks of the Ganges and savor the hospitality of royal palaces turned luxury 
-                ...
+							<%= travel.overview_desc %>
 						</p>
 					</li>
 					<li class="quicklinks">

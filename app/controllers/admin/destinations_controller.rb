@@ -87,4 +87,24 @@ class Admin::DestinationsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def new_photo
+    @destination = Destination.find(params[:id])
+  end
+
+  def upload_photo
+    @destination = Destination.find(params[:id])
+    @photo = @destination.photos.create(:pic => params[:photo][:pic], :desc => params[:photo][:desc])
+
+    respond_to do |format|
+      if @destination.update_attributes(params[:destination])
+        format.html { redirect_to([:admin, @destination], :notice => 'Destination was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @destination.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+  
 end

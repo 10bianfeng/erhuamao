@@ -100,7 +100,13 @@ Erhuamao::Application.routes.draw do
       resources :datesprices
     end
     resources :itineraries
-    resources :destinations
+    resources :destinations do
+      resources :photos
+      member do
+        get :new_photo
+        post :upload_photo
+      end
+    end
     resources :interests
     resources :hotels do
       resources :photos

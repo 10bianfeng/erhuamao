@@ -6,12 +6,17 @@ class WelcomeController < ApplicationController
   end
 
   def search
+    # type: 1: Destinations 2: 
     @travels = Travel.all
     @destinations = Destination.all
     @interests = Interest.all
     #@departure_dates = Datesprice.all.group_by{|d| d.start_date.strftime("%Y %m")}
     @departure_dates_years = Datesprice.all.map{|d| d.start_date.strftime("%Y")}.uniq.sort
     @departure_dates = Datesprice.all.map{|d| d.start_date.strftime("%Y.%m")}.uniq.sort
+    if !params[:type].nil?
+      # 搜索关键字
+      
+    end
   end
 
   # weibo authentication

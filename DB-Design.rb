@@ -14,6 +14,7 @@
 	"notes" :text
 	"extensions_ids" :text
 	"itinerary_pic"	:text
+	cover:string
 
 
 ##Itinerary

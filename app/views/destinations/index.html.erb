@@ -1,43 +1,114 @@
-<h1>Listing destinations</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Desc title</th>
-    <th>Desc</th>
-    <th>Banner pic</th>
-    <th>Map pic</th>
-    <th>Flights</th>
-    <th>Timezone</th>
-    <th>Climate</th>
-    <th>Health requirements</th>
-    <th>Voltage</th>
-    <th>Currency</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @destinations.each do |destination| %>
-  <tr>
-    <td><%= destination.name %></td>
-    <td><%= destination.desc_title %></td>
-    <td><%= destination.desc %></td>
-    <td><%= destination.banner_pic %></td>
-    <td><%= destination.map_pic %></td>
-    <td><%= destination.flights %></td>
-    <td><%= destination.timezone %></td>
-    <td><%= destination.climate %></td>
-    <td><%= destination.health_requirements %></td>
-    <td><%= destination.voltage %></td>
-    <td><%= destination.currency %></td>
-    <td><%= link_to 'Show', destination %></td>
-    <td><%= link_to 'Edit', edit_destination_path(destination) %></td>
-    <td><%= link_to 'Destroy', destination, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Destination', new_destination_path %>
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+    <li>
+        <a href="/">Home</a>
+        &nbsp;&nbsp;/&nbsp;&nbsp;
+    </li>
+    <li>Travel Destinations</li>
+</ul>
+<div class="self_clear">
+    <div id="secondary_content" class="hide_from_print">
+        <div id="cs_control_3131" class="">
+            <div class="CS_Element_Schedule" title="" id="CS_Element_contentleft">
+                <a name="custom12103" id="custom12103"></a>
+                <a name="CP_JUMP_12103" id="CP_JUMP_12103"></a>
+                <div id="cs_control_12103" class="cs_control CS_Element_Custom">
+                    <div class="hl3">Navigate By</div>
+                    <!-- OHSU Nav -->
+                    <ul class="section cspot_nav">
+                        <li class="navigation_active icon bullet_arrow">
+                            <a href="/destinations/">Travel Destinations</a>
+                        </li>
+                        <% @destinations.each do |destination| %>
+                            <% if destination.is_root?  %>
+                                <li class="icon <%= destination.has_children? ?  'expando_show' : 'bullet_arrow' %>">
+                                    <a href="/destinations/<%= destination.id %>/"><%= destination.name %></a>
+                                    <% if destination.has_children?  %>
+                                        <ul>
+                                        <% destination.children.each do |destination_2| %>
+                                            <li class="icon <%= destination_2.has_children? ?  'expando_show' : 'bullet_arrow' %>">
+                                                <a href="/destinations/<%= destination_2.id %>/"><%= destination_2.name %></a>
+                                                <% if destination_2.has_children?  %>
+                                                    <ul>
+                                                        <% destination_2.children.each do |destination_3| %>
+                                                            <li class="icon <%= destination_3.has_children? ?  'expando_show' : 'bullet_arrow' %>">
+                                                                <a href="/destinations/<%= destination_3.id %>/"><%= destination_3.name %></a>
+                                                                <% if destination_3.has_children?  %>
+                                                                    <ul>
+                                                                        <% destination_3.children.each do |destination_4| %>
+                                                                            <li class="icon bullet_arrow">
+                                                                                <a href="/destinations/<%= destination_4.id %>/"><%= destination_4.name %></a>
+                                                                            </li>
+                                                                        <% end %>
+                                                                    </ul>
+                                                                <% end %>
+                                                            </li>
+                                                        <% end %>
+                                                    </ul>
+                                                <% end %>
+                                            </li>
+                                        <% end %>
+                                        </ul>
+                                    <% end %>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
+                </div>
+                <a name="customcf4702" id="customcf4702"></a>
+                <a name="CP_JUMP_4702" id="CP_JUMP_4702"></a>
+                <div id="cs_control_4702" class="cs_control CS_Element_CustomCF">
+                    <div id="CS_CCF_9533_4702">
+                        <div class="end_cap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dMainFBContest"></div>
+    </div>
+    <div id="primary_content" class="align_edges">
+        <div id="cs_control_1329" class="">
+            <div class="CS_Element_Schedule" title="" id="CS_Element_content">
+                <a name="textblocknohdr8504" id="textblocknohdr8504"></a>
+                <a name="CP_JUMP_8504" id="CP_JUMP_8504"></a>
+                <div id="cs_control_8504" class="cs_control CS_Element_Textblock">
+                    <div class="CS_Textblock_Text">
+                        <h1>A&amp;K Travel Destinations</h1>
+                    </div>
+                </div>
+                <div id="cs_control_16423" class="cs_control CS_Element_CustomCF">
+                    <div id="CS_CCF_9533_16423">
+                        <embed width="715" height="400" src="http://www.abercrombiekent.com/assets_global/media/swf/maps/travel_destinations.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="showall" wmode="transparent" devicefont="false" bgcolor="#ffffff" name="travel_destinations" menu="true" allowfullscreen="false" allowscriptaccess="sameDomain" salign="" type="application/x-shockwave-flash">
+                        <br>
+                        <br></div>
+                </div>
+                <a name="custom13366" id="custom13366"></a>
+                <a name="CP_JUMP_13366" id="CP_JUMP_13366"></a>
+                <div id="cs_control_13366" class="cs_control CS_Element_Custom">
+                    <h4 class="rounded_btn">
+                        <a class="icon search" title="See all A&amp;K Journeys" href="/search">See all A&amp;K Journeys</a>
+                    </h4>
+                </div>
+                <a name="textblocknohdr12180" id="textblocknohdr12180"></a>
+                <a name="CP_JUMP_12180" id="CP_JUMP_12180"></a>
+                <div id="cs_control_12180" class="cs_control CS_Element_Textblock">
+                    <div class="CS_Textblock_Text">
+                        <h2 class="secondary_title">Luxury Travel Destinations</h2>
+                        <p>
+                            Abercrombie &amp; Kent journeys touch all seven continents, ranging from the bustling souks of Morocco and the mysterious ruins in Peru to the ancient pyramids of Egypt and the idyllic French countryside. Yet we understand that an unforgettable journey isn't just about where you go — it's also how you get there. With A&amp;K, discover the world's most enchanting luxury travel destinations in peerless comfort and style, while never sacrificing authenticity.
+                        </p>
+                        <p>
+                            Whether you travel with a small group of like-minded adventurers, or an intimate party of family and friends, our full-time staff is on call around the clock, ready at any time to provide you with everything you need for the journey of a lifetime.
+                        </p>
+                        <p>Where will your travels take you?</p>
+                    </div>
+                </div>
+                <div id="cs_control_17721" class="cs_control CS_Element_CustomCF">
+                    <div id="CS_CCF_9533_17721">
+                        <!-- META DATA BEGIN -->
+                        <!-- META DATA END -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
