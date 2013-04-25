@@ -100,10 +100,19 @@
 ##Extensions
 
 
-##News
+##Presses
+	title:string
+	cont:text
+
+##Events
+	title:string
+	cont:text
 
 
-##News_Travel
+##Press_Travel
+	presses_id:integer
+	travel_id:integer
+
 
 ##Brochure(PDF)
 	"name"
@@ -112,9 +121,10 @@
 	"comment"
 
 
-
 ##Page
-
+	name:string
+	title:string
+	cont:text
 
 ##Booking
 	"travel_id" :integer

@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :presses
+
+  resources :events
+
   resources :photos
 
   resources :travels do 
@@ -99,6 +103,7 @@ Erhuamao::Application.routes.draw do
       resources :itineraries
       resources :datesprices
     end
+    resources :datesprices
     resources :itineraries
     resources :destinations do
       resources :photos
@@ -117,8 +122,9 @@ Erhuamao::Application.routes.draw do
     end
     resources :photos
     resources :specialoffers
-    resources :news
-    resources :datesprices
+    resources :presses
+    resources :events
+    resources :pages
   end
 
   match "weibo_login" => "welcome#weibo_login"

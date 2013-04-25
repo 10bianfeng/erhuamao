@@ -1,0 +1,130 @@
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+  <li>
+    <a href="/">Home</a>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+  </li>
+  <li>
+    <a href="/events">News</a>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+  </li>
+  <li>Press Releases</li>
+</ul>
+<div class="self_clear">
+  <div id="secondary_content" class="hide_from_print">
+    <div id="cs_control_3131" class="">
+      <div class="CS_Element_Schedule" title="" id="CS_Element_contentleft">
+        <a name="custom12103" id="custom12103"></a>
+        <a name="CP_JUMP_12103" id="CP_JUMP_12103"></a>
+        <div id="cs_control_12103" class="cs_control CS_Element_Custom">
+          <div class="hl3">Navigate By</div>
+          <!-- OHSU Nav -->
+          <ul class="section cspot_nav">
+            <li class="icon bullet_arrow">
+              <a href="/events">News &amp; Events</a>
+            </li>
+            <li class="navigation_active icon bullet_arrow">
+              <a href="/presses">Press Releases</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/awards">Travel Awards</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/ak_magazine">A&amp;K Magazine</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="http://portfolio.abercrombiekent.com/photo_request.cfm">Request Travel Photos</a>
+            </li>
+          </ul>
+        </div>
+        <a name="customcf4702" id="customcf4702"></a>
+        <a name="CP_JUMP_4702" id="CP_JUMP_4702"></a>
+        <div id="cs_control_4702" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1575_4702">
+            <div class="end_cap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dMainFBContest"></div>
+  </div>
+  <div id="primary_content" class="align_edges">
+    <div id="cs_control_1329" class="">
+      <div class="CS_Element_Schedule" title="" id="CS_Element_content">
+        <a name="customcf8184" id="customcf8184"></a>
+        <a name="CP_JUMP_8184" id="CP_JUMP_8184"></a>
+        <div id="cs_control_8184" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1575_8184">
+            <h1>Press Releases</h1>
+            <div class="paging self_clear">
+              <a href="/news/press_releases/?scp=2" class="next_page" title="View results on page 2"></a>
+              <ul class="clear_list_style clear_margins">
+                <li> <strong>1</strong>
+                </li>
+                <li>
+                  <a href="/news/press_releases/?scp=2" title="View results on page 2">2</a>
+                </li>
+                <li>
+                  <a href="/news/press_releases/?scp=3" title="View results on page 3">3</a>
+                </li>
+              </ul>
+              <span>Go to page:</span>
+              Showing 1 - 10 of 23
+            </div>
+            <dl id="press_releases" class="line_rule cap_ends">
+              <% @presses.each do |press| %>
+              <dt>
+                <a href="/presses/<%= press.id %>">
+                  <%= press.title %>
+                </a>
+              </dt>
+              <dd>
+                <p>
+                  <%= truncate(press.cont, :length => 300, :omission => '...') %>
+                  <a class="icon article" href="/presses/<%= press.id %>">Read More</a>
+                </p>
+              </dd>
+              <% end %>
+            </dl>
+            <div class="paging self_clear">
+              <a href="/news/press_releases/?scp=2" class="next_page" title="View results on page 2"></a>
+              <ul class="clear_list_style clear_margins">
+                <li>
+                  <strong>1</strong>
+                </li>
+                <li>
+                  <a href="/news/press_releases/?scp=2" title="View results on page 2">2</a>
+                </li>
+                <li>
+                  <a href="/news/press_releases/?scp=3" title="View results on page 3">3</a>
+                </li>
+              </ul>
+              <span>Go to page:</span>
+              Showing 1 - 10 of 23
+            </div>
+            <!-- Media Contact -->
+            <div id="media_footer" class="round_corners color_f2f2f2">
+              <div class="ctl"></div>
+              <div class="ctr"></div>
+              <div class="cbr"></div>
+              <div class="cbl"></div>
+              <p class="clear_margins">
+                <strong>Media Contact:</strong>
+                Jean Fawcett &nbsp;
+                <strong>Tel:</strong>
+                800 554 7094 ext. 427 &nbsp;
+                <strong>Email:</strong>
+                <a href="mailto:jfawcett@abercrombiekent.com">jfawcett@abercrombiekent.com</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="cs_control_17875" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1575_17875">
+            <!-- META DATA BEGIN -->
+            <!-- META DATA END -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

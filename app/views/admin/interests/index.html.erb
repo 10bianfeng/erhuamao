@@ -12,6 +12,7 @@
 <% @interests.each do |interest| %>
   <tr>
     <td>
+      <img src="<%= interest.cover.url %>" width="100"> <br>
       <%= interest.id %>
     </td>
     <td><%= interest.title %></td>

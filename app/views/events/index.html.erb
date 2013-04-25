@@ -1,0 +1,135 @@
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+  <li>
+    <a href="/">Home</a>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+  </li>
+  <li>News</li>
+</ul>
+<div class="self_clear">
+  <div id="secondary_content" class="hide_from_print">
+    <div id="cs_control_3131" class="">
+      <div class="CS_Element_Schedule" title="" id="CS_Element_contentleft">
+        <a name="custom12103" id="custom12103"></a>
+        <a name="CP_JUMP_12103" id="CP_JUMP_12103"></a>
+        <div id="cs_control_12103" class="cs_control CS_Element_Custom">
+          <div class="hl3">Navigate By</div>
+          <!-- OHSU Nav -->
+          <ul class="section cspot_nav">
+            <li class="navigation_active icon bullet_arrow">
+              <a href="/events">News &amp; Events</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/presses">Press Releases</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/awards">Travel Awards</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/ak_magazine">A&amp;K Magazine</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="http://portfolio.abercrombiekent.com/photo_request.cfm">Request Travel Photos</a>
+            </li>
+          </ul>
+        </div>
+        <a name="customcf4702" id="customcf4702"></a>
+        <a name="CP_JUMP_4702" id="CP_JUMP_4702"></a>
+        <div id="cs_control_4702" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1389_4702">
+            <div class="end_cap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dMainFBContest"></div>
+  </div>
+  <div id="primary_content" class="align_edges">
+    <div id="cs_control_1329" class="">
+      <div class="CS_Element_Schedule" title="" id="CS_Element_content">
+        <a name="customcf8174" id="customcf8174"></a>
+        <a name="CP_JUMP_8174" id="CP_JUMP_8174"></a>
+        <div id="cs_control_8174" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1389_8174">
+            <h1>News &amp; Events</h1>
+            <h3>
+              Please join A&amp;K Philanthropy and Abercrombie &amp; Kent in the largest grassroots environmental movement in history:
+            </h3>
+            <% @events.each do |event| %>
+            <h2><%= event.title %></h2>
+            <p>
+              <%= event.cont %>
+            </p>
+            <p>
+              <br></p>
+            <% end %>
+
+            <h2>Other News</h2>
+            <dl class="self_clear">
+              <!-- Other news event 1 -->
+              <% @presses.each do |press| %>
+              <dt style="padding-top:12px;" class="line_rule_solid">
+                <a class="toggle_btn" rel="news_event_1" href="/presses/<%= press.id %>">
+                  <%= press.title %>
+                </a>
+              </dt>
+              <dd class="self_clear">
+                <p>
+                  <%= truncate(press.cont, :length => 600, :omission => '...') %>
+                </p>
+                <p>
+                  <a class="icon article toggle_btn" rel="news_event_1" href="/presses/<%= press.id %>">Read More</a>
+                </p>
+                <!-- Other news event 2 -->
+              </dd>
+              <% end %>
+            </dl>
+            <!-- Media Contact -->
+            <div id="media">
+              <div class="photo_contact round_corners color_e4e5e6">
+                <div class="ctl"></div>
+                <div class="ctr"></div>
+                <div class="cbr"></div>
+                <div class="cbl"></div>
+                <h3>A&amp;K's Photo Gallery</h3>
+                <p>
+                  <a href="http://portfolio.abercrombiekent.com/photo_request.cfm" target="_blank">Click here</a>
+                  to request for a high-resolution photography to our Public Relations department or login to view A&amp;K's Photo Gallery.
+                </p>
+                <p class="clear_margins">
+                  <a class="icon swirl_arrow" href="http://portfolio.abercrombiekent.com/photo_request.cfm" target="_blank">Request Photo</a>
+                </p>
+              </div>
+              <div class="press_contact round_corners color_f2f2f2">
+                <div class="ctl"></div>
+                <div class="ctr"></div>
+                <div class="cbr"></div>
+                <div class="cbl"></div>
+                <h3>Media Contact</h3>
+                <p>
+                  Jean Fawcett
+                  <br>
+                  800 554 7094  ext. 427
+                  <br>
+                  <a href="mailto:jfawcett@abercrombiekent.com" target="_blank">jfawcett@abercrombiekent.com</a>
+                </p>
+              </div>
+            </div>
+            <p class="base_font_size apple_trademark">
+              iPad <sup><span style="font-size: 8px;">®</span></sup> 
+              and App Store
+              <sup><span style="font-size: 7px;">SM</span></sup> 
+              are registered trademarks of Apple Inc.
+            </p>
+            <!-- End -->
+          </div>
+        </div>
+      </div>
+      <div id="cs_control_17873" class="cs_control CS_Element_CustomCF">
+        <div id="CS_CCF_1389_17873">
+          <!-- META DATA BEGIN -->
+          <!-- META DATA END -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
