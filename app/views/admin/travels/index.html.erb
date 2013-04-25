@@ -18,7 +18,9 @@
     <td>
       <%= travel.id %>
     </td>
-    <td><%= travel.name %></td>
+    <td>
+      <img src="<%= travel.cover.url %>" width="100"> <br>
+      <%= travel.name %></td>
     <td>
       <h5><a href="/admin/travels/<%= travel.id %>/itineraries/new">添加日程</a></h5>
       <table>

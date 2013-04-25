@@ -1,7 +1,5 @@
     <ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
       <li>
-        <img src="" width="90" height="1"></li>
-      <li>
         <a href="/">Home</a>
       </li>
       <li>
@@ -152,7 +150,7 @@
         <!-- PRIMARY HEADING -->
         <h1><%= @travel.name %></h1>
         <h4 class="clear_margins icon luxury amp" style="padding-top:2px;">
-          <%= @travel.series_name %>
+          <%= @travel.interests.first.title %>
         </h4>
         <!-- LIVEPERSON -->
         <!-- LINK LIST -->
@@ -199,7 +197,7 @@
               <ul class="align_edges line_rule clear_margins">
                 <li>
                   <span>
-                    <a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.series_name %>"><%= @travel.series_name %></a>
+                    <a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
                   </span>
                   Series:
                 </li>

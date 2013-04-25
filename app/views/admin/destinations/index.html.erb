@@ -15,6 +15,7 @@
     <th>Voltage</th>
     <th>Currency</th>
     <th>Ancestry</th>
+    <th>画廊</th>
     <th>操作</th>
   </tr>
 
@@ -34,6 +35,7 @@
     <td><%= destination.voltage %></td>
     <td><%= destination.currency %></td>
     <td><%= destination.ancestry %></td>
+    <td><%= destination.photos.size %> / <a href="/admin/destinations/<%= destination.id %>/new_photo">上传图片</a></td>
     <td>
       <%= link_to '查看', [:admin, destination] %> | 
       <%= link_to '编辑', edit_admin_destination_path(destination) %> | 
