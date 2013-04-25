@@ -79,14 +79,16 @@
 
 
 ##Specialoffer
+	cover:string
 	title:string
-	cont:text
-	pic:string
-
+	desc:text
+	note:text
+	
 
 ##Specialoffer_travel
 	specialoffer_id:integer
 	travel_id:integer
+	datesprice_id:integer
 
 
 ##Photo
