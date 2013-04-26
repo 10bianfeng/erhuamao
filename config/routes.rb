@@ -127,6 +127,7 @@ Erhuamao::Application.routes.draw do
     resources :presses
     resources :events
     resources :pages
+    resources :banners
   end
 
   match "weibo_login" => "welcome#weibo_login"

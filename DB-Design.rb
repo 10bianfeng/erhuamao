@@ -1,3 +1,4 @@
+# 旅游线路
 ##Travel
 	have gallery
 	have right top pic
@@ -16,7 +17,7 @@
 	"itinerary_pic"	:text
 	cover:string
 
-
+# 行程安排
 ##Itinerary
 	have gallery
 	name:string
@@ -28,7 +29,7 @@
 	start_day_num:integer
 	end_day_num:integer
 
-
+# 地区
 ##Destination
 	have gallery
 	has_tree
@@ -50,6 +51,7 @@
 	travel_id:integer
 
 
+# 兴趣点，主题
 ##Interest
 	has_tree
 	title:string
@@ -61,12 +63,14 @@
 	travel_id:integer
 
 
+# 酒店
 ##Hotel
 	have gallery
 	name:string
 	destination_id:integer
 
 
+# 每一个团的具体信息
 ##Datesprice
 	travel_id:integer
 	start_date:datetime
@@ -78,6 +82,7 @@
 	available_people_count:integer
 
 
+# 优惠信息
 ##Specialoffer
 	cover:string
 	title:string
@@ -91,21 +96,22 @@
 	datesprice_id:integer
 
 
-##Photo
-	sort:integer
-	pic:string
-	desc:string
-	resource:string
-	resource_id:integer
-
-
 ##Extensions
 
 
+# 管理零碎页面，如关于我们等
+##Page
+	name:string
+	title:string
+	cont:text
+
+
+# 新闻模块
 ##Presses
 	title:string
 	cont:text
 
+# 最近动态，活动模块
 ##Events
 	title:string
 	cont:text
@@ -116,23 +122,32 @@
 	travel_id:integer
 
 
+# 管理页头大banner
+##Banner 
+	name:string 
+	cover:string
+
+
+# 各模块的gallery公用多态上传类
+##Photo
+	sort:integer
+	pic:string
+	desc:string
+	resource:string
+	resource_id:integer
+
+
 ##Brochure(PDF)
-	"name"
-	"file"
-	"travel_ids"
-	"comment"
-
-
-##Page
 	name:string
-	title:string
-	cont:text
+	file:string
+	travel_ids:integer
+	comment:text
+
 
 ##Booking
 	"travel_id" :integer
 	"datesprice_id" :integer
 	"people_count"	:integer
-
 
 
 ##Question
