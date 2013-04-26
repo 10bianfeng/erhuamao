@@ -136,12 +136,25 @@
 	resource:string
 	resource_id:integer
 
-
+# PDF
 ##Brochure(PDF)
 	name:string
-	file:string
-	travel_ids:integer
+	desc:text
+	cover:string
+	doc:string
 	comment:text
+
+##Brochure_travel
+	brochure_id:integer
+	travel_id:integer
+
+##Brochure_interest
+	brochure_id:integer
+	interest_id:integer
+
+##Brochure_destination
+	brochure_id:integer
+	destination_id:integer
 
 
 ##Booking

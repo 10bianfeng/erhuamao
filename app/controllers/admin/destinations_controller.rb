@@ -106,5 +106,39 @@ class Admin::DestinationsController < ApplicationController
       end
     end
   end
+
+  #绑定相关PDF
+  def new_brochure_destination
+    @destination = Destination.find(params[:id])
+  end
+
+  def create_brochure_destination
+    @destination = Destination.find(params[:id])
+    @brochure = Brochure.find(params[:brochure_id])
+    @destination.brochures << @brochure
+
+    respond_to do |format|
+      if @destination.save
+        format.html { redirect_to([:admin, @destination], :notice => 'Destination was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_brochure_destination" }
+        format.xml  { render :xml => @destination.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy_brochure_destination
+    @destination = Destination.find(params[:id])
+    @brochure = Brochure.find(params[:brochure_id])
+    
+
+    respond_to do |format|
+      if BrochureDestination.where("destination_id = ? AND brochure_id = ?", @destination.id , @brochure.id ).destroy_all
+        format.html { redirect_to([:admin, @destination], :notice => 'Destination was successfully updated.') }
+        format.xml  { head :ok }
+      end
+    end
+  end
   
 end

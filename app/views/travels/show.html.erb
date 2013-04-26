@@ -14,16 +14,17 @@
       <div id="secondary_content" class="hide_from_print">
         <!-- RELATED BROCHURES -->
         <div class="hl3">Related Brochures</div>
+        <% @travel.brochures.each do |brochure| %>
         <div class="section">
           <div class="related_brochure self_clear">
             <p>
-              <img src="/images/travel-brochure-small-group-luxury-journeys-2013.jpg" width="93" height="120" alt="A&amp;K Luxury Small Group Journeys 2013" title="Luxury Small Group Journeys 2013 brochure">Luxury Small Group Journeys 2013</p>
+              <img src="<%= brochure.cover.url %>" width="93" height="120" alt="<%= brochure.name %>" title="<%= brochure.name %>"><%= brochure.name %></p>
             <ul>
               <li>
-                <a class="icon page_flip" href="/travel_brochures/?fuseaction=act_brochure_view&amp;brid=223" title="View Luxury Small Group Journeys 2013" rel="Luxury Small Group Journeys 2013 [223]" target="_blank" onclick="window.open($(this).attr('href'),'page_flip_win','toolbar=no,fullscreen=yes,channelmode=yes'); pageTracker._trackEvent('Brochure', 'Pageflip', $(this).attr('rel')); return false;">View</a>
+                <a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >View</a>
               </li>
               <li>
-                <a class="icon download" href="/travel_brochures/?fuseaction=act_brochure_download&amp;brid=223" onclick="recordIt('Brochure Download PDF','','')">Download</a>
+                <a class="icon download" href="<%= brochure.doc.url %>">Download</a>
               </li>
               <li>
                 <a class="icon request_brochure" href="/travel_brochures/?brid=223">Request</a>
@@ -31,24 +32,10 @@
             </ul>
           </div>
         </div>
+        <% end %>
         <div class="section">
-          <div class="related_brochure self_clear">
-            <p>
-              <img src="/images/travel-brochure-private-travel-2013.jpg" width="93" height="120" alt="Luxury Private Travel 2013" title="Luxury Private Travel 2013 brochure">Luxury Private Travel 2013</p>
-            <ul>
-              <li>
-                <a class="icon page_flip" href="/travel_brochures/?fuseaction=act_brochure_view&amp;brid=228" title="View Luxury Private Travel 2013" rel="Luxury Private Travel 2013 [228]" target="_blank" onclick="window.open($(this).attr('href'),'page_flip_win','toolbar=no,fullscreen=yes,channelmode=yes'); pageTracker._trackEvent('Brochure', 'Pageflip', $(this).attr('rel')); return false;">View</a>
-              </li>
-              <li>
-                <a class="icon download" href="/travel_brochures/?fuseaction=act_brochure_download&amp;brid=228" onclick="recordIt('Brochure Download PDF','','')">Download</a>
-              </li>
-              <li>
-                <a class="icon request_brochure" href="/travel_brochures/?brid=228">Request</a>
-              </li>
-            </ul>
-          </div>
           <p>
-            <a class="icon swirl_arrow" href="/travel_brochures/">View All Brochures</a>
+            <a class="icon swirl_arrow" href="/brochures">View All Brochures</a>
           </p>
         </div>
         <!-- DOWNLOAD TRIP FACTS -->

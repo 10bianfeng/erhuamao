@@ -10,6 +10,7 @@
     <th>所属地区</th>
     <th>所属兴趣点</th>
     <th>优惠信息</th>
+    <th>Pdf小册子</th>
     <th>操作</th>
   </tr>
 
@@ -86,6 +87,20 @@
           <tr>
             <td><a href="/admin/specialoffers/<%= specialoffer.id %>"><%= specialoffer.title %></a></td>
             <td><a href="/admin/travels/<%= travel.id %>/destroy_specialoffer_travel/<%= specialoffer.id %>">删除</a></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
+    <td>
+      <h5><a href="/admin/travels/<%= travel.id %>/new_brochure_travel">绑定相关Pdf</a></h5>
+      <table>
+        <tbody>
+          <% travel.brochures.each do |brochure| %>
+          <tr>
+            <td><a href="/admin/brochures/<%= brochure.id %>"><%= brochure.name %></a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/destroy_brochure_travel/<%= brochure.id %>">删除</a></td>
             <td></td>
           </tr>
           <% end %>

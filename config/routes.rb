@@ -1,6 +1,14 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :brochure_destinations
+
+  resources :brochure_interests
+
+  resources :brochure_travels
+
+  resources :brochures
+
   resources :pages
 
   resources :presses
@@ -101,6 +109,8 @@ Erhuamao::Application.routes.draw do
         post :create_interest_travel
         get :new_specialoffer_travel
         post :create_specialoffer_travel
+        get :new_brochure_travel
+        post :create_brochure_travel
       end
       resources :itineraries
       resources :datesprices
@@ -112,9 +122,16 @@ Erhuamao::Application.routes.draw do
       member do
         get :new_photo
         post :upload_photo
+        get :new_brochure_destination
+        post :create_brochure_destination
       end
     end
-    resources :interests
+    resources :interests do
+      member do
+        get :new_brochure_interest
+        post :create_brochure_interest
+      end
+    end
     resources :hotels do
       resources :photos
       member do
@@ -128,6 +145,7 @@ Erhuamao::Application.routes.draw do
     resources :events
     resources :pages
     resources :banners
+    resources :brochures
   end
 
   match "weibo_login" => "welcome#weibo_login"
@@ -136,6 +154,9 @@ Erhuamao::Application.routes.draw do
   match "admin/travels/:id/destroy_destination_travel/:destination_id" => "admin/travels#destroy_destination_travel"
   match "admin/travels/:id/destroy_interest_travel/:interest_id" => "admin/travels#destroy_interest_travel"
   match "admin/travels/:id/destroy_specialoffer_travel/:specialoffer_id" => "admin/travels#destroy_specialoffer_travel"
+  match "admin/travels/:id/destroy_brochure_travel/:brochure_id" => "admin/travels#destroy_brochure_travel"
+  match "admin/interests/:id/destroy_brochure_interest/:brochure_id" => "admin/interests#destroy_brochure_interest"
+  match "admin/destinations/:id/destroy_brochure_destination/:brochure_id" => "admin/destinations#destroy_brochure_destination"
   get 'admin' => 'admin/base#index'
   get 'admin/handle' => 'admin/base#handle'
   get 'search' => 'welcome#search'

@@ -6,6 +6,7 @@
     <th>ID</th>
     <th>Title</th>
     <th>Ancestry</th>
+    <th>Pdf</th>
     <th>操作</th>
   </tr>
 
@@ -17,6 +18,20 @@
     </td>
     <td><%= interest.title %></td>
     <td><%= interest.ancestry %></td>
+    <td>
+      <h5><a href="/admin/interests/<%= interest.id %>/new_brochure_interest">绑定相关Pdf</a></h5>
+      <table>
+        <tbody>
+          <% interest.brochures.each do |brochure| %>
+          <tr>
+            <td><a href="/admin/brochures/<%= brochure.id %>"><%= brochure.name %></a></td>
+            <td><a href="/admin/interests/<%= interest.id %>/destroy_brochure_interest/<%= brochure.id %>">删除</a></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
     <td>
       <%= link_to '查看', [:admin, interest] %> | 
       <%= link_to '编辑', edit_admin_interest_path(interest) %> | 

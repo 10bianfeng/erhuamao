@@ -1,0 +1,2 @@
+module BrochureInterestsHelper
+end

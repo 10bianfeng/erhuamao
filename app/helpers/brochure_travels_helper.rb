@@ -1,0 +1,2 @@
+module BrochureTravelsHelper
+end

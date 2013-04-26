@@ -31,8 +31,25 @@
       <div id="secondary_content" class="hide_from_print">
         <div id="cs_control_3131" class="">
           <div class="CS_Element_Schedule" title="" id="CS_Element_contentleft">
-            <a name="custom13651" id="custom13651"></a>
-            <a name="CP_JUMP_13651" id="CP_JUMP_13651"></a>
+            <% if @destination.brochures.size > 0 %>
+            <div id="cs_control_16254" class="cs_control CS_Element_CustomCF"> <div id="CS_CCF_16182_16254"> 
+              <div class="hl3">Related Brochures</div>
+            <% @destination.brochures.each do |brochure| %>
+            <div class="section">
+              <div class="related_brochure self_clear">
+                <p><img src="<%= brochure.cover.url %>" width="93" height="120" alt="<%= brochure.name %>" title="<%= brochure.name %>"><%= brochure.name %></p>
+                <ul>
+                  <li><a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >View</a></li>
+                  <li><a class="icon download" href="<%= brochure.doc.url %>">Download</a></li>
+                  <li><a class="icon request_brochure" href="/travel_brochures/?brid=223">Request</a></li>
+                </ul>
+              </div>
+              <p><a class="icon swirl_arrow" href="/brochures/">View All Brochures</a></p>
+            </div> 
+            <% end %>
+            </div> </div>
+            <% end %>
+
             <div id="cs_control_13651" class="cs_control CS_Element_Custom">
               <div class="hl3">Navigate By</div>
               <!-- travel destinations -->
@@ -86,7 +103,7 @@
                     </p>
                     <ul>
                       <li>
-                        <a class="icon swirl_arrow" href="/travel_brochures/">All Brochures</a>
+                        <a class="icon swirl_arrow" href="/brochures/">All Brochures</a>
                       </li>
                     </ul>
                   </div>
@@ -113,6 +130,7 @@
               <div class="CS_Element_Schedule" title="" id="CS_Element_contentsupplemental"></div>
             </div>
           </div>
+          <% if @destination.photos.size > 0 %>
           <div id="inline_gallery" class="hide_from_print round_corners color_f4f4f4">
             <div class="ctl"></div>
             <div class="ctr"></div>
@@ -141,6 +159,7 @@
               </p>
             </div>
           </div>
+          <% end %>
           <div id="cs_control_1329" class="">
             <div class="CS_Element_Schedule" title="" id="CS_Element_content">
               <a name="custom12294" id="custom12294"></a>

@@ -190,4 +190,38 @@ class Admin::TravelsController < ApplicationController
     end
   end
 
+  #绑定相关PDF
+  def new_brochure_travel
+    @travel = Travel.find(params[:id])
+  end
+
+  def create_brochure_travel
+    @travel = Travel.find(params[:id])
+    @brochure = Brochure.find(params[:brochure_id])
+    @travel.brochures << @brochure
+
+    respond_to do |format|
+      if @travel.save
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_brochure_travel" }
+        format.xml  { render :xml => @travel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy_brochure_travel
+    @travel = Travel.find(params[:id])
+    @brochure = Brochure.find(params[:brochure_id])
+    
+
+    respond_to do |format|
+      if BrochureTravel.where("travel_id = ? AND brochure_id = ?", @travel.id , @brochure.id ).destroy_all
+        format.html { redirect_to([:admin, @travel], :notice => 'Travel was successfully updated.') }
+        format.xml  { head :ok }
+      end
+    end
+  end
+
 end

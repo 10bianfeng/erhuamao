@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  brochure_id: 1
+  interest_id: 1
+
+two:
+  brochure_id: 1
+  interest_id: 1

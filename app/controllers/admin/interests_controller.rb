@@ -87,4 +87,39 @@ class Admin::InterestsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  #绑定相关PDF
+  def new_brochure_interest
+    @interest = Interest.find(params[:id])
+  end
+
+  def create_brochure_interest
+    @interest = Interest.find(params[:id])
+    @brochure = Brochure.find(params[:brochure_id])
+    @interest.brochures << @brochure
+
+    respond_to do |format|
+      if @interest.save
+        format.html { redirect_to([:admin, @interest], :notice => 'Interest was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "new_brochure_interest" }
+        format.xml  { render :xml => @interest.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy_brochure_interest
+    @interest = Interest.find(params[:id])
+    @brochure = Brochure.find(params[:brochure_id])
+    
+
+    respond_to do |format|
+      if BrochureInterest.where("interest_id = ? AND brochure_id = ?", @interest.id , @brochure.id ).destroy_all
+        format.html { redirect_to([:admin, @interest], :notice => 'Interest was successfully updated.') }
+        format.xml  { head :ok }
+      end
+    end
+  end
+
 end
