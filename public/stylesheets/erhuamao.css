@@ -165,7 +165,7 @@ min-width: 100%;
 /* SPECIAL-OFFERS  ---------------------------------------*/
 #special_offers .special_offer{
 	padding:1em 0;
-	background:url(/assets/images/graphics/h_dotted_line.gif) repeat-x;
+	background:url(/images/h_dotted_line.gif) repeat-x;
 }
 #special_offers .special_offer.nth-child-first{
 	padding-top:0;
@@ -206,14 +206,49 @@ min-width: 100%;
 }
 /* Special Offers END -----------------------------------*/
 
-
-
-
-
-
-
-
-
+.search_modal{
+	display: none;
+	width: 450px;
+	margin-left: -225px;
+	height: 191px;
+	margin-top: -95.5px; 
+	position: fixed;
+	z-index: 10001;
+	background-color: #F4F4F4;
+	top: 50%;
+	border: 1px solid #888;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	left: 50%;
+	padding: 0
+}
+.search_modal .close{
+	display: block;
+	position: absolute;
+	top: 7px;
+	right: 7px;
+	width: 15px;
+	height: 15px;
+	background: url(/images/close_window_button.gif) no-repeat;	
+}
+.search_modal .close:hover {
+background-position: -15px;
+}
+.overlay-details{
+	background-color: #fff;
+	width: 400px;
+	position: relative;
+	padding: 0;
+	margin: 0 25px;
+	top: 35px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	max-height: 530px;
+}
+.search_modal .overlay-padding{
+	padding: 15px;
+	position: relative;
+}
 
 
 

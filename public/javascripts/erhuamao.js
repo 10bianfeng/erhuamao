@@ -7,4 +7,9 @@ $(this).children().removeClass("show_menu");
 $inner_menu=$(this).find("ul");
 $(this).find(".menu").removeClass("show_menu").html($inner_menu);
 });
-// slideshow
+// popout mask onclick remove
+$("#popout_modal_mask").live("click",function(){
+	$(".search_modal").hide();
+	$("#popout_modal").hide();
+	$(this).remove();
+})

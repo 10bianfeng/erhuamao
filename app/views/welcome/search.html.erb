@@ -97,7 +97,7 @@
                       $<%= travel.priced_from %>
 				</span>
 				<span>
-					<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= travel.interests.first.title %>"><%= travel.interests.first.title %></a>
+					<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay(this)" title="<%= travel.interests.first.title %>"><%= travel.interests.first.title %></a>
 				</span>
 				<ul class="self_clear clear_list_style clear_margins">
 					<li class="search-description">
@@ -122,6 +122,15 @@
 						</span>
 					</li>
 				</ul>
+				<div class="search_modal">
+					<a class="close"></a>
+					<div class="overlay-details">
+						<div class="overlay-padding">
+							<h3 class="clear_margins">Luxury Small Group Journeys</h3>
+							<p style="margin-bottom: 0px;">The ultimate small-group travel experience, featuring an in-depth itinerary, best-in-class accommodations and an A&amp;K Tour Director, with no more than 18 guests on land and 24 on small ships and family journeys.</p>
+						</div>
+					</div>
+				</div>
 			</li>
 			<% end %>
 		</ul>
@@ -148,5 +157,18 @@ $("#search-results li.search-description span.float_right input.select_trip").ch
 		$(this).parent().find("span").html("Compare");
 	}
 });
+var getSeriesOverlay=function(a){
+	$(a).parent().parent().find(".search_modal").show();
+	$('<div id="popout_modal_mask"></div>').appendTo("body");
+}
+$(".search_modal .close").click(function(){
+	$(".search_modal").hide();
+	$('#popout_modal_mask').remove();
+});
+$("#popout_modal_mask").live("click",function(){
+	$(".search_modal").hide();
+	$(".popout_modal").hide();
+	$(this).remove();
+})
 </script>
 <% end %>		
