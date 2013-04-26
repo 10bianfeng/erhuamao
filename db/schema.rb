@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425094041) do
+ActiveRecord::Schema.define(:version => 20130426033447) do
+
+  create_table "banners", :force => true do |t|
+    t.string   "name"
+    t.string   "cover"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "imgname"
+  end
 
   create_table "datesprices", :force => true do |t|
     t.integer  "travel_id"
