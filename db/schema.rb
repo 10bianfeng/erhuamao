@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424035813) do
+ActiveRecord::Schema.define(:version => 20130425094041) do
 
   create_table "datesprices", :force => true do |t|
     t.integer  "travel_id"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(:version => 20130424035813) do
 
   add_index "destinations", ["ancestry"], :name => "index_destinations_on_ancestry"
 
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "cont"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "hotels", :force => true do |t|
     t.string   "name"
     t.integer  "destination_id"
@@ -72,6 +79,7 @@ ActiveRecord::Schema.define(:version => 20130424035813) do
     t.string   "ancestry"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover"
   end
 
   add_index "interests", ["ancestry"], :name => "index_interests_on_ancestry"
@@ -89,6 +97,14 @@ ActiveRecord::Schema.define(:version => 20130424035813) do
     t.datetime "updated_at"
   end
 
+  create_table "pages", :force => true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.text     "cont"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "photos", :force => true do |t|
     t.integer  "sort"
     t.string   "pic"
@@ -99,20 +115,28 @@ ActiveRecord::Schema.define(:version => 20130424035813) do
     t.datetime "updated_at"
   end
 
+  create_table "presses", :force => true do |t|
+    t.string   "title"
+    t.text     "cont"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "specialoffer_travels", :force => true do |t|
     t.integer  "specialoffer_id"
     t.integer  "travel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "datesprice_id"
   end
 
   create_table "specialoffers", :force => true do |t|
     t.string   "title"
     t.text     "desc"
     t.text     "cont"
-    t.string   "pic"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "cover"
   end
 
   create_table "travels", :force => true do |t|

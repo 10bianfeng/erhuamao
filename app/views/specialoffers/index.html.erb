@@ -1,27 +1,167 @@
-<h1>Listing specialoffers</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Cont</th>
-    <th>Pic</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @specialoffers.each do |specialoffer| %>
-  <tr>
-    <td><%= specialoffer.title %></td>
-    <td><%= specialoffer.cont %></td>
-    <td><%= specialoffer.pic %></td>
-    <td><%= link_to 'Show', specialoffer %></td>
-    <td><%= link_to 'Edit', edit_specialoffer_path(specialoffer) %></td>
-    <td><%= link_to 'Destroy', specialoffer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Specialoffer', new_specialoffer_path %>
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+  <li>
+    <a href="/">Home</a>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+  </li>
+  <li>Special Offers</li>
+</ul>
+<div class="self_clear">
+  <div id="secondary_content" class="hide_from_print">
+    <div id="cs_control_3131" class="">
+      <div class="CS_Element_Schedule" id="CS_Element_contentleft">
+        <a name="customcf3135" id="customcf3135"></a>
+        <a name="CP_JUMP_3135" id="CP_JUMP_3135"></a>
+        <div id="cs_control_3135" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_3135">
+            <h3>Special Offers By</h3>
+            <dl class="section clear_list_style">
+              <dt>Promotions &amp; Savings</dt>
+              <dd>
+                <ul class="bullet_list">
+                  <li id="navigation_active">
+                    <a href="/travel_specials/">View All Special Offers</a>
+                  </li>
+                  <li>
+                    <a href="/nyt-2012.cfm">NYT: The 45 Places to Go in 2012</a>
+                  </li>
+                </ul>
+              </dd>
+              <dt>Travel Destination</dt>
+              <dd>
+                <ul class="bullet_list">
+                  <li>
+                    <a href="/travel_specials/?tdgf=4&amp;cbc=Africa Special Offers">Africa</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=21&amp;cbc=Arctic Special Offers">Arctic</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=7&amp;cbc=Asia Special Offers">Asia</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=8&amp;cbc=Egypt%20%26amp%3B%20Middle%20East Special Offers">Egypt &amp; Middle East</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=9&amp;cbc=Europe Special Offers">Europe</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=20&amp;cbc=India Special Offers">India</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=11&amp;cbc=Latin%20America%20%26amp%3B%20Gal%C3%A1pagos Special Offers">Latin America &amp; Galápagos</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=-1&amp;cbc=Other Special Offers">Other</a>
+                  </li>
+                </ul>
+              </dd>
+              <dt>Travel Interest</dt>
+              <dd>
+                <ul class="bullet_list">
+                  <li>
+                    <a href="/travel_specials/?tif=723&amp;cbc=Luxury%20Small%20Group%20Journeys Special Offers">Luxury Small Group Journeys</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=690&amp;cbc=Private%20Luxury%20Journeys Special Offers">Private Luxury Journeys</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=699&amp;cbc=MPC%20Limited%20Edition%20Journeys Special Offers">MPC Limited Edition Journeys</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=691&amp;cbc=Adventure%20Cruises Special Offers">Adventure Cruises</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=719&amp;cbc=African%20Safari Special Offers">African Safari</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=692&amp;cbc=Canal%20%26%20River%20Cruising Special Offers">Canal &amp; River Cruising</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=717&amp;cbc=Solo%20Travel Special Offers">Solo Travel</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=716&amp;cbc=Signature%20Series Special Offers">Signature Series</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=-1&amp;cbc=Other Special Offers">Other</a>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <a name="customcf3972" id="customcf3972"></a>
+        <a name="CP_JUMP_3972" id="CP_JUMP_3972"></a>
+        <div id="cs_control_3972" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_3972">
+            <div class="end_cap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dMainFBContest"></div>
+  </div>
+  <div id="primary_content" class="align_edges">
+    <div id="cs_control_1329" class="">
+      <div class="CS_Element_Schedule" id="CS_Element_content">
+        <a name="customcf1644" id="customcf1644"></a>
+        <a name="CP_JUMP_1644" id="CP_JUMP_1644"></a>
+        <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_1644">
+            <div id="special_offers">
+              <h1>Special Offers</h1>
+              <!-- OFFER -->
+              <% @specialoffers.each do |specialoffer| %>
+              <div class="special_offer self_clear nth-child-first">
+                <img src="<%= specialoffer.cover.url %>" alt="<%= specialoffer.title %>" width="100" height="100" class="hoverZoomLink">
+                <div>
+                  <h3>
+                    <%= specialoffer.title %>
+                  </h3>
+                  <p>
+                    <%= specialoffer.desc %>
+                  </p>
+                  <p>
+                    <a href="javascript:void(0);" class="icon swirl_arrow" onclick="toggle_visibility('a296'); pageTracker._trackEvent('Content', 'Specials', jQuery(this).attr('title'));">View Offer Details</a>
+                  </p>
+                  <span id="a296" style="display:none;">
+                    <p>Journeys include:</p>
+                    <p>
+                      <a href="https://www.abercrombiekent.com/travel/?fuseaction=dsp_description&amp;tid=5820">
+                        Arctic Cruise Adventure: Norway, Greenland &amp;&nbsp;Iceland
+                      </a>
+                    </p>
+                    <ul>
+                      <li>
+                        Aug 7-21, 2014; save $1,500 per person on Category 1-3 cabins
+                      </li>
+                    </ul>
+                    <p>
+                      <a href="https://www.abercrombiekent.com/travel/?tid=5824">Arctic Cruise Norway:&nbsp;Polar Bears &amp; Midnight Sun</a>
+                    </p>
+                    <ul>
+                      <li>
+                        Jul 29-Aug 9, 2014; save $1,000 per person on Category 1-3 cabins
+                      </li>
+                    </ul>
+                    <p>
+                      <%= specialoffer.cont %>
+                    </p>
+                  </span>
+                </div>
+              </div>
+              <% end %>
+              <!-- OFFER -->
+              <h3>Terms &amp; Conditions</h3>
+              <p>
+                <em>
+                  For all Special Offers noted above, all prices are per person, based on double occupancy, unless otherwise stated. All prices are quoted in U.S. Dollars. Prices listed for each offer may pertain to specific departure dates. Restrictions and blackout dates may apply. Special Offers are for new bookings only, are not combinable with any other offer, discount or promotion and are based on availability.
+                </em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

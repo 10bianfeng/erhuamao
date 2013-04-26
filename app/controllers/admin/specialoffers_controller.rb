@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 # insub's admin scaffold template
-# rails g scaffold_controller_admin specialoffers title:string desc:text cont:text pic:string 
+# rails g scaffold_controller_admin specialoffers cover:string title:string desc:text cont:text 
 
 class Admin::SpecialoffersController < ApplicationController
   layout "admin"
