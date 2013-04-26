@@ -250,11 +250,34 @@ background-position: -15px;
 	position: relative;
 }
 
+/*         pdf css       */
 
+#dsp_brochure_order td{
+	padding:20px 20px 20px 0;
+}
+#dsp_brochure_order td span {
+	color:#85888D;
+	padding-top:2px;
+	display:block;
+}
+#dsp_brochure_order img,
+#dsp_brochure_download img{
+	float:left;
+	margin-right:15px;
 
+}
+#unique_brochure li h3 {border-bottom:#e4e5e6 1px dotted; padding-bottom:4px; margin-top:0;}
+#unique_brochure > li li {font-size:11px; color:#333; padding:4px 8px;}
+#unique_brochure li h3 span {font-size:11px; padding-top:3px;}
+#unique_brochure > li li.even {background:#f4f4f4;}
+#unique_brochure > li ul {}
+#unique_brochure .download_actions {float:right;}
 
+#right-col-wide {float:right; width:275px; margin-left:25px;}
+#unique_brochure .icon.download {padding:0; background:none;}
 
-
-
-
-
+#luxury-sem label {display:block; margin-bottom:5px; background:url(/assets/images/graphics/h_dotted_line.gif) repeat-x 0 bottom; overflow:hidden;}
+#luxury-sem label span {display:block; padding:4px 6px 0 0;}
+#luxury-sem div {float:right; height:22px; padding-left:8px; background:#f2f2f2;}
+#luxury-sem label.checkbox {width:auto; margin-bottom:12px; background:none;}
+#luxury-sem input.submit {float:none; width:auto;}
