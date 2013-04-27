@@ -7,7 +7,7 @@ class WelcomeController < ApplicationController
 
   def search
     # type: 1: Destinations 2: 
-    @travels = Travel.all
+    @travels = Travel.page(params[:page])
     @destinations = Destination.all
     @interests = Interest.all
     #@departure_dates = Datesprice.all.group_by{|d| d.start_date.strftime("%Y %m")}

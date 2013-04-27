@@ -1,0 +1,60 @@
+<%# The container tag
+  - available local variables
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+    paginator:     the paginator that renders the pagination tags inside
+-%>
+<%= paginator.render do -%>
+  <nav class="pagination">
+    <%= first_page_tag unless current_page.first? %>
+    <%= prev_page_tag unless current_page.first? %>
+    <% each_page do |page| -%>
+      <% if page.left_outer? || page.right_outer? || page.inside_window? -%>
+        <%= page_tag page %>
+      <% elsif !page.was_truncated? -%>
+        <%= gap_tag %>
+      <% end -%>
+    <% end -%>
+    <%= next_page_tag unless current_page.last? %>
+    <%= last_page_tag unless current_page.last? %>
+  </nav>
+  
+<% end -%>
+
+
+
+      
+      
+        <a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=690&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=0&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=5" class="next_page" title="View results on page 5"></a>
+      
+      
+      
+      
+      <ul class="clear_list_style clear_margins">
+        
+            
+            <li><a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=690&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=0&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=1" title="View results on page 1">1</a></li>
+          
+            
+            <li><a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=690&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=0&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=2" title="View results on page 2">2</a></li>
+          
+            
+            <li><a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=690&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=0&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=3" title="View results on page 3">3</a></li>
+          
+            
+            <li><strong>4</strong></li>
+          
+            
+            <li><a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=690&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=0&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=5" title="View results on page 5">5</a></li>
+          
+      </ul>
+      
+      
+      
+        <a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=690&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=0&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=3" class="prev_page" title="View results on page 3"></a>
+      
+      <span>Go to page:</span>
+      Showing 61 - 80 of 97
+            

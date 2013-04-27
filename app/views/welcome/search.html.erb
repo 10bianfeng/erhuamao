@@ -126,8 +126,8 @@
 					<a class="close"></a>
 					<div class="overlay-details">
 						<div class="overlay-padding">
-							<h3 class="clear_margins">Luxury Small Group Journeys</h3>
-							<p style="margin-bottom: 0px;">The ultimate small-group travel experience, featuring an in-depth itinerary, best-in-class accommodations and an A&amp;K Tour Director, with no more than 18 guests on land and 24 on small ships and family journeys.</p>
+							<h3 class="clear_margins"><%= travel.interests.first.title %></h3>
+							<p style="margin-bottom: 0px;"><%= travel.interests.first.cont %></p>
 						</div>
 					</div>
 				</div>
@@ -135,13 +135,7 @@
 			<% end %>
 		</ul>
 		<div class="paging self_clear">
-			<ul class="clear_list_style clear_margins">
-				<li>
-					<strong>1</strong>
-				</li>
-			</ul>
-			<span>Go to page:</span>
-			Showing 1 - 20 of 20
+			<%= paginate @travels %>
 		</div>
 	</div>
 </div>

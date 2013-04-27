@@ -1391,7 +1391,7 @@ absolute image paths.
 }
 #trip_recommend li.first_child a.prev{
 	display:block;
-	background:url(/assets/images/graphics/previous.gif) no-repeat;
+	background:url(/images/previous.gif) no-repeat;
 	
 }
 #trip_recommend li.first_child a:hover.prev{
@@ -1404,7 +1404,7 @@ absolute image paths.
 }
 #trip_recommend li.last_child a.next{
 	display:block;
-	background:url(/assets/images/graphics/next.gif) no-repeat;
+	background:url(/images/next.gif) no-repeat;
 	
 }
 #trip_recommend li.last_child a:hover.next{
@@ -3004,12 +3004,12 @@ img.depart_guar,
 }
 .next_page{
 	/*Arrow image*/
-	background:url(/assets/images/graphics/next.gif) no-repeat;
+	background:url(/images/next.gif) no-repeat;
 	
 }
 .prev_page{
 	/*Arrow image*/
-	background:url(/assets/images/graphics/previous.gif) no-repeat;
+	background:url(/images/previous.gif) no-repeat;
 		
 }
 /*@END--------------------------------*/
