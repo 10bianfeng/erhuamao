@@ -206,7 +206,7 @@ min-width: 100%;
 }
 /* Special Offers END -----------------------------------*/
 
-.search_modal{
+.text_modal{
 	display: none;
 	width: 450px;
 	margin-left: -225px;
@@ -222,7 +222,7 @@ min-width: 100%;
 	left: 50%;
 	padding: 0
 }
-.search_modal .close{
+.text_modal .close{
 	display: block;
 	position: absolute;
 	top: 7px;
@@ -231,7 +231,7 @@ min-width: 100%;
 	height: 15px;
 	background: url(/images/close_window_button.gif) no-repeat;	
 }
-.search_modal .close:hover {
+.text_modal .close:hover {
 background-position: -15px;
 }
 .overlay-details{
@@ -245,7 +245,7 @@ background-position: -15px;
 	overflow-y: auto;
 	max-height: 530px;
 }
-.search_modal .overlay-padding{
+.text_modal .overlay-padding{
 	padding: 15px;
 	position: relative;
 }

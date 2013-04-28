@@ -122,7 +122,7 @@
 						</span>
 					</li>
 				</ul>
-				<div class="search_modal">
+				<div class="text_modal">
 					<a class="close"></a>
 					<div class="overlay-details">
 						<div class="overlay-padding">
@@ -143,24 +143,22 @@
 <% content_for :footer do %>
 <script>
 $("#search-results li.search-description span.float_right input.select_trip").change(function(){
-	console.log(2);
 	if($(this).is(":checked")){
-		console.log(1);
 		$(this).parent().find("span").html("<a href='/compare'>Compare</a>");
 	}else{
 		$(this).parent().find("span").html("Compare");
 	}
 });
 var getSeriesOverlay=function(a){
-	$(a).parent().parent().find(".search_modal").show();
+	$(a).parent().parent().find(".text_modal").show();
 	$('<div id="popout_modal_mask"></div>').appendTo("body");
 }
-$(".search_modal .close").click(function(){
-	$(".search_modal").hide();
+$(".text_modal .close").click(function(){
+	$(".text_modal").hide();
 	$('#popout_modal_mask').remove();
 });
 $("#popout_modal_mask").live("click",function(){
-	$(".search_modal").hide();
+	$(".text_modal").hide();
 	$(".popout_modal").hide();
 	$(this).remove();
 })
