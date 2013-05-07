@@ -252,189 +252,22 @@
 			<hr />
 			<!-- SEO LINKS -->
 			<div id="seo_links">
-				<!-- AFRICA -->
+				
+			<% Destination.all.each do |destination| %>
+				<% if destination.is_root?  %>
 				<ul class="clear_list_style">
 					<li>
-						<a href="/travel-destinations/africa-safari/" title="Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Africa Safari</a>
+						<a href="/destinations/<%= destination.id %>"><%= destination.name %></a>
 					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/east-africa/" title="East Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">East Africa Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/east-africa/mobile-tented-safaris.cfm" title="Camping Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Camping Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/east-africa/kenya/" title="Kenya Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Kenya Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/east-africa/tanzania/" title="Tanzania Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Tanzania Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/east-africa/tanzania/kilimanjaro-climb.cfm" title="Kilimanjaro Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Kilimanjaro Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/east-africa/uganda/" title="Uganda Gorilla Safaris" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Uganda Gorilla Safaris</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/southern-africa/" title="Southern Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Southern Africa Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/southern-africa/botswana/" title="Botswana Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Botswana Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/southern-africa/south-africa/" title="South Africa Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">South Africa Safari</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/africa-safari/southern-africa/zambia/" title="Zambia Safari" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Zambia Safari</a>
-					</li>
+					<% destination.descendants.each do |c_destination| %>
+						<li>
+							|
+						<a href="/destinations/<%= c_destination.id %>" title="<%= c_destination.name %> Safari"><%= c_destination.name %></a>
+						</li>
+					<% end %>
 				</ul>
-				<!-- ANTARCTICA -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/antarctica-cruise/" title="Antarctica Cruises" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Antarctica Cruises</a>
-					</li>
-				</ul>
-				<!-- AUSTRALIA & NEW ZEALAND -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/australia-new-zealand-luxury-travel/" title="Australia & New Zealand" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Australia &amp; New Zealand</a>
-					</li>
-				</ul>
-				<!-- ASIA -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/asia-luxury-travel/" title="Asia Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Asia Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/asia-luxury-travel/china/" title="China Adventure Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">China Adventure Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/asia-luxury-travel/china/yangtze-river-yangzi-cruise.cfm" title="Yangzi Cruise" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Yangzi Cruise</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/asia-luxury-travel/japan/" title="Japan Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Japan Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/asia-luxury-travel/southeast/" title="Southeast Asia Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Southeast Asia Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/asia-luxury-travel/southeast/cambodia/" title="Cambodia Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Cambodia Luxury Travel</a>
-					</li>
-				</ul>
-				<!-- EGYPT & MIDDLE EAST -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/middle-east-luxury-travel/" title="Egypt & Middle East Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Egypt &amp; Middle East Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/middle-east-luxury-travel/egypt/" title="Egypt Nile Cruise" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Egypt Nile Cruise</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/middle-east-luxury-travel/jordan/" title="Jordan & Petra Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Jordan &amp; Petra Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/middle-east-luxury-travel/morocco/" title="Morocco Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Morocco Luxury Travel</a>
-					</li>
-				</ul>
-				<!-- EUROPE -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/europe-luxury-holidays/" title="European Luxury Holidays" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">European Luxury Holidays</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/europe-luxury-holidays/britain-ireland-france-travel/" title="British, Ireland & France" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">British, Ireland &amp; France</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/europe-luxury-holidays/spain-portugal-italy-travel/" title="Spain, Portugal & Italy" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Spain, Portugal &amp; Italy</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/europe-luxury-holidays/greece-turkey-travel/" title="Greece & Turkey" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Greece &amp; Turkey</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/europe-luxury-holidays/central-eastern-europe-travel/" title="Central & Eastern Europe" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Central &amp; Eastern Europe</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/europe-luxury-holidays/russia-scandinavia-baltics/" title="Russia, Scandinavia & the Baltic States" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Russia, Scandinavia &amp; the Baltic States</a>
-					</li>
-				</ul>
-				<!-- INDIA -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/india-luxury-travel/" title="India Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">India Luxury Travel</a>
-					</li>
-				</ul>
-				<!-- LATIN AMERICA -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/latin-america-luxury-travel/" title="Latin America Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Latin America Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/latin-america-luxury-travel/argentina/" title="Argentina Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Argentina Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/latin-america-luxury-travel/chile/" title="Chile Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Chile Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/latin-america-luxury-travel/costa-rica/" title="Costa Rica Luxury Vacation" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Costa Rica Luxury Vacation</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/latin-america-luxury-travel/galapagos-ecuador/" title="Galรกpagos & Ecuador Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Gal&aacute;pagos & Ecuador Luxury Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/latin-america-luxury-travel/peru-machu-picchu/" title="Machu Picchu Holiday" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Machu Picchu Holiday</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/latin-america-luxury-travel/mexico/" title="Mexico Luxury Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Mexico Luxury Travel</a>
-					</li>
-				</ul>
-				<!-- NORTH AMERICA -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="/travel-destinations/north-america-luxury-travel/" title="North American Travel" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">North American Travel</a>
-					</li>
-					<li>
-						|
-						<a href="/travel-destinations/north-america-luxury-travel/alaska/" title="Alaska Adventure Cruise" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Alaska Adventure Cruise</a>
-					</li>
-				</ul>
-				<!-- IINTERNATIONAL ESTATES -->
-				<ul class="clear_list_style">
-					<li>
-						<a href="http://www.akinternationalestates.com/" title="Luxury Real Estate" onClick="pageTracker._trackEvent('Content', 'SEO Links', $(this).get('title'));">Luxury Real Estate</a>
-					</li>
-					<li>
-						| If you are interested in purchasing a luxury holiday home, visit A&K International Estates.
-					</li>
-				</ul>
+				<% end %>
+			<% end %>
 			</div>
 			<p class="base_font_size">
 				&copy;1996-2013 Abercrombie &amp; Kent USA, LLC. All rights reserved.

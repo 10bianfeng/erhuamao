@@ -135,8 +135,9 @@
 			<% end %>
 		</ul>
 		<div class="paging self_clear">
-			<%= paginate @travels %>
-		</div>
+      <%= paginate @travels %>
+      <span>Go to page:</span> Showing <%= @travels.offset_value + 1 %> - <%= @travels.offset_value + @travels.length %> of <%= @travels.total_count %>
+    </div>
 	</div>
 </div>
 

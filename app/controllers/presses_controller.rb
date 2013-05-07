@@ -3,7 +3,7 @@ class PressesController < ApplicationController
   # GET /presses
   # GET /presses.xml
   def index
-    @presses = Press.all
+    @presses = Press.page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
