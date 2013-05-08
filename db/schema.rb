@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426111110) do
+ActiveRecord::Schema.define(:version => 20130508091546) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -19,6 +19,30 @@ ActiveRecord::Schema.define(:version => 20130426111110) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "imgname"
+  end
+
+  create_table "bookings", :force => true do |t|
+    t.string   "mrs_title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "preferred_contact_method"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "country"
+    t.string   "region"
+    t.string   "postal_code"
+    t.boolean  "is_subscribe"
+    t.integer  "user_id"
+    t.integer  "travel_id"
+    t.integer  "datesprice_id"
+    t.integer  "destination_id"
+    t.integer  "people_count"
+    t.string   "agent_name"
+    t.string   "agent_code"
+    t.text     "comment"
+    t.boolean  "has_target"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "brochure_destinations", :force => true do |t|
@@ -94,6 +118,31 @@ ActiveRecord::Schema.define(:version => 20130426111110) do
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "cont"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "gbookings", :force => true do |t|
+    t.string   "mrs_title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "preferred_contact_method"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "country"
+    t.string   "region"
+    t.string   "postal_code"
+    t.boolean  "is_subscribe"
+    t.integer  "user_id"
+    t.string   "agent_name"
+    t.string   "agent_code"
+    t.integer  "destination_id"
+    t.datetime "departure_date"
+    t.integer  "trip_day_length"
+    t.integer  "adult_count"
+    t.integer  "child_count"
+    t.text     "event_comment"
+    t.text     "city_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

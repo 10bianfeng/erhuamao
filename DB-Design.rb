@@ -158,9 +158,47 @@
 
 
 ##Booking
-	"travel_id" :integer
-	"datesprice_id" :integer
-	"people_count"	:integer
+	mrs_title:string
+	first_name:string
+	last_name:string
+	preferred_contact_method:integer
+	email:string
+	phone:string
+	country:string
+	region:string
+	postal_code:string
+	is_subscribe:boolean
+	user_id:integer
+	travel_id:integer
+	datesprice_id:integer
+	destination_id:integer
+	people_count:integer
+	agent_name:string
+	agent_code:string
+	comment:text
+
+
+##Gbooking
+	mrs_title:string
+	first_name:string
+	last_name:string
+	preferred_contact_method:integer
+	email:string
+	phone:string
+	country:string
+	region:string
+	postal_code:string
+	is_subscribe:boolean
+	user_id:integer
+	agent_name:string
+	agent_code:string
+	destination_id:integer
+	departure_date:datetime
+	trip_day_length:integer
+	adult_count:integer
+	child_count:integer
+	event_comment:text
+	city_comment:text
 
 
 ##Question

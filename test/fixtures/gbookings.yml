@@ -1,0 +1,45 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mrs_title: MyString
+  first_name: MyString
+  last_name: MyString
+  preferred_contact_method: 1
+  email: MyString
+  phone: MyString
+  country: MyString
+  region: MyString
+  postal_code: MyString
+  is_subscribe: false
+  user_id: 1
+  agent_name: MyString
+  agent_code: MyString
+  destination_id: 1
+  departure_date: 2013-05-08 17:15:46
+  trip_day_length: 1
+  adult_count: 1
+  child_count: 1
+  event_comment: MyText
+  city_comment: MyText
+
+two:
+  mrs_title: MyString
+  first_name: MyString
+  last_name: MyString
+  preferred_contact_method: 1
+  email: MyString
+  phone: MyString
+  country: MyString
+  region: MyString
+  postal_code: MyString
+  is_subscribe: false
+  user_id: 1
+  agent_name: MyString
+  agent_code: MyString
+  destination_id: 1
+  departure_date: 2013-05-08 17:15:46
+  trip_day_length: 1
+  adult_count: 1
+  child_count: 1
+  event_comment: MyText
+  city_comment: MyText

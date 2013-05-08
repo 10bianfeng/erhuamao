@@ -1,0 +1,61 @@
+<h1>Listing gbookings</h1>
+
+<table>
+  <tr>
+    <th>Mrs title</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Preferred contact method</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Country</th>
+    <th>Region</th>
+    <th>Postal code</th>
+    <th>Is subscribe</th>
+    <th>User</th>
+    <th>Agent name</th>
+    <th>Agent code</th>
+    <th>Destination</th>
+    <th>Departure date</th>
+    <th>Trip day length</th>
+    <th>Adult count</th>
+    <th>Child count</th>
+    <th>Event comment</th>
+    <th>City comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @gbookings.each do |gbooking| %>
+  <tr>
+    <td><%= gbooking.mrs_title %></td>
+    <td><%= gbooking.first_name %></td>
+    <td><%= gbooking.last_name %></td>
+    <td><%= gbooking.preferred_contact_method %></td>
+    <td><%= gbooking.email %></td>
+    <td><%= gbooking.phone %></td>
+    <td><%= gbooking.country %></td>
+    <td><%= gbooking.region %></td>
+    <td><%= gbooking.postal_code %></td>
+    <td><%= gbooking.is_subscribe %></td>
+    <td><%= gbooking.user_id %></td>
+    <td><%= gbooking.agent_name %></td>
+    <td><%= gbooking.agent_code %></td>
+    <td><%= gbooking.destination_id %></td>
+    <td><%= gbooking.departure_date %></td>
+    <td><%= gbooking.trip_day_length %></td>
+    <td><%= gbooking.adult_count %></td>
+    <td><%= gbooking.child_count %></td>
+    <td><%= gbooking.event_comment %></td>
+    <td><%= gbooking.city_comment %></td>
+    <td><%= link_to 'Show', gbooking %></td>
+    <td><%= link_to 'Edit', edit_gbooking_path(gbooking) %></td>
+    <td><%= link_to 'Destroy', gbooking, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Gbooking', new_gbooking_path %>

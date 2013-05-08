@@ -1,6 +1,10 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :gbookings
+
+  resources :bookings
+
   resources :brochure_destinations
 
   resources :brochure_interests
