@@ -258,9 +258,23 @@
               <p>
                 <%= itinerary.desc %>
               </p>
-              <em><a class="icon camera_white" href="#" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-7058');  pageTracker._trackEvent('Gallery', 'Image', jQuery(this).attr('text')); return false;"><%= itinerary.hotel.name %></a></em> 
+              <em><a class="icon camera_white" href="javascript:void(0);" onclick="modal_slides(this)"><%= itinerary.hotel.name %></a></em> 
               &nbsp;&nbsp;|&nbsp;&nbsp;
               <em>Meals: B D</em>
+              <!-- popout modals  -->
+              <div id="popout_modal" class='popout_modal'>
+                <div class="close_modal" onclick="modal_close();">X</div>
+                <strong class="title">Africa</strong>
+                <div id="destination_slides_modal">
+                    <img src="/uploads/photo/pic/6/a07125dcd95c9c77d4f786efb00a4137.jpg" alt="hasjklasd pic" >
+                    <img src="/uploads/photo/pic/7/45275e37f31a3bfbe05ce7f8ec5d3fe2.jpg" alt="adsadsad " >
+                    <img src="/uploads/photo/pic/8/35a0dc5c3a42cad0dfe15b9a4b2a9f83.jpg" alt="asdsd" >
+                </div>
+                <p class="slide_img_title"></p>
+              </div>
+
+
+
             </dd>
             <% end %>
           </dl>
@@ -929,19 +943,87 @@
 
 
 <% content_for :footer do %>
+<%= javascript_include_tag "jquery.slides.min.js" %>
 <script>
-    var getSeriesOverlay=function(a){
-      $(".text_modal").show();
-      $('<div id="popout_modal_mask"></div>').appendTo("body");
+// refresh window active tabs on hash
+var getTabActive=function(){
+    $("#trip_navigation_top li").removeClass("current");
+    $(".tab_item").addClass("hide");
+    $('#trip_navigation_top a[href='+window.location.hash+']').parent().addClass("current");
+    $(window.location.hash).removeClass("hide");
+}
+$("document").ready(function(){
+  if(window.location.hash&&$(window.location.hash).length>0){
+    getTabActive();
+  }
+})
+$("#trip_navigation_top li a").live("click", function(){
+  $("#trip_navigation_top li").removeClass("current");
+  $(".tab_item").addClass("hide");
+  $(this).parent().addClass("current");
+  $($(this).attr("href")).removeClass("hide");
+  return false;
+})
+// listen change of window.location.hash, then active
+if (("onhashchange" in window) && !($.browser.msie)) {
+     window.onhashchange = function () {
+       if ($(window.location.hash).length>0) {
+        getTabActive();
+        return false;
+       };     
+     }
+}
+else {
+  $(window).bind('hashchange', function() {
+    if($(window.location.hash).length>1){
+      getTabActive();
+      return false;
+     }
+  });
+}
+
+var getSeriesOverlay=function(a){
+  $(".text_modal").show();
+  $('<div id="popout_modal_mask"></div>').appendTo("body");
+}
+$(".text_modal .close").click(function(){
+  $(".text_modal").hide();
+  $('#popout_modal_mask').remove();
+});
+$("#popout_modal_mask").live("click",function(){
+  $(".text_modal").hide();
+  $(".popout_modal").hide();
+  $(this).remove();
+})
+var modal_slides=function(a){
+  $(a).parent().parent().find(".popout_modal").show().find('#destination_slides_modal').slidesjs({
+  width: 514,
+  height: 344,
+  navigation: false,
+  pagination: {
+    effect: "fade"
+  },
+  effect: {
+    fade: {
+      speed: 800
     }
-    $(".text_modal .close").click(function(){
-      $(".text_modal").hide();
-      $('#popout_modal_mask').remove();
-    });
-    $("#popout_modal_mask").live("click",function(){
-      $(".text_modal").hide();
-      $(".popout_modal").hide();
-      $(this).remove();
-    })
+  },
+  callback:{
+    loaded: function(number) {
+          $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+        },
+    complete: function(number) {
+          $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+    }
+  }
+});
+  $('<div id="popout_modal_mask"></div>').appendTo("body");
+  return false;
+}
+var modal_close=function(){
+  $(".popout_modal").hide();
+  $('#popout_modal_mask').remove();
+  return false;
+}
 </script>
 <% end %>
