@@ -66,50 +66,16 @@
           <dt>Photo Gallery</dt>
           <dd>
             <ul class="bullet_list">
-              <li>
-                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');">Pashan Garh</a>
+              <% @travel.destinations.each do |destination| %>
+                <li>
+                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');"><%= destination.gallery.title  %></a>
               </li>
-              
-            </ul>
-          </dd>
-          <dt>India Information</dt>
-          <dd>
-            <ul class="bullet_list">
-              <li>
-                <a href="/assets_global/media/images/weather/best-time-to-visit-india.gif" onclick="window.open(this.href,'climate_win','height=250,width=340,toolbars=no,scrollbars=auto,location=no,resizable=yes'); return false;" target="_blank" title="" class="hoverZoomLink">Climate</a>
+              <% end %>
+              <% @travel.itineraries.each do |itinerary| %>
+                <li>
+                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');"><%= itinerary.hotel.gallery.title  %></a>
               </li>
-              <li>
-                <a href="https://www.cia.gov/library/publications/the-world-factbook/geos/in.html" target="_blank" title="">World Fact Book</a>
-              </li>
-              <li>
-                <a href="http://wwwnc.cdc.gov/travel/destinations/india.htm" target="_blank" title="">CDC Information</a>
-              </li>
-            </ul>
-          </dd>
-          <dt>Travel Store</dt>
-          <dd>
-            <ul class="bullet_list">
-              <li>
-                <a href="http://www.longitudebooks.com/find/d/2926/r/AK/mcms.html" target="_blank" title="">Essential Reading</a>
-              </li>
-              <li>
-                <a href="/travel_store/currency.cfm" title="">Foreign Currency</a>
-              </li>
-              <li>
-                <a href="/travel_store/luggage.cfm" title="">Luggage Delivery</a>
-              </li>
-              <li>
-                <a href="http://usa.thetraveloutfitter.com/index.php?cPath=34_65" target="_blank" title="">Recommended Clothing</a>
-              </li>
-              <li>
-                <a href="/travel_store/satellite_phone.cfm" title="">Satellites &amp; Global Phones</a>
-              </li>
-              <li>
-                <a href="/travel_store/travel_insurance/" title="">Travel Insurance</a>
-              </li>
-              <li>
-                <a href="/travel_store/visa_expedition.cfm" title="">Visas &amp; Passports</a>
-              </li>
+              <% end %>
             </ul>
           </dd>
         </dl>
