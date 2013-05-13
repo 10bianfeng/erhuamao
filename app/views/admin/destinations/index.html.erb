@@ -36,7 +36,7 @@
     <td><%= destination.voltage %></td>
     <td><%= destination.currency %></td>
     <td><%= destination.ancestry %></td>
-    <td><%= destination.photos.size %> / <a href="/admin/destinations/<%= destination.id %>/new_photo">上传图片</a></td>
+    <td><%= destination.gallery.photos.size %> / <a href="/admin/galleries/<%= destination.gallery.id %>">管理图片</a></td>
     <td>
       <h5><a href="/admin/destinations/<%= destination.id %>/new_brochure_destination">绑定相关Pdf</a></h5>
       <table>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  travel_id: 1
+  resource: MyString
+  resource_id: 1
+
+two:
+  title: MyString
+  travel_id: 1
+  resource: MyString
+  resource_id: 1

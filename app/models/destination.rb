@@ -6,7 +6,7 @@ class Destination < ActiveRecord::Base
 	has_many :brochure_destinations
 	has_many :brochures, :through => :brochure_destinations
 	
-	has_many :photos, :as => :resource
+	belongs_to :gallery
 
 
 	default_scope order('created_at ASC')

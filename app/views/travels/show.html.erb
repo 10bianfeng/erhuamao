@@ -12,8 +12,10 @@
     </ul>
     <div class="self_clear">
       <div id="secondary_content" class="hide_from_print">
+        <% if @travel.brochures.size > 0 %>
         <!-- RELATED BROCHURES -->
         <div class="hl3">Related Brochures</div>
+        <% end %>
         <% @travel.brochures.each do |brochure| %>
         <div class="section">
           <div class="related_brochure self_clear">
@@ -55,7 +57,7 @@
           </div>
           <ul class="clear_list_style">
             <li>
-              <a class="icon article" href="/travel/terms_and_conditions.cfm?tid=5628" onclick="window.open(this.href,'TNC_win','height=500,width=830,toolbars=no,scrollbars=yes,location=no,resizable=yes'); return false;" target="_blank" title="">Terms &amp; Conditions</a>
+              <a class="icon article" href="/pages/9" target="_blank" title="">Terms &amp; Conditions</a>
             </li>
           </ul>
         </div>
@@ -67,24 +69,7 @@
               <li>
                 <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');">Pashan Garh</a>
               </li>
-              <li>
-                <a href="javascript:void(0);" title="Rambagh Palace" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-4296');">Rambagh Palace</a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" title="Taj Lake Palace" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-1281');">Taj Lake Palace</a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" title="The Gateway Hotel Ganges Varanasi" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-2277');">The Gateway Hotel Ganges Varanasi</a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" title="The Oberoi Amarvilás" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-2021');">The Oberoi Amarvilás</a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" title="The Taj Mahal Hotel" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-2265');">The Taj Mahal Hotel</a>
-              </li>
-              <li>
-                <a href="javascript:void(0);" title="The Taj Mahal Palace" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-7058');">The Taj Mahal Palace</a>
-              </li>
+              
             </ul>
           </dd>
           <dt>India Information</dt>
@@ -264,9 +249,9 @@
               <!-- popout modals  -->
               <div id="popout_modal" class='popout_modal'>
                 <div class="close_modal" onclick="modal_close();">X</div>
-                <strong class="title"><%= itinerary.hotel.name %></strong>
+                <strong class="title"><%= itinerary.hotel.gallery.title %></strong>
                 <div id="destination_slides_modal">
-                  <% itinerary.hotel.photos.each do |photo| %>
+                  <% itinerary.hotel.gallery.photos.each do |photo| %>
                     <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
                   <% end %>
                 </div>

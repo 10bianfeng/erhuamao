@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :galleries
+
   resources :gbookings
 
   resources :bookings
@@ -122,10 +124,8 @@ Erhuamao::Application.routes.draw do
     resources :datesprices
     resources :itineraries
     resources :destinations do
-      resources :photos
+      resources :galleries
       member do
-        get :new_photo
-        post :upload_photo
         get :new_brochure_destination
         post :create_brochure_destination
       end
@@ -137,11 +137,7 @@ Erhuamao::Application.routes.draw do
       end
     end
     resources :hotels do
-      resources :photos
-      member do
-        get :new_photo
-        post :upload_photo
-      end
+      resources :galleries
     end
     resources :photos
     resources :specialoffers
@@ -150,6 +146,9 @@ Erhuamao::Application.routes.draw do
     resources :pages
     resources :banners
     resources :brochures
+    resources :galleries do 
+      resources :photos
+    end
   end
 
   match "weibo_login" => "welcome#weibo_login"

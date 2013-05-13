@@ -32,7 +32,7 @@ class Admin::PhotosController < ApplicationController
   # GET /photos/new.xml
   def new
     @photo = Photo.new
-
+    @gallery = Gallery.find(params[:gallery_id])
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @photo }
@@ -42,16 +42,18 @@ class Admin::PhotosController < ApplicationController
   # GET /photos/1/edit
   def edit
     @photo = Photo.find(params[:id])
+    @gallery = @photo.gallery
   end
 
   # POST /photos
   # POST /photos.xml
   def create
     @photo = Photo.new(params[:photo])
+    @photo.gallery = Gallery.find(params[:gallery_id])
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to(admin_photos_url, :notice => 'Photo was successfully created.') }
+        format.html { redirect_to([:admin, @photo.gallery], :notice => 'Photo was successfully created.') }
         format.xml  { render :xml => @photo, :status => :created, :location => @photo }
       else
         format.html { render :action => "new" }
@@ -64,10 +66,11 @@ class Admin::PhotosController < ApplicationController
   # PUT /photos/1.xml
   def update
     @photo = Photo.find(params[:id])
+    @gallery = @photo.gallery
 
     respond_to do |format|
       if @photo.update_attributes(params[:photo])
-        format.html { redirect_to([:admin, @photo], :notice => 'Photo was successfully updated.') }
+        format.html { redirect_to([:admin, @gallery], :notice => 'Photo was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,10 +83,11 @@ class Admin::PhotosController < ApplicationController
   # DELETE /photos/1.xml
   def destroy
     @photo = Photo.find(params[:id])
+    @gallery = @photo.gallery
     @photo.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_photos_url) }
+      format.html { redirect_to([:admin, @gallery]) }
       format.xml  { head :ok }
     end
   end

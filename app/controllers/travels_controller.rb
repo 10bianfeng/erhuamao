@@ -15,6 +15,10 @@ class TravelsController < ApplicationController
   # GET /travels/1.xml
   def show
     @travel = Travel.find(params[:id])
+    @photo_gallerys = []
+#    @travel.destinations.each do |destination|
+#      @photo_gallerys << destination.photo
+#    end
 
     respond_to do |format|
       format.html # show.html.erb

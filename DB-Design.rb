@@ -1,6 +1,5 @@
 # 旅游线路
 ##Travel
-	have gallery
 	have right top pic
 	"name" :string
 	"sub_name" :string
@@ -19,7 +18,6 @@
 
 # 行程安排
 ##Itinerary
-	have gallery
 	name:string
 	desc:text
 	travel_id:integer
@@ -133,8 +131,11 @@
 	sort:integer
 	pic:string
 	desc:string
-	resource:string
-	resource_id:integer
+
+# 画廊
+#Gallery
+	title:string
+	travel_id:integer
 
 # PDF
 ##Brochure(PDF)

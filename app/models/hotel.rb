@@ -1,4 +1,4 @@
 class Hotel < ActiveRecord::Base
-	has_many :photos, :as => :resource
+	belongs_to :gallery
 	has_many :itinerary
 end

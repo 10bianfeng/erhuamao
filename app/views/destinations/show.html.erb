@@ -130,7 +130,7 @@
               <div class="CS_Element_Schedule" title="" id="CS_Element_contentsupplemental"></div>
             </div>
           </div>
-          <% if @destination.photos.size > 0 %>
+          <% if @destination.gallery.photos.size > 0 %>
           <div id="inline_gallery" class="hide_from_print round_corners color_f4f4f4">
             <div class="ctl"></div>
             <div class="ctr"></div>
@@ -138,16 +138,16 @@
             <div class="cbl"></div>
             <div class="inline_gallery self_clear">
               <div id="destination_slides" style="height:276px;">
-                <% @destination.photos.each do |photo| %>
+                <% @destination.gallery.photos.each do |photo| %>
                 <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
                 <% end %>
               </div>  
               <div id="popout_modal">
                 <div class="close_modal" onclick="modal_close();">X</div>
-                <strong class="title"><%= @destination.name %></strong>
+                <strong class="title"><%= @destination.gallery.title %></strong>
                 <div id="destination_slides_modal">
 
-                  <% @destination.photos.each do |photo| %>
+                  <% @destination.gallery.photos.each do |photo| %>
                     <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
                   <% end %>
                 </div>

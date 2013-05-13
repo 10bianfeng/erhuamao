@@ -17,7 +17,7 @@
     </td>
     <td><%= hotel.name %></td>
     <td><%= hotel.destination_id %></td>
-    <td><%= hotel.photos.size %> / <a href="/admin/hotels/<%= hotel.id %>/new_photo">上传图片</a></td>
+    <td><%= hotel.gallery.photos.size %> / <a href="/admin/galleries/<%= hotel.gallery.id %>">管理图片</a></td>
     <td>
       <%= link_to '查看', [:admin, hotel] %> | 
       <%= link_to '编辑', edit_admin_hotel_path(hotel) %> | 
