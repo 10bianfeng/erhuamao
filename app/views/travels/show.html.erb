@@ -1,824 +1,815 @@
-    <ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        &nbsp;&nbsp;/&nbsp;&nbsp;
-        <a href="/search">Travels</a>
-      </li>
-      <li>
-        &nbsp;&nbsp;/&nbsp;&nbsp;<%= @travel.name %>
-      </li>
-    </ul>
-    <div class="self_clear">
-      
-      <%= render :partial => "travels/travel_sidebar", :locals => { :travel => @travel } %>
+		<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+			<li>
+				<a href="/">Home</a>
+			</li>
+			<li>
+				&nbsp;&nbsp;/&nbsp;&nbsp;
+				<a href="/search">Travels</a>
+			</li>
+			<li>
+				&nbsp;&nbsp;/&nbsp;&nbsp;<%= @travel.name %>
+			</li>
+		</ul>
+		<div class="self_clear">
+			
+			<%= render :partial => "travels/travel_sidebar", :locals => { :travel => @travel } %>
 
-      <div id="primary_content" class="align_edges">
-        <iframe style="position:absolute; left:-9999px;" id="print-frame" src="/images/transparent.gif"></iframe>
-        <!-- PRIMARY HEADING -->
-        <h1><%= @travel.name %></h1>
-        <h4 class="clear_margins icon luxury amp" style="padding-top:2px;">
-          <%= @travel.interests.first.title %>
-        </h4>
-        <!-- LIVEPERSON -->
-        <!-- LINK LIST -->
-        <ul class="attribute_list">
-          <li>
-            <a class="icon download" href="<%= @travel.brochures.first.doc.url %>">Download Trip PDF</a>
-          </li>
-          <li>
-            <a class="icon share" title="Send this Trip to a Friend" href="/travel/send_trip_to_friend.cfm?tid=5628" onclick="window.open('/travel/send_trip_to_friend.cfm?tid=5628', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=600, height=550'); return false" target="_blank">Send this Trip to a Friend</a>
-          </li>
-          <li>
-            <a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="window.open('/print/dsp_trip.cfm?tid=5628', 'myWindow', 'toolbar=yes, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=1060, height=800'); return false" target="_blank">Print This Trip</a>
-          </li>
-        </ul>
-        <!-- TRIP NAVIGATION -->
-        <div id="trip_navigation_top" class="self_clear padding_6_tabs">
-          <ul>
-            <li class="current">
-              <a href="#tab1" title="Overview">Overview</a>
-            </li>
-            <li>
-              <a href="#tab2" title="Itinerary">Itinerary</a>
-            </li>
-            <li>
-              <a href="#tab3" title="Dates &amp; Prices">Dates &amp; Prices</a>
-            </li>
-            <li>
-              <a href="#tab4" title="Extensions">Extensions</a>
-            </li>
-            <li>
-              <a href="#tab5" title="Ask a Question">Ask a Question</a>
-            </li>
-          </ul>
-        </div>
+			<div id="primary_content" class="align_edges">
+				<iframe style="position:absolute; left:-9999px;" id="print-frame" src="/images/transparent.gif"></iframe>
+				<!-- PRIMARY HEADING -->
+				<h1><%= @travel.name %></h1>
+				<h4 class="clear_margins icon luxury amp" style="padding-top:2px;">
+					<%= @travel.interests.first.title %>
+				</h4>
+				<!-- LIVEPERSON -->
+				<!-- LINK LIST -->
+				<ul class="attribute_list">
+					<li>
+						<a class="icon download" href="<%= @travel.brochures.first.doc.url %>">Download Trip PDF</a>
+					</li>
+					<li>
+						<a class="icon share" title="Send this Trip to a Friend" href="/travel/send_trip_to_friend.cfm?tid=5628" onclick="window.open('/travel/send_trip_to_friend.cfm?tid=5628', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=600, height=550'); return false" target="_blank">Send this Trip to a Friend</a>
+					</li>
+					<li>
+						<a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="window.open('/print/dsp_trip.cfm?tid=5628', 'myWindow', 'toolbar=yes, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=1060, height=800'); return false" target="_blank">Print This Trip</a>
+					</li>
+				</ul>
+				<!-- TRIP NAVIGATION -->
+				<div id="trip_navigation_top" class="self_clear padding_6_tabs">
+					<ul>
+						<li class="current">
+							<a href="#tab1" title="Overview">Overview</a>
+						</li>
+						<li>
+							<a href="#tab2" title="Itinerary">Itinerary</a>
+						</li>
+						<li>
+							<a href="#tab3" title="Dates &amp; Prices">Dates &amp; Prices</a>
+						</li>
+						<li>
+							<a href="#tab4" title="Extensions">Extensions</a>
+						</li>
+						<li>
+							<a href="#tab5" title="Ask a Question">Ask a Question</a>
+						</li>
+					</ul>
+				</div>
 
-        <!-- TRIP OVERVIEW -->
-        <div id="tab1" class="tab_item">
-          <h2>Overview</h2>
-          <div class="trip_overview">
-            <div class="self_clear">
-              <div id="mini_map">
-                <img style="left:146px; top:44px;" title="India" alt="India" src="/images/small_map_marker.gif" width="9" height="9"></div>
-              <img src="<%= @travel.cover.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="125" height="125">
-              <ul class="align_edges line_rule clear_margins">
-                <li>
-                  <span>
-                    <a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
-                  </span>
-                  Series:
-                </li>
-                <li>
-                  <span>$<%= @travel.priced_from %></span>
-                  Priced From:
-                </li>
-                <li>
-                  <span><%= @travel.days_count %></span>
-                  Days:
-                </li>
-                <li>
-                  <span><%= @travel.departures %></span>
-                  Departures:
-                </li>
-                <li>
-                  <span><%= @travel.max_group_size %></span>
-                  Max Group Size:
-                </li>
-              </ul>
-            </div>
-          </div>
-          <p>
-            <%= @travel.overview_desc %>
-          </p>
-          <!-- & MOMENTS -->
-          <h2>A&amp;K Advantages</h2>
-          <ul class="clear_list_indent">
-            <li>
-              Throughout the journey, stay in actual former palaces, including iconic royal residences, such as the Taj Lake Palace in Udaipur and grand Rambagh Palace in Jaipur
-            </li>
-            <li>
-              Experience India by water in three destinations - from Mumbai Harbour to Elephanta Island, Udaipur's serene Lake Pichola and along the holy Ganges River
-            </li>
-            <li>
-              Explore the countryside of Jaipur during an elephant ride conducted by an expert <em>mahout</em>
-              (trainer)
-            </li>
-            <li>
-              Stay two nights in Panna National Park, home to leopards, sloth bears, wolves and the mysterious Bengal tiger
-            </li>
-            <li>
-              Explore some of the world's most impressive UNESCO World Heritage Sites: The Taj Mahal, Khajuraho, Fatehpur Sikri, Agra Fort and the temples of Elephanta Island
-            </li>
-          </ul>
-          <div class="text_modal">
-            <a class="close"></a>
-            <div class="overlay-details">
-              <div class="overlay-padding">
-                <h3 class="clear_margins"><%= @travel.interests.first.title %></h3>
-                <p style="margin-bottom: 0px;"><%= @travel.interests.first.cont %></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="tab2" class="hide tab_item">
-          <div class="take-private self_clear">
-            <span class="hl4 float_left">Take This Journey Private</span>
-            <p>
-              This itinerary is available as an
-              <a href="/travel/?fuseaction=dsp_itinerary&amp;tid=5669">independent journey</a>
-              led by local guides.
-            </p>
-          </div>
-          <h2>Itinerary</h2>
-          <img class="float_right" src="/images/India-map.jpg">
-          <dl class="itinerary">
-            <% @travel.itineraries.each do |itinerary| %>
-            <dt><%= itinerary.name %></dt>
-            <dd>
-              <p>
-                <%= itinerary.desc %>
-              </p>
-              <em><a class="icon camera_white" href="javascript:void(0);" onclick="modal_slides(this)"><%= itinerary.hotel.name %></a></em> 
-              &nbsp;&nbsp;|&nbsp;&nbsp;
-              <em>Meals: <%= itinerary.meals %></em>
-              <!-- popout modals  -->
-              <div id="popout_modal" class='popout_modal'>
-                <div class="close_modal" onclick="modal_close();">X</div>
-                <strong class="title"><%= itinerary.hotel.gallery.title %></strong>
-                <div id="destination_slides_modal">
-                  <% itinerary.hotel.gallery.photos.each do |photo| %>
-                    <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
-                  <% end %>
-                </div>
-                <p class="slide_img_title"></p>
-              </div>
-            </dd>
-            <% end %>
-          </dl>
-        </div>
-        <div id="tab3" class="hide tab_item">
-          <h2>Dates and Prices</h2>
-          <p>Prices are in USD, per person, based on double occupancy.</p>
-          <div id="price_departure_box" class="self_clear">
-            <div>
-              <img src="/images/departure_guarantee_small.gif" width="82" height="27">
-              Book with confidence — we guarantee that all small-group journeys will depart as planned.
-            </div>
-            <div>
-              <a href="/legal/price_assurance.cfm">
-                <img src="/images/price_assurance_small.gif" width="82" height="27"></a>
-              If the price goes down after you book, we will refund the difference — guaranteed.
-            </div>
-          </div>
-          <div id="dates_prices">
-            <dl class="expando">
-              
-              <% @travel.datesprices.each do |datesprice| %>
-              <dt>
-                <table width="100%">
-                  <thead>
-                    <tr>
-                      <th width="162">
-                        <a name="20131008" href="javascript:void(0);"><%= datesprice.start_date.strftime("%d %b %Y") %> - <%= datesprice.end_date.strftime("%d %b %Y") %></a>
-                      </th>
-                      <th></th>
-                      <th class="last_child">Available</th>
-                    </tr>
-                  </thead>
-                </table>
-              </dt>
-              <dd>
-                <form  class="departure_form" action="/bookings/new" method="post">
-                  <table>
-                    <thead>
-                      <tr>
-                        <th>&nbsp;</th>
-                        <th>Price</th>
-                        <th>Single Supplement</th>
-                        <th>Internal Air (From)</th>
-                        <th>Availability</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="width20">
-                          <label for="packageDateID_393641">
-                            <input type="radio" name="datesprice_id" value="<%= datesprice.id %>"></label>
-                        </td>
-                        <td class="width138">
-                          <label for="packageDateID_393641">$<%= datesprice.prices %></label>
-                        </td>
-                        <td class="width138">
-                          <label for="packageDateID_393641">$<%= datesprice.single_supplement %></label>
-                        </td>
-                        <td class="width138">
-                          <label for="packageDateID_393641">$<%= datesprice.internal_airfare %></label>
-                        </td>
-                        <td class="width116">
-                          <label for="packageDateID_393641">Available</label>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div class="footnotes">
-                    <ul class="clear_margins clear_list_style base_font_size">
-                      <li>^ Optional pre-tour extension available on this departure.</li>
-                      <li>
-                        &lt;&lt;&lt; This property will use an alternate property in Varanasi.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="request_booking">
-                    <span>
-                      <input type="submit" value="Request Booking"></span>
-                    <div id="error_form_393641"></div>
-                    How many people are travelling in your group?
-                    <input name="people_count" type="text" size="2" maxlength="2"></div>
-                </form>
-              </dd>
-              <% end %>
+				<!-- TRIP OVERVIEW -->
+				<div id="tab1" class="tab_item">
+					<h2>Overview</h2>
+					<div class="trip_overview">
+						<div class="self_clear">
+							<div id="mini_map">
+								<img style="left:146px; top:44px;" title="India" alt="India" src="/images/small_map_marker.gif" width="9" height="9"></div>
+							<img src="<%= @travel.cover.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="125" height="125">
+							<ul class="align_edges line_rule clear_margins">
+								<li>
+									<span>
+										<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
+									</span>
+									Series:
+								</li>
+								<li>
+									<span>$<%= @travel.priced_from %></span>
+									Priced From:
+								</li>
+								<li>
+									<span><%= @travel.days_count %></span>
+									Days:
+								</li>
+								<li>
+									<span><%= @travel.departures %></span>
+									Departures:
+								</li>
+								<li>
+									<span><%= @travel.max_group_size %></span>
+									Max Group Size:
+								</li>
+							</ul>
+						</div>
+					</div>
+					<p>
+						<%= @travel.overview_desc %>
+					</p>
+					<!-- & MOMENTS -->
+					<h2>A&amp;K Advantages</h2>
+					<ul class="clear_list_indent">
+						<li>
+							Throughout the journey, stay in actual former palaces, including iconic royal residences, such as the Taj Lake Palace in Udaipur and grand Rambagh Palace in Jaipur
+						</li>
+						<li>
+							Experience India by water in three destinations - from Mumbai Harbour to Elephanta Island, Udaipur's serene Lake Pichola and along the holy Ganges River
+						</li>
+						<li>
+							Explore the countryside of Jaipur during an elephant ride conducted by an expert <em>mahout</em>
+							(trainer)
+						</li>
+						<li>
+							Stay two nights in Panna National Park, home to leopards, sloth bears, wolves and the mysterious Bengal tiger
+						</li>
+						<li>
+							Explore some of the world's most impressive UNESCO World Heritage Sites: The Taj Mahal, Khajuraho, Fatehpur Sikri, Agra Fort and the temples of Elephanta Island
+						</li>
+					</ul>
+					<div class="text_modal">
+						<a class="close"></a>
+						<div class="overlay-details">
+							<div class="overlay-padding">
+								<h3 class="clear_margins"><%= @travel.interests.first.title %></h3>
+								<p style="margin-bottom: 0px;"><%= @travel.interests.first.cont %></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="tab2" class="hide tab_item">
+					<div class="take-private self_clear">
+						<span class="hl4 float_left">Take This Journey Private</span>
+						<p>
+							This itinerary is available as an
+							<a href="/travel/?fuseaction=dsp_itinerary&amp;tid=5669">independent journey</a>
+							led by local guides.
+						</p>
+					</div>
+					<h2>Itinerary</h2>
+					<img class="float_right" src="/images/India-map.jpg">
+					<dl class="itinerary">
+						<% @travel.itineraries.each do |itinerary| %>
+						<dt><%= itinerary.name %></dt>
+						<dd>
+							<p>
+								<%= itinerary.desc %>
+							</p>
+							<em><a class="icon camera_white" href="javascript:void(0);" onclick="modal_slides(1)"><%= itinerary.hotel.name %></a></em> 
+							&nbsp;&nbsp;|&nbsp;&nbsp;
+							<em>Meals: <%= itinerary.meals %></em>
+							<!-- popout modals  -->
+
+						</dd>
+						<% end %>
+					</dl>
+				</div>
+				<div id="tab3" class="hide tab_item">
+					<h2>Dates and Prices</h2>
+					<p>Prices are in USD, per person, based on double occupancy.</p>
+					<div id="price_departure_box" class="self_clear">
+						<div>
+							<img src="/images/departure_guarantee_small.gif" width="82" height="27">
+							Book with confidence — we guarantee that all small-group journeys will depart as planned.
+						</div>
+						<div>
+							<a href="/legal/price_assurance.cfm">
+								<img src="/images/price_assurance_small.gif" width="82" height="27"></a>
+							If the price goes down after you book, we will refund the difference — guaranteed.
+						</div>
+					</div>
+					<div id="dates_prices">
+						<dl class="expando">
+							
+							<% @travel.datesprices.each do |datesprice| %>
+							<dt>
+								<table width="100%">
+									<thead>
+										<tr>
+											<th width="162">
+												<a name="20131008" href="javascript:void(0);"><%= datesprice.start_date.strftime("%d %b %Y") %> - <%= datesprice.end_date.strftime("%d %b %Y") %></a>
+											</th>
+											<th></th>
+											<th class="last_child">Available</th>
+										</tr>
+									</thead>
+								</table>
+							</dt>
+							<dd>
+								<form  class="departure_form" action="/bookings/new" method="post">
+									<table>
+										<thead>
+											<tr>
+												<th>&nbsp;</th>
+												<th>Price</th>
+												<th>Single Supplement</th>
+												<th>Internal Air (From)</th>
+												<th>Availability</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="width20">
+													<label for="packageDateID_393641">
+														<input type="radio" name="datesprice_id" value="<%= datesprice.id %>"></label>
+												</td>
+												<td class="width138">
+													<label for="packageDateID_393641">$<%= datesprice.prices %></label>
+												</td>
+												<td class="width138">
+													<label for="packageDateID_393641">$<%= datesprice.single_supplement %></label>
+												</td>
+												<td class="width138">
+													<label for="packageDateID_393641">$<%= datesprice.internal_airfare %></label>
+												</td>
+												<td class="width116">
+													<label for="packageDateID_393641">Available</label>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+									<div class="footnotes">
+										<ul class="clear_margins clear_list_style base_font_size">
+											<li>^ Optional pre-tour extension available on this departure.</li>
+											<li>
+												&lt;&lt;&lt; This property will use an alternate property in Varanasi.
+											</li>
+										</ul>
+									</div>
+									<div class="request_booking">
+										<span>
+											<input type="submit" value="Request Booking"></span>
+										<div id="error_form_393641"></div>
+										How many people are travelling in your group?
+										<input name="people_count" type="text" size="2" maxlength="2"></div>
+								</form>
+							</dd>
+							<% end %>
 
 
-            </dl>
-          </div>
-          <p>
-            Ask us about booking your international flights at our special preferred rates, arranging pre and post-journey hotel nights and safeguarding your journey with the A&amp;K Travel Protection Plan.
-          </p>
-          <p>
-            <strong>Take This Journey Private:</strong>
-            This itinerary is also available as an independent journey,
-            <a href="/travel/?tid=5669">Signature India &amp; the Taj Mahal</a>
-            , with A&amp;K local guides.
-          </p>
-          <p>
-            Enhance your journey with a pre-tour small-group extension to Aurangabad (4 days, from $1,295). Available on the Jan 24, Feb 21, Mar 14, Oct 8, Oct 10, Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
-          </p>
-          <p>
-            Enhance your journey with a post-tour small-group extension to Nepal (4 days, priced from $1,395). Available on the Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
-          </p>
-          <p></p>
-          <hr>
-          <p></p>
-          <h3 style="font-weight:normal;">Notes:</h3>
-          <p>
-            <strong>Child Policy:</strong>
-            Minimum age: 10
-            <br>
-            Mumbai/Udaipur; Khajuraho/Varansai/Delhi (from $540)
-            <br></p>
-        </div>
-        <div id="tab4" class="hide tab_item">
-          <h2>A&amp;K Recommends</h2>
-          <p>
-            Extend your experience with these add-on itineraries. All extensions are priced and ready to book.
-          </p>
-          <dl id="search_results" class="self_clear line_rule cap_ends">
-            <dt>
-              <a href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">Aurangabad Extension</a>
-            </dt>
-            <dd>
-              <div class="trip_overview">
-                <div class="self_clear">
-                  <a href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">
-                    <img src="/images/aurangabad_extension.jpg" alt="View details for Aurangabad Extension" title="View details for Aurangabad Extension" width="125" height="125"></a>
-                  <ul class="link_list self_clear clear_list_style">
-                    <li>
-                      <a class="icon swirl_arrow" href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">Overview</a>
-                    </li>
-                    <li>
-                      <a class="icon notebook" href="/travel/?tid=5759&amp;fuseaction=dsp_itinerary" title="View the itinerary for Aurangabad Extension">Itinerary</a>
-                    </li>
-                    <li>
-                      <a class="icon dates" href="/travel/?tid=5759&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Aurangabad Extension">Dates &amp; Prices</a>
-                    </li>
-                    <li style="margin-top:2px;">
-                      <input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5759">
-                      <p class="clear_margins float_left  compare_link">Compare</p>
-                    </li>
-                  </ul>
-                  <ul class="align_edges line_rule clear_margins">
-                    <li>
-                      <span>
-                        <a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-                      </span>
-                      Series:
-                    </li>
-                    <li>
-                      <span>$1,295</span>
-                      Priced From:
-                    </li>
-                    <li>
-                      <span>4</span>
-                      Days:
-                    </li>
-                    <li>
-                      <span>On Request</span>
-                      Departures:
-                    </li>
-                    <li>
-                      <span>N/A</span>
-                      Max Group Size:
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </dd>
-            <dt>
-              <a href="/travel/?tid=5659" title="View the overview for Bhutan Extension">Bhutan Extension</a>
-            </dt>
-            <dd>
-              <div class="trip_overview">
-                <div class="self_clear">
-                  <a href="/travel/?tid=5659" title="View the overview for Bhutan Extension">
-                    <img src="/images/bhutan_extension.jpg" alt="View details for Bhutan Extension" title="View details for Bhutan Extension" width="125" height="125"></a>
-                  <ul class="link_list self_clear clear_list_style">
-                    <li>
-                      <a class="icon swirl_arrow" href="/travel/?tid=5659" title="View the overview for Bhutan Extension">Overview</a>
-                    </li>
-                    <li>
-                      <a class="icon notebook" href="/travel/?tid=5659&amp;fuseaction=dsp_itinerary" title="View the itinerary for Bhutan Extension">Itinerary</a>
-                    </li>
-                    <li>
-                      <a class="icon dates" href="/travel/?tid=5659&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Bhutan Extension">Dates &amp; Prices</a>
-                    </li>
-                    <li style="margin-top:2px;">
-                      <input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5659">
-                      <p class="clear_margins float_left  compare_link">Compare</p>
-                    </li>
-                  </ul>
-                  <ul class="align_edges line_rule clear_margins">
-                    <li>
-                      <span>
-                        <a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-                      </span>
-                      Series:
-                    </li>
-                    <li>
-                      <span>$4,295</span>
-                      Priced From:
-                    </li>
-                    <li>
-                      <span>4</span>
-                      Days:
-                    </li>
-                    <li>
-                      <span>On Request</span>
-                      Departures:
-                    </li>
-                    <li>
-                      <span>N/A</span>
-                      Max Group Size:
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </dd>
-            <dt>
-              <a href="/travel/?tid=5662" title="View the overview for Kerala Extension">Kerala Extension</a>
-            </dt>
-            <dd>
-              <div class="trip_overview">
-                <div class="self_clear">
-                  <a href="/travel/?tid=5662" title="View the overview for Kerala Extension">
-                    <img src="/images/kerala-extension-1.jpg" alt="View details for Kerala Extension" title="View details for Kerala Extension" width="125" height="125"></a>
-                  <ul class="link_list self_clear clear_list_style">
-                    <li>
-                      <a class="icon swirl_arrow" href="/travel/?tid=5662" title="View the overview for Kerala Extension">Overview</a>
-                    </li>
-                    <li>
-                      <a class="icon notebook" href="/travel/?tid=5662&amp;fuseaction=dsp_itinerary" title="View the itinerary for Kerala Extension">Itinerary</a>
-                    </li>
-                    <li>
-                      <a class="icon dates" href="/travel/?tid=5662&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Kerala Extension">Dates &amp; Prices</a>
-                    </li>
-                    <li style="margin-top:2px;">
-                      <input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5662">
-                      <p class="clear_margins float_left  compare_link">Compare</p>
-                    </li>
-                  </ul>
-                  <ul class="align_edges line_rule clear_margins">
-                    <li>
-                      <span>
-                        <a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-                      </span>
-                      Series:
-                    </li>
-                    <li>
-                      <span>$1,595</span>
-                      Priced From:
-                    </li>
-                    <li>
-                      <span>5</span>
-                      Days:
-                    </li>
-                    <li>
-                      <span>On Request</span>
-                      Departures:
-                    </li>
-                    <li>
-                      <span>N/A</span>
-                      Max Group Size:
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </dd>
-            <dt>
-              <a href="/travel/?tid=5658" title="View the overview for Nepal Extension">Nepal Extension</a>
-            </dt>
-            <dd>
-              <div class="trip_overview">
-                <div class="self_clear">
-                  <a href="/travel/?tid=5658" title="View the overview for Nepal Extension">
-                    <img src="/images/nepal_extension.jpg" alt="View details for Nepal Extension" title="View details for Nepal Extension" width="125" height="125"></a>
-                  <ul class="link_list self_clear clear_list_style">
-                    <li>
-                      <a class="icon swirl_arrow" href="/travel/?tid=5658" title="View the overview for Nepal Extension">Overview</a>
-                    </li>
-                    <li>
-                      <a class="icon notebook" href="/travel/?tid=5658&amp;fuseaction=dsp_itinerary" title="View the itinerary for Nepal Extension">Itinerary</a>
-                    </li>
-                    <li>
-                      <a class="icon dates" href="/travel/?tid=5658&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Nepal Extension">Dates &amp; Prices</a>
-                    </li>
-                    <li style="margin-top:2px;">
-                      <input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5658">
-                      <p class="clear_margins float_left  compare_link">Compare</p>
-                    </li>
-                  </ul>
-                  <ul class="align_edges line_rule clear_margins">
-                    <li>
-                      <span>
-                        <a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-                      </span>
-                      Series:
-                    </li>
-                    <li>
-                      <span>$1,495</span>
-                      Priced From:
-                    </li>
-                    <li>
-                      <span>4</span>
-                      Days:
-                    </li>
-                    <li>
-                      <span>On Request</span>
-                      Departures:
-                    </li>
-                    <li>
-                      <span>N/A</span>
-                      Max Group Size:
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </dd>
-          </dl>
-          <div id="customize_trip">
-            <h3 class="clear_margins">Extend Your Stay</h3>
-            <p></p>
-            <p class="clear_margins">
-              See all A&amp;K Extensions.&nbsp;&nbsp;
-              <a class="icon swirl_arrow" href="/search.cfm?new_search=1&amp;tif=705&amp;scp=1">View all</a>
-            </p>
-          </div>
-        </div>
-        <div id="tab5" class="hide tab_item">
-          <div style="width:80%">
-            <div class="self-clear">
-              <p id="requiredText">
-                Required <em>*</em>
-              </p>
-            </div>
-            <form action="/travel/?fuseaction=act_question&amp;tid=5628" id="faq_form" method="post" name="faq_form" class="uniForm">
-              <fieldset class="inlineLabels">
-                <h3>Your Information</h3>
-                <div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
-                  <p class="errorFieldHide" id="contact_preference_err"></p>
-                  <p class="label ">Preferred method of contact</p>
-                  <label for="contact_preference-1" class="inlineLabel">
-                    <input name="contact_preference" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">Email</label>
-                  <label for="contact_preference-2" class="inlineLabel">
-                    <input name="contact_preference" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">Daytime Phone</label>
-                </div>
-                <div id="ctrlHolder_email" class="ctrlHolder">
-                  <p class="errorFieldHide" id="email_err">Enter a valid email address</p>
-                  <label for="email" class="required"> <em>*</em>
-                    Email Address
-                  </label>
-                  <input name="email" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
-                  <p class="formHint">(one address)</p>
-                </div>
-                <div id="ctrlHolder_title" class="ctrlHolder">
-                  <p class="errorFieldHide" id="title_err">Select your title</p>
-                  <label for="title" class="required">
-                    <em>*</em>
-                    Title
-                  </label>
-                  <select name="title" id="title" class="required" tabindex="3">
-                    <option value="0">Select a Title</option>
-                    <option value="153">Mr.</option>
-                    <option value="154">Mrs.</option>
-                    <option value="155">Ms.</option>
-                    <option value="157">Dr.</option>
-                  </select>
-                </div>
-                <div id="ctrlHolder_firstName" class="ctrlHolder">
-                  <p class="errorFieldHide" id="firstName_err">Enter your first name</p>
-                  <label for="firstName" class="required">
-                    <em>*</em>
-                    First Name
-                  </label>
-                  <input name="firstName" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
-                  <p class="formHint">(as printed on Passport)</p>
-                </div>
-                <div id="ctrlHolder_lastName" class="ctrlHolder">
-                  <p class="errorFieldHide" id="lastName_err">Enter your last name</p>
-                  <label for="lastName" class="required">
-                    <em>*</em>
-                    Last Name
-                  </label>
-                  <input name="lastName" id="lastName" value="" size="30" type="text" class="required" tabindex="5">          
-                  <p class="formHint">(as printed on Passport)</p>
-                </div>
-                <div id="ctrlHolder_country" class="ctrlHolder">
-                  <p class="errorFieldHide" id="country_err">Select a country</p>
-                  <label for="country" class="required">
-                    <em>*</em>
-                    Country
-                  </label>
-                  <select name="country" id="country" class="required" tabindex="6">
-                    <option value="0">Select a Country</option>
-                    <option value="226">United States</option>
-                    <option value="1">Afghanistan</option>
-                    <option value="2">Albania</option>
-                    <option value="3">Algeria</option>
-                    <option value="4">American Samoa</option>
-                    <option value="5">Andorra</option>
-                    <option value="6">Angola</option>
-                    <option value="7">Anguilla</option>
-                    <option value="8">Antarctica</option>
-                    <option value="9">Antigua and Barbuda</option>
-                    <option value="245">Arctic</option>
-                    <option value="10">Argentina</option>
-                    <option value="11">Armenia</option>
-                    <option value="12">Aruba</option>
-                    <option value="13">Australia</option>
-                    <option value="14">Austria</option>
-                    <option value="15">Azerbaijan</option>
-                    <option value="16">Bahamas</option>
-                    <option value="17">Bahrain</option>
-                    <option value="18">Bangladesh</option>
-                    <option value="19">Barbados</option>
-                    <option value="20">Belarus</option>
-                    <option value="21">Belgium</option>
-                    <option value="22">Belize</option>
-                    <option value="23">Benin</option>
-                    <option value="24">Bermuda</option>
-                    <option value="25">Bhutan</option>
-                    <option value="26">Bolivia</option>
-                    <option value="27">Bosnia and Herzegovina</option>
-                    <option value="28">Botswana</option>
-                    <option value="29">Bouvet Island</option>
-                    <option value="30">Brazil</option>
-                    <option value="31">British Indian Ocean Territory</option>
-                    <option value="32">Brunei Darussalam</option>
-                    <option value="33">Bulgaria</option>
-                    <option value="34">Burkina Faso</option>
-                    <option value="35">Burundi</option>
-                    <option value="36">Cambodia</option>
-                    <option value="37">Cameroon</option>
-                    <option value="38">Canada</option>
-                    <option value="39">Cape Verde</option>
-                    <option value="40">Cayman Islands</option>
-                    <option value="41">Central African Republic</option>
-                    <option value="42">Chad</option>
-                    <option value="43">Chile</option>
-                    <option value="44">China</option>
-                    <option value="45">Christmas Island</option>
-                    <option value="46">Cocos (Keeling) Islands</option>
-                    <option value="47">Colombia</option>
-                    <option value="48">Comoros</option>
-                    <option value="49">Congo</option>
-                    <option value="50">Congo, the Democratic Republic of the</option>
-                    <option value="51">Cook Islands</option>
-                    <option value="52">Costa Rica</option>
-                    <option value="53">Cote D'Ivoire</option>
-                    <option value="54">Croatia</option>
-                    <option value="55">Cuba</option>
-                    <option value="56">Cyprus</option>
-                    <option value="57">Czech Republic</option>
-                    <option value="58">Denmark</option>
-                    <option value="59">Djibouti</option>
-                    <option value="60">Dominica</option>
-                    <option value="61">Dominican Republic</option>
-                    <option value="62">Ecuador &amp; Galápagos</option>
-                    <option value="63">Egypt</option>
-                    <option value="64">El Salvador</option>
-                    <option value="65">Equatorial Guinea</option>
-                    <option value="66">Eritrea</option>
-                    <option value="67">Estonia</option>
-                    <option value="68">Ethiopia</option>
-                    <option value="69">Falkland Islands (Malvinas)</option>
-                    <option value="70">Faroe Islands</option>
-                    <option value="71">Fiji</option>
-                    <option value="72">Finland</option>
-                    <option value="73">France</option>
-                    <option value="74">French Guiana</option>
-                    <option value="75">French Polynesia</option>
-                    <option value="76">French Southern Territories</option>
-                    <option value="77">Gabon</option>
-                    <option value="78">Gambia</option>
-                    <option value="79">Georgia</option>
-                    <option value="80">Germany</option>
-                    <option value="81">Ghana</option>
-                    <option value="82">Gibraltar</option>
-                    <option value="83">Greece</option>
-                    <option value="84">Greenland</option>
-                    <option value="85">Grenada</option>
-                    <option value="86">Guadeloupe</option>
-                    <option value="87">Guam</option>
-                    <option value="88">Guatemala</option>
-                    <option value="89">Guinea</option>
-                    <option value="90">Guinea-Bissau</option>
-                    <option value="91">Guyana</option>
-                    <option value="92">Haiti</option>
-                    <option value="93">Heard Island and McDonald Islands</option>
-                    <option value="94">Holy See (Vatican City State)</option>
-                    <option value="95">Honduras</option>
-                    <option value="96">Hong Kong</option>
-                    <option value="97">Hungary</option>
-                    <option value="98">Iceland</option>
-                    <option value="99">India</option>
-                    <option value="100">Indonesia</option>
-                    <option value="101">Iran</option>
-                    <option value="102">Iraq</option>
-                    <option value="103">Ireland</option>
-                    <option value="104">Israel</option>
-                    <option value="105">Italy</option>
-                    <option value="106">Jamaica</option>
-                    <option value="107">Japan</option>
-                    <option value="108">Jordan</option>
-                    <option value="109">Kazakhstan</option>
-                    <option value="110">Kenya</option>
-                    <option value="111">Kiribati</option>
-                    <option value="114">Kuwait</option>
-                    <option value="115">Kyrgyzstan</option>
-                    <option value="116">Laos</option>
-                    <option value="117">Latvia</option>
-                    <option value="118">Lebanon</option>
-                    <option value="119">Lesotho</option>
-                    <option value="120">Liberia</option>
-                    <option value="121">Libya</option>
-                    <option value="122">Liechtenstein</option>
-                    <option value="123">Lithuania</option>
-                    <option value="124">Luxembourg</option>
-                    <option value="125">Macau</option>
-                    <option value="126">Macedonia</option>
-                    <option value="127">Madagascar</option>
-                    <option value="128">Malawi</option>
-                    <option value="129">Malaysia</option>
-                    <option value="130">Maldives</option>
-                    <option value="131">Mali</option>
-                    <option value="132">Malta</option>
-                    <option value="133">Marshall Islands</option>
-                    <option value="134">Martinique</option>
-                    <option value="135">Mauritania</option>
-                    <option value="136">Mauritius</option>
-                    <option value="137">Mayotte</option>
-                    <option value="138">Mexico</option>
-                    <option value="139">Micronesia, Federated States of</option>
-                    <option value="140">Moldova</option>
-                    <option value="141">Monaco</option>
-                    <option value="142">Mongolia</option>
-                    <option value="143">Montserrat</option>
-                    <option value="144">Morocco</option>
-                    <option value="145">Mozambique</option>
-                    <option value="146">Myanmar (Burma)</option>
-                    <option value="147">Namibia</option>
-                    <option value="148">Nauru</option>
-                    <option value="149">Nepal</option>
-                    <option value="150">Netherlands</option>
-                    <option value="151">Netherlands Antilles</option>
-                    <option value="152">New Caledonia</option>
-                    <option value="153">New Zealand</option>
-                    <option value="154">Nicaragua</option>
-                    <option value="155">Niger</option>
-                    <option value="156">Nigeria</option>
-                    <option value="157">Niue</option>
-                    <option value="158">Norfolk Island</option>
-                    <option value="112">North Korea</option>
-                    <option value="159">Northern Mariana Islands</option>
-                    <option value="160">Norway</option>
-                    <option value="161">Oman</option>
-                    <option value="162">Pakistan</option>
-                    <option value="163">Palau</option>
-                    <option value="165">Panama</option>
-                    <option value="166">Papua New Guinea</option>
-                    <option value="167">Paraguay</option>
-                    <option value="168">Peru</option>
-                    <option value="169">Philippines</option>
-                    <option value="170">Pitcairn Islands</option>
-                    <option value="171">Poland</option>
-                    <option value="172">Portugal</option>
-                    <option value="174">Qatar</option>
-                    <option value="175">Reunion</option>
-                    <option value="176">Romania</option>
-                    <option value="177">Russia</option>
-                    <option value="178">Rwanda</option>
-                    <option value="179">Saint Helena</option>
-                    <option value="180">Saint Kitts and Nevis</option>
-                    <option value="181">Saint Lucia</option>
-                    <option value="182">Saint Pierre and Miquelon</option>
-                    <option value="183">Saint Vincent and the Grenadines</option>
-                    <option value="184">Samoa</option>
-                    <option value="185">San Marino</option>
-                    <option value="186">Sao Tome and Principe</option>
-                    <option value="187">Saudi Arabia</option>
-                    <option value="188">Senegal</option>
-                    <option value="190">Seychelles</option>
-                    <option value="191">Sierra Leone</option>
-                    <option value="192">Singapore</option>
-                    <option value="193">Slovakia</option>
-                    <option value="194">Slovenia</option>
-                    <option value="195">Solomon Islands</option>
-                    <option value="196">Somalia</option>
-                    <option value="197">South Africa</option>
-                    <option value="198">South Georgia and the South Sandwich Islands</option>
-                    <option value="113">South Korea</option>
-                    <option value="199">Spain</option>
-                    <option value="200">Sri Lanka</option>
-                    <option value="201">Sudan</option>
-                    <option value="202">Suriname</option>
-                    <option value="203">Svalbard and Jan Mayen</option>
-                    <option value="204">Swaziland</option>
-                    <option value="205">Sweden</option>
-                    <option value="206">Switzerland</option>
-                    <option value="207">Syria</option>
-                    <option value="208">Taiwan</option>
-                    <option value="209">Tajikistan</option>
-                    <option value="210">Tanzania</option>
-                    <option value="211">Thailand</option>
-                    <option value="213">Togo</option>
-                    <option value="214">Tokelau</option>
-                    <option value="215">Tonga</option>
-                    <option value="216">Trinidad and Tobago</option>
-                    <option value="217">Tunisia</option>
-                    <option value="218">Turkey</option>
-                    <option value="219">Turkmenistan</option>
-                    <option value="220">Turks and Caicos Islands</option>
-                    <option value="221">Tuvalu</option>
-                    <option value="222">Uganda</option>
-                    <option value="223">Ukraine</option>
-                    <option value="224">United Arab Emirates</option>
-                    <option value="225">United Kingdom</option>
-                    <option value="227">United States Minor Outlying Islands</option>
-                    <option value="228">Uruguay</option>
-                    <option value="229">Uzbekistan</option>
-                    <option value="230">Vanuatu</option>
-                    <option value="231">Venezuela</option>
-                    <option value="232">Vietnam</option>
-                    <option value="233">Virgin Islands, British</option>
-                    <option value="234">Virgin Islands, U.S.</option>
-                    <option value="235">Wallis and Futuna</option>
-                    <option value="236">Western Sahara</option>
-                    <option value="237">Yemen</option>
-                    <option value="238">Zambia</option>
-                    <option value="239">Zimbabwe</option>
-                  </select>
-                </div>
-                <div id="ctrlHolder_workphone" class="ctrlHolder">
-                  <p class="errorFieldHide" id="workphone_err"></p>
-                  <label for="workphone" class="">Daytime Phone</label>
-                  <input name="workphone" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
-                  <p class="formHint">(ex. 2345678901)</p>
-                </div>
-                <div id="ctrlHolder_extension" class="ctrlHolder">
-                  <p class="errorFieldHide" id="extension_err"></p>
-                  <label for="extension" class="">Extension</label>
-                  <input name="extension" id="extension" value="" size="15" type="text" class="" tabindex="8"></div>
-                <div id="ctrlHolder_question" class="ctrlHolder">
-                  <p class="errorFieldHide" id="question_err">Ask your question here:</p>
-                  <label for="question" class="required">
-                    <em>*</em>
-                    Your Question
-                  </label>
-                  <textarea name="question" id="question" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
-                </div>
-                <input name="submitid" id="submitid" value="1" type="hidden">         
-                <input name="category" id="category" value="20" type="hidden">          
-                <input name="product" id="product" value="15" type="hidden">          
-                <input name="package" id="package" value="5628" type="hidden"></fieldset>
-              <div class="buttonHolder">
-                <input type="submit" name="submit_btn" id="submit_btn" value="Submit Your Question" class="uniFormButton" onclick="" tabindex="10"></div>
-            </form>
-          </div>
-        </div>
-        <!-- TRIP NAVIGATION BOTTOM -->
-      </div>
-    </div>
+						</dl>
+					</div>
+					<p>
+						Ask us about booking your international flights at our special preferred rates, arranging pre and post-journey hotel nights and safeguarding your journey with the A&amp;K Travel Protection Plan.
+					</p>
+					<p>
+						<strong>Take This Journey Private:</strong>
+						This itinerary is also available as an independent journey,
+						<a href="/travel/?tid=5669">Signature India &amp; the Taj Mahal</a>
+						, with A&amp;K local guides.
+					</p>
+					<p>
+						Enhance your journey with a pre-tour small-group extension to Aurangabad (4 days, from $1,295). Available on the Jan 24, Feb 21, Mar 14, Oct 8, Oct 10, Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
+					</p>
+					<p>
+						Enhance your journey with a post-tour small-group extension to Nepal (4 days, priced from $1,395). Available on the Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
+					</p>
+					<p></p>
+					<hr>
+					<p></p>
+					<h3 style="font-weight:normal;">Notes:</h3>
+					<p>
+						<strong>Child Policy:</strong>
+						Minimum age: 10
+						<br>
+						Mumbai/Udaipur; Khajuraho/Varansai/Delhi (from $540)
+						<br></p>
+				</div>
+				<div id="tab4" class="hide tab_item">
+					<h2>A&amp;K Recommends</h2>
+					<p>
+						Extend your experience with these add-on itineraries. All extensions are priced and ready to book.
+					</p>
+					<dl id="search_results" class="self_clear line_rule cap_ends">
+						<dt>
+							<a href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">Aurangabad Extension</a>
+						</dt>
+						<dd>
+							<div class="trip_overview">
+								<div class="self_clear">
+									<a href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">
+										<img src="/images/aurangabad_extension.jpg" alt="View details for Aurangabad Extension" title="View details for Aurangabad Extension" width="125" height="125"></a>
+									<ul class="link_list self_clear clear_list_style">
+										<li>
+											<a class="icon swirl_arrow" href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">Overview</a>
+										</li>
+										<li>
+											<a class="icon notebook" href="/travel/?tid=5759&amp;fuseaction=dsp_itinerary" title="View the itinerary for Aurangabad Extension">Itinerary</a>
+										</li>
+										<li>
+											<a class="icon dates" href="/travel/?tid=5759&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Aurangabad Extension">Dates &amp; Prices</a>
+										</li>
+										<li style="margin-top:2px;">
+											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5759">
+											<p class="clear_margins float_left  compare_link">Compare</p>
+										</li>
+									</ul>
+									<ul class="align_edges line_rule clear_margins">
+										<li>
+											<span>
+												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
+											</span>
+											Series:
+										</li>
+										<li>
+											<span>$1,295</span>
+											Priced From:
+										</li>
+										<li>
+											<span>4</span>
+											Days:
+										</li>
+										<li>
+											<span>On Request</span>
+											Departures:
+										</li>
+										<li>
+											<span>N/A</span>
+											Max Group Size:
+										</li>
+									</ul>
+								</div>
+							</div>
+						</dd>
+						<dt>
+							<a href="/travel/?tid=5659" title="View the overview for Bhutan Extension">Bhutan Extension</a>
+						</dt>
+						<dd>
+							<div class="trip_overview">
+								<div class="self_clear">
+									<a href="/travel/?tid=5659" title="View the overview for Bhutan Extension">
+										<img src="/images/bhutan_extension.jpg" alt="View details for Bhutan Extension" title="View details for Bhutan Extension" width="125" height="125"></a>
+									<ul class="link_list self_clear clear_list_style">
+										<li>
+											<a class="icon swirl_arrow" href="/travel/?tid=5659" title="View the overview for Bhutan Extension">Overview</a>
+										</li>
+										<li>
+											<a class="icon notebook" href="/travel/?tid=5659&amp;fuseaction=dsp_itinerary" title="View the itinerary for Bhutan Extension">Itinerary</a>
+										</li>
+										<li>
+											<a class="icon dates" href="/travel/?tid=5659&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Bhutan Extension">Dates &amp; Prices</a>
+										</li>
+										<li style="margin-top:2px;">
+											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5659">
+											<p class="clear_margins float_left  compare_link">Compare</p>
+										</li>
+									</ul>
+									<ul class="align_edges line_rule clear_margins">
+										<li>
+											<span>
+												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
+											</span>
+											Series:
+										</li>
+										<li>
+											<span>$4,295</span>
+											Priced From:
+										</li>
+										<li>
+											<span>4</span>
+											Days:
+										</li>
+										<li>
+											<span>On Request</span>
+											Departures:
+										</li>
+										<li>
+											<span>N/A</span>
+											Max Group Size:
+										</li>
+									</ul>
+								</div>
+							</div>
+						</dd>
+						<dt>
+							<a href="/travel/?tid=5662" title="View the overview for Kerala Extension">Kerala Extension</a>
+						</dt>
+						<dd>
+							<div class="trip_overview">
+								<div class="self_clear">
+									<a href="/travel/?tid=5662" title="View the overview for Kerala Extension">
+										<img src="/images/kerala-extension-1.jpg" alt="View details for Kerala Extension" title="View details for Kerala Extension" width="125" height="125"></a>
+									<ul class="link_list self_clear clear_list_style">
+										<li>
+											<a class="icon swirl_arrow" href="/travel/?tid=5662" title="View the overview for Kerala Extension">Overview</a>
+										</li>
+										<li>
+											<a class="icon notebook" href="/travel/?tid=5662&amp;fuseaction=dsp_itinerary" title="View the itinerary for Kerala Extension">Itinerary</a>
+										</li>
+										<li>
+											<a class="icon dates" href="/travel/?tid=5662&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Kerala Extension">Dates &amp; Prices</a>
+										</li>
+										<li style="margin-top:2px;">
+											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5662">
+											<p class="clear_margins float_left  compare_link">Compare</p>
+										</li>
+									</ul>
+									<ul class="align_edges line_rule clear_margins">
+										<li>
+											<span>
+												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
+											</span>
+											Series:
+										</li>
+										<li>
+											<span>$1,595</span>
+											Priced From:
+										</li>
+										<li>
+											<span>5</span>
+											Days:
+										</li>
+										<li>
+											<span>On Request</span>
+											Departures:
+										</li>
+										<li>
+											<span>N/A</span>
+											Max Group Size:
+										</li>
+									</ul>
+								</div>
+							</div>
+						</dd>
+						<dt>
+							<a href="/travel/?tid=5658" title="View the overview for Nepal Extension">Nepal Extension</a>
+						</dt>
+						<dd>
+							<div class="trip_overview">
+								<div class="self_clear">
+									<a href="/travel/?tid=5658" title="View the overview for Nepal Extension">
+										<img src="/images/nepal_extension.jpg" alt="View details for Nepal Extension" title="View details for Nepal Extension" width="125" height="125"></a>
+									<ul class="link_list self_clear clear_list_style">
+										<li>
+											<a class="icon swirl_arrow" href="/travel/?tid=5658" title="View the overview for Nepal Extension">Overview</a>
+										</li>
+										<li>
+											<a class="icon notebook" href="/travel/?tid=5658&amp;fuseaction=dsp_itinerary" title="View the itinerary for Nepal Extension">Itinerary</a>
+										</li>
+										<li>
+											<a class="icon dates" href="/travel/?tid=5658&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Nepal Extension">Dates &amp; Prices</a>
+										</li>
+										<li style="margin-top:2px;">
+											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5658">
+											<p class="clear_margins float_left  compare_link">Compare</p>
+										</li>
+									</ul>
+									<ul class="align_edges line_rule clear_margins">
+										<li>
+											<span>
+												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
+											</span>
+											Series:
+										</li>
+										<li>
+											<span>$1,495</span>
+											Priced From:
+										</li>
+										<li>
+											<span>4</span>
+											Days:
+										</li>
+										<li>
+											<span>On Request</span>
+											Departures:
+										</li>
+										<li>
+											<span>N/A</span>
+											Max Group Size:
+										</li>
+									</ul>
+								</div>
+							</div>
+						</dd>
+					</dl>
+					<div id="customize_trip">
+						<h3 class="clear_margins">Extend Your Stay</h3>
+						<p></p>
+						<p class="clear_margins">
+							See all A&amp;K Extensions.&nbsp;&nbsp;
+							<a class="icon swirl_arrow" href="/search.cfm?new_search=1&amp;tif=705&amp;scp=1">View all</a>
+						</p>
+					</div>
+				</div>
+				<div id="tab5" class="hide tab_item">
+					<div style="width:80%">
+						<div class="self-clear">
+							<p id="requiredText">
+								Required <em>*</em>
+							</p>
+						</div>
+						<form action="/travel/?fuseaction=act_question&amp;tid=5628" id="faq_form" method="post" name="faq_form" class="uniForm">
+							<fieldset class="inlineLabels">
+								<h3>Your Information</h3>
+								<div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
+									<p class="errorFieldHide" id="contact_preference_err"></p>
+									<p class="label ">Preferred method of contact</p>
+									<label for="contact_preference-1" class="inlineLabel">
+										<input name="contact_preference" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">Email</label>
+									<label for="contact_preference-2" class="inlineLabel">
+										<input name="contact_preference" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">Daytime Phone</label>
+								</div>
+								<div id="ctrlHolder_email" class="ctrlHolder">
+									<p class="errorFieldHide" id="email_err">Enter a valid email address</p>
+									<label for="email" class="required"> <em>*</em>
+										Email Address
+									</label>
+									<input name="email" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
+									<p class="formHint">(one address)</p>
+								</div>
+								<div id="ctrlHolder_title" class="ctrlHolder">
+									<p class="errorFieldHide" id="title_err">Select your title</p>
+									<label for="title" class="required">
+										<em>*</em>
+										Title
+									</label>
+									<select name="title" id="title" class="required" tabindex="3">
+										<option value="0">Select a Title</option>
+										<option value="153">Mr.</option>
+										<option value="154">Mrs.</option>
+										<option value="155">Ms.</option>
+										<option value="157">Dr.</option>
+									</select>
+								</div>
+								<div id="ctrlHolder_firstName" class="ctrlHolder">
+									<p class="errorFieldHide" id="firstName_err">Enter your first name</p>
+									<label for="firstName" class="required">
+										<em>*</em>
+										First Name
+									</label>
+									<input name="firstName" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
+									<p class="formHint">(as printed on Passport)</p>
+								</div>
+								<div id="ctrlHolder_lastName" class="ctrlHolder">
+									<p class="errorFieldHide" id="lastName_err">Enter your last name</p>
+									<label for="lastName" class="required">
+										<em>*</em>
+										Last Name
+									</label>
+									<input name="lastName" id="lastName" value="" size="30" type="text" class="required" tabindex="5">          
+									<p class="formHint">(as printed on Passport)</p>
+								</div>
+								<div id="ctrlHolder_country" class="ctrlHolder">
+									<p class="errorFieldHide" id="country_err">Select a country</p>
+									<label for="country" class="required">
+										<em>*</em>
+										Country
+									</label>
+									<select name="country" id="country" class="required" tabindex="6">
+										<option value="0">Select a Country</option>
+										<option value="226">United States</option>
+										<option value="1">Afghanistan</option>
+										<option value="2">Albania</option>
+										<option value="3">Algeria</option>
+										<option value="4">American Samoa</option>
+										<option value="5">Andorra</option>
+										<option value="6">Angola</option>
+										<option value="7">Anguilla</option>
+										<option value="8">Antarctica</option>
+										<option value="9">Antigua and Barbuda</option>
+										<option value="245">Arctic</option>
+										<option value="10">Argentina</option>
+										<option value="11">Armenia</option>
+										<option value="12">Aruba</option>
+										<option value="13">Australia</option>
+										<option value="14">Austria</option>
+										<option value="15">Azerbaijan</option>
+										<option value="16">Bahamas</option>
+										<option value="17">Bahrain</option>
+										<option value="18">Bangladesh</option>
+										<option value="19">Barbados</option>
+										<option value="20">Belarus</option>
+										<option value="21">Belgium</option>
+										<option value="22">Belize</option>
+										<option value="23">Benin</option>
+										<option value="24">Bermuda</option>
+										<option value="25">Bhutan</option>
+										<option value="26">Bolivia</option>
+										<option value="27">Bosnia and Herzegovina</option>
+										<option value="28">Botswana</option>
+										<option value="29">Bouvet Island</option>
+										<option value="30">Brazil</option>
+										<option value="31">British Indian Ocean Territory</option>
+										<option value="32">Brunei Darussalam</option>
+										<option value="33">Bulgaria</option>
+										<option value="34">Burkina Faso</option>
+										<option value="35">Burundi</option>
+										<option value="36">Cambodia</option>
+										<option value="37">Cameroon</option>
+										<option value="38">Canada</option>
+										<option value="39">Cape Verde</option>
+										<option value="40">Cayman Islands</option>
+										<option value="41">Central African Republic</option>
+										<option value="42">Chad</option>
+										<option value="43">Chile</option>
+										<option value="44">China</option>
+										<option value="45">Christmas Island</option>
+										<option value="46">Cocos (Keeling) Islands</option>
+										<option value="47">Colombia</option>
+										<option value="48">Comoros</option>
+										<option value="49">Congo</option>
+										<option value="50">Congo, the Democratic Republic of the</option>
+										<option value="51">Cook Islands</option>
+										<option value="52">Costa Rica</option>
+										<option value="53">Cote D'Ivoire</option>
+										<option value="54">Croatia</option>
+										<option value="55">Cuba</option>
+										<option value="56">Cyprus</option>
+										<option value="57">Czech Republic</option>
+										<option value="58">Denmark</option>
+										<option value="59">Djibouti</option>
+										<option value="60">Dominica</option>
+										<option value="61">Dominican Republic</option>
+										<option value="62">Ecuador &amp; Galápagos</option>
+										<option value="63">Egypt</option>
+										<option value="64">El Salvador</option>
+										<option value="65">Equatorial Guinea</option>
+										<option value="66">Eritrea</option>
+										<option value="67">Estonia</option>
+										<option value="68">Ethiopia</option>
+										<option value="69">Falkland Islands (Malvinas)</option>
+										<option value="70">Faroe Islands</option>
+										<option value="71">Fiji</option>
+										<option value="72">Finland</option>
+										<option value="73">France</option>
+										<option value="74">French Guiana</option>
+										<option value="75">French Polynesia</option>
+										<option value="76">French Southern Territories</option>
+										<option value="77">Gabon</option>
+										<option value="78">Gambia</option>
+										<option value="79">Georgia</option>
+										<option value="80">Germany</option>
+										<option value="81">Ghana</option>
+										<option value="82">Gibraltar</option>
+										<option value="83">Greece</option>
+										<option value="84">Greenland</option>
+										<option value="85">Grenada</option>
+										<option value="86">Guadeloupe</option>
+										<option value="87">Guam</option>
+										<option value="88">Guatemala</option>
+										<option value="89">Guinea</option>
+										<option value="90">Guinea-Bissau</option>
+										<option value="91">Guyana</option>
+										<option value="92">Haiti</option>
+										<option value="93">Heard Island and McDonald Islands</option>
+										<option value="94">Holy See (Vatican City State)</option>
+										<option value="95">Honduras</option>
+										<option value="96">Hong Kong</option>
+										<option value="97">Hungary</option>
+										<option value="98">Iceland</option>
+										<option value="99">India</option>
+										<option value="100">Indonesia</option>
+										<option value="101">Iran</option>
+										<option value="102">Iraq</option>
+										<option value="103">Ireland</option>
+										<option value="104">Israel</option>
+										<option value="105">Italy</option>
+										<option value="106">Jamaica</option>
+										<option value="107">Japan</option>
+										<option value="108">Jordan</option>
+										<option value="109">Kazakhstan</option>
+										<option value="110">Kenya</option>
+										<option value="111">Kiribati</option>
+										<option value="114">Kuwait</option>
+										<option value="115">Kyrgyzstan</option>
+										<option value="116">Laos</option>
+										<option value="117">Latvia</option>
+										<option value="118">Lebanon</option>
+										<option value="119">Lesotho</option>
+										<option value="120">Liberia</option>
+										<option value="121">Libya</option>
+										<option value="122">Liechtenstein</option>
+										<option value="123">Lithuania</option>
+										<option value="124">Luxembourg</option>
+										<option value="125">Macau</option>
+										<option value="126">Macedonia</option>
+										<option value="127">Madagascar</option>
+										<option value="128">Malawi</option>
+										<option value="129">Malaysia</option>
+										<option value="130">Maldives</option>
+										<option value="131">Mali</option>
+										<option value="132">Malta</option>
+										<option value="133">Marshall Islands</option>
+										<option value="134">Martinique</option>
+										<option value="135">Mauritania</option>
+										<option value="136">Mauritius</option>
+										<option value="137">Mayotte</option>
+										<option value="138">Mexico</option>
+										<option value="139">Micronesia, Federated States of</option>
+										<option value="140">Moldova</option>
+										<option value="141">Monaco</option>
+										<option value="142">Mongolia</option>
+										<option value="143">Montserrat</option>
+										<option value="144">Morocco</option>
+										<option value="145">Mozambique</option>
+										<option value="146">Myanmar (Burma)</option>
+										<option value="147">Namibia</option>
+										<option value="148">Nauru</option>
+										<option value="149">Nepal</option>
+										<option value="150">Netherlands</option>
+										<option value="151">Netherlands Antilles</option>
+										<option value="152">New Caledonia</option>
+										<option value="153">New Zealand</option>
+										<option value="154">Nicaragua</option>
+										<option value="155">Niger</option>
+										<option value="156">Nigeria</option>
+										<option value="157">Niue</option>
+										<option value="158">Norfolk Island</option>
+										<option value="112">North Korea</option>
+										<option value="159">Northern Mariana Islands</option>
+										<option value="160">Norway</option>
+										<option value="161">Oman</option>
+										<option value="162">Pakistan</option>
+										<option value="163">Palau</option>
+										<option value="165">Panama</option>
+										<option value="166">Papua New Guinea</option>
+										<option value="167">Paraguay</option>
+										<option value="168">Peru</option>
+										<option value="169">Philippines</option>
+										<option value="170">Pitcairn Islands</option>
+										<option value="171">Poland</option>
+										<option value="172">Portugal</option>
+										<option value="174">Qatar</option>
+										<option value="175">Reunion</option>
+										<option value="176">Romania</option>
+										<option value="177">Russia</option>
+										<option value="178">Rwanda</option>
+										<option value="179">Saint Helena</option>
+										<option value="180">Saint Kitts and Nevis</option>
+										<option value="181">Saint Lucia</option>
+										<option value="182">Saint Pierre and Miquelon</option>
+										<option value="183">Saint Vincent and the Grenadines</option>
+										<option value="184">Samoa</option>
+										<option value="185">San Marino</option>
+										<option value="186">Sao Tome and Principe</option>
+										<option value="187">Saudi Arabia</option>
+										<option value="188">Senegal</option>
+										<option value="190">Seychelles</option>
+										<option value="191">Sierra Leone</option>
+										<option value="192">Singapore</option>
+										<option value="193">Slovakia</option>
+										<option value="194">Slovenia</option>
+										<option value="195">Solomon Islands</option>
+										<option value="196">Somalia</option>
+										<option value="197">South Africa</option>
+										<option value="198">South Georgia and the South Sandwich Islands</option>
+										<option value="113">South Korea</option>
+										<option value="199">Spain</option>
+										<option value="200">Sri Lanka</option>
+										<option value="201">Sudan</option>
+										<option value="202">Suriname</option>
+										<option value="203">Svalbard and Jan Mayen</option>
+										<option value="204">Swaziland</option>
+										<option value="205">Sweden</option>
+										<option value="206">Switzerland</option>
+										<option value="207">Syria</option>
+										<option value="208">Taiwan</option>
+										<option value="209">Tajikistan</option>
+										<option value="210">Tanzania</option>
+										<option value="211">Thailand</option>
+										<option value="213">Togo</option>
+										<option value="214">Tokelau</option>
+										<option value="215">Tonga</option>
+										<option value="216">Trinidad and Tobago</option>
+										<option value="217">Tunisia</option>
+										<option value="218">Turkey</option>
+										<option value="219">Turkmenistan</option>
+										<option value="220">Turks and Caicos Islands</option>
+										<option value="221">Tuvalu</option>
+										<option value="222">Uganda</option>
+										<option value="223">Ukraine</option>
+										<option value="224">United Arab Emirates</option>
+										<option value="225">United Kingdom</option>
+										<option value="227">United States Minor Outlying Islands</option>
+										<option value="228">Uruguay</option>
+										<option value="229">Uzbekistan</option>
+										<option value="230">Vanuatu</option>
+										<option value="231">Venezuela</option>
+										<option value="232">Vietnam</option>
+										<option value="233">Virgin Islands, British</option>
+										<option value="234">Virgin Islands, U.S.</option>
+										<option value="235">Wallis and Futuna</option>
+										<option value="236">Western Sahara</option>
+										<option value="237">Yemen</option>
+										<option value="238">Zambia</option>
+										<option value="239">Zimbabwe</option>
+									</select>
+								</div>
+								<div id="ctrlHolder_workphone" class="ctrlHolder">
+									<p class="errorFieldHide" id="workphone_err"></p>
+									<label for="workphone" class="">Daytime Phone</label>
+									<input name="workphone" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
+									<p class="formHint">(ex. 2345678901)</p>
+								</div>
+								<div id="ctrlHolder_extension" class="ctrlHolder">
+									<p class="errorFieldHide" id="extension_err"></p>
+									<label for="extension" class="">Extension</label>
+									<input name="extension" id="extension" value="" size="15" type="text" class="" tabindex="8"></div>
+								<div id="ctrlHolder_question" class="ctrlHolder">
+									<p class="errorFieldHide" id="question_err">Ask your question here:</p>
+									<label for="question" class="required">
+										<em>*</em>
+										Your Question
+									</label>
+									<textarea name="question" id="question" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
+								</div>
+								<input name="submitid" id="submitid" value="1" type="hidden">         
+								<input name="category" id="category" value="20" type="hidden">          
+								<input name="product" id="product" value="15" type="hidden">          
+								<input name="package" id="package" value="5628" type="hidden"></fieldset>
+							<div class="buttonHolder">
+								<input type="submit" name="submit_btn" id="submit_btn" value="Submit Your Question" class="uniFormButton" onclick="" tabindex="10"></div>
+						</form>
+					</div>
+				</div>
+				<!-- TRIP NAVIGATION BOTTOM -->
+			</div>
+		</div>
 
 
 <% content_for :footer do %>
@@ -826,83 +817,102 @@
 <script>
 // refresh window active tabs on hash
 var getTabActive=function(){
-    $("#trip_navigation_top li").removeClass("current");
-    $(".tab_item").addClass("hide");
-    $('#trip_navigation_top a[href='+window.location.hash+']').parent().addClass("current");
-    $(window.location.hash).removeClass("hide");
+		$("#trip_navigation_top li").removeClass("current");
+		$(".tab_item").addClass("hide");
+		$('#trip_navigation_top a[href='+window.location.hash+']').parent().addClass("current");
+		$(window.location.hash).removeClass("hide");
 }
 $("document").ready(function(){
-  if(window.location.hash&&$(window.location.hash).length>0){
-    getTabActive();
-  }
+	if(window.location.hash&&$(window.location.hash).length>0){
+		getTabActive();
+	}
 })
 $("#trip_navigation_top li a").live("click", function(){
-  $("#trip_navigation_top li").removeClass("current");
-  $(".tab_item").addClass("hide");
-  $(this).parent().addClass("current");
-  $($(this).attr("href")).removeClass("hide");
-  return false;
+	$("#trip_navigation_top li").removeClass("current");
+	$(".tab_item").addClass("hide");
+	$(this).parent().addClass("current");
+	$($(this).attr("href")).removeClass("hide");
+	return false;
 })
 // listen change of window.location.hash, then active
 if (("onhashchange" in window) && !($.browser.msie)) {
-     window.onhashchange = function () {
-       if ($(window.location.hash).length>0) {
-        getTabActive();
-        return false;
-       };     
-     }
+		 window.onhashchange = function () {
+			 if ($(window.location.hash).length>0) {
+				getTabActive();
+				return false;
+			 };     
+		 }
 }
 else {
-  $(window).bind('hashchange', function() {
-    if($(window.location.hash).length>1){
-      getTabActive();
-      return false;
-     }
-  });
+	$(window).bind('hashchange', function() {
+		if($(window.location.hash).length>1){
+			getTabActive();
+			return false;
+		 }
+	});
 }
 
 var getSeriesOverlay=function(a){
-  $(".text_modal").show();
-  $('<div id="popout_modal_mask"></div>').appendTo("body");
+	$(".text_modal").show();
+	$('<div id="popout_modal_mask"></div>').appendTo("body");
 }
 $(".text_modal .close").click(function(){
-  $(".text_modal").hide();
-  $('#popout_modal_mask').remove();
+	$(".text_modal").hide();
+	$('#popout_modal_mask').remove();
 });
 $("#popout_modal_mask").live("click",function(){
-  $(".text_modal").hide();
-  $(".popout_modal").hide();
-  $(this).remove();
+	$(".text_modal").hide();
+	$(".popout_modal").hide();
+	$(this).remove();
 })
+var initslide=function(){
+	$("#popout_modal").show().find('#destination_slides_modal').slidesjs({
+		width: 514,
+		height: 344,
+		navigation: false,
+		pagination: {
+			effect: "fade"
+		},
+		effect: {
+			fade: {
+				speed: 800
+			}
+		},
+		callback:{
+			loaded: function(number) {
+						$('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+					},
+			complete: function(number) {
+						$('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+			}
+		}
+	});
+}
 var modal_slides=function(a){
-  $(a).parent().parent().find(".popout_modal").show().find('#destination_slides_modal').slidesjs({
-  width: 514,
-  height: 344,
-  navigation: false,
-  pagination: {
-    effect: "fade"
-  },
-  effect: {
-    fade: {
-      speed: 800
-    }
-  },
-  callback:{
-    loaded: function(number) {
-          $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
-        },
-    complete: function(number) {
-          $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
-    }
-  }
-});
-  $('<div id="popout_modal_mask"></div>').appendTo("body");
-  return false;
+	if($('#popout_modal').size()>0){
+		$('#popout_modal').remove();
+	}
+	var $popout_modal_html='<div id="popout_modal" class="popout_modal"><div class="close_modal" onclick="modal_close();">X</div><img src="/images/ajax-loader.gif" id="ajaxloader"></div><div id="popout_modal_mask"></div>';
+	$('body').append($popout_modal_html);
+	$('#popout_modal').show();
+	$.ajax({
+			url: '/test.html',
+			type: 'GET',
+			data: {},
+			success: function (data) {
+				$('#ajaxloader').remove();
+				$('#popout_modal').append(data);
+			},
+			error:function(){
+				$('#ajaxloader').remove();
+				$('<p>Someting goes wrong, please try again later.</p>').appendTo('#popout_modal');
+			}
+		}).done(initslide);
 }
 var modal_close=function(){
-  $(".popout_modal").hide();
-  $('#popout_modal_mask').remove();
-  return false;
+	$("#popout_modal").remove();
+	$('#popout_modal_mask').remove();
+	return false;
 }
 </script>
 <% end %>

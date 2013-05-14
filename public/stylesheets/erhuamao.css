@@ -50,11 +50,12 @@ p.slide_img_title{
 	margin-top: 35px;
 }
 #popout_modal{
-	display: none;
 	background: #f4f4f4;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
+	min-height: 300px;
+	min-width: 400px;
 	border: 1px solid #ccc;
 	margin: 0 auto;
 	padding: 20px;
@@ -62,6 +63,10 @@ p.slide_img_title{
 	left: 50%;
 	margin-left: -300px;
 	z-index: 10001;
+}
+img#ajaxloader{
+	margin-left: 190px;
+	margin-top: 140px;
 }
 #popout_modal ul.slidesjs-pagination{
 	top: 50px;
