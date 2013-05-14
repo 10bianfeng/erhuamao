@@ -14,6 +14,8 @@ class Travel < ActiveRecord::Base
 	has_many :brochure_travels
 	has_many :brochures, :through => :brochure_travels
 
+	has_many :bookings
+
 	# 上传
 	mount_uploader :cover, CoverUploader
 

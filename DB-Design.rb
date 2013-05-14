@@ -165,6 +165,7 @@
 	preferred_contact_method:integer
 	email:string
 	phone:string
+	address:string
 	country:string
 	region:string
 	postal_code:string

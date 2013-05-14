@@ -15,13 +15,13 @@ class BookingsController < ApplicationController
       format.xml  { render :xml => @booking }
     end
   end
-
  
 
   # POST /bookings
   # POST /bookings.xml
   def create
     @booking = Booking.new(params[:booking])
+    @booking.user = current_user if current_user
 
     respond_to do |format|
       if @booking.save

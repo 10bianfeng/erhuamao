@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513112545) do
+ActiveRecord::Schema.define(:version => 20130514084248) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20130513112545) do
     t.boolean  "has_target"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
+    t.string   "city"
   end
 
   create_table "brochure_destinations", :force => true do |t|
@@ -153,6 +155,8 @@ ActiveRecord::Schema.define(:version => 20130513112545) do
     t.text     "city_comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "address"
+    t.string   "city"
   end
 
   create_table "hotels", :force => true do |t|

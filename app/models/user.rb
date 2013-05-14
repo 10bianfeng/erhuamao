@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
   # 定义用户名和email的格式
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
+  has_many :bookings
+
   def after_database_authentication
     #当用户成功登录后会执行此处代码，另有登录后到那个路径的方法
   end
