@@ -11,78 +11,9 @@
       </li>
     </ul>
     <div class="self_clear">
-      <div id="secondary_content" class="hide_from_print">
-        <% if @travel.brochures.size > 0 %>
-        <!-- RELATED BROCHURES -->
-        <div class="hl3">Related Brochures</div>
-        <% end %>
-        <% @travel.brochures.each do |brochure| %>
-        <div class="section">
-          <div class="related_brochure self_clear">
-            <p>
-              <img src="<%= brochure.cover.url %>" width="93" height="120" alt="<%= brochure.name %>" title="<%= brochure.name %>"><%= brochure.name %></p>
-            <ul>
-              <li>
-                <a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >View</a>
-              </li>
-              <li>
-                <a class="icon download" href="<%= brochure.doc.url %>">Download</a>
-              </li>
-              <li>
-                <a class="icon request_brochure" href="/travel_brochures/?brid=223">Request</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <% end %>
-        <div class="section">
-          <p>
-            <a class="icon swirl_arrow" href="/brochures">View All Brochures</a>
-          </p>
-        </div>
-        <!-- DOWNLOAD TRIP FACTS -->
-        <div class="hl3">Trip Information</div>
-        <dl class="section clear_list_style">
-          <dt><%= @travel.name %></dt>
-        </dl>
-        <div class="section">
-          <div class="travel-tips">
-            <img src="/images/trip-pdf-download.gif" width="59" height="61">
-            <p>
-              <br>
-              <a class="icon download" href="/assets_global/media/pdf/travel_tips/Taj-Mahal-and-Treasures-of-India-2013.pdf" target="_blank">Download Travel Tips</a>
-              <br>
-              <br>
-              <br></p>
-          </div>
-          <ul class="clear_list_style">
-            <li>
-              <a class="icon article" href="/pages/9" target="_blank" title="">Terms &amp; Conditions</a>
-            </li>
-          </ul>
-        </div>
-        <!-- RELATED INFORMATION-->
-        <dl class="section clear_list_style">
-          <dt>Photo Gallery</dt>
-          <dd>
-            <ul class="bullet_list">
-              <% @travel.destinations.each do |destination| %>
-                <li>
-                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');"><%= destination.gallery.title  %></a>
-              </li>
-              <% end %>
-              <% @travel.itineraries.each do |itinerary| %>
-                <li>
-                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');"><%= itinerary.hotel.gallery.title  %></a>
-              </li>
-              <% end %>
-            </ul>
-          </dd>
-        </dl>
-        <div class="end_cap"></div>
-        <a href="/search.cfm?scrs=70" onclick="pageTracker._trackEvent('Banner', 'click', 'Signature Series Banner');"></a>
-        <div id="dMainFBContest"></div>
-      </div>
+      
+      <%= render :partial => "travels/travel_sidebar", :locals => { :travel => @travel } %>
+
       <div id="primary_content" class="align_edges">
         <iframe style="position:absolute; left:-9999px;" id="print-frame" src="/images/transparent.gif"></iframe>
         <!-- PRIMARY HEADING -->
