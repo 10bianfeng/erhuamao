@@ -1,6 +1,17 @@
 # -*- encoding : utf-8 -*-
 class BookingsController < ApplicationController
 
+  def show
+    @booking = Booking.find(params[:id])
+    @datesprice = @booking.datesprice
+    @travel = @booking.travel
+    @people_count = @booking.people_count
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @booking }
+    end
+  end
 
   # GET /bookings/new
   # GET /bookings/new.xml

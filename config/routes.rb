@@ -149,6 +149,9 @@ Erhuamao::Application.routes.draw do
     resources :galleries do 
       resources :photos
     end
+    resources :bookings
+    resources :gbookings
+    resources :questions
   end
 
   match "weibo_login" => "welcome#weibo_login"

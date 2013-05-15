@@ -18,6 +18,7 @@ class GbookingsController < ApplicationController
   # POST /gbookings.xml
   def create
     @gbooking = Gbooking.new(params[:gbooking])
+    @gbooking.user = current_user if current_user
 
     respond_to do |format|
       if @gbooking.save
