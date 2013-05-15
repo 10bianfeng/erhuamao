@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  mrs_title: MyString
+  first_name: MyString
+  last_name: MyString
+  preferred_contact_method: 1
+  email: MyString
+  phone: MyString
+  country: MyString
+  question: MyText
+  travel_id: 1
+
+two:
+  mrs_title: MyString
+  first_name: MyString
+  last_name: MyString
+  preferred_contact_method: 1
+  email: MyString
+  phone: MyString
+  country: MyString
+  question: MyText
+  travel_id: 1

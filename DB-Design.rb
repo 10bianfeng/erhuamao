@@ -204,15 +204,15 @@
 
 
 ##Question
-	"preferred_contact_method" :integer
-	"email"	:string
-	"mrs_title"	:string
-	"first_name" :string
-	"last_name"	:string
-	"country"	:string
-	"phone"	:string
-	"question"	:text
-	"travel_id" :integer
+	mrs_title:string
+	first_name:string
+	last_name:string
+	preferred_contact_method:integer
+	email:string
+	phone:string
+	country:string
+	question:text
+	travel_id:integer
 
 
 

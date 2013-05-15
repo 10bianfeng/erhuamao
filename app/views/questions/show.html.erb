@@ -43,99 +43,24 @@
             <li>
               <a href="/travels/<%= @travel.id %>/#tab2" title="Itinerary">Itinerary</a>
             </li>
-            <li class="current">
+            <li>
               <a href="/travels/<%= @travel.id %>/#tab3" title="Dates &amp; Prices">Dates &amp; Prices</a>
             </li>
             <li>
               <a href="/travels/<%= @travel.id %>/#tab4" title="Extensions">Extensions</a>
             </li>
-            <li>
+            <li class="current">
               <a href="/travels/<%= @travel.id %>/#tab5" title="Ask a Question">Ask a Question</a>
             </li>
           </ul>
         </div>
 
-        <div id="tab3" class="tab_item">
+        <div id="tab5" class="tab_item">
 
-          <h2>You Submit Booking</h2>
-          <table class="format_table">
-            <thead>
-              <tr>
-                <th>
-                  Availability:
-                  Available
-                </th>
-                <th>Unit Price</th>
-                <th>Guests</th>
-                <th>Sub-Totals</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td> <strong>Dates:</strong>
-                  <%= @datesprice.start_date.strftime("%d %b %Y") %> to <%= @datesprice.end_date.strftime("%d %b %Y") %>
-                </td>
-                <td>$<%= @datesprice.prices %></td>
-                <td><%= @people_count %></td>
-                <td align="right">$<%= @datesprice.prices*@people_count %></td>
-              </tr>
-              <!-- IS INTERNAL AIRFARE INCLUDED IN THIS TRIP -->
-              <tr>
-                <td> <strong>Internal&nbsp;Airfare:</strong>
-                </td>
-                <td>$<%= @datesprice.internal_airfare %></td>
-                <td><%= @people_count %></td>
-                <td align="right">$<%= @datesprice.internal_airfare*@people_count %></td>
-              </tr>
-              <!-- IS A SUPPLEMENT INCLUDED IN THIS TRIP -->
-              <!-- ADD PRICE -->
-              <tr>
-                <td>
-                  <strong>Priced From (USD):</strong>
-                </td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="right">
-                  <strong>$<%= (@datesprice.prices+@datesprice.internal_airfare)*@people_count %></strong>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <ul class="clear_list_style"></ul>
-          <p>
-            Availability shown does not reflect real time status and is subject to change. In the case of Sold Out availability, A&amp;K recommends requesting a booking and adding your name to our waitlist. We will contact you if the departure becomes available.
-            Sub-Totals do not include international airfare, upgrades, taxes, seasonal surcharges and optional services not specified in the Inclusions section of the program description or Terms and Conditions.
-          </p>
+          <h2>You Submit Question</h2>
+          <p>Thank you for your question. You will receive an answer by phone or email during regular business hours.</p>
 
-          <table class="format_table">
-              <tr>
-                <td>Travel:</td><td><%= @travel.name %></td>
-              </tr>
-              <tr>
-                <td>Dates:</td><td><%= @datesprice.start_date.strftime("%d %b %Y") %> - <%= @datesprice.end_date.strftime("%d %b %Y") %></td>
-              </tr>
-              <tr>
-                <td>Contact Person:</td><td><%= @booking.mrs_title %> <%= @booking.first_name %> <%= @booking.last_name %></td>
-              </tr>
-              <tr>
-                <td>Address:</td><td> <%= @booking.address %> <%= @booking.city %> <%= @booking.region %> <%= @booking.country %> / <%= @booking.postal_code %></td>
-              </tr>
-              <tr>
-                <td>Email:</td><td><%= @booking.email %></td>
-              </tr>
-              <tr>
-                <td>Phone:</td><td><%= @booking.phone %></td>
-              </tr>
-              <tr>
-                <td>Agent Name:</td><td><%= @booking.agent_name %></td>
-              </tr>
-              <tr>
-                <td>Agent Code:</td><td><%= @booking.agent_code %></td>
-              </tr>
-              <tr>
-                <td>Comments:</td><td><%= @booking.comment %></td>
-              </tr>
-          </table>
+          
         </div>
         
         <!-- TRIP NAVIGATION BOTTOM -->
