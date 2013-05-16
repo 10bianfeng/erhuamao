@@ -14888,6 +14888,269 @@ UE.plugins['table'] = function () {
     }
 };
 ///import core
+///import plugins\inserthtml.js
+///commands 插入图片，操作图片的对齐方式
+///commandsName  InsertImage,ImageNone,ImageLeft,ImageRight,ImageCenter
+///commandsTitle  图片,默认,居左,居右,居中
+///commandsDialog  dialogs\image
+/**
+ * Created by .
+ * User: zhanyi
+ * for image
+ */
+
+UE.commands['imagefloat'] = {
+    execCommand:function (cmd, align) {
+        var me = this,
+            range = me.selection.getRange();
+        if (!range.collapsed) {
+            var img = range.getClosedNode();
+            if (img && img.tagName == 'IMG') {
+                switch (align) {
+                    case 'left':
+                    case 'right':
+                    case 'none':
+                        var pN = img.parentNode, tmpNode, pre, next;
+                        while (dtd.$inline[pN.tagName] || pN.tagName == 'A') {
+                            pN = pN.parentNode;
+                        }
+                        tmpNode = pN;
+                        if (tmpNode.tagName == 'P' && domUtils.getStyle(tmpNode, 'text-align') == 'center') {
+                            if (!domUtils.isBody(tmpNode) && domUtils.getChildCount(tmpNode, function (node) {
+                                return !domUtils.isBr(node) && !domUtils.isWhitespace(node);
+                            }) == 1) {
+                                pre = tmpNode.previousSibling;
+                                next = tmpNode.nextSibling;
+                                if (pre && next && pre.nodeType == 1 && next.nodeType == 1 && pre.tagName == next.tagName && domUtils.isBlockElm(pre)) {
+                                    pre.appendChild(tmpNode.firstChild);
+                                    while (next.firstChild) {
+                                        pre.appendChild(next.firstChild);
+                                    }
+                                    domUtils.remove(tmpNode);
+                                    domUtils.remove(next);
+                                } else {
+                                    domUtils.setStyle(tmpNode, 'text-align', '');
+                                }
+
+
+                            }
+
+                            range.selectNode(img).select();
+                        }
+                        domUtils.setStyle(img, 'float', align == 'none' ? '' : align);
+                        if(align == 'none'){
+                            domUtils.removeAttributes(img,'align');
+                        }
+
+                        break;
+                    case 'center':
+                        if (me.queryCommandValue('imagefloat') != 'center') {
+                            pN = img.parentNode;
+                            domUtils.setStyle(img, 'float', '');
+                            domUtils.removeAttributes(img,'align');
+                            tmpNode = img;
+                            while (pN && domUtils.getChildCount(pN, function (node) {
+                                return !domUtils.isBr(node) && !domUtils.isWhitespace(node);
+                            }) == 1
+                                && (dtd.$inline[pN.tagName] || pN.tagName == 'A')) {
+                                tmpNode = pN;
+                                pN = pN.parentNode;
+                            }
+                            range.setStartBefore(tmpNode).setCursor(false);
+                            pN = me.document.createElement('div');
+                            pN.appendChild(tmpNode);
+                            domUtils.setStyle(tmpNode, 'float', '');
+
+                            me.execCommand('insertHtml', '<p id="_img_parent_tmp" style="text-align:center">' + pN.innerHTML + '</p>');
+
+                            tmpNode = me.document.getElementById('_img_parent_tmp');
+                            tmpNode.removeAttribute('id');
+                            tmpNode = tmpNode.firstChild;
+                            range.selectNode(tmpNode).select();
+                            //去掉后边多余的元素
+                            next = tmpNode.parentNode.nextSibling;
+                            if (next && domUtils.isEmptyNode(next)) {
+                                domUtils.remove(next);
+                            }
+
+                        }
+
+                        break;
+                }
+
+            }
+        }
+    },
+    queryCommandValue:function () {
+        var range = this.selection.getRange(),
+            startNode, floatStyle;
+        if (range.collapsed) {
+            return 'none';
+        }
+        startNode = range.getClosedNode();
+        if (startNode && startNode.nodeType == 1 && startNode.tagName == 'IMG') {
+            floatStyle = startNode.getAttribute('align')||domUtils.getComputedStyle(startNode, 'float');
+            if (floatStyle == 'none') {
+                floatStyle = domUtils.getComputedStyle(startNode.parentNode, 'text-align') == 'center' ? 'center' : floatStyle;
+            }
+            return {
+                left:1,
+                right:1,
+                center:1
+            }[floatStyle] ? floatStyle : 'none';
+        }
+        return 'none';
+
+
+    },
+    queryCommandState:function () {
+        var range = this.selection.getRange(),
+            startNode;
+
+        if (range.collapsed)  return -1;
+
+        startNode = range.getClosedNode();
+        if (startNode && startNode.nodeType == 1 && startNode.tagName == 'IMG') {
+            return 0;
+        }
+        return -1;
+    }
+};
+
+UE.commands['insertimage'] = {
+    execCommand:function (cmd, opt) {
+
+        opt = utils.isArray(opt) ? opt : [opt];
+        if (!opt.length) {
+            return;
+        }
+        var me = this,
+            range = me.selection.getRange(),
+            img = range.getClosedNode();
+        if (img && /img/i.test(img.tagName) && img.className != "edui-faked-video" && !img.getAttribute("word_img")) {
+            var first = opt.shift();
+            var floatStyle = first['floatStyle'];
+            delete first['floatStyle'];
+////                img.style.border = (first.border||0) +"px solid #000";
+////                img.style.margin = (first.margin||0) +"px";
+//                img.style.cssText += ';margin:' + (first.margin||0) +"px;" + 'border:' + (first.border||0) +"px solid #000";
+            domUtils.setAttributes(img, first);
+            me.execCommand('imagefloat', floatStyle);
+            if (opt.length > 0) {
+                range.setStartAfter(img).setCursor(false, true);
+                me.execCommand('insertimage', opt);
+            }
+
+        } else {
+            var html = [], str = '', ci;
+            ci = opt[0];
+            if (opt.length == 1) {
+                str = '<img src="' + ci.src + '" ' + (ci.data_ue_src ? ' data_ue_src="' + ci.data_ue_src + '" ' : '') +
+                    (ci.width ? 'width="' + ci.width + '" ' : '') +
+                    (ci.height ? ' height="' + ci.height + '" ' : '') +
+                    (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
+                    (ci.title && ci.title != "" ? ' title="' + ci.title + '"' : '') +
+                    (ci.border && ci.border != "0" ? ' border="' + ci.border + '"' : '') +
+                    (ci.alt && ci.alt != "" ? ' alt="' + ci.alt + '"' : '') +
+                    (ci.hspace && ci.hspace != "0" ? ' hspace = "' + ci.hspace + '"' : '') +
+                    (ci.vspace && ci.vspace != "0" ? ' vspace = "' + ci.vspace + '"' : '') + '/>';
+                if (ci['floatStyle'] == 'center') {
+                    str = '<p style="text-align: center">' + str + '</p>';
+                }
+                html.push(str);
+
+            } else {
+                for (var i = 0; ci = opt[i++];) {
+                    str = '<p ' + (ci['floatStyle'] == 'center' ? 'style="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
+                        (ci.width ? 'width="' + ci.width + '" ' : '') + (ci.data_ue_src ? ' data_ue_src="' + ci.data_ue_src + '" ' : '') +
+                        (ci.height ? ' height="' + ci.height + '" ' : '') +
+                        ' style="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
+                        (ci.border || '') + '" ' +
+                        (ci.title ? ' title="' + ci.title + '"' : '') + ' /></p>';
+                    html.push(str);
+                }
+            }
+
+            me.execCommand('insertHtml', html.join(''));
+        }
+    }
+};///import core
+///import plugins/inserthtml.js
+///commands 视频
+///commandsName InsertVideo
+///commandsTitle  插入视频
+///commandsDialog  dialogs\video
+UE.plugins['video'] = function (){
+    var me =this,
+        div;
+
+    /**
+     * 创建插入视频字符窜
+     * @param url 视频地址
+     * @param width 视频宽度
+     * @param height 视频高度
+     * @param align 视频对齐
+     * @param toEmbed 是否以flash代替显示
+     * @param addParagraph  是否需要添加P 标签
+     */
+    function creatInsertStr(url,width,height,align,toEmbed,addParagraph){
+        return  !toEmbed ?
+                (addParagraph? ('<p '+ (align && align !="none" ? ( align == "center"? ' style="text-align:center;" ':' style="float:"'+ align ) : '') + '>'): '') +
+                '<img align="'+align+'" width="'+ width +'" height="' + height + '" _url="'+url+'" class="edui-faked-video"' +
+                ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" style="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;" />' +
+                (addParagraph?'</p>':'')
+                :
+                '<embed type="application/x-shockwave-flash" class="edui-faked-video" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
+                ' src="' + url + '" width="' + width  + '" height="' + height  + '" align="' + align + '"' +
+                ( align && align !="none" ? ' style= "'+ ( align == "center"? "display:block;":" float: "+ align )  + '"' :'' ) +
+                ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
+    }
+
+    function switchImgAndEmbed(img2embed){
+        var tmpdiv,
+            nodes =domUtils.getElementsByTagName(me.document, !img2embed ? "embed" : "img");
+        for(var i=0,node;node = nodes[i++];){
+            if(node.className!="edui-faked-video"){
+                continue;
+            }
+            tmpdiv = me.document.createElement("div");
+            //先看float在看align,浮动有的是时候是在float上定义的
+            var align = domUtils.getComputedStyle(node,'float');
+            align = align == 'none' ? (node.getAttribute('align') || '') : align;
+            tmpdiv.innerHTML = creatInsertStr(img2embed ? node.getAttribute("_url"):node.getAttribute("src"),node.width,node.height,align,img2embed);
+            node.parentNode.replaceChild(tmpdiv.firstChild,node);
+        }
+    }
+    me.addListener("beforegetcontent",function(){
+        switchImgAndEmbed(true);
+    });
+    me.addListener('aftersetcontent',function(){
+        switchImgAndEmbed(false);
+    });
+    me.addListener('aftergetcontent',function(cmdName){
+        if(cmdName == 'aftergetcontent' && me.queryCommandState('source')){
+            return;
+        }
+        switchImgAndEmbed(false);
+    });
+
+    me.commands["insertvideo"] = {
+        execCommand: function (cmd, videoObjs){
+            videoObjs = utils.isArray(videoObjs)?videoObjs:[videoObjs];
+            var html = [];
+            for(var i=0,vi,len = videoObjs.length;i<len;i++){
+                 vi = videoObjs[i];
+                 html.push(creatInsertStr( vi.url, vi.width || 420,  vi.height || 280, vi.align||"none",false,true));
+            }
+            me.execCommand("inserthtml",html.join(""));
+        },
+        queryCommandState : function(){
+            var img = me.selection.getRange().getClosedNode(),
+                flag = img && (img.className == "edui-faked-video");
+            return flag ? 1 : 0;
+        }
+    };
+};///import core
 ///commands 超链接,取消链接
 ///commandsName  Link,Unlink
 ///commandsTitle  超链接,取消链接
@@ -15194,31 +15457,6 @@ UE.plugins['blockquote'] = function(){
     };
 };
 
-///import core
-///commands 预览
-///commandsName  Preview
-///commandsTitle  预览
-/**
- * 预览
- * @function
- * @name baidu.editor.execCommand
- * @param   {String}   cmdName     preview预览编辑器内容
- */
-UE.commands['preview'] = {
-    execCommand : function(){
-        var w = window.open('', '_blank', ''),
-            d = w.document;
-        d.open();
-        d.write('<html><head><script src="'+this.options.UEDITOR_HOME_URL+'uparse.js"></script><script>' +
-            "setTimeout(function(){uParse('div',{" +
-            "    'highlightJsUrl':'"+this.options.UEDITOR_HOME_URL+"third-party/SyntaxHighlighter/shCore.js'," +
-                "    'highlightCssUrl':'"+this.options.UEDITOR_HOME_URL+"third-party/SyntaxHighlighter/shCoreDefault.css'" +
-                "})},300)" +
-            '</script></head><body><div>'+this.getContent(null,null,true)+'</div></body></html>');
-        d.close();
-    },
-    notNeedUndo : 1
-};
 ///import core
 ///commands 悬浮工具栏
 ///commandsName  AutoFloat,autoFloatEnabled
@@ -15562,6 +15800,100 @@ UE.plugins['autoheight'] = function () {
         });
     };
 ///import core
+///commands 远程图片抓取
+///commandsName  catchRemoteImage,catchremoteimageenable
+///commandsTitle  远程图片抓取
+/**
+ * 远程图片抓取,当开启本插件时所有不符合本地域名的图片都将被抓取成为本地服务器上的图片
+ *
+ */
+UE.plugins['catchremoteimage'] = function () {
+    if (this.options.catchRemoteImageEnable===false){
+        return;
+    }
+    var me = this;
+    this.setOpt({
+        localDomain:["127.0.0.1","localhost","img.baidu.com"],
+        separater:'ue_separate_ue',
+        catchFieldName:"upfile",
+        catchRemoteImageEnable:true
+    });
+    var ajax = UE.ajax,
+        localDomain = me.options.localDomain ,
+        catcherUrl = me.options.catcherUrl,
+        separater = me.options.separater;
+    function catchremoteimage(imgs, callbacks) {
+        var submitStr = imgs.join(separater);
+        var tmpOption = {
+            timeout:60000, //单位：毫秒，回调请求超时设置。目标用户如果网速不是很快的话此处建议设置一个较大的数值
+            onsuccess:callbacks["success"],
+            onerror:callbacks["error"]
+        };
+        tmpOption[me.options.catchFieldName] = submitStr;
+        ajax.request(catcherUrl, tmpOption);
+    }
+
+    me.addListener("afterpaste", function () {
+        me.fireEvent("catchRemoteImage");
+    });
+
+    me.addListener("catchRemoteImage", function () {
+        var remoteImages = [];
+        var imgs = domUtils.getElementsByTagName(me.document, "img");
+        var test = function (src,urls) {
+            for (var j = 0, url; url = urls[j++];) {
+                if (src.indexOf(url) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        for (var i = 0, ci; ci = imgs[i++];) {
+            if (ci.getAttribute("word_img")){
+                continue;
+            }
+            var src = ci.getAttribute("data_ue_src") || ci.src || "";
+            if (/^(https?|ftp):/i.test(src) && !test(src,localDomain)) {
+                remoteImages.push(src);
+            }
+        }
+        if (remoteImages.length) {
+            catchremoteimage(remoteImages, {
+                //成功抓取
+                success:function (xhr) {
+                    try {
+                        var info = eval("(" + xhr.responseText + ")");
+                    } catch (e) {
+                        return;
+                    }
+                    var srcUrls = info.srcUrl.split(separater),
+                        urls = info.url.split(separater);
+                    for (var i = 0, ci; ci = imgs[i++];) {
+                        var src = ci.getAttribute("data_ue_src") || ci.src || "";
+                        for (var j = 0, cj; cj = srcUrls[j++];) {
+                            var url = urls[j - 1];
+                            if (src == cj && url != "error") {  //抓取失败时不做替换处理
+                                //地址修正
+                                var newSrc = me.options.catcherPath + url;
+                                domUtils.setAttributes(ci, {
+                                    "src":newSrc,
+                                    "data_ue_src":newSrc
+                                });
+                                break;
+                            }
+                        }
+                    }
+                    me.fireEvent('catchremotesuccess')
+                },
+                //回调失败，本次请求超时
+                error:function () {
+                    me.fireEvent("catchremoteerror");
+                }
+            });
+        }
+
+    });
+};///import core
 ///commands 字数统计
 ///commandsName  WordCount,wordCount
 ///commandsTitle  字数统计

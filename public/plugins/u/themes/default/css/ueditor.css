@@ -7,9 +7,6 @@
     margin: 0;
     overflow: hidden;
 }
-body{
-    line-height: 20px;
-}
 
 .edui-default a.edui-box {
     display: block;
@@ -121,7 +118,7 @@ div.edui-box {
     cursor: default;
     -webkit-user-select: none;
     -moz-user-select: none;
-    padding: 0px;
+    padding: 1px;
     overflow: hidden; /*全屏下单独一行不占位*/
     zoom: 1;
 }
@@ -151,7 +148,7 @@ div.edui-box {
 }
 
 .edui-default .edui-editor-toolbarboxinner {
-    padding: 4px;
+    padding: 2px;
 }
 
 .edui-default .edui-editor-iframeholder {
