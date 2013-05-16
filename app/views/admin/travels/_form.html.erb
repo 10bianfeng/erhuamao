@@ -99,11 +99,15 @@
     <script type="text/javascript" src="/plugins/u/editor_all.min.js"></script>
     <link rel="stylesheet" href="/plugins/u/themes/default/css/ueditor.css" />   
     <script type="text/javascript">
-      var editor = new UE.ui.Editor();
-      editor.render('travel_overview_desc');
-      editor.render('travel_overview_advantage');
-      editor.render('travel_notes');
-      editor.render('travel_extensions_ids');
-      editor.render('travel_itinerary_pic');
+      var overview_desc = new UE.ui.Editor();
+      var overview_advantage = new UE.ui.Editor();
+      var notes = new UE.ui.Editor();
+      var extensions_ids = new UE.ui.Editor();
+      var itinerary_pic = new UE.ui.Editor();
+      overview_desc.render('travel_overview_desc');
+      overview_advantage.render('travel_overview_advantage');
+      notes.render('travel_notes');
+      extensions_ids.render('travel_extensions_ids');
+      itinerary_pic.render('travel_itinerary_pic');
     </script>
 <% end %>
