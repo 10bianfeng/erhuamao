@@ -19,14 +19,14 @@
      * 因此，UEditor提供了针对不同页面的编辑器可单独配置的根路径，具体来说，在需要实例化编辑器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
      * window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
-    
+    var URL;
 
     /**
      * 此处配置写法适用于UEditor小组成员开发使用，外部部署用户请按照上述说明方式配置即可，建议保留下面两行，以兼容可在具体每个页面配置window.UEDITOR_HOME_URL的功能。
      */
     var tmp = location.protocol.indexOf("file")==-1 ? location.pathname : location.href;
     URL = window.UEDITOR_HOME_URL||tmp.substr(0,tmp.lastIndexOf("\/")+1).replace("_examples/","").replace("website/","");//这里你可以配置成ueditor目录在您网站的相对路径或者绝对路径（指以http开头的绝对路径）
-    var URL="/plugins/u/";
+
     /**
      * 配置项主体。注意，此处所有涉及到路径的配置别遗漏URL变量。
      */
@@ -49,13 +49,6 @@
         ,fileUrl:URL+"php/fileUp.php"               //附件上传提交地址
         ,filePath:URL + "php/"                   //附件修正地址，同imagePath
         //,fileFieldName:"upfile"                    //附件提交的表单名，若此处修改，需要在后台对应文件修改对应参数
-         //远程抓取配置区
-        //,catchRemoteImageEnable:true               //是否开启远程图片抓取,默认开启
-        ,catcherUrl:URL +"php/getRemoteImage.php"   //处理远程图片抓取的地址
-        ,catcherPath:URL + "php/"                  //图片修正地址，同imagePath
-        //,catchFieldName:"upfile"                   //提交到后台远程图片uri合集，若此处修改，需要在后台对应文件修改对应参数
-        //,separater:'ue_separate_ue'               //提交至后台的远程图片地址字符串分隔符
-        //,localDomain:[]                            //本地顶级域名，当开启远程图片抓取时，除此之外的所有其它域名下的图片都将被抓取到本地,默认不抓取127.0.0.1和localhost
 
         //图片在线管理配置区
         ,imageManagerUrl:URL + "php/imageManager.php"       //图片在线管理的处理地址
@@ -77,7 +70,7 @@
         ,getMovieUrl:URL+"php/getMovie.php"                   //视频数据获取地址
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
-        ,toolbars:[["paragraph","forecolor","backcolor","bold","italic","underline","removeformat","undo","redo","insertunorderedlist","insertorderedlist","justifyleft","justifycenter","justifyright","justifyjustify","horizontal","separate","inserttable","deletetable","insertvideo","link","unlink","gmap","map","blockquote","fullscreen"],[],[]]
+        ,toolbars:[["paragraph","forecolor","backcolor","bold","italic","underline","removeformat","undo","redo","insertunorderedlist","insertorderedlist","justifyleft","justifycenter","justifyright","justifyjustify","horizontal","inserttable","deletetable","unlink","link","gmap","map","blockquote","preview","fullscreen"]]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         ,labelMap:{
             'anchor':'', 'undo':''
@@ -91,7 +84,7 @@
         //lang值也可以通过自动获取 (navigator.language||navigator.browserLanguage ||navigator.userLanguage).toLowerCase()
     //,lang:'zh-cn'
 
-        ,langPath:URL +"lang/"
+        //,langPath:URL +"lang/"
 
         //主题配置项,默认是default。有需要的话也可以使用如下这样的方式来自动多主题切换，当然，前提条件是themes文件夹下存在对应的主题文件：
         //现有如下皮肤:default,modern,gorgeous
@@ -107,14 +100,14 @@
         //常用配置项目
         //,isShow : true    //默认显示编辑器
 
-        ,initialContent:''    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
+        //,initialContent:'欢迎使用ueditor!'    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
 
-        ,initialFrameWidth:710  //初始化编辑器宽度,默认1000
-        ,initialFrameHeight:120  //初始化编辑器高度,默认320
+        //,initialFrameWidth:1000  //初始化编辑器宽度,默认1000
+        //,initialFrameHeight:320  //初始化编辑器高度,默认320
 
         //,autoClearinitialContent:true //是否自动清除编辑器初始内容，注意：如果focus属性设置为true,这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了
 
-        ,iframeCssUrl: URL + '/themes/iframe.css' //给编辑器内部引入一个css文件
+        //,iframeCssUrl: URL + '/themes/iframe.css' //给编辑器内部引入一个css文件
         //,textarea:'editorValue' // 提交表单时，服务器获取编辑器提交内容的所用的参数，多实例时可以给容器name属性，会将name给定的值最为每个实例的键值，不用每次实例化的时候都设置这个值
         //,focus:true //初始化时，是否让编辑器获得焦点true或false
 
@@ -132,7 +125,7 @@
 
         //,emotionLocalization:false //是否开启表情本地化，默认关闭。若要开启请确保emotion文件夹下包含官网提供的images表情文件夹
 
-        ,pasteplain:true  //是否纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴
+        //,pasteplain:false  //是否纯文本粘贴。false为不使用纯文本粘贴，true为使用纯文本粘贴
 
         //,allHtmlEnabled:false //提交到后台的数据是否包含整个html字符串
         //iframeUrlMap
@@ -182,6 +175,12 @@
         //elementPathEnabled
         //是否启用元素路径，默认是显示
         //,elementPathEnabled : true
+        //removeFormat
+        //清除格式时可以删除的标签和属性
+        //removeForamtTags标签
+        //,removeFormatTags:'b,big,code,del,dfn,em,font,i,ins,kbd,q,samp,small,span,strike,strong,sub,sup,tt,u,var'
+        //removeFormatAttributes属性
+        //,removeFormatAttributes:'class,style,lang,width,height,align,hspace,valign'
         //undo
         //可以最多回退的次数,默认20
         //,maxUndoCount:20
@@ -191,7 +190,7 @@
         // 是否自动长高,默认true
         //,autoHeightEnabled:true
         //,minFrameWidth:800    //编辑器拖动时最小宽度,默认800
-        ,minFrameHeight:120  //编辑器拖动时最小高度,默认220
+        //,minFrameHeight:220  //编辑器拖动时最小高度,默认220
         //autoFloatEnabled
         //是否保持toolbar的位置不动,默认true
         //,autoFloatEnabled:true

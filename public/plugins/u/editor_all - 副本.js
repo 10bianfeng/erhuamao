@@ -14888,6 +14888,82 @@ UE.plugins['table'] = function () {
     }
 };
 ///import core
+///import plugins/inserthtml.js
+///commands 视频
+///commandsName InsertVideo
+///commandsTitle  插入视频
+///commandsDialog  dialogs\video
+UE.plugins['video'] = function (){
+    var me =this,
+        div;
+
+    /**
+     * 创建插入视频字符窜
+     * @param url 视频地址
+     * @param width 视频宽度
+     * @param height 视频高度
+     * @param align 视频对齐
+     * @param toEmbed 是否以flash代替显示
+     * @param addParagraph  是否需要添加P 标签
+     */
+    function creatInsertStr(url,width,height,align,toEmbed,addParagraph){
+        return  !toEmbed ?
+                (addParagraph? ('<p '+ (align && align !="none" ? ( align == "center"? ' style="text-align:center;" ':' style="float:"'+ align ) : '') + '>'): '') +
+                '<img align="'+align+'" width="'+ width +'" height="' + height + '" _url="'+url+'" class="edui-faked-video"' +
+                ' src="' + me.options.UEDITOR_HOME_URL+'themes/default/images/spacer.gif" style="background:url('+me.options.UEDITOR_HOME_URL+'themes/default/images/videologo.gif) no-repeat center center; border:1px solid gray;" />' +
+                (addParagraph?'</p>':'')
+                :
+                '<embed type="application/x-shockwave-flash" class="edui-faked-video" pluginspage="http://www.macromedia.com/go/getflashplayer"' +
+                ' src="' + url + '" width="' + width  + '" height="' + height  + '" align="' + align + '"' +
+                ( align && align !="none" ? ' style= "'+ ( align == "center"? "display:block;":" float: "+ align )  + '"' :'' ) +
+                ' wmode="transparent" play="true" loop="false" menu="false" allowscriptaccess="never" allowfullscreen="true" >';
+    }
+
+    function switchImgAndEmbed(img2embed){
+        var tmpdiv,
+            nodes =domUtils.getElementsByTagName(me.document, !img2embed ? "embed" : "img");
+        for(var i=0,node;node = nodes[i++];){
+            if(node.className!="edui-faked-video"){
+                continue;
+            }
+            tmpdiv = me.document.createElement("div");
+            //先看float在看align,浮动有的是时候是在float上定义的
+            var align = domUtils.getComputedStyle(node,'float');
+            align = align == 'none' ? (node.getAttribute('align') || '') : align;
+            tmpdiv.innerHTML = creatInsertStr(img2embed ? node.getAttribute("_url"):node.getAttribute("src"),node.width,node.height,align,img2embed);
+            node.parentNode.replaceChild(tmpdiv.firstChild,node);
+        }
+    }
+    me.addListener("beforegetcontent",function(){
+        switchImgAndEmbed(true);
+    });
+    me.addListener('aftersetcontent',function(){
+        switchImgAndEmbed(false);
+    });
+    me.addListener('aftergetcontent',function(cmdName){
+        if(cmdName == 'aftergetcontent' && me.queryCommandState('source')){
+            return;
+        }
+        switchImgAndEmbed(false);
+    });
+
+    me.commands["insertvideo"] = {
+        execCommand: function (cmd, videoObjs){
+            videoObjs = utils.isArray(videoObjs)?videoObjs:[videoObjs];
+            var html = [];
+            for(var i=0,vi,len = videoObjs.length;i<len;i++){
+                 vi = videoObjs[i];
+                 html.push(creatInsertStr( vi.url, vi.width || 420,  vi.height || 280, vi.align||"none",false,true));
+            }
+            me.execCommand("inserthtml",html.join(""));
+        },
+        queryCommandState : function(){
+            var img = me.selection.getRange().getClosedNode(),
+                flag = img && (img.className == "edui-faked-video");
+            return flag ? 1 : 0;
+        }
+    };
+};///import core
 ///commands 超链接,取消链接
 ///commandsName  Link,Unlink
 ///commandsTitle  超链接,取消链接
@@ -15562,6 +15638,124 @@ UE.plugins['autoheight'] = function () {
         });
     };
 ///import core
+///commands 自动提交
+///commandsName  autosubmit
+///commandsTitle  自动提交
+UE.plugins['autosubmit'] = function(){
+    var me = this;
+    me.commands['autosubmit'] = {
+        execCommand:function () {
+            var me=this,
+                form = domUtils.findParentByTagName(me.iframe,"form", false);
+            if (form)    {
+                if(me.fireEvent("beforesubmit")===false){
+                    return;
+                }
+                me.sync();
+                form.submit();
+            }
+        }
+    };
+    //快捷键
+    me.addshortcutkey({
+        "autosubmit" : "ctrl+13" //手动提交
+    });
+};
+///import core
+///commands 远程图片抓取
+///commandsName  catchRemoteImage,catchremoteimageenable
+///commandsTitle  远程图片抓取
+/**
+ * 远程图片抓取,当开启本插件时所有不符合本地域名的图片都将被抓取成为本地服务器上的图片
+ *
+ */
+UE.plugins['catchremoteimage'] = function () {
+    if (this.options.catchRemoteImageEnable===false){
+        return;
+    }
+    var me = this;
+    this.setOpt({
+        localDomain:["127.0.0.1","localhost","img.baidu.com"],
+        separater:'ue_separate_ue',
+        catchFieldName:"upfile",
+        catchRemoteImageEnable:true
+    });
+    var ajax = UE.ajax,
+        localDomain = me.options.localDomain ,
+        catcherUrl = me.options.catcherUrl,
+        separater = me.options.separater;
+    function catchremoteimage(imgs, callbacks) {
+        var submitStr = imgs.join(separater);
+        var tmpOption = {
+            timeout:60000, //单位：毫秒，回调请求超时设置。目标用户如果网速不是很快的话此处建议设置一个较大的数值
+            onsuccess:callbacks["success"],
+            onerror:callbacks["error"]
+        };
+        tmpOption[me.options.catchFieldName] = submitStr;
+        ajax.request(catcherUrl, tmpOption);
+    }
+
+    me.addListener("afterpaste", function () {
+        me.fireEvent("catchRemoteImage");
+    });
+
+    me.addListener("catchRemoteImage", function () {
+        var remoteImages = [];
+        var imgs = domUtils.getElementsByTagName(me.document, "img");
+        var test = function (src,urls) {
+            for (var j = 0, url; url = urls[j++];) {
+                if (src.indexOf(url) !== -1) {
+                    return true;
+                }
+            }
+            return false;
+        };
+        for (var i = 0, ci; ci = imgs[i++];) {
+            if (ci.getAttribute("word_img")){
+                continue;
+            }
+            var src = ci.getAttribute("data_ue_src") || ci.src || "";
+            if (/^(https?|ftp):/i.test(src) && !test(src,localDomain)) {
+                remoteImages.push(src);
+            }
+        }
+        if (remoteImages.length) {
+            catchremoteimage(remoteImages, {
+                //成功抓取
+                success:function (xhr) {
+                    try {
+                        var info = eval("(" + xhr.responseText + ")");
+                    } catch (e) {
+                        return;
+                    }
+                    var srcUrls = info.srcUrl.split(separater),
+                        urls = info.url.split(separater);
+                    for (var i = 0, ci; ci = imgs[i++];) {
+                        var src = ci.getAttribute("data_ue_src") || ci.src || "";
+                        for (var j = 0, cj; cj = srcUrls[j++];) {
+                            var url = urls[j - 1];
+                            if (src == cj && url != "error") {  //抓取失败时不做替换处理
+                                //地址修正
+                                var newSrc = me.options.catcherPath + url;
+                                domUtils.setAttributes(ci, {
+                                    "src":newSrc,
+                                    "data_ue_src":newSrc
+                                });
+                                break;
+                            }
+                        }
+                    }
+                    me.fireEvent('catchremotesuccess')
+                },
+                //回调失败，本次请求超时
+                error:function () {
+                    me.fireEvent("catchremoteerror");
+                }
+            });
+        }
+
+    });
+};///import core
 ///commands 字数统计
 ///commandsName  WordCount,wordCount
 ///commandsTitle  字数统计

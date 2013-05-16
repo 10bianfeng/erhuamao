@@ -50,6 +50,7 @@ p.slide_img_title{
 	margin-top: 35px;
 }
 #popout_modal{
+	display: none;
 	background: #f4f4f4;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
