@@ -5378,7 +5378,6 @@ button.ui-button::-moz-focus-inner {
 
 /*@TEMP COMPARE TRIP STYLES
 --------------------------------------*/
-
 .compare_link{
 	line-height:12px;	
 }
@@ -5402,7 +5401,6 @@ button.ui-button::-moz-focus-inner {
 #search-results p {margin:10px 0;}
 #search-results input {height:12px; width:12px; margin:3px 6px 0 0;}
 #search-results .quicklinks {text-align:right;}
-
 /*@CUSTOMIZE TRIP BAR FOR SEARCH
 --------------------------------------*/
 #customize_trip{
@@ -5440,3 +5438,176 @@ button.ui-button::-moz-focus-inner {
 #search-results .copy-block span {margin-top:0;}
 #search-results .connections-leadin div {border:#ffd14f 1px solid; padding:12px; overflow:hidden;}
 #search-results .connections-leadin div img {float:left; padding-right:12px; margin-right:15px; border-right:1px solid #e4e5e6; width:214px; height:56px;}
+/*@COMPARE TRIPS
+--------------------------------------*/
+#compare_trips td *{
+	/*Remove default margins on all child elements*/
+	margin:0;
+}
+#compare_trips td{
+	/*Use border-left to act as a faux margin*/
+	border-left:15px solid #fff;
+	/*Remove default padding*/
+	padding:0;
+	/*Set a fixed width divisible by three*/
+	width:33.33%;
+	/*Set background-color to a light gray*/
+	background-color:#f4f4f4;
+	/*Set default alignment*/
+	vertical-align:top;
+	/*IE6; Emulate ":first-child" pseudo selector*/
+	-$clear:expression(
+		(!previousSibling)? className+=" td_first_child" : 0,
+		style.clear = "none", 0
+	
+	);
+}
+#compare_trips .td_first_child{
+	/*Remove border from first element*/
+	-border-left:none;
+}
+#compare_trips td:first-child{
+	/*Remove border from first element*/
+	border-left:none;
+}
+#compare_trips .nth_child td{
+	/*Set interior space on td elements*/
+	padding:15px;
+}
+#compare_trips h3{
+	/*Set border properties*/
+	border-top:1px solid #fff;
+	/*Set border properties*/
+	border-bottom:1px solid #fff;
+	/*Indent left and right sides*/
+	padding:0 15px;
+	/*Use line-height to set height so text will vertically center*/
+	line-height:30px;
+	/*Remove default bold*/
+	font-weight:normal;
+	/*Set background-color to a medium gray*/
+	background-color:#e4e5e6;
+}
+/*SAVED TRIPS*/
+#c_saved_trips select{
+	/*Span select entire width of parent element*/
+	width:100%;
+}
+#c_saved_trips.nth_child td{
+	/*Use brand standard gray*/
+	background-color:#a7a9ac;
+}
+/*SELECTED TRIP NAME*/
+#c_trip_name.nth_child td{
+	/*Remove bottom padding to eliminate vertical space*/
+	padding-bottom:0;
+}
+/*TRIP OVERVIEW*/
+#c_trip_overview li{
+	/*Use padding to set vertical space instead of line-height*/
+	padding:2px 0;
+}
+#c_trip_overview span{
+	/*Align right*/
+	float:right;
+	/*Set width*/
+	width:50%;
+}
+#c_trip_overview span span{
+	float:none;
+	
+}
+/*ITINERARY HIGHLIGHTS*/
+#c_trip_itinerary dt{
+	/*Set padding-top so text doesn't touch dotted line*/
+	padding-top:1em;
+	/*Remove default italics*/
+	font-style:normal;
+	/*IE6; Emulate ":first-child" pseudo selector*/
+	-$clear:expression(
+		(!previousSibling)? className+=" dt_first_child" : 0,
+		style.clear = "none", 0
+	
+	);
+}
+#c_trip_itinerary .dt_first_child{
+	/*IE6; Remove padding-top because there is no top border*/
+	-padding-top:0;
+}
+#c_trip_itinerary dt:first-child{
+	/*Remove padding-top because there is no top border*/
+	padding-top:0;
+}
+#c_trip_itinerary dd{
+	/*Override default font-size*/
+	font-size:11px;
+	/*IE6; Emulate direct child combinator ">"*/
+	-$clear:expression(
+		new Function("e", "var e=e.childNodes,l=e.length,i=0;for(i;i<l;i++)if(e[i].nodeName.toLowerCase()=='em')e[i].className+=' dd_em'")(this),
+		style.clear = "none", 0
+	
+	);
+	
+}
+#c_trip_itinerary .dd_em{
+	/*Make block-level so top and bottom margins can be set*/
+	display:block;
+	/*Dynamically set top and bottom margins to equal font-size*/
+	margin:1em 0;
+	/*Override default color value and set to inherited color value*/
+	color:#777;
+}
+#c_trip_itinerary dd > em{
+	/*Make block-level so top and bottom margins can be set*/
+	display:block;
+	/*Dynamically set top and bottom margins to equal font-size*/
+	margin:1em 0;
+	/*Override default color value and set to inherited color value*/
+	color:#777;
+	
+}
+/* DATES & PRICES */
+#c_trip_dates li{
+	/*Set vertical space between line-rules*/
+	padding:1em 0;
+	/*IE7; Emulate ":last-child" pseudo selector*/
+	$clear:expression(
+		(!nextSibling)? className += " li_last_child" : 0,
+		style.clear = "none", 0
+	
+	);
+	/*IE6; Emulate ":first-child" and ":last-child" pseudo selectors*/
+	$clear:expression(
+		(!previousSibling)? className+=" li_first_child" : 0,
+		(!nextSibling)? className+=" li_last_child" : 0,
+		style.clear = "none", 0
+	
+	);
+}
+#c_trip_dates .li_first_child{
+	/*IE6; Remove padding-top because there is no top border*/
+	padding-top:0;
+}
+#c_trip_dates .li_last_child{
+	/*IE6,7; Remove padding-bottom because there is no bottom border*/
+	$padding-bottom:0;
+}
+#c_trip_dates li:first-child{
+	/*Remove padding-top because there is no top border*/
+	padding-top:0;
+}
+#c_trip_dates li:last-child{
+	/*Remove padding-bottom because there is no bottom border*/
+	padding-bottom:0;
+}
+/*END CAP*/
+#end_cap td{
+	/*Set border properties*/
+	border-top:1px solid #fff;
+	/*Set fixed height*/
+	height:5px;
+	/*Set background color to match "h3" element*/
+	background-color:#e5e5e5;
+}
+/*@END--------------------------------*/
+

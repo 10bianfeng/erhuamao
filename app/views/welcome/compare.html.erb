@@ -1,0 +1,207 @@
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+	<li>
+		<a href="/">Home</a>
+		&nbsp;&nbsp;/&nbsp;&nbsp;
+	</li>
+	<li>Compare Trips</li>
+</ul>
+<div class="self_clear">
+	<div id="primary_content" class="align_edges">
+		<h1>Compare Trips</h1>
+		<div style="position:relative; float:right; font-weight: bold; top: -30px;">
+			<a href="/travel/send-compare-trips-to-a-friend.cfm" onclick="window.open('/travel/Share-These-Trips.cfm', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=540, height=570'); return false;" target="_blank">Share These Trips with a Friend</a>
+		</div>
+		<table id="compare_trips" style="position:relative;top:-16px;">
+			<tbody>
+				<tr>
+					<td>
+						<h3>Trip 1</h3>
+					</td>
+					<td>
+						<h3>Trip 2</h3>
+					</td>
+					<td>
+						<h3>Trip 3</h3>
+					</td>
+				</tr>
+				<!-- SELECT BOXES -->
+				<tr id="c_saved_trips" class="nth_child">
+					<td>
+						<select name="saved_trip_1" id="saved_trip_1">
+							<option value="0">Choose a saved trip</option>
+							<option value="5813">Africa: Across a Continent by Private Jet</option>
+							<optgroup label="Around the World with Geoffrey Kent by Private Jet"></optgroup>
+						</select>
+					</td>
+					<td>
+						<select name="saved_trip_2" id="saved_trip_2">
+							<option value="0">Choose a saved trip</option>
+							<optgroup label="Africa: Across a Continent by Private Jet"></optgroup>
+							<option value="5829">Around the World with Geoffrey Kent by Private Jet</option>
+						</select>
+					</td>
+					<td>
+						<select name="saved_trip_3" id="saved_trip_3">
+							<option value="0">Choose a saved trip</option>
+						</select>
+					</td>
+				</tr>
+				<!-- TRIP NAME -->
+				<tr id="c_trip_name" class="nth_child">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<h4>
+								<a href="/travels/<%= @compares[i].id %>"><%= @compares[i].name %></a>
+							</h4>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>
+				</tr>
+				<tr id="c_trip_overview" class="nth_child">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<ul class="clear_list_style line_rule">
+								<li class="self_clear">
+									<span><%= @compares[i].sub_name %></span>
+									Travel Interest:
+								</li>
+								<li class="self_clear">
+									<span><%= @compares[i].days_count %></span>
+									Days:
+								</li>
+								<li class="self_clear">
+									<span>$<%= @compares[i].priced_from %></span>
+									Priced From:
+								</li>
+								<li class="self_clear">
+									<span><%= @compares[i].max_group_size %></span>
+									Max Group Size:
+								</li>
+								<li class="self_clear">
+									<span><%= @compares[i].departures %></span>
+									Departures:
+								</li>
+							</ul>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>
+				</tr>
+				<tr id="c_series_header">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<h3>Private Jet Journeys</h3>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>					
+				</tr>
+				<tr id="c_series_desc" class="nth_child">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<p>
+								<%= raw(@compares[i].overview_desc) %>
+							</p>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>						
+				</tr>
+				<tr id="c_trip_header">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<h3>Description</h3>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>							
+				</tr>
+				<tr id="c_trip_desc" class="nth_child">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<p>
+								<%= raw(@compares[i].overview_desc) %>
+							</p>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>	
+				</tr>
+				<tr id="c_trip_itinerary_header">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<h3>Itinerary Highlights</h3>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>							
+				</tr>
+				<tr id="c_trip_itinerary" class="nth_child">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<% @compares[i].itineraries.each do |itine| %>
+								<dt><%= itine.name %></dt>
+								<dd>
+									<p><%= itine.desc %></p>
+									<em><%= itine.hotel.name %> <%= itine.meals %></em>
+								</dd>
+							<% end -%>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>					
+				</tr>
+				<tr id="c_trip_dates_header">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<h3>Dates &amp; Prices</h3>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>					
+				</tr>
+				<tr id="c_trip_dates" class="nth_child">
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
+							<ul class="clear_list_style line_rule">
+								<li>
+									<%= @compares[i].datesprices[0].start_date %> - <%= @compares[i].datesprices[0].end_date %>
+									<br> <strong><%= @compares[i].datesprices[0].prices %></strong>
+								</li>
+							</ul>
+						</td>
+						<% else %>
+						<td></td>
+						<% end %>
+					<% end -%>					
+				</tr>
+				<tr id="end_cap">
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
