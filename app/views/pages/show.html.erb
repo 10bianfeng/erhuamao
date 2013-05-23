@@ -14,6 +14,7 @@
         <div id="cs_control_12103" class="cs_control CS_Element_Custom">
           <div class="hl3">Navigate By</div>
 
+          <% if @page.page_type==0 %>
           <ul class="section cspot_nav">
             <li class="icon bullet_arrow">
               <a href="/pages/1">About Us</a>
@@ -37,6 +38,36 @@
               <a href="/pages/7">Careers at A&amp;K</a>
             </li>
           </ul>
+          <% else %>
+
+          <ul class="section cspot_nav">
+            <li class="icon bullet_arrow">
+              <a href="/pages/10">Member Benefits</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/11">Invitational Journeys</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/12">Invitational Tour Directors</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/13">Photo Contest</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/signup">Membership Application</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/14">History of Marco Polo</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/pages/15">Membership Terms &amp; Conditions</a>
+            </li>
+            <li class="icon bullet_arrow">
+              <a href="/login">New Member Login</a>
+            </li>
+          </ul>
+          <% end %>
+
         </div>
         <a name="customcf4702" id="customcf4702"></a>
         <a name="CP_JUMP_4702" id="CP_JUMP_4702"></a>
@@ -62,7 +93,7 @@
         <div id="cs_control_1352" class="cs_control CS_Element_Textblock">
           <div class="CS_Textblock_Text">
             <h1><%= @page.title %></h1>
-            <%= @page.cont %>
+            <%= raw(@page.cont) %>
           </div>
         </div>
         <a name="tbsimplenohdr15918" id="tbsimplenohdr15918"></a>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515081144) do
+ActiveRecord::Schema.define(:version => 20130522070140) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -204,6 +204,7 @@ ActiveRecord::Schema.define(:version => 20130515081144) do
     t.text     "cont"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "page_type",  :default => 0
   end
 
   create_table "photos", :force => true do |t|

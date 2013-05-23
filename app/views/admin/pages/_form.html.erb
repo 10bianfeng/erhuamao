@@ -24,6 +24,12 @@
     </div>
   </div>
   <div class="control-group">
+    <label class="control-label">page_type</label>
+    <div class="controls">
+    <%= f.text_field :page_type %>
+    </div>
+  </div>
+  <div class="control-group">
     <label class="control-label">cont</label>
     <div class="controls">
     <%= f.text_area :cont %>
@@ -34,4 +40,16 @@
       <%= f.submit %>
     </div>
   </div>
+<% end %>
+
+
+
+<% content_for :footer do %>
+    <script type="text/javascript" src="/plugins/u/editor_config.js"></script>
+    <script type="text/javascript" src="/plugins/u/editor_all.min.js"></script>
+    <link rel="stylesheet" href="/plugins/u/themes/default/css/ueditor.css" />   
+    <script type="text/javascript">
+      var page_cont = new UE.ui.Editor();
+      page_cont.render('page_cont');
+    </script>
 <% end %>
