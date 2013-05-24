@@ -19,6 +19,17 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def compare
+    compares=[]
+    if cookies[:trip_compare]
+      @compare_array=cookies[:trip_compare].split(',')
+      (-3..-1).each do |i|
+        compares.unshift(@compare_array[i]) if @compare_array[i]
+      end
+    end
+    @compares=Travel.find(compares)
+  end
+
   # weibo authentication
   def weibo_login 
     session[:quick_login] = true if params[:quick_login]

@@ -102,7 +102,7 @@
 				<ul class="self_clear clear_list_style clear_margins">
 					<li class="search-description">
 						<span class="float_right">
-							<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5628">
+							<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="<%= travel.id %>">
 							<span>Compare</span>
 						</span>
 						<%= travel.days_count %> days |
@@ -144,11 +144,29 @@
 <% content_for :footer do %>
 <script>
 $("#search-results li.search-description span.float_right input.select_trip").change(function(){
-	if($(this).is(":checked")){
+	var compare=$.cookie("trip_compare").split(","); //先将cookie 转换为数组
+	if($(this).is(":checked")){ //判断添加或删除
 		$(this).parent().find("span").html("<a href='/compare'>Compare</a>");
+		for(i=0;i<compare.length;i++){ //枚举,去重
+			if(compare[i]==$(this).val()){
+				return false;
+			}
+		}
+		compare.push($(this).val());
 	}else{
+		for(i=0;i<compare.length;i++){
+			if(compare[i]==$(this).val()){
+				compare.splice(i,1); //删除所有匹配项
+			}
+		}
 		$(this).parent().find("span").html("Compare");
 	}
+	if(compare.join(",")[0]==","){
+		$.cookie("trip_compare",compare.join(",").slice(1), { expires: 7, path: '/' }); // 去除第一个","
+	}else{
+		$.cookie("trip_compare",compare.join(","), { expires: 7, path: '/' }); // 转换为string
+	}
+	set_compare(); // 更改compare数目
 });
 var getSeriesOverlay=function(a){
 	$(a).parent().parent().find(".text_modal").show();

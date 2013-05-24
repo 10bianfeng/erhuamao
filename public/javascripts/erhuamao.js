@@ -12,4 +12,15 @@ $("#popout_modal_mask").live("click",function(){
 	$(".search_modal").hide();
 	$("#popout_modal").hide();
 	$(this).remove();
+});
+function set_compare(){
+	if($.cookie("trip_compare")){
+		$("span#saved_trip_count").html($.cookie("trip_compare").split(",").length);
+	}else{
+		$("span#saved_trip_count").html("0");
+		$.cookie("trip_compare","", { expires: 7, path: '/' })
+	}
+}
+$(document).ready(function(){
+	set_compare();
 })
