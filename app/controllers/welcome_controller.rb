@@ -30,6 +30,10 @@ class WelcomeController < ApplicationController
     @compares=Travel.find(compares)
   end
 
+  def customize
+      @travels = Travel.all
+  end
+
   # weibo authentication
   def weibo_login 
     session[:quick_login] = true if params[:quick_login]

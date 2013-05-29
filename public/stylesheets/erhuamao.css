@@ -287,3 +287,14 @@ background-position: -15px;
 #luxury-sem div {float:right; height:22px; padding-left:8px; background:#f2f2f2;}
 #luxury-sem label.checkbox {width:auto; margin-bottom:12px; background:none;}
 #luxury-sem input.submit {float:none; width:auto;}
+
+.slide_show_block{
+	position: relative;
+	width: 300px;
+	margin-bottom: 20px;
+	background: #f4f4f4;
+	padding: 20px 18px 0;
+	float: left;
+	margin-right: 10px;
+	-margin-right: 8px;
+}
