@@ -12,11 +12,11 @@ class WeiboAuth
   def callback(code)
     @uid = Timeout::timeout(20) do
       @access_token = JSON.parse(RestClient.post('https://api.weibo.com/oauth2/access_token', 
-                                                 :client_id => APP_CONFIG['weibo_api_key'], 
-                                                 :client_secret => APP_CONFIG['weibo_api_secret'],
+                                                 :client_id => Setting.weibo_api_key,
+                                                 :client_secret => Setting.weibo_api_secret,
                                                  :grant_type => 'authorization_code',
                                                  :code => code,
-                                                 :redirect_uri => APP_CONFIG['weibo_redirect_uri'])
+                                                 :redirect_uri => Setting.weibo_redirect_uri)
                                 )['access_token']
       JSON.parse(RestClient.get("https://api.weibo.com/2/account/get_uid.json?access_token=#{@access_token}"))['uid']
     end
