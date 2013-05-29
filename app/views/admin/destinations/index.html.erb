@@ -17,6 +17,7 @@
     <th>Ancestry</th>
     <th>画廊</th>
     <th>Pdf</th>
+    <th>Flash地图</th>
     <th>操作</th>
   </tr>
 
@@ -51,6 +52,7 @@
         </tbody>
       </table>
     </td>
+    <td><%= destination.flashmap %></td>
     <td>
       <%= link_to '查看', [:admin, destination] %> | 
       <%= link_to '编辑', edit_admin_destination_path(destination) %> | 

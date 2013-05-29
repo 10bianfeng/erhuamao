@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522070140) do
+ActiveRecord::Schema.define(:version => 20130529100418) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -114,6 +114,7 @@ ActiveRecord::Schema.define(:version => 20130522070140) do
     t.datetime "updated_at"
     t.string   "ancestry"
     t.integer  "gallery_id"
+    t.string   "flashmap"
   end
 
   add_index "destinations", ["ancestry"], :name => "index_destinations_on_ancestry"

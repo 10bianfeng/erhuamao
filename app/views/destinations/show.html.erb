@@ -61,7 +61,7 @@
                             <% if destination.is_root?  %>
                                 <li class="icon <%= destination.has_children? ?  'expando_show' : 'bullet_arrow' %>">
                                     <a href="/destinations/<%= destination.id %>/"><%= destination.name %></a>
-                                    <% if destination.has_children?  %>
+                                    <% if destination.has_children? and  destination.id == @destination.id %>
                                         <ul>
                                         <% destination.children.each do |destination_2| %>
                                             <li class="icon <%= destination_2.has_children? ?  'expando_show' : 'bullet_arrow' %>">
@@ -125,7 +125,9 @@
         <div class="self_clear">
           <h1><%= @destination.name %> Safari</h1>
           <div id="right_column_content" class="hide_from_print">
-            <embed width="250" height="352" src="/images/africa.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="showall" wmode="transparent" devicefont="false" bgcolor="#ffffff" name="travel_destinations" menu="true" allowfullscreen="false" allowscriptaccess="sameDomain" salign="" type="application/x-shockwave-flash">
+            <% if !@destination.flashmap.blank? %>
+            <embed width="250" height="352" src="/flashmap/<%= @destination.flashmap %>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="showall" wmode="transparent" devicefont="false" bgcolor="#ffffff" name="travel_destinations" menu="true" allowfullscreen="false" allowscriptaccess="sameDomain" salign="" type="application/x-shockwave-flash">
+            <% end %>
             <div id="cs_control_9506" class="">
               <div class="CS_Element_Schedule" title="" id="CS_Element_contentsupplemental"></div>
             </div>
