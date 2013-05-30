@@ -102,8 +102,9 @@
 				<ul class="self_clear clear_list_style clear_margins">
 					<li class="search-description">
 						<span class="float_right">
-							<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="<%= travel.id %>">
+							<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="<%= travel.id %>" <%= "checked" if @compare_array.include? travel.id.to_s  %> />
 							<span>Compare</span>
+							
 						</span>
 						<%= travel.days_count %> days |
                     

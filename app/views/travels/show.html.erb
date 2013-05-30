@@ -178,7 +178,7 @@
 												<a name="20131008" href="javascript:void(0);"><%= datesprice.start_date.strftime("%d %b %Y") %> - <%= datesprice.end_date.strftime("%d %b %Y") %></a>
 											</th>
 											<th></th>
-											<th class="last_child">Available</th>
+											<th class="last_child"><%= datesprice.is_available? ? "Available" : "Not Available" %> </th>
 										</tr>
 									</thead>
 								</table>
@@ -198,8 +198,10 @@
 										<tbody>
 											<tr>
 												<td class="width20">
+													<% if datesprice.is_available? %>
 													<label for="packageDateID_393641">
 														<input type="radio" name="datesprice_id" value="<%= datesprice.id %>"></label>
+													<% end %>
 												</td>
 												<td class="width138">
 													<label for="packageDateID_393641">$<%= datesprice.prices %></label>
@@ -218,18 +220,20 @@
 									</table>
 									<div class="footnotes">
 										<ul class="clear_margins clear_list_style base_font_size">
-											<li>^ Optional pre-tour extension available on this departure.</li>
+											<li>Optional pre-tour extension available on this departure.</li>
 											<li>
 												&lt;&lt;&lt; This property will use an alternate property in Varanasi.
 											</li>
 										</ul>
 									</div>
+									<% if datesprice.is_available? %>
 									<div class="request_booking">
 										<span>
 											<input type="submit" value="Request Booking"></span>
 										<div id="error_form_393641"></div>
 										How many people are travelling in your group?
 										<input name="people_count" type="text" size="2" maxlength="2"></div>
+									<% end %>
 								</form>
 							</dd>
 							<% end %>

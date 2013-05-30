@@ -26,25 +26,21 @@
 				</tr>
 				<!-- SELECT BOXES -->
 				<tr id="c_saved_trips" class="nth_child">
-					<td>
+					<% (0..2).each do |i| %>
+						<% if @compares[i] %>
+						<td>
 						<select name="saved_trip_1" id="saved_trip_1">
-							<option value="0">Choose a saved trip</option>
-							<option value="5813">Africa: Across a Continent by Private Jet</option>
-							<optgroup label="Around the World with Geoffrey Kent by Private Jet"></optgroup>
+							<option value="5813"><%= @compares[i].name %></option>
 						</select>
-					</td>
-					<td>
-						<select name="saved_trip_2" id="saved_trip_2">
-							<option value="0">Choose a saved trip</option>
-							<optgroup label="Africa: Across a Continent by Private Jet"></optgroup>
-							<option value="5829">Around the World with Geoffrey Kent by Private Jet</option>
-						</select>
-					</td>
-					<td>
+						</td>
+						<% else %>
+						<td>
 						<select name="saved_trip_3" id="saved_trip_3">
-							<option value="0">Choose a saved trip</option>
+							<option value="0">Not trip</option>
 						</select>
-					</td>
+						</td>
+						<% end %>
+					<% end -%>
 				</tr>
 				<!-- TRIP NAME -->
 				<tr id="c_trip_name" class="nth_child">

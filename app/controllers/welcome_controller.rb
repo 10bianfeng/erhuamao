@@ -19,6 +19,9 @@ class WelcomeController < ApplicationController
       # 搜索关键字
       
     end
+    if cookies[:trip_compare]
+      @compare_array = cookies[:trip_compare].split(',')
+    end
   end
 
   def compare
