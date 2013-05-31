@@ -13,7 +13,7 @@
 				<ul class="attribute_list clear_list_style">
 					<% @destinations.each do |destination| %>
 							<li>
-								<a href="/search" title="<%= destination.name %>"><%= destination.name %> (<%= destination.travels.size %>)</a>
+								<a href="/search?destination=<%= destination.id %>" title="<%= destination.name %>"><%= destination.name %> (<%= destination.travels.size %>)</a>
 							</li>
 					<% end %>
 				</ul>
@@ -24,12 +24,12 @@
 				<ul class="attribute_list clear_list_style">
 					<% @interests.each do |interest| %>
 						<li>
-							<a href="search/" title="<%= interest.title %>"><%= interest.title %> (<%= interest.travels.size %>)</a>
+							<a href="/search?interest=<%= interest.id %>" title="<%= interest.title %>"><%= interest.title %> (<%= interest.travels.size %>)</a>
 						</li>
 					<% end %>
 				</ul>
 			</dd>
-			<!-- DEPARTURE DATES -->
+			<!-- 
 			<dt>Departure Date</dt>
 			<dd>
 				<ul class="attribute_list clear_list_style">
@@ -45,21 +45,22 @@
 					<% end %>
 				</ul>
 			</dd>
+			DEPARTURE DATES -->
 			<!-- PRICE RANGE -->
 			<dt>Price Range</dt>
 			<dd>
 				<ul class="attribute_list bullet_list">
 					<li>
-						<a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=0&amp;prhf=5000&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=1" title="Search for Less than $5,000 trips">Less than $5,000</a>
+						<a href="/search?price_start=0&price_end=5000" title="Search for Less than $5,000 trips">Less than $5,000</a>
 					</li>
 					<li>
-						<a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=5000&amp;prhf=9999&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=1" title="Search for $5,000 - $9,999 trips">$5,000 - $9,999</a>
+						<a href="/search?price_start=5000&price_end=10000" title="Search for $5,000 - $9,999 trips">$5,000 - $9,999</a>
 					</li>
 					<li>
-						<a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=10000&amp;prhf=14999&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=1" title="Search for $10,000 - $14,999 trips">$10,000 - $14,999</a>
+						<a href="/search?price_start=10000&price_end=15000" title="Search for $10,000 - $14,999 trips">$10,000 - $14,999</a>
 					</li>
 					<li>
-						<a href="/search.cfm?tdgf=0&amp;tdcf=0&amp;tif=&amp;dryf=0&amp;drmf=0&amp;drdf=0&amp;prlf=15000&amp;prhf=1000000&amp;kwf=&amp;scrs=0&amp;stf=0&amp;scp=1" title="Search for $15,000 &amp; Above trips">$15,000 &amp; Above</a>
+						<a href="/search?price_start=15000&price_end=1000000" title="Search for $15,000 &amp; Above trips">$15,000 &amp; Above</a>
 					</li>
 				</ul>
 			</dd>
@@ -69,9 +70,9 @@
 	</div>
 	<div id="primary_content" class="align_edges">
 		<h1>Search</h1>
-		<form id="keyword-search-form-embed" class="light-form" style="margin:14px 0;" action="/search.cfm" method="">
-			<input name="kwf" id="kwf_embed" type="text" size="25" value="" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-			<input type="image" src="/images/search_button.gif"></form>
+		<form id="keyword-search" class="light-form" style="margin:14px 0;" action="/search" method="">
+			<input name="keyword" id="kwf_embed" type="text" size="25" value="" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+			<input type="submit" value="搜索" src="/images/search_button.gif"></form>
 		<!-- PRIVATE TRAVEL BOX -->
 		<div id="customize_trip">
 			<span class="customize_trip_button">

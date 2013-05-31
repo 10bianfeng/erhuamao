@@ -7,18 +7,25 @@ class WelcomeController < ApplicationController
   def index
   end
 
-  def search
-    # type: 1: Destinations 2: 
-    @travels = Travel.page(params[:page])
+  def search    
     @destinations = Destination.all
     @interests = Interest.all
-    #@departure_dates = Datesprice.all.group_by{|d| d.start_date.strftime("%Y %m")}
     @departure_dates_years = Datesprice.all.map{|d| d.start_date.strftime("%Y")}.uniq.sort
     @departure_dates = Datesprice.all.map{|d| d.start_date.strftime("%Y.%m")}.uniq.sort
-    if !params[:type].nil?
-      # 搜索关键字
-      
+    if !params[:keyword].nil?
+      @travels = Travel.where("name LIKE ?", "%#{params[:keyword]}%").page(params[:page])
+    elsif !params[:destination].nil?
+      @travels = Destination.find(params[:destination]).travels.page(params[:page])
+    elsif !params[:interest].nil?
+      @travels = Interest.find(params[:interest]).travels.page(params[:page])
+    elsif !params[:date].nil?
+      @travels = Travel.where("name LIKE ?", "%#{params[:date]}%").page(params[:page])
+    elsif !params[:price_start].nil?
+      @travels = Travel.where("priced_from > ? and priced_from < ?", "#{params[:price_start]}","#{params[:price_end]}").page(params[:page])
+    else
+      @travels = Travel.page(params[:page])
     end
+
     if cookies[:trip_compare]
       @compare_array = cookies[:trip_compare].split(',')
     end
