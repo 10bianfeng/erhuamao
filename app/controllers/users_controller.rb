@@ -7,10 +7,11 @@ class UsersController < ApplicationController
   include Devise::Controllers::InternalHelpers #加上之后就不能过滤权限了
 
   def show # 对外的访问主页，也可作为自己的主页，尚有待完善，字段是否使用username?
-    @user = User.find_by_username(params[:id])
+    @user = User.find_by_id(params[:id])
     unless @user
       render :text => "无此用户"
     end
+    @bookings=@user.bookings.all
   end
 
   def setting

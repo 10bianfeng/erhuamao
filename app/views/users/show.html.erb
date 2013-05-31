@@ -1,1 +1,156 @@
-欢迎来到<%= @user.username %>的主页。
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+  <li>
+    <a href="/">Home</a>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+  </li>
+  <li>User Center</li>
+</ul>
+<div class="self_clear">
+  <div id="secondary_content" class="hide_from_print">
+    <div id="cs_control_3131" class="">
+      <div class="CS_Element_Schedule" id="CS_Element_contentleft">
+        <a name="customcf3135" id="customcf3135"></a>
+        <a name="CP_JUMP_3135" id="CP_JUMP_3135"></a>
+        <div id="cs_control_3135" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_3135">
+            <h3>用户中心</h3>
+            <dl class="section clear_list_style">
+              <dt>用户信息</dt>
+              <dd>
+                <ul class="bullet_list">
+                  <li id="navigation_active">
+                    <%= @user.email %>
+                  </li>                  
+                  <li id="navigation_active">
+                    <a href="/travel_specials/">修改个人资料</a>
+                  </li>
+                  <li>
+                    <a href="">更改密码</a>
+                  </li>
+                </ul>
+              </dd>
+              <dt>其他管理</dt>
+              <dd>
+                <ul class="bullet_list">
+                  <li>
+                    <a href="/travel_specials/?tdgf=4&amp;cbc=Africa Special Offers">用户点评</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=21&amp;cbc=Arctic Special Offers">我的订单</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=7&amp;cbc=Asia Special Offers">我的提问</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=8&amp;cbc=0East Special Offers">更改代理商</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tdgf=9&amp;cbc=Europe Special Offers">其他信息</a>
+                  </li>
+                </ul>
+              </dd>
+              <dt>您可能感兴趣的</dt>
+              <dd>
+                <ul class="bullet_list">
+                  <li>
+                    <a href="/travel_specials/?tif=723&amp;cbc=Luxury%20Small%20Group%20Journeys Special Offers">Luxury Small Group Journeys</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=690&amp;cbc=Private%20Luxury%20Journeys Special Offers">Private Luxury Journeys</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=699&amp;cbc=MPC%20Limited%20Edition%20Journeys Special Offers">MPC Limited Edition Journeys</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=691&amp;cbc=Adventure%20Cruises Special Offers">Adventure Cruises</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=719&amp;cbc=African%20Safari Special Offers">African Safari</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=692&amp;cbc=Canal%20%26%20River%20Cruising Special Offers">Canal &amp; River Cruising</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=717&amp;cbc=Solo%20Travel Special Offers">Solo Travel</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=716&amp;cbc=Signature%20Series Special Offers">Signature Series</a>
+                  </li>
+                  <li>
+                    <a href="/travel_specials/?tif=-1&amp;cbc=Other Special Offers">Other</a>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <a name="customcf3972" id="customcf3972"></a>
+        <a name="CP_JUMP_3972" id="CP_JUMP_3972"></a>
+        <div id="cs_control_3972" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_3972">
+            <div class="end_cap"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="dMainFBContest"></div>
+  </div>
+  <div id="primary_content" class="align_edges">
+    <div id="cs_control_1329" class="">
+      <div class="CS_Element_Schedule" id="CS_Element_content">
+        <a name="customcf1644" id="customcf1644"></a>
+        <a name="CP_JUMP_1644" id="CP_JUMP_1644"></a>
+        <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_1644">
+            <div id="special_offers">
+              <h1>User Center</h1>
+              <!-- OFFER -->
+			  <h4>Welcome ! <%= @user.login %></h4>
+              <!-- OFFER -->
+              <h3>Bookings Infomation</h3>
+              <p>
+              	 <% if !@bookings.empty? %>
+				 <table>
+				 	<tbody class="format_table">
+				 		<tr>
+				 			<th>First name</th>
+				 			<th>Last name</th>
+				 			<th>Email</th>
+				 			<th>Phone</th>
+				 			<th>Country</th>
+				 			<th>City</th>
+				 			<th>Region</th>
+				 			<th>Address</th>
+				 			<th>Post Code</th>
+				 			<th>People Count</th>
+				 			<th>Action</th>
+				 		</tr>
+				 		<% @bookings.each do |booking|%>
+				 		<tr>
+				 			<td><%= booking.first_name %></td>
+				 			<td><%= booking.last_name %></td>
+				 			<td><%= booking.email %></td>
+				 			<td><%= booking.phone %></td>
+				 			<td><%= booking.country %></td>
+				 			<td><%= booking.city %></td>
+				 			<td><%= booking.region %></td>
+				 			<td><%= booking.address %></td>
+				 			<td><%= booking.postal_code %></td>
+				 			<td><%= booking.people_count %></td>
+				 			<td><button>Delete</button></td>
+				 		</tr>
+				 		<% end %>
+				 	</tbody>
+				 </table>
+				 <% else -%>
+				 <p>No Booking Messages!</p>
+				 <% end -%>
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
