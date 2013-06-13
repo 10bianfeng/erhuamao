@@ -24,3 +24,13 @@ function set_compare(){
 $(document).ready(function(){
 	set_compare();
 })
+function largeMap(a){
+	$('<div id="largeMap"><div class="close" onclick="largeMapClose();">&times;</div><img src='+a.lastChild.src+' alt="" /></div>').appendTo('body');
+	halfWidth=$("#largeMap img").width()/2;
+	$('#largeMap').attr("style","margin-left:-"+halfWidth+"px");
+	$('<div id="popout_modal_mask"></div>').appendTo("body");
+}
+function largeMapClose(){
+	$('#largeMap').remove();
+	$('#popout_modal_mask').remove();
+}

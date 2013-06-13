@@ -298,3 +298,37 @@ background-position: -15px;
 	margin-right: 10px;
 	-margin-right: 8px;
 }
+#largeMap{
+	position: fixed;
+	display: block;
+	top: 30%;
+	left: 50%;
+	z-index: 10001;
+	margin: 0 auto;
+	padding: 15px;
+	padding-top: 0;
+	border: 1px solid #ccc;
+	background: #fff;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+#largeMap .close{
+	position: relative;
+	display: block;
+	float: right;
+	width: 28px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 28px;
+	text-align: center;
+	vertical-align: middle;
+	margin-right: -15px;
+}
+#largeMap .close:hover{
+	color: #000;
+}
+#largeMap img{
+	clear: both;
+	margin-top: -10px;
+}

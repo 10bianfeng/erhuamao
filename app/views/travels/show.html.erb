@@ -136,7 +136,7 @@
 						</p>
 					</div>
 					<h2>Itinerary</h2>
-					<a href="#"><img class="float_right" src="<%= @travel.itinerary_pic.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="300"></a>
+					<a href="#" onclick="largeMap(this);return false;"><img class="float_right" src="<%= @travel.itinerary_pic.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="300"><img style="display: none" src="<%= @travel.itinerary_bigpic.url %>"></a>
 					<dl class="itinerary">
 						<% @travel.itineraries.each do |itinerary| %>
 						<dt><%= itinerary.name %></dt>
@@ -947,6 +947,7 @@ $(".text_modal .close").click(function(){
 $("#popout_modal_mask").live("click",function(){
 	$(".text_modal").hide();
 	$(".popout_modal").hide();
+	$('#largeMap').remove();
 	$(this).remove();
 })
 var initslide=function(){
