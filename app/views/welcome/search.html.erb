@@ -86,7 +86,7 @@
 		<!-- SEARCH RESULTS -->
 		<!-- SEARCH RESULTS -->
 		<ul id="search-results" class="self_clear clear_list_style">
-			<% @travels.each do |travel| %>
+			<% @travels.each_with_index do |travel,index| %>
 			<li class="self_clear">
 				<a href="/travels/<%= travel.id %>" title="<%= travel.name %>">
 					<img src="<%= travel.cover.url %>" alt="<%= travel.name %>" title="<%= travel.name %>"></a>
@@ -134,6 +134,17 @@
 					</div>
 				</div>
 			</li>
+				<% if  index == 2 %>
+					<li class="self_clear connections-leadin copy-block">
+						<div>
+						<img src="/assets/images/graphics/special/connections/search-intro.gif">
+
+						<h3 class="clear_margins"><%= Specialoffer.last.title %></h3>
+						<span class="customize_trip_button base_font_size"><a href="/specialoffers/">learn more</a></span>
+						<p class="clear_margins" style="margin-top:3px !important;"><%= Specialoffer.last.desc %></p>
+						</div>
+					</li>
+				<% end %>
 			<% end %>
 		</ul>
 		<div class="paging self_clear">

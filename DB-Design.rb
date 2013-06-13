@@ -14,7 +14,9 @@
 	"notes" :text
 	"extensions_ids" :text
 	"itinerary_pic"	:text
-	cover:string
+	"itinerary_bigpic"	:text
+	"desc_mappic"	:text
+	"cover"	:string
 
 # 行程安排
 ##Itinerary

@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  cont: MyText
+  travel_code: MyString
+  travel_id: 1
+  user_id: 1
+
+two:
+  name: MyString
+  cont: MyText
+  travel_code: MyString
+  travel_id: 1
+  user_id: 1

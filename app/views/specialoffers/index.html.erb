@@ -13,78 +13,26 @@
         <a name="CP_JUMP_3135" id="CP_JUMP_3135"></a>
         <div id="cs_control_3135" class="cs_control CS_Element_CustomCF">
           <div id="CS_CCF_1393_3135">
-            <h3>Special Offers By</h3>
+            <h3>Search By</h3>
             <dl class="section clear_list_style">
-              <dt>Promotions &amp; Savings</dt>
-              <dd>
-                <ul class="bullet_list">
-                  <li id="navigation_active">
-                    <a href="/travel_specials/">View All Special Offers</a>
-                  </li>
-                  <li>
-                    <a href="/nyt-2012.cfm">NYT: The 45 Places to Go in 2012</a>
-                  </li>
-                </ul>
-              </dd>
               <dt>Travel Destination</dt>
               <dd>
                 <ul class="bullet_list">
-                  <li>
-                    <a href="/travel_specials/?tdgf=4&amp;cbc=Africa Special Offers">Africa</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=21&amp;cbc=Arctic Special Offers">Arctic</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=7&amp;cbc=Asia Special Offers">Asia</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=8&amp;cbc=Egypt%20%26amp%3B%20Middle%20East Special Offers">Egypt &amp; Middle East</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=9&amp;cbc=Europe Special Offers">Europe</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=20&amp;cbc=India Special Offers">India</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=11&amp;cbc=Latin%20America%20%26amp%3B%20Gal%C3%A1pagos Special Offers">Latin America &amp; Galápagos</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tdgf=-1&amp;cbc=Other Special Offers">Other</a>
-                  </li>
+                  <% Destination.all.each do |destination| %>
+                      <li>
+                        <a href="/search?destination=<%= destination.id %>" title="<%= destination.name %>"><%= destination.name %> (<%= destination.travels.size %>)</a>
+                      </li>
+                  <% end %>
                 </ul>
               </dd>
               <dt>Travel Interest</dt>
               <dd>
                 <ul class="bullet_list">
-                  <li>
-                    <a href="/travel_specials/?tif=723&amp;cbc=Luxury%20Small%20Group%20Journeys Special Offers">Luxury Small Group Journeys</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=690&amp;cbc=Private%20Luxury%20Journeys Special Offers">Private Luxury Journeys</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=699&amp;cbc=MPC%20Limited%20Edition%20Journeys Special Offers">MPC Limited Edition Journeys</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=691&amp;cbc=Adventure%20Cruises Special Offers">Adventure Cruises</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=719&amp;cbc=African%20Safari Special Offers">African Safari</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=692&amp;cbc=Canal%20%26%20River%20Cruising Special Offers">Canal &amp; River Cruising</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=717&amp;cbc=Solo%20Travel Special Offers">Solo Travel</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=716&amp;cbc=Signature%20Series Special Offers">Signature Series</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=-1&amp;cbc=Other Special Offers">Other</a>
-                  </li>
+                  <% Interest.all.each do |interest| %>
+                    <li>
+                      <a href="/search?interest=<%= interest.id %>" title="<%= interest.title %>"><%= interest.title %> (<%= interest.travels.size %>)</a>
+                    </li>
+                  <% end %>
                 </ul>
               </dd>
             </dl>
@@ -122,28 +70,17 @@
                     <%= specialoffer.desc %>
                   </p>
                   <p>
-                    <a href="javascript:void(0);" class="icon swirl_arrow" onclick="toggle_visibility('a296'); pageTracker._trackEvent('Content', 'Specials', jQuery(this).attr('title'));">View Offer Details</a>
+                    <a href="javascript:void(0);" class="icon swirl_arrow" onclick="toggle_visibility(this);">View Offer Details</a>
                   </p>
                   <span id="a296" style="display:none;">
                     <p>Journeys include:</p>
+                    <% specialoffer.travels.each do |travel| %>
                     <p>
-                      <a href="https://www.abercrombiekent.com/travel/?fuseaction=dsp_description&amp;tid=5820">
-                        Arctic Cruise Adventure: Norway, Greenland &amp;&nbsp;Iceland
+                      <a href="/travels/<%= travel.id %>">
+                        <%= travel.name %>
                       </a>
                     </p>
-                    <ul>
-                      <li>
-                        Aug 7-21, 2014; save $1,500 per person on Category 1-3 cabins
-                      </li>
-                    </ul>
-                    <p>
-                      <a href="https://www.abercrombiekent.com/travel/?tid=5824">Arctic Cruise Norway:&nbsp;Polar Bears &amp; Midnight Sun</a>
-                    </p>
-                    <ul>
-                      <li>
-                        Jul 29-Aug 9, 2014; save $1,000 per person on Category 1-3 cabins
-                      </li>
-                    </ul>
+                    <% end %>
                     <p>
                       <%= specialoffer.cont %>
                     </p>
@@ -165,3 +102,16 @@
     </div>
   </div>
 </div>
+<% content_for :footer do %>
+<script>
+var toggle_visibility=function(a){
+  var elem = $(a).parent().next();
+  if(elem.css("display")== 'none')
+    elem.show();
+  else
+  {
+    elem.hide();        
+  }
+}
+</script>
+<% end %>

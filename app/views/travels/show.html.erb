@@ -818,73 +818,40 @@
 								Required <em>*</em>
 							</p>
 						</div>
-						<form action="/questions" id="faq_form" method="post" name="faq_form" class="uniForm">
+						<% @travel.dianpins.each do |dianpin| %>
+						<p>
+							<%= dianpin.name %>
+						</p>
+						<p>
+							<%= dianpin.cont %>
+						</p>
+						<p>
+							<%= dianpin.created_at %>
+						</p>
+						<% end %>
+						<form action="/dianpins" id="faq_form" method="post" name="faq_form" class="uniForm">
 							<fieldset class="inlineLabels">
-								<h3>Your Information</h3>
-								<div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
-									<p class="errorFieldHide" id="contact_preference_err"></p>
-									<p class="label ">Preferred method of contact</p>
-									<label for="contact_preference-1" class="inlineLabel">
-										<input name="question[preferred_contact_method]" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">Email</label>
-									<label for="contact_preference-2" class="inlineLabel">
-										<input name="question[preferred_contact_method]" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">Daytime Phone</label>
-								</div>
-								<div id="ctrlHolder_email" class="ctrlHolder">
-									<p class="errorFieldHide" id="email_err">Enter a valid email address</p>
-									<label for="email" class="required"> <em>*</em>
-										Email Address
-									</label>
-									<input name="question[email]" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
-									<p class="formHint">(one address)</p>
-								</div>
-								<div id="ctrlHolder_title" class="ctrlHolder">
-									<p class="errorFieldHide" id="title_err">Select your title</p>
-									<label for="title" class="required">
-										<em>*</em>
-										Title
-									</label>
-									<select name="question[mrs_title]" id="title" class="required" tabindex="3">
-										<option value="0">Select a Title</option>
-										<option value="153">Mr.</option>
-										<option value="154">Mrs.</option>
-										<option value="155">Ms.</option>
-										<option value="157">Dr.</option>
-									</select>
-								</div>
-								<div id="ctrlHolder_firstName" class="ctrlHolder">
-									<p class="errorFieldHide" id="firstName_err">Enter your first name</p>
-									<label for="firstName" class="required">
-										<em>*</em>
-										First Name
-									</label>
-									<input name="question[first_name]" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
-									<p class="formHint">(as printed on Passport)</p>
-								</div>
-								<div id="ctrlHolder_lastName" class="ctrlHolder">
-									<p class="errorFieldHide" id="lastName_err">Enter your last name</p>
-									<label for="lastName" class="required">
-										<em>*</em>
-										Last Name
-									</label>
-									<input name="question[last_name]" id="lastName" value="" size="30" type="text" class="required" tabindex="5">          
-									<p class="formHint">(as printed on Passport)</p>
+								<h3>你的点评</h3>
+								<div id="ctrlHolder_workphone" class="ctrlHolder">
+									<p class="errorFieldHide" id="workphone_err"></p>
+									<label for="workphone" class="">Name</label>
+									<input name="dianpin[name]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
 								</div>
 								<div id="ctrlHolder_workphone" class="ctrlHolder">
 									<p class="errorFieldHide" id="workphone_err"></p>
-									<label for="workphone" class="">Daytime Phone</label>
-									<input name="question[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
-									<p class="formHint">(ex. 2345678901)</p>
+									<label for="workphone" class="">旅游团代码</label>
+									<input name="dianpin[travel_code]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
 								</div>
 								
 								<div id="ctrlHolder_question" class="ctrlHolder">
-									<p class="errorFieldHide" id="question_err">Ask your question here:</p>
-									<label for="question" class="required">
+									<p class="errorFieldHide" id="question_err">Ask your 点评 here:</p>
+									<label for="dianpin" class="required">
 										<em>*</em>
-										Your Question
+										Your 点评
 									</label>
-									<textarea name="question[question]" id="question" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
+									<textarea name="dianpin[cont]" id="dianpin" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
 								</div>
-								<input name="question[travel_id]" id="submitid" value="<%= @travel.id %>" type="hidden">         
+								<input name="dianpin[travel_id]" id="submitid" value="<%= @travel.id %>" type="hidden">         
 								</fieldset>
 							<div class="buttonHolder">
 								<input type="submit" name="submit_btn" id="submit_btn" value="Submit Your Question" class="uniFormButton" onclick="" tabindex="10"></div>

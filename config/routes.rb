@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :dianpins
+
   resources :questions
 
   resources :galleries

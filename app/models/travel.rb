@@ -16,6 +16,7 @@ class Travel < ActiveRecord::Base
 
 	has_many :bookings
 	has_many :questions
+	has_many :dianpins
 
 	# 上传
 	mount_uploader :cover, CoverUploader
