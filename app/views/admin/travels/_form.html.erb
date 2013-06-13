@@ -21,6 +21,15 @@
     </div>
   </div>
   <div class="control-group">
+    <label class="control-label">desc_mappic</label>
+    <div class="controls">
+    <p>
+      <img src="<%= @travel.desc_mappic.url %>">
+    </p>
+    <%= f.file_field :desc_mappic %>
+    </div>
+  </div>
+  <div class="control-group">
     <label class="control-label">name</label>
     <div class="controls">
     <%= f.text_field :name %>
@@ -77,13 +86,25 @@
   <div class="control-group">
     <label class="control-label">extensions_ids</label>
     <div class="controls">
-    <%= f.text_area :extensions_ids %>
+    <%= f.text_field :extensions_ids %>用英文逗号分隔旅游产品ID号
     </div>
   </div>
   <div class="control-group">
     <label class="control-label">itinerary_pic</label>
     <div class="controls">
-    <%= f.text_area :itinerary_pic %>
+      <p>
+      <img src="<%= @travel.itinerary_pic.url %>">
+    </p>
+    <%= f.file_field :itinerary_pic %>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label">itinerary_bigpic</label>
+    <div class="controls">
+      <p>
+      <img src="<%= @travel.itinerary_bigpic.url %>">
+    </p>
+    <%= f.file_field :itinerary_bigpic %>
     </div>
   </div>
   <div class="control-group">
@@ -102,12 +123,8 @@
       var overview_desc = new UE.ui.Editor();
       var overview_advantage = new UE.ui.Editor();
       var notes = new UE.ui.Editor();
-      var extensions_ids = new UE.ui.Editor();
-      var itinerary_pic = new UE.ui.Editor();
       overview_desc.render('travel_overview_desc');
       overview_advantage.render('travel_overview_advantage');
       notes.render('travel_notes');
-      extensions_ids.render('travel_extensions_ids');
-      itinerary_pic.render('travel_itinerary_pic');
     </script>
 <% end %>

@@ -64,7 +64,8 @@
 					<div class="trip_overview">
 						<div class="self_clear">
 							<div id="mini_map">
-								<img style="left:146px; top:44px;" title="India" alt="India" src="/images/small_map_marker.gif" width="9" height="9"></div>
+								<img style="left:146px; top:44px;" title="<%= @travel.name %>" alt="<%= @travel.name %>" src="<%= @travel.desc_mappic.url %>" width="9">
+								</div>
 							<img src="<%= @travel.cover.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="125" height="125">
 							<ul class="align_edges line_rule clear_margins">
 								<li>
@@ -135,7 +136,7 @@
 						</p>
 					</div>
 					<h2>Itinerary</h2>
-					<img class="float_right" src="/images/India-map.jpg">
+					<a href="#"><img class="float_right" src="<%= @travel.itinerary_pic.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="300"></a>
 					<dl class="itinerary">
 						<% @travel.itineraries.each do |itinerary| %>
 						<dt><%= itinerary.name %></dt>

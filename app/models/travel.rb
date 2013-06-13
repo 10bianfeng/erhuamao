@@ -19,6 +19,9 @@ class Travel < ActiveRecord::Base
 
 	# 上传
 	mount_uploader :cover, CoverUploader
+	mount_uploader :desc_mappic, CoverUploader
+	mount_uploader :itinerary_pic, CoverUploader
+	mount_uploader :itinerary_bigpic, CoverUploader
 
 	# 默认排序
 	default_scope order('created_at DESC')
