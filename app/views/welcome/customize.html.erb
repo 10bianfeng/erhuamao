@@ -68,21 +68,21 @@
 												<option value="">ccc</option>
 												<option value="">ddd</option>
 											</select>
-											<select name="" id="city_s">
+											<select name="gbookingday[city_id]" id="city_s">
 												<option value="">Select a city</option>
 												<option value="">Africa</option>
 												<option value="">bbb</option>
 												<option value="">ccc</option>
 												<option value="">ddd</option>
 											</select>
-											<select name="" id="hotel">
+											<select name="gbookingday[hotel_id]" id="hotel_s">
 												<option value="">Select a hotel</option>
 												<option value="">Africa</option>
 												<option value="">bbb</option>
 												<option value="">ccc</option>
 												<option value="">ddd</option>
 											</select>
-											<select name="" id="days">
+											<select name="gbookingday[days]" id="days">
 												<option value="">Select a days</option>
 												<option value="1">1</option>
 												<option value="2">2</option>
@@ -236,39 +236,58 @@ var modal_close=function(){
   $('#popout_modal_mask').remove();
 }
 var new_custom=function(){
-	$("ol.customize_list").append('<li style="margin-top:10px;height:25px;"><select name="" id="zhou_s"><option value="">Select a Destination</option><option value="">Africa</option><option value="">bbb</option><option value="">ccc</option><option value="">ddd</option></select><input type="button" style="padding:0px 4px;float:right;font-size:16px;" value="&times;" onclick="remove_li(this)"></li>');
+	$("ol.customize_list").append('<li style="margin-top:10px;height:25px;"><select name="" id="destination_s"><option value="">Select a Destination</option><option value="">Africa</option><option value="">bbb</option><option value="">ccc</option><option value="">ddd</option></select><input type="button" style="padding:0px 4px;float:right;font-size:16px;" value="&times;" onclick="remove_li(this)"></li>');
 }
 var remove_li=function(a){
 	$(a).parent().remove();
 };
-$("#zhou_s").live("change",function(){
-	$zhou=$(this);
-	$parent1=$("#destination_slides").parent();
-	$parent2=$("#destination_slides_modal").parent();
-	if($(this).val()==0){
-		$.ajax({
-				url: '/select_country',
-				type: 'get',
-				data: {},
-				dataType:"html",
-				success: function (data) {
-					if($zhou.parent().find("#country_s").size()>0){
-						$zhou.parent().find("#country_s").replaceWith($(data).filter("select"));
-					}else{
-						$zhou.after($(data).filter("select"));
-					}
-					$("#destination_slides").remove();
-					$parent1.prepend("<div id='destination_slides'><div>").find("#destination_slides").html($(data).filter("#destination_slides").html())
-					$("#destination_slides_modal").remove();
-					$parent2.append("<div id='destination_slides_modal'><div>").find("#destination_slides_modal").html($(data).filter("#destination_slides").html())
-					$(".slide_img_title").remove();
-					$parent2.append("<p class='slide_img_title'>")
-				}
-			}).done(function(){
-				modal_slides_init();
-			});
+function slideInit(data){
+	$("#destination_slides").remove();
+	$parent1.prepend("<div id='destination_slides'><div>").find("#destination_slides").html($(data).filter("#destination_slides").html())
+	$("#destination_slides_modal").remove();
+	$parent2.append("<div id='destination_slides_modal'><div>").find("#destination_slides_modal").html($(data).filter("#destination_slides").html())
+	$(".slide_img_title").remove();
+	$parent2.append("<p class='slide_img_title'>")
+}
+$parent1=$("#destination_slides").parent();
+$parent2=$("#destination_slides_modal").parent();
+
+function ifend(a,b,data){
+	var $a=$(a);
+	if(a!="days"){
+		if($a.parent().find("#"+b).size()>0){
+			$a.parent().find("#"+b).replaceWith($(data).filter("select"));
+		}else{
+			$a.after($(data).filter("select"));
+		}
 	}else{
 	}
-})
+}
+function ajaxSelect(url,element,b){
+	$zhou=$(element);
+	if(!$zhou.val()){
+		$.ajax({
+			url: url,
+			type: 'get',
+			data: {},
+			dataType:"html",
+			success: function (data) {
+				ifend(element,b,data);
+				slideInit(data);
+			}
+		}).done(function(){modal_slides_init();});
+	}else{
+		return false;
+	}
+}
+$("#destination_s").live("change",function(){
+	ajaxSelect("/select_destination",this,"city_s");
+});
+$("#city_s").live("change",function(){
+	ajaxSelect("/select_city",this,"hotel_s");
+});
+$("#hotel_s").live("change",function(){
+	ajaxSelect("/select_hotel",this,"days");
+});
 </script>
 <% end %>

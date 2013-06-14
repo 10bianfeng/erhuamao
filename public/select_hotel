@@ -1,0 +1,22 @@
+<select name="" id="days">
+	<option value="">Select a days</option>
+	<option value="1">1</option>
+	<option value="2">2</option>
+	<option value="3">3</option>
+	<option value="4">4</option>
+	<option value="5">5</option>
+	<option value="6">6</option>
+	<option value="7">7</option>
+	<option value="8">8</option>
+	<option value="9">9</option>
+	<option value="10">10</option>
+</select>
+<div id="destination_slides">
+	<img src="/uploads/photo/pic/20/a21b2cb5b502a31e8b49d9e073d7d308.jpg" alt="" >
+	<img src="/uploads/photo/pic/18/7da1d7e32a12ea55424b785b027a53ed.jpg" alt="" >
+	<img src="/uploads/photo/pic/16/624a78b554167a659454a5df67038de3.jpg" alt="" >
+	<img src="/uploads/photo/pic/15/dd916cb2d2d5a89430ac022142168676.jpg" alt="" >
+	<img src="/uploads/photo/pic/19/af804dc66561a44b21faabb506d64e38.jpg" alt="" >
+	<img src="/uploads/photo/pic/17/97f6139c14733f07ef3df554ece8faf6.jpg" alt="" >
+	<img src="/uploads/photo/pic/14/bb408e88eb4da717ae73789d5bd27772.jpg" alt="hotels" >
+</div>
