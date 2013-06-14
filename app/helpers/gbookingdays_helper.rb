@@ -1,0 +1,2 @@
+module GbookingdaysHelper
+end

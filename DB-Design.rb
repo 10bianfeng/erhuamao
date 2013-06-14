@@ -205,6 +205,12 @@
 	city_comment:text
 
 
+##Gbookingday
+	destination_id:integer
+	city_id:integer
+	hotel_id:integer
+	days:integer
+
 ##Question
 	mrs_title:string
 	first_name:string
@@ -234,6 +240,9 @@
 	travel_agent:string
 	travel_agent_code:string
 
+##City
+	name:string
+	destination_id:integer
 
 ##Saves_trip(Compare)
 
