@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :photocontests
+
   resources :gbookingdays
 
   resources :dianpins
@@ -160,6 +162,7 @@ Erhuamao::Application.routes.draw do
     resources :gbookings
     resources :questions
     resources :cities
+    resources :photocontests
   end
 
   match "weibo_login" => "welcome#weibo_login"

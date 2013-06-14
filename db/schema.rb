@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130614040857) do
+ActiveRecord::Schema.define(:version => 20130614083959) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -151,6 +151,15 @@ ActiveRecord::Schema.define(:version => 20130614040857) do
     t.datetime "updated_at"
   end
 
+  create_table "gbookingdays", :force => true do |t|
+    t.integer  "destination_id"
+    t.integer  "city_id"
+    t.integer  "hotel_id"
+    t.integer  "days"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "gbookings", :force => true do |t|
     t.string   "mrs_title"
     t.string   "first_name"
@@ -225,6 +234,15 @@ ActiveRecord::Schema.define(:version => 20130614040857) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "page_type",  :default => 0
+  end
+
+  create_table "photocontests", :force => true do |t|
+    t.string   "username"
+    t.string   "name"
+    t.string   "desc"
+    t.string   "photo"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photos", :force => true do |t|

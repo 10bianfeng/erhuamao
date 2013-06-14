@@ -246,6 +246,12 @@
 
 ##Saves_trip(Compare)
 
+##Photocontest
+	username:string
+	name:string
+	desc:string
+	photo:string
+
 
 
 ##Setting
