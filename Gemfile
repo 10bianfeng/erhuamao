@@ -26,6 +26,8 @@ gem 'rest-client'
 
 # Deploy with Capistrano
 gem 'capistrano'
+gem 'rvm-capistrano', '~> 1.3.0'
+
 gem 'thin'
 
 group :development do
