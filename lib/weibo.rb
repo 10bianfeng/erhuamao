@@ -6,7 +6,7 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 class WeiboAuth
   
   def authorize_url
-    "https://api.weibo.com/oauth2/authorize?response_type=code&client_id=#{APP_CONFIG['weibo_api_key']}&redirect_uri=#{URI.escape APP_CONFIG['weibo_redirect_uri']}"    
+    "https://api.weibo.com/oauth2/authorize?response_type=code&client_id=#{Setting.weibo_api_key}&redirect_uri=#{URI.escape Setting.weibo_redirect_uri}"    
   end
 
   def callback(code)

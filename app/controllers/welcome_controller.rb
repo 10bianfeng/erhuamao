@@ -53,7 +53,7 @@ class WelcomeController < ApplicationController
   # weibo authentication
   def weibo_login 
     session[:quick_login] = true if params[:quick_login]
-    redirect WeiboAuth.new.authorize_url
+    redirect_to WeiboAuth.new.authorize_url
   end
 
   def weibo_callback
@@ -65,20 +65,14 @@ class WelcomeController < ApplicationController
       @account = User.where(:provider => 'weibo', :uid => user_info['id'].to_i).first
       # create commenter account when first weibo login
       unless @account 
-        @account = User.create(:provider => 'weibo', :uid => user_info['id'], :name => user_info['screen_name'], :role => 'commenter', :profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
+        @account = User.create(:provider => 'weibo', :uid => user_info['id'], :name => user_info['screen_name'], :profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
       end
       # update weibo profile if profile is empty
       if @account.profile_url.blank? || @account.profile_image_url.blank?
         @account.update_attributes(:profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
       end
-      session[:account_id] = @account.id
-      if session[:quick_login]
-        session[:quick_login] = nil
-        render 'home/weibo_callback', :layout => false
-      else
-        flash[:notice] = '成功登录'
-        redirect_to url(:index)
-      end
+      flash[:notice] = '成功登录'
+      redirect_to root_path
     rescue => e
       STDERR.puts e
       STDERR.puts e.backtrace.join("\n")
