@@ -78,7 +78,8 @@ class WelcomeController < ApplicationController
     rescue => e
       STDERR.puts e
       STDERR.puts e.backtrace.join("\n")
-      halt 401, "授权失败，请重试几次"
+      logger.debug e
+      redirect_to root_path, :notice => "登陆失败"
     end
   end
 end
