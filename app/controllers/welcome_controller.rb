@@ -57,29 +57,22 @@ class WelcomeController < ApplicationController
   end
 
   def weibo_callback
-    halt 401, "没有微博验证码" unless params[:code]
     auth = WeiboAuth.new
-    begin
-      auth.callback(params[:code])
-      user_info = auth.get_user_info
-      @account = User.where(:provider => 'weibo', :uid => user_info['id'].to_i).first
-      # create commenter account when first weibo login
-      unless @account 
-        @account = User.create(:provider => 'weibo', :uid => user_info['id'], :name => user_info['screen_name'], :profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
-      end
-      # update weibo profile if profile is empty
-      if @account.profile_url.blank? || @account.profile_image_url.blank?
-        @account.update_attributes(:profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
-      end
-
-      sign_in(:user, @account)
-      flash[:notice] = '成功登录'
-      redirect_to root_path
-    rescue => e
-      STDERR.puts e
-      STDERR.puts e.backtrace.join("\n")
-      logger.debug e
-      redirect_to root_path, :notice => "登陆失败"
+    auth.callback(params[:code])
+    ap auth
+    user_info = auth.get_user_info
+    @account = User.where(:provider => 'weibo', :uid => user_info['id'].to_i).first
+    # create commenter account when first weibo login
+    unless @account 
+      @account = User.create(:provider => 'weibo', :uid => user_info['id'], :name => user_info['screen_name'], :profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
     end
+    # update weibo profile if profile is empty
+    if @account.profile_url.blank? || @account.profile_image_url.blank?
+      @account.update_attributes(:profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
+    end
+
+    sign_in(:user, @account)
+    flash[:notice] = '成功登录'
+    redirect_to root_path
   end
 end

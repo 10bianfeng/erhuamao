@@ -2,6 +2,7 @@ source 'http://ruby.taobao.org'
 
 gem 'rails', '3.0.19'
 
+gem 'awesome_print', :require => "ap"
 gem 'activerecord-mysql2-adapter'
 gem 'settingslogic', '2.0.9' # YAML 配置信息
 gem 'mysql', '2.8.1'
