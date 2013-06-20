@@ -2,7 +2,7 @@
 class Devise::PasswordsController < ApplicationController
   prepend_before_filter :require_no_authentication
   include Devise::Controllers::InternalHelpers
-  validates_captcha
+  #  validates_captcha
 
   # GET /resource/password/new 忘记密码
   def new
