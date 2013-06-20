@@ -71,6 +71,8 @@ class WelcomeController < ApplicationController
       if @account.profile_url.blank? || @account.profile_image_url.blank?
         @account.update_attributes(:profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
       end
+
+      sign_in(:user, @account)
       flash[:notice] = '成功登录'
       redirect_to root_path
     rescue => e
