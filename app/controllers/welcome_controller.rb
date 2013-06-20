@@ -46,6 +46,10 @@ class WelcomeController < ApplicationController
       @travels = Travel.all
   end
 
+  def method_name
+    
+  end
+
   # weibo authentication
   def weibo_login 
     session[:quick_login] = true if params[:quick_login]
