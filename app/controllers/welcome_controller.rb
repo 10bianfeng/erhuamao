@@ -46,7 +46,15 @@ class WelcomeController < ApplicationController
       @travels = Travel.all
   end
 
-  def method_name
+  def customize_select_destination
+    
+  end
+
+  def customize_select_city
+    
+  end
+
+  def customize_select_hotel
     
   end
 
