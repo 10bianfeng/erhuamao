@@ -1,0 +1,40 @@
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+    <li>
+        <a href="/">Home</a>
+        &nbsp;&nbsp;/&nbsp;&nbsp;
+    </li>
+    <li>用户提交的照片</li>
+</ul>
+<div class="self_clear">
+    <div id="primary_content" class="align_edges">
+        <div id="cs_control_1329" class="">
+            <div class="CS_Element_Schedule" title="" id="CS_Element_content">
+                <a name="customcf2375" id="customcf2375"></a>
+                <a name="CP_JUMP_2375" id="CP_JUMP_2375"></a>
+                <div id="cs_control_2375" class="cs_control CS_Element_CustomCF">
+                    <div id="CS_CCF_1376_2375">
+                        <h1>用户提交的获奖照片</h1>
+                        <p>
+                            To download a brochure, click on the Download PDF link next to the appropriate brochure cover.
+To request photocontests to be sent to you, check the box next to the three
+                            <br>
+                            brochure(s) you want to receive and then click on the Request Brochure link.
+Travel Agents should
+                            <a href="/login.cfm">login</a>
+                            or
+                            <a href="/services/signup_agent_services.cfm">register</a>
+                            before ordering photocontests.
+                        </p>
+                            <% @photocontests.each do |photocontest| %>   
+                                <div>
+                                    <img src="<%= photocontest.photo.url %>" width="200">
+                                    <%= photocontest.username %>
+                                    <%= photocontest.name %>
+                                </div>
+                            <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

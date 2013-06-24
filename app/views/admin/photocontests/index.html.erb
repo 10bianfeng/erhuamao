@@ -19,7 +19,7 @@
     <td><%= photocontest.username %></td>
     <td><%= photocontest.name %></td>
     <td><%= photocontest.desc %></td>
-    <td><img src="<%= photocontest.photo.url %>"></td>
+    <td><img src="<%= photocontest.photo.url %>" width="200"></td>
     <td>
       <%= link_to '查看', [:admin, photocontest] %> | 
       <%= link_to '编辑', edit_admin_photocontest_path(photocontest) %> | 
