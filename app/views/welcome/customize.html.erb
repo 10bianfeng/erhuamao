@@ -63,24 +63,24 @@
 										<li style="margin-top: 10px;height:25px;">
 											<select name="gbookingday[destination_id]" id="destination_s">
 												<option value="">Select a Destination</option>
-												<option value="">Africa</option>
-												<option value="">bbb</option>
-												<option value="">ccc</option>
-												<option value="">ddd</option>
+												<option value="1">Africa</option>
+												<option value="2">bbb</option>
+												<option value="3">ccc</option>
+												<option value="4">ddd</option>
 											</select>
 											<select name="gbookingday[city_id]" id="city_s">
 												<option value="">Select a city</option>
-												<option value="">Africa</option>
-												<option value="">bbb</option>
-												<option value="">ccc</option>
-												<option value="">ddd</option>
+												<option value="2">Africa</option>
+												<option value="3">bbb</option>
+												<option value="4">ccc</option>
+												<option value="5">ddd</option>
 											</select>
 											<select name="gbookingday[hotel_id]" id="hotel_s">
-												<option value="">Select a hotel</option>
-												<option value="">Africa</option>
-												<option value="">bbb</option>
-												<option value="">ccc</option>
-												<option value="">ddd</option>
+												<option value="6">Select a hotel</option>
+												<option value="7">Africa</option>
+												<option value="8">bbb</option>
+												<option value="9">ccc</option>
+												<option value="10">ddd</option>
 											</select>
 											<select name="gbookingday[days]" id="days">
 												<option value="">Select a days</option>
@@ -265,11 +265,12 @@ function ifend(a,b,data){
 }
 function ajaxSelect(url,element,b){
 	$zhou=$(element);
-	if(!$zhou.val()){
+	if($zhou.val()){
 		$.ajax({
 			url: url,
 			type: 'get',
 			data: {},
+			cache: false,
 			dataType:"html",
 			success: function (data) {
 				ifend(element,b,data);
@@ -281,13 +282,13 @@ function ajaxSelect(url,element,b){
 	}
 }
 $("#destination_s").live("change",function(){
-	ajaxSelect("/select_destination",this,"city_s");
+	ajaxSelect("/select_destination?id="+($(this).val()),this,"city_s");
 });
 $("#city_s").live("change",function(){
-	ajaxSelect("/select_city",this,"hotel_s");
+	ajaxSelect("/select_city?id="+($(this).val()),this,"hotel_s");
 });
 $("#hotel_s").live("change",function(){
-	ajaxSelect("/select_hotel",this,"days");
+	ajaxSelect("/select_hotel?id="+($(this).val()),this,"days");
 });
 </script>
 <% end %>

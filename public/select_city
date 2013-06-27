@@ -1,9 +1,9 @@
 <select name="" id="hotel_s">
 	<option value="">Select a HOTEL</option>
-	<option value="">Hotel 2</option>
-	<option value="">Hotel 3</option>
-	<option value="">Hotel 4</option>
-	<option value="">Hotel 5</option>
+	<option value="1">Hotel 2</option>
+	<option value="2">Hotel 3</option>
+	<option value="3">Hotel 4</option>
+	<option value="4">Hotel 5</option>
 </select>
 <div id="destination_slides">
 	<img src="/uploads/photo/pic/17/97f6139c14733f07ef3df554ece8faf6.jpg" alt="" >
