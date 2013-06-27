@@ -1,9 +1,9 @@
 <select name="" id="city_s">
 	<option value="">Select a CITY</option>
-	<option value="">北京</option>
-	<option value="">上海</option>
-	<option value="">香港</option>
-	<option value="">广东</option>
+	<option value="1">北京</option>
+	<option value="2">上海</option>
+	<option value="3">香港</option>
+	<option value="4">广东</option>
 </select>
 <div id="destination_slides">
 	<img src="/uploads/photo/pic/18/7da1d7e32a12ea55424b785b027a53ed.jpg" alt="" >
