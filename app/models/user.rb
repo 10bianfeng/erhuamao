@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create }
 
   has_many :bookings
+  has_many :gbookings
+  has_many :asks
+  has_many :dianpins
 
   def after_database_authentication
     #当用户成功登录后会执行此处代码，另有登录后到那个路径的方法

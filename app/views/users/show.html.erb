@@ -52,33 +52,11 @@
               <dt>您可能感兴趣的</dt>
               <dd>
                 <ul class="bullet_list">
-                  <li>
-                    <a href="/travel_specials/?tif=723&amp;cbc=Luxury%20Small%20Group%20Journeys Special Offers">Luxury Small Group Journeys</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=690&amp;cbc=Private%20Luxury%20Journeys Special Offers">Private Luxury Journeys</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=699&amp;cbc=MPC%20Limited%20Edition%20Journeys Special Offers">MPC Limited Edition Journeys</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=691&amp;cbc=Adventure%20Cruises Special Offers">Adventure Cruises</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=719&amp;cbc=African%20Safari Special Offers">African Safari</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=692&amp;cbc=Canal%20%26%20River%20Cruising Special Offers">Canal &amp; River Cruising</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=717&amp;cbc=Solo%20Travel Special Offers">Solo Travel</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=716&amp;cbc=Signature%20Series Special Offers">Signature Series</a>
-                  </li>
-                  <li>
-                    <a href="/travel_specials/?tif=-1&amp;cbc=Other Special Offers">Other</a>
-                  </li>
+                  <% Interest.all.each do |interest| %>
+                    <li>
+                      <a href="/search?interest=<%= interest.id %>" title="<%= interest.title %>"><%= interest.title %> (<%= interest.travels.size %>)</a>
+                    </li>
+                  <% end %>
                 </ul>
               </dd>
             </dl>
@@ -143,7 +121,26 @@
 				 	</tbody>
 				 </table>
 				 <% else -%>
-				 <p>No Booking Messages!</p>
+         <table>
+          <tbody class="format_table">
+           <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>Region</th>
+              <th>Address</th>
+              <th>Post Code</th>
+              <th>People Count</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td colspan="11">No Booking Messages!</td>
+            </tr>
+            </tbody>
+         </table>
 				 <% end -%>
 
               </p>
