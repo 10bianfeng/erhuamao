@@ -65,7 +65,7 @@
 						<div class="self_clear">
 							<div id="mini_map">
 								<img style="left:146px; top:44px;" title="<%= @travel.name %>" alt="<%= @travel.name %>" src="<%= @travel.desc_mappic.url %>" width="9">
-								</div>
+							</div>
 							<img src="<%= @travel.cover.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="125" height="125">
 							<ul class="align_edges line_rule clear_margins">
 								<li>
@@ -136,7 +136,43 @@
 						</p>
 					</div>
 					<h2>Itinerary</h2>
+					
+
+
+					  <% if Destination.find(3).gallery.photos.size > 0 %>
+			          <div id="inline_gallery" class="float_right hide_from_print round_corners color_f4f4f4">
+			            <div class="ctl"></div>
+			            <div class="ctr"></div>
+			            <div class="cbr"></div>
+			            <div class="cbl"></div>
+			            <div class="inline_gallery self_clear">
+			              <div id="destination_slides" style="height:276px;">
+			                <% Destination.find(3).gallery.photos.each do |photo| %>
+			                <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
+			                <% end %>
+			              </div>  
+			              <div id="popout_modal" style="display: none;" class="alt">
+			                <div class="close_modal" onclick="modal_close();">X</div>
+			                <strong class="title"><%= Destination.find(3).gallery.title %></strong>
+			                <div id="destination_slides_modal">
+
+			                  <% Destination.find(3).gallery.photos.each do |photo| %>
+			                    <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
+			                  <% end %>
+			                </div>
+			                <p class="slide_img_title"></p>
+			              </div>
+			              <p class="slide_img_title"></p>           
+			              <p>
+			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides_atn();">View full size gallery</a>
+			              </p>
+			            </div>
+			          </div>
+			          <% end %>
+
 					<a href="#" onclick="largeMap(this);return false;"><img class="float_right" src="<%= @travel.itinerary_pic.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="300"><img style="display: none" src="<%= @travel.itinerary_bigpic.url %>"></a>
+
+
 					<dl class="itinerary">
 						<% @travel.itineraries.each do |itinerary| %>
 						<dt><%= itinerary.name %></dt>
@@ -917,6 +953,71 @@ $("#popout_modal_mask").live("click",function(){
 	$('#largeMap').remove();
 	$(this).remove();
 })
+
+
+
+
+
+
+
+
+$(function() {
+      $('#destination_slides').slidesjs({
+        width: 260,
+        height: 228,
+        navigation: {
+          effect: "fade"
+        },
+        pagination: {
+          effect: "fade"
+        },
+        effect: {
+          fade: {
+            speed: 800
+          }
+        },
+        callback:{
+          loaded: function(number) {
+              $('p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
+            },
+          complete: function(number) {
+              $('p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
+          }
+        }
+      });
+    });
+$('#destination_slides_modal').slidesjs({
+  width: 514,
+  height: 344,
+  navigation: false,
+  pagination: {
+    effect: "fade"
+  },
+  effect: {
+    fade: {
+      speed: 800
+    }
+  },
+  callback:{
+    loaded: function(number) {
+          $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+        },
+    complete: function(number) {
+          $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+    }
+  }
+});
+var modal_slides_atn=function(){
+  $("#popout_modal.alt").show();
+  $('<div id="popout_modal_mask"></div>').appendTo("body");
+}
+var modal_close=function(){
+  $("#popout_modal").hide();
+  $("#popout_modal.alt").hide();
+  $('#popout_modal_mask').remove();
+}
+
+
 var initslide=function(){
 	$("#popout_modal").show().find('#destination_slides_modal').slidesjs({
 		width: 514,

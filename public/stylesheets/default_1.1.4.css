@@ -1323,6 +1323,12 @@ absolute image paths.
 	margin-bottom:20px;
 	
 }
+#inline_gallery.small{
+	position:relative;
+	width:300px;
+	margin-bottom:20px;
+	
+}
 #inline_gallery p{
 	margin-bottom:0;
 }
@@ -1344,6 +1350,19 @@ absolute image paths.
 	width:386px;
 	/*Set a fixed height*/
 	height:258px;
+	/**/
+	background-color:#fff;
+				
+}
+#inline_gallery.small .images{
+	/*Allow element to have absolute positioned child elements*/
+	position:relative;
+	/*Set value*/
+	border:1px solid #fff;
+	/*Set a fixed width*/
+	width:286px;
+	/*Set a fixed height*/
+	height:228px;
 	/**/
 	background-color:#fff;
 				
