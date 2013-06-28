@@ -170,7 +170,7 @@
 					<div id="dates_prices">
 						<dl class="expando">
 							
-							<% @travel.datesprices.each do |datesprice| %>
+							<% @travel.datesprices.each_with_index do |datesprice, index| %>
 							<dt>
 								<table width="100%">
 									<thead>
@@ -185,7 +185,7 @@
 								</table>
 							</dt>
 							<dd>
-								<form  class="departure_form" action="/bookings/new" method="post">
+								<form  class="departure_form" action="/bookings/new" method="get">
 									<table>
 										<thead>
 											<tr>
@@ -201,7 +201,7 @@
 												<td class="width20">
 													<% if datesprice.is_available? %>
 													<label for="packageDateID_393641">
-														<input type="radio" name="datesprice_id" value="<%= datesprice.id %>"></label>
+														<input type="radio" name="datesprice_id" value="<%= datesprice.id %>" <%= "checked" if index.zero? %>></label>
 													<% end %>
 												</td>
 												<td class="width138">
