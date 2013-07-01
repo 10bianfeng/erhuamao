@@ -19,6 +19,7 @@ class TravelsController < ApplicationController
 #    @travel.destinations.each do |destination|
 #      @photo_gallerys << destination.photo
 #    end
+    @extend_travels = Travel.find(@travel.extensions_ids.split(",").map { |s| s.to_i })
 
     respond_to do |format|
       format.html # show.html.erb
