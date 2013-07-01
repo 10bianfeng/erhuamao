@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin bookings mrs_title:string first_name:string last_name:string preferred_contact_method:integer email:string phone:string country:string region:string postal_code:string is_subscribe:boolean user_id:integer travel_id:integer datesprice_id:integer destination_id:integer people_count:integer agent_name:string agent_code:string comment:text has_target:boolean 
 
-class Admin::BookingsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::BookingsController < Admin::BaseController
   
   # GET /bookings
   # GET /bookings.xml

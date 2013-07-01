@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin photos pic:string desc:string resource:string resource_id:integer 
 
-class Admin::PhotosController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::PhotosController < Admin::BaseController
   
   # GET /photos
   # GET /photos.xml

@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin brochure_travels brochure_id:integer travel_id:integer 
 
-class Admin::BrochureTravelsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::BrochureTravelsController < Admin::BaseController
   
   # GET /brochure_travels
   # GET /brochure_travels.xml

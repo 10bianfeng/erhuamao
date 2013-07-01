@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin questions mrs_title:string first_name:string last_name:string preferred_contact_method:integer email:string phone:string country:string question:text travel_id:integer 
 
-class Admin::QuestionsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::QuestionsController < Admin::BaseController
   
   # GET /questions
   # GET /questions.xml

@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin hotels name:string destination_id:integer 
 
-class Admin::HotelsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::HotelsController < Admin::BaseController
   
   # GET /hotels
   # GET /hotels.xml

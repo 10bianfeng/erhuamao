@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin destinations name:string desc_title:string desc:text banner_pic:string map_pic:string flights:text timezone:string climate:text health_requirements:text voltage:text currency:text ancestry:string 
 
-class Admin::DestinationsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::DestinationsController < Admin::BaseController
   
   # GET /destinations
   # GET /destinations.xml

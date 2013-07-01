@@ -5,7 +5,7 @@
 #   gem install sqlite3
 development:
   adapter: sqlite3
-  database: db/development_new.sqlite3
+  database: db/development.sqlite3
   pool: 5
   timeout: 5000
 
@@ -28,11 +28,8 @@ test:
   #password:
   #host: localhost
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: erhuamao_production
+development:
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: root
-  password:
+  timeout: 5000
