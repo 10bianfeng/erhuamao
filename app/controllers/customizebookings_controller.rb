@@ -27,6 +27,7 @@ class CustomizebookingsController < ApplicationController
   # GET /customizebookings/new.xml
   def new
     @customizebooking = Customizebooking.new
+    @destinations = Destination.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,15 +43,19 @@ class CustomizebookingsController < ApplicationController
   # POST /customizebookings
   # POST /customizebookings.xml
   def create
-    @customizebooking = Customizebooking.new(params[:customizebooking])
+    @gbooking = Gbooking.new(params[:gbooking])
+    @gbooking.user = current_user if current_user
+    if @gbooking.save
+      params[:customizebookings].each_with_index do |customizebooking,index|
+        @customizebooking = Customizebooking.new(customizebooking)
+        @customizebooking.number = index + 1
+        @customizebooking.gbooking = @gbooking
+        @customizebooking.save
+      end
 
-    respond_to do |format|
-      if @customizebooking.save
-        format.html { redirect_to(@customizebooking, :notice => 'Customizebooking was successfully created.') }
+      respond_to do |format|
+        format.html { redirect_to(@gbooking, :notice => 'Customizebooking was successfully created.') }
         format.xml  { render :xml => @customizebooking, :status => :created, :location => @customizebooking }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @customizebooking.errors, :status => :unprocessable_entity }
       end
     end
   end

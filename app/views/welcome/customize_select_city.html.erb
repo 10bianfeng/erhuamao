@@ -1,4 +1,4 @@
-<select name="" id="hotel_s">
+<select name="customizebookings[][hotel_id]" id="hotel_s">
 	<option value="">选择酒店</option>
 	<% @hotels.each do |hotel| %>
 	<option value="<%= hotel.id %>"><%= hotel.name %></option>
