@@ -324,206 +324,56 @@
 						Extend your experience with these add-on itineraries. All extensions are priced and ready to book.
 					</p>
 					<dl id="search_results" class="self_clear line_rule cap_ends">
+						<% @extend_travels.each do |extend_travel| %>
 						<dt>
-							<a href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">Aurangabad Extension</a>
+							<a href="/travels/<%= extend_travel.id %>" title="View the overview for <%= extend_travel.name %>"><%= extend_travel.name %></a>
 						</dt>
 						<dd>
 							<div class="trip_overview">
 								<div class="self_clear">
-									<a href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">
-										<img src="/images/aurangabad_extension.jpg" alt="View details for Aurangabad Extension" title="View details for Aurangabad Extension" width="125" height="125"></a>
+									<a href="/travels/<%= extend_travel.id %>" title="View the overview for <%= extend_travel.name %>">
+
+										<img src="<%= extend_travel.cover.url %>" alt="View details for <%= extend_travel.name %>" title="View details for <%= extend_travel.name %>" width="125" height="125"></a>
 									<ul class="link_list self_clear clear_list_style">
 										<li>
-											<a class="icon swirl_arrow" href="/travel/?tid=5759" title="View the overview for Aurangabad Extension">Overview</a>
+											<a class="icon swirl_arrow" href="/travels/<%= extend_travel.id %>" title="View the overview for <%= extend_travel.name %>">Overview</a>
 										</li>
 										<li>
-											<a class="icon notebook" href="/travel/?tid=5759&amp;fuseaction=dsp_itinerary" title="View the itinerary for Aurangabad Extension">Itinerary</a>
+											<a class="icon notebook" href="/travels/<%= extend_travel.id %>#tab2" title="View the itinerary for Aurangabad Extension">Itinerary</a>
 										</li>
 										<li>
-											<a class="icon dates" href="/travel/?tid=5759&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Aurangabad Extension">Dates &amp; Prices</a>
-										</li>
-										<li style="margin-top:2px;">
-											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5759">
-											<p class="clear_margins float_left  compare_link">Compare</p>
+											<a class="icon dates" href="/travels/<%= extend_travel.id %>#tab3" title="View the dates &amp; prices for Aurangabad Extension">Dates &amp; Prices</a>
 										</li>
 									</ul>
 									<ul class="align_edges line_rule clear_margins">
 										<li>
 											<span>
-												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
+												<a class="icon extensions amp" href="javascript:void(0);"  title="Extension">Extension</a>
 											</span>
 											Series:
 										</li>
 										<li>
-											<span>$1,295</span>
+											<span><%= extend_travel.priced_from %></span>
 											Priced From:
 										</li>
 										<li>
-											<span>4</span>
+											<span><%= extend_travel.days_count %></span>
 											Days:
 										</li>
 										<li>
-											<span>On Request</span>
+											<span><%= extend_travel.departures %></span>
 											Departures:
 										</li>
 										<li>
-											<span>N/A</span>
+											<span><%= extend_travel.max_group_size %></span>
 											Max Group Size:
 										</li>
 									</ul>
 								</div>
 							</div>
 						</dd>
-						<dt>
-							<a href="/travel/?tid=5659" title="View the overview for Bhutan Extension">Bhutan Extension</a>
-						</dt>
-						<dd>
-							<div class="trip_overview">
-								<div class="self_clear">
-									<a href="/travel/?tid=5659" title="View the overview for Bhutan Extension">
-										<img src="/images/bhutan_extension.jpg" alt="View details for Bhutan Extension" title="View details for Bhutan Extension" width="125" height="125"></a>
-									<ul class="link_list self_clear clear_list_style">
-										<li>
-											<a class="icon swirl_arrow" href="/travel/?tid=5659" title="View the overview for Bhutan Extension">Overview</a>
-										</li>
-										<li>
-											<a class="icon notebook" href="/travel/?tid=5659&amp;fuseaction=dsp_itinerary" title="View the itinerary for Bhutan Extension">Itinerary</a>
-										</li>
-										<li>
-											<a class="icon dates" href="/travel/?tid=5659&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Bhutan Extension">Dates &amp; Prices</a>
-										</li>
-										<li style="margin-top:2px;">
-											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5659">
-											<p class="clear_margins float_left  compare_link">Compare</p>
-										</li>
-									</ul>
-									<ul class="align_edges line_rule clear_margins">
-										<li>
-											<span>
-												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-											</span>
-											Series:
-										</li>
-										<li>
-											<span>$4,295</span>
-											Priced From:
-										</li>
-										<li>
-											<span>4</span>
-											Days:
-										</li>
-										<li>
-											<span>On Request</span>
-											Departures:
-										</li>
-										<li>
-											<span>N/A</span>
-											Max Group Size:
-										</li>
-									</ul>
-								</div>
-							</div>
-						</dd>
-						<dt>
-							<a href="/travel/?tid=5662" title="View the overview for Kerala Extension">Kerala Extension</a>
-						</dt>
-						<dd>
-							<div class="trip_overview">
-								<div class="self_clear">
-									<a href="/travel/?tid=5662" title="View the overview for Kerala Extension">
-										<img src="/images/kerala-extension-1.jpg" alt="View details for Kerala Extension" title="View details for Kerala Extension" width="125" height="125"></a>
-									<ul class="link_list self_clear clear_list_style">
-										<li>
-											<a class="icon swirl_arrow" href="/travel/?tid=5662" title="View the overview for Kerala Extension">Overview</a>
-										</li>
-										<li>
-											<a class="icon notebook" href="/travel/?tid=5662&amp;fuseaction=dsp_itinerary" title="View the itinerary for Kerala Extension">Itinerary</a>
-										</li>
-										<li>
-											<a class="icon dates" href="/travel/?tid=5662&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Kerala Extension">Dates &amp; Prices</a>
-										</li>
-										<li style="margin-top:2px;">
-											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5662">
-											<p class="clear_margins float_left  compare_link">Compare</p>
-										</li>
-									</ul>
-									<ul class="align_edges line_rule clear_margins">
-										<li>
-											<span>
-												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-											</span>
-											Series:
-										</li>
-										<li>
-											<span>$1,595</span>
-											Priced From:
-										</li>
-										<li>
-											<span>5</span>
-											Days:
-										</li>
-										<li>
-											<span>On Request</span>
-											Departures:
-										</li>
-										<li>
-											<span>N/A</span>
-											Max Group Size:
-										</li>
-									</ul>
-								</div>
-							</div>
-						</dd>
-						<dt>
-							<a href="/travel/?tid=5658" title="View the overview for Nepal Extension">Nepal Extension</a>
-						</dt>
-						<dd>
-							<div class="trip_overview">
-								<div class="self_clear">
-									<a href="/travel/?tid=5658" title="View the overview for Nepal Extension">
-										<img src="/images/nepal_extension.jpg" alt="View details for Nepal Extension" title="View details for Nepal Extension" width="125" height="125"></a>
-									<ul class="link_list self_clear clear_list_style">
-										<li>
-											<a class="icon swirl_arrow" href="/travel/?tid=5658" title="View the overview for Nepal Extension">Overview</a>
-										</li>
-										<li>
-											<a class="icon notebook" href="/travel/?tid=5658&amp;fuseaction=dsp_itinerary" title="View the itinerary for Nepal Extension">Itinerary</a>
-										</li>
-										<li>
-											<a class="icon dates" href="/travel/?tid=5658&amp;fuseaction=dsp_dates" title="View the dates &amp; prices for Nepal Extension">Dates &amp; Prices</a>
-										</li>
-										<li style="margin-top:2px;">
-											<input style="height:12px; width:12px; margin-right:6px;" class="select_trip float_left" type="checkbox" value="5658">
-											<p class="clear_margins float_left  compare_link">Compare</p>
-										</li>
-									</ul>
-									<ul class="align_edges line_rule clear_margins">
-										<li>
-											<span>
-												<a class="icon extensions amp" href="javascript:void(0);" onclick="getSeriesOverlay('28')" title="Extension">Extension</a>
-											</span>
-											Series:
-										</li>
-										<li>
-											<span>$1,495</span>
-											Priced From:
-										</li>
-										<li>
-											<span>4</span>
-											Days:
-										</li>
-										<li>
-											<span>On Request</span>
-											Departures:
-										</li>
-										<li>
-											<span>N/A</span>
-											Max Group Size:
-										</li>
-									</ul>
-								</div>
-							</div>
-						</dd>
+						<% end %>
+
 					</dl>
 					<div id="customize_trip">
 						<h3 class="clear_margins">Extend Your Stay</h3>

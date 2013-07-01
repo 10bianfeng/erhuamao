@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin photocontests username:string name:string desc:string photo:string 
 
-class Admin::PhotocontestsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::PhotocontestsController < Admin::BaseController
   
   # GET /photocontests
   # GET /photocontests.xml

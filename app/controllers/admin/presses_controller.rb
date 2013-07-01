@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin presses title:string cont:text 
 
-class Admin::PressesController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::PressesController < Admin::BaseController
   
   # GET /presses
   # GET /presses.xml

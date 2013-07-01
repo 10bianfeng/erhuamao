@@ -2,10 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin cities name:string destination_id:integer 
 
-class Admin::CitiesController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
-  
+class Admin::CitiesController < Admin::BaseController
   # GET /cities
   # GET /cities.xml
   def index

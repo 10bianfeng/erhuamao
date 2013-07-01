@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin users email:string login:string name:string has_past:boolean home_phone:string cellphone:string travel_agent:string travel_agent_code:string address:string city:string region:string country:string postal_code:string birth_date:datetime sign_in_count:integer remember_created_at:datetime current_sign_in_at:datetime last_sign_in_at:datetime current_sign_in_ip:string last_sign_in_ip:string updated_at:datetime created_at:datetime 
 
-class Admin::UsersController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::UsersController < Admin::BaseController
   
   # GET /users
   # GET /users.xml

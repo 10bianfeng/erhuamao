@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin dianpins name:string cont:text travel_code:string travel_id:integer user_id:integer is_show:boolean 
 
-class Admin::DianpinsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::DianpinsController < Admin::BaseController
   
   # GET /dianpins
   # GET /dianpins.xml

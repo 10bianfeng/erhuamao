@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin galleries title:string travel_id:integer resource:string resource_id:integer 
 
-class Admin::GalleriesController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::GalleriesController < Admin::BaseController
   
   # GET /galleries
   # GET /galleries.xml

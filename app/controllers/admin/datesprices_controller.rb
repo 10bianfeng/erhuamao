@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin datesprices travel_id:integer start_date:datetime end_date:datetime prices:integer single_supplement:integer internal_airfare:integer availability_status:integer available_people_count:integer 
 
-class Admin::DatespricesController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::DatespricesController < Admin::BaseController
   
   # GET /datesprices
   # GET /datesprices.xml

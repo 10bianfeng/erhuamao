@@ -124,14 +124,12 @@
 					<div id="cs_control_5122" class="cs_control CS_Element_CustomCF">
 						<div id="CS_CCF_3360_5122">
 							<p>
-								Please enter your temporary login and password from the Welcome Letter included in your Welcome Kit.
+                <%= flash[:notice] %>
 							</p>
+              <p>
+                <%= flash[:alert] %> </p>
+
 							<div style="width:99%">
-								<div class="self-clear">
-									<p id="requiredText">
-										Required <em>*</em>
-									</p>
-								</div>
 								<form class="uniForm" accept-charset="UTF-8" action="/login" class="user_new" id="user_login" method="post">
 									<fieldset class="inlineLabels">
 										<h3>Marco Polo Club Members - Please Register</h3>

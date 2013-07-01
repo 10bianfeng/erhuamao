@@ -39,7 +39,7 @@
 	                <li><a href="/admin">后台管理</a></li>
 	              <% end %>
               <li class="">
-                <%= link_to "退出", destroy_user_session_path %>
+              <%= link_to "退出", destroy_user_session_path, :method => :delete %>
               </li>
               <% else %>
                 <li class="">
@@ -117,9 +117,6 @@
 									</li>
 									<li>
 										<a href="/pages/8">A&amp;K Magazine</a>
-									</li>
-									<li>
-										<a href="http://portfolio.abercrombiekent.com/photo_request.cfm" target="_blank" gatext="News & Events - Photo Request" onClick="pageTracker._trackEvent('Outbound', 'Navigation', jQuery(this).attr('gatext'));">Request Travel Photos</a>
 									</li>
 								</ul>
 							</div>
