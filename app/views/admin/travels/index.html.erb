@@ -11,6 +11,7 @@
     <th>所属兴趣点</th>
     <th>优惠信息</th>
     <th>Pdf小册子</th>
+    <th>画廊</th>
     <th>操作</th>
   </tr>
 
@@ -107,6 +108,7 @@
         </tbody>
       </table>
     </td>
+    <td><%= travel.gallery.photos.size %> / <a href="/admin/galleries/<%= travel.gallery.id %>">管理图片</a></td>
     <td>
       <%= link_to '查看', [:admin, travel] %> | 
       <%= link_to '编辑', edit_admin_travel_path(travel) %> | 

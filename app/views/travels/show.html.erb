@@ -99,10 +99,7 @@
 
 
 
-
-
-
-					  <% if Destination.find(3).gallery.photos.size > 0 %>
+					  <% if @travel.gallery.photos.size > 0 %>
 			          <div id="inline_gallery" class="float_right hide_from_print round_corners color_f4f4f4">
 			            <div class="ctl"></div>
 			            <div class="ctr"></div>
@@ -110,7 +107,7 @@
 			            <div class="cbl"></div>
 			            <div class="inline_gallery self_clear">
 			              <div id="destination_slides" style="height:276px;">
-			                <% Destination.find(3).gallery.photos.each do |photo| %>
+			                <% @travel.gallery.photos.each do |photo| %>
 			                <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
 			                <% end %>
 			              </div>  
@@ -119,7 +116,7 @@
 			                <strong class="title"><%= Destination.find(3).gallery.title %></strong>
 			                <div id="destination_slides_modal">
 
-			                  <% Destination.find(3).gallery.photos.each do |photo| %>
+			                  <% @travel.gallery.photos.each do |photo| %>
 			                    <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
 			                  <% end %>
 			                </div>
@@ -132,8 +129,6 @@
 			            </div>
 			          </div>
 			          <% end %>
-
-
 
 
 

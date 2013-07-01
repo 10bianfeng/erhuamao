@@ -17,6 +17,7 @@
 	"itinerary_bigpic"	:text
 	"desc_mappic"	:text
 	"cover"	:string
+	gallery_id:integer
 
 # 行程安排
 ##Itinerary
@@ -227,8 +228,6 @@
 	country:string
 	question:text
 	travel_id:integer
-
-
 
 ##User
 	has_past:boolean

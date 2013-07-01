@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701100707) do
+ActiveRecord::Schema.define(:version => 20130701143255) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20130701100707) do
     t.integer  "destination_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "gallery_id"
   end
 
   create_table "customizebookings", :force => true do |t|
@@ -319,6 +320,7 @@ ActiveRecord::Schema.define(:version => 20130701100707) do
     t.string   "cover"
     t.text     "itinerary_bigpic"
     t.text     "desc_mappic"
+    t.integer  "gallery_id"
   end
 
   create_table "users", :force => true do |t|

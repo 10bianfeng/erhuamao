@@ -50,7 +50,6 @@ class WelcomeController < ApplicationController
 
   def customize_select_city
     @city = City.find(params[:id])
-    @destination = @city.destination
     @hotels = @city.hotels
     render :layout => false
   end
@@ -84,5 +83,13 @@ class WelcomeController < ApplicationController
     sign_in(:user, @account)
     flash[:notice] = '成功登录'
     redirect_to root_path
+  end
+
+  def temp
+    @citys = City.all
+    @citys.each do |city|
+      #city.gallery = Gallery.create(:title => city.name)
+     # city.save
+    end
   end
 end

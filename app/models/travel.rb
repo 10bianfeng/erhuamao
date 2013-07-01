@@ -18,6 +18,8 @@ class Travel < ActiveRecord::Base
 	has_many :questions
 	has_many :dianpins
 
+	belongs_to :gallery
+
 	# 上传
 	mount_uploader :cover, CoverUploader
 	mount_uploader :desc_mappic, CoverUploader
