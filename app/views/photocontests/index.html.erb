@@ -26,11 +26,11 @@ Travel Agents should
                             before ordering photocontests.
                         </p>
                             <% @photocontests.each do |photocontest| %>   
-                                <div>
+                                <a class="boxes" style="float: left;margin-right: 10px;" href="<%= photocontest.photo.url %>" title="<%= photocontest.username %> - <%= photocontest.name %>">
                                     <img src="<%= photocontest.photo.url %>" width="200">
                                     <%= photocontest.username %>
                                     <%= photocontest.name %>
-                                </div>
+                                </a>
                             <% end %>
                     </div>
                 </div>
@@ -38,3 +38,20 @@ Travel Agents should
         </div>
     </div>
 </div>
+
+
+
+<% content_for :header do %>
+<link rel="stylesheet" type="text/css" href="/stylesheets/fancybox.css" media="screen" />
+<% end %>
+
+<% content_for :footer do %>
+
+        <%= javascript_include_tag "jquery.fancybox.js" %>
+        <script>
+            
+        $("a.boxes").fancybox({
+            'titlePosition': 'inside'
+        });
+        </script>
+<% end %>
