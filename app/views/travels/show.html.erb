@@ -96,6 +96,49 @@
 					<p>
 						<%= @travel.overview_desc %>
 					</p>
+
+
+
+
+
+
+					  <% if Destination.find(3).gallery.photos.size > 0 %>
+			          <div id="inline_gallery" class="float_right hide_from_print round_corners color_f4f4f4">
+			            <div class="ctl"></div>
+			            <div class="ctr"></div>
+			            <div class="cbr"></div>
+			            <div class="cbl"></div>
+			            <div class="inline_gallery self_clear">
+			              <div id="destination_slides" style="height:276px;">
+			                <% Destination.find(3).gallery.photos.each do |photo| %>
+			                <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
+			                <% end %>
+			              </div>  
+			              <div id="popout_modal" style="display: none;" class="alt">
+			                <div class="close_modal" onclick="modal_close();">X</div>
+			                <strong class="title"><%= Destination.find(3).gallery.title %></strong>
+			                <div id="destination_slides_modal">
+
+			                  <% Destination.find(3).gallery.photos.each do |photo| %>
+			                    <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
+			                  <% end %>
+			                </div>
+			                <p class="slide_img_title"></p>
+			              </div>
+			              <p class="slide_img_title"></p>           
+			              <p>
+			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides_atn();">View full size gallery</a>
+			              </p>
+			            </div>
+			          </div>
+			          <% end %>
+
+
+
+
+
+
+					
 					<!-- & MOMENTS -->
 					<h2>A&amp;K Advantages</h2>
 					<ul class="clear_list_indent">
@@ -139,36 +182,7 @@
 					
 
 
-					  <% if Destination.find(3).gallery.photos.size > 0 %>
-			          <div id="inline_gallery" class="float_right hide_from_print round_corners color_f4f4f4">
-			            <div class="ctl"></div>
-			            <div class="ctr"></div>
-			            <div class="cbr"></div>
-			            <div class="cbl"></div>
-			            <div class="inline_gallery self_clear">
-			              <div id="destination_slides" style="height:276px;">
-			                <% Destination.find(3).gallery.photos.each do |photo| %>
-			                <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
-			                <% end %>
-			              </div>  
-			              <div id="popout_modal" style="display: none;" class="alt">
-			                <div class="close_modal" onclick="modal_close();">X</div>
-			                <strong class="title"><%= Destination.find(3).gallery.title %></strong>
-			                <div id="destination_slides_modal">
 
-			                  <% Destination.find(3).gallery.photos.each do |photo| %>
-			                    <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
-			                  <% end %>
-			                </div>
-			                <p class="slide_img_title"></p>
-			              </div>
-			              <p class="slide_img_title"></p>           
-			              <p>
-			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides_atn();">View full size gallery</a>
-			              </p>
-			            </div>
-			          </div>
-			          <% end %>
 
 					<a href="#" onclick="largeMap(this);return false;"><img class="float_right" src="<%= @travel.itinerary_pic.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="300"><img style="display: none" src="<%= @travel.itinerary_bigpic.url %>"></a>
 
