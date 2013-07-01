@@ -1,0 +1,284 @@
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+    <li>
+        <a href="/">Home</a>
+    </li>
+    <li>
+        &nbsp;&nbsp;/&nbsp;&nbsp;
+        <a href="/customize">Customize</a>
+    </li>
+</ul>
+
+
+<div class="self_clear">
+
+    <div class="slide_show_block">
+        <div class="inline_gallery self_clear">
+            <div id="destination_slides">
+              <img src="/uploads/photo/pic/14/bb408e88eb4da717ae73789d5bd27772.jpg" alt="hotels" >
+              <img src="/uploads/photo/pic/15/dd916cb2d2d5a89430ac022142168676.jpg" alt="" >
+              <img src="/uploads/photo/pic/16/624a78b554167a659454a5df67038de3.jpg" alt="" >
+              <img src="/uploads/photo/pic/17/97f6139c14733f07ef3df554ece8faf6.jpg" alt="" >
+              <img src="/uploads/photo/pic/18/7da1d7e32a12ea55424b785b027a53ed.jpg" alt="" >
+              <img src="/uploads/photo/pic/19/af804dc66561a44b21faabb506d64e38.jpg" alt="" >
+              <img src="/uploads/photo/pic/20/a21b2cb5b502a31e8b49d9e073d7d308.jpg" alt="" >
+            </div>
+            <div id="popout_modal">
+            <div class="close_modal" onclick="modal_close();">X</div>
+            <strong class="title">Slide Show Example</strong>
+            <div id="destination_slides_modal">
+                <img src="/uploads/photo/pic/14/bb408e88eb4da717ae73789d5bd27772.jpg" alt="hotels" >
+                <img src="/uploads/photo/pic/15/dd916cb2d2d5a89430ac022142168676.jpg" alt="" >
+                <img src="/uploads/photo/pic/16/624a78b554167a659454a5df67038de3.jpg" alt="" >
+                <img src="/uploads/photo/pic/17/97f6139c14733f07ef3df554ece8faf6.jpg" alt="" >
+                <img src="/uploads/photo/pic/18/7da1d7e32a12ea55424b785b027a53ed.jpg" alt="" >
+                <img src="/uploads/photo/pic/19/af804dc66561a44b21faabb506d64e38.jpg" alt="" >
+                <img src="/uploads/photo/pic/20/a21b2cb5b502a31e8b49d9e073d7d308.jpg" alt="" >
+            </div>
+            <p class="slide_img_title"></p>
+            </div>
+            <p>
+                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides();">View full size gallery</a>
+            </p>
+        </div>
+    </div>
+
+            <div id="primary_content" class="align_edges">
+                <iframe style="position:absolute; left:-9999px;" id="print-frame" src="/images/transparent.gif"></iframe>
+                <!-- PRIMARY HEADING -->
+                <div class="self_clear">
+                    <h1>Customize Your Travels</h1>
+                    <h4 class="clear_margins luxury" style="float: left">
+                        Luxury Small Group Journeys
+                    </h4>
+                    <input type="button" style="float: right" onclick="new_custom()" value="New Travel">
+                </div>
+                <!-- TRIP NAVIGATION -->
+                <div id="customize" class="tab_item">
+                    <div>
+                        <form action="/questions" id="faq_form" method="post" name="faq_form" class="uniForm">
+                            <fieldset class="inlineLabels">
+                                <div class="customize">
+                                    <ol class="customize_list">
+                                        <li style="margin-top: 10px;height:25px;">
+                                            <select name="gbookingday[destination_id]" id="destination_s">
+                                                <option value="">选择地区</option>
+                                                <% @destinations.each do |destination| %>
+                                                <option value="<%= destination.id %>"><%= destination.name %></option>
+                                                <% end %>
+                                            </select>
+                                            <select name="gbookingday[city_id]" id="city_s">
+                                                <option value="">选择城市</option>
+                                            </select>
+                                            <select name="gbookingday[hotel_id]" id="hotel_s">
+                                                <option value="6">选择酒店</option>
+                                            </select>
+                                            <select name="gbookingday[days]" id="days">
+                                                <option value="">预计停留时间</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="9">9</option>
+                                                <option value="10">10</option>
+                                            </select>
+                                        </li>
+                                    </ol>
+                                </div>
+                                <h3>Your Information</h3>
+                                <div class="self-clear">
+                                    <p id="requiredText">
+                                        Required <em>*</em>
+                                    </p>
+                                </div>
+                                <div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
+                                    <p class="errorFieldHide" id="contact_preference_err"></p>
+                                    <p class="label ">Preferred method of contact</p>
+                                    <label for="contact_preference-1" class="inlineLabel">
+                                        <input name="question[preferred_contact_method]" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">Email</label>
+                                    <label for="contact_preference-2" class="inlineLabel">
+                                        <input name="question[preferred_contact_method]" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">Daytime Phone</label>
+                                </div>
+                                <div id="ctrlHolder_email" class="ctrlHolder">
+                                    <p class="errorFieldHide" id="email_err">Enter a valid email address</p>
+                                    <label for="email" class="required"> <em>*</em>
+                                        Email Address
+                                    </label>
+                                    <input name="question[email]" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
+                                    <p class="formHint">(one address)</p>
+                                </div>
+                                <div id="ctrlHolder_title" class="ctrlHolder">
+                                    <p class="errorFieldHide" id="title_err">Select your title</p>
+                                    <label for="title" class="required">
+                                        <em>*</em>
+                                        Title
+                                    </label>
+                                    <select name="question[mrs_title]" id="title" class="required" tabindex="3">
+                                        <option value="0">Select a Title</option>
+                                        <option value="153">Mr.</option>
+                                        <option value="154">Mrs.</option>
+                                        <option value="155">Ms.</option>
+                                        <option value="157">Dr.</option>
+                                    </select>
+                                </div>
+                                <div id="ctrlHolder_firstName" class="ctrlHolder">
+                                    <p class="errorFieldHide" id="firstName_err">Enter your first name</p>
+                                    <label for="firstName" class="required">
+                                        <em>*</em>
+                                        First Name
+                                    </label>
+                                    <input name="question[first_name]" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
+                                    <p class="formHint">(as printed on Passport)</p>
+                                </div>
+                                <div id="ctrlHolder_lastName" class="ctrlHolder">
+                                    <p class="errorFieldHide" id="lastName_err">Enter your last name</p>
+                                    <label for="lastName" class="required">
+                                        <em>*</em>
+                                        Last Name
+                                    </label>
+                                    <input name="question[last_name]" id="lastName" value="" size="30" type="text" class="required" tabindex="5">          
+                                    <p class="formHint">(as printed on Passport)</p>
+                                </div>
+                                <div id="ctrlHolder_workphone" class="ctrlHolder">
+                                    <p class="errorFieldHide" id="workphone_err"></p>
+                                    <label for="workphone" class="">Daytime Phone</label>
+                                    <input name="question[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
+                                    <p class="formHint">(ex. 2345678901)</p>
+                                </div>
+                                
+                                <div id="ctrlHolder_question" class="ctrlHolder">
+                                    <p class="errorFieldHide" id="question_err">Ask your question here:</p>
+                                    <label for="question" class="required">
+                                        <em>*</em>
+                                        Your Question
+                                    </label>
+                                    <textarea name="question[question]" id="question" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
+                                </div>
+                                <input name="question[travel_id]" id="submitid" value="1" type="hidden">         
+                                </fieldset>
+                            <div class="buttonHolder">
+                                <input type="submit" name="submit_btn" id="submit_btn" value="Submit Your Question" class="uniFormButton" onclick="" tabindex="10"></div>
+                        </form>
+                    </div>
+                </div>              
+                <!-- TRIP NAVIGATION BOTTOM -->
+            </div>
+        </div>
+
+
+<% content_for :footer do %>
+<%= javascript_include_tag "jquery.slides.min.js" %>
+<script>
+var modal_slides_init=function(){
+    $('#destination_slides').slidesjs({
+    width: 386,
+    height: 258,
+    navigation: false,
+    pagination: {
+      effect: "fade"
+    },
+    effect: {
+      fade: {
+        speed: 800
+      }
+    },
+    callback:{
+      loaded: function(number) {
+          $('p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
+        },
+      complete: function(number) {
+          $('p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
+      }
+    }
+    });
+    $('#destination_slides_modal').slidesjs({
+      width: 514,
+      height: 344,
+      navigation: false,
+      pagination: {
+        effect: "fade"
+      },
+      effect: {
+        fade: {
+          speed: 800
+        }
+      },
+      callback:{
+        loaded: function(number) {
+              $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+            },
+        complete: function(number) {
+              $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
+        }
+      }
+    })
+}
+modal_slides_init();
+var modal_slides=function(){
+  $("#popout_modal").show();
+  $('<div id="popout_modal_mask"></div>').appendTo("body");
+}
+var modal_close=function(){
+  $("#popout_modal").hide();
+  $('#popout_modal_mask').remove();
+}
+var new_custom=function(){
+    $("ol.customize_list").append('<li style="margin-top:10px;height:25px;"><select name="" id="destination_s"><option value="">选择地区</option><% @destinations.each do |destination| %><option value="<%= destination.id %>"><%= destination.name %></option><% end %></li>');
+}
+var remove_li=function(a){
+    $(a).parent().remove();
+};
+function slideInit(data){
+    $("#destination_slides").remove();
+    $parent1.prepend("<div id='destination_slides'><div>").find("#destination_slides").html($(data).filter("#destination_slides").html())
+    $("#destination_slides_modal").remove();
+    $parent2.append("<div id='destination_slides_modal'><div>").find("#destination_slides_modal").html($(data).filter("#destination_slides").html())
+    $(".slide_img_title").remove();
+    $parent2.append("<p class='slide_img_title'>")
+}
+$parent1=$("#destination_slides").parent();
+$parent2=$("#destination_slides_modal").parent();
+
+function ifend(a,b,data){
+    var $a=$(a);
+    if(a!="days"){
+        if($a.parent().find("#"+b).size()>0){
+            $a.parent().find("#"+b).replaceWith($(data).filter("select"));
+        }else{
+            $a.after($(data).filter("select"));
+        }
+    }else{
+    }
+}
+function ajaxSelect(url,element,b){
+    $zhou=$(element);
+    if($zhou.val()){
+        $.ajax({
+            url: url,
+            type: 'get',
+            data: {},
+            cache: false,
+            dataType:"html",
+            success: function (data) {
+                ifend(element,b,data);
+                slideInit(data);
+            }
+        }).done(function(){modal_slides_init();});
+    }else{
+        return false;
+    }
+}
+$("#destination_s").live("change",function(){
+    ajaxSelect("/welcome/customize_select_destination?id="+($(this).val()),this,"city_s");
+});
+$("#city_s").live("change",function(){
+    ajaxSelect("/welcome/customize_select_city?id="+($(this).val()),this,"hotel_s");
+});
+$("#hotel_s").live("change",function(){
+    ajaxSelect("/welcome/customize_select_hotel?id="+($(this).val()),this,"days");
+});
+</script>
+<% end %>

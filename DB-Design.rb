@@ -181,6 +181,12 @@
 	agent_code:string
 	comment:text
 
+##Customizebooking
+	number:integer
+	destination_id:integer
+	city_id:integer
+	hotel_id:integer
+	days:integer
 
 ##Gbooking
 	mrs_title:string

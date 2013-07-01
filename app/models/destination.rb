@@ -5,6 +5,7 @@ class Destination < ActiveRecord::Base
 
 	has_many :brochure_destinations
 	has_many :brochures, :through => :brochure_destinations
+	has_many :cities
 	
 	belongs_to :gallery
 

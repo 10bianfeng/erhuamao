@@ -42,20 +42,22 @@ class WelcomeController < ApplicationController
     @compares=Travel.find(compares)
   end
 
-  def customize
-      @travels = Travel.all
-  end
-
   def customize_select_destination
-    
+    @destination = Destination.find(params[:id])
+    @citys = @destination.cities
+    render :layout => false
   end
 
   def customize_select_city
-    
+    @city = City.find(params[:id])
+    @destination = @city.destination
+    @hotels = @city.hotels
+    render :layout => false
   end
 
   def customize_select_hotel
-    
+    @hotel = Hotel.find(params[:id])
+    render :layout => false
   end
 
   # weibo authentication

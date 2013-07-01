@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :customizebookings
+
   resources :photocontests
 
   resources :gbookingdays
