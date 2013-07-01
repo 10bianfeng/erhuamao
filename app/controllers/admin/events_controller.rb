@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin events title:string cont:text 
 
-class Admin::EventsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::EventsController < Admin::BaseController
   
   # GET /events
   # GET /events.xml

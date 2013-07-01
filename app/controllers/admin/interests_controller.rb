@@ -2,10 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin interests title:string cont:text ancestry:string 
 
-class Admin::InterestsController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
-  
+class Admin::InterestsController < Admin::BaseController
   # GET /interests
   # GET /interests.xml
   def index

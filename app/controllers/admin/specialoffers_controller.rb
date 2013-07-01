@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin specialoffers cover:string title:string desc:text cont:text 
 
-class Admin::SpecialoffersController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::SpecialoffersController < Admin::BaseController
   
   # GET /specialoffers
   # GET /specialoffers.xml

@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin pages name:string title:string cont:text 
 
-class Admin::PagesController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::PagesController < Admin::BaseController
   
   # GET /pages
   # GET /pages.xml

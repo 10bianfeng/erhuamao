@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Admin::BaseController < ApplicationController
-  
   layout "admin"
+  before_filter :authenticate_user!
   before_filter :require_admin	#, :only=> [:index], :except=> [:index]
 
   def index
@@ -56,4 +56,7 @@ class Admin::BaseController < ApplicationController
     render :text => @page.tags
   end
 
+  def require_admin
+    redirect_to "/login" unless current_user && Setting.admin_emails.include?(current_user.email)
+  end
 end

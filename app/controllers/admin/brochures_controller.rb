@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin brochures name:string desc:text cover:string doc:string comment:text 
 
-class Admin::BrochuresController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::BrochuresController < Admin::BaseController
   
   # GET /brochures
   # GET /brochures.xml

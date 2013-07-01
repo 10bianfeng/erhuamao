@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin banners name:string cover:string 
 
-class Admin::BannersController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::BannersController < Admin::BaseController
   
   # GET /banners
   # GET /banners.xml

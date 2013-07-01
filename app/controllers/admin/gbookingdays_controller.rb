@@ -2,9 +2,7 @@
 # insub's admin scaffold template
 # rails g scaffold_controller_admin gbookingdays destination_id:integer city_id:integer hotel_id:integer days:integer 
 
-class Admin::GbookingdaysController < ApplicationController
-  layout "admin"
-  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
+class Admin::GbookingdaysController < Admin::BaseController
   
   # GET /gbookingdays
   # GET /gbookingdays.xml

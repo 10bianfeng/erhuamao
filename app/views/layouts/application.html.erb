@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="/stylesheets/trip_1.0.4.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="/stylesheets/erhuamao.css" media="screen" />
 	<link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+	<%= yield :header %>
 	<!-- add some extra style for travel -->
 	<%= csrf_meta_tag %>
 </head>
@@ -38,7 +39,7 @@
 	                <li><a href="/admin">后台管理</a></li>
 	              <% end %>
               <li class="">
-                <%= link_to "退出", destroy_user_session_path %>
+              <%= link_to "退出", destroy_user_session_path, :method => :delete %>
               </li>
               <% else %>
                 <li class="">
