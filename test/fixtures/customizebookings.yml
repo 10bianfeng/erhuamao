@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  destination_id: 1
+  city_id: 1
+  hotel_id: 1
+  days: 1
+
+two:
+  number: 1
+  destination_id: 1
+  city_id: 1
+  hotel_id: 1
+  days: 1

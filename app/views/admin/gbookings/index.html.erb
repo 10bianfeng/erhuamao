@@ -24,6 +24,7 @@
     <th>Child count</th>
     <th>Event comment</th>
     <th>City comment</th>
+    <th>定制的线路</th>
     <th>操作</th>
   </tr>
 
@@ -52,6 +53,7 @@
     <td><%= gbooking.child_count %></td>
     <td><%= gbooking.event_comment %></td>
     <td><%= gbooking.city_comment %></td>
+    <td><%= gbooking.customizebookings.size %></td>
     <td>
       <%= link_to '查看', [:admin, gbooking] %> | 
       <%= link_to '编辑', edit_admin_gbooking_path(gbooking) %> | 

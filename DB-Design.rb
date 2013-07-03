@@ -17,6 +17,7 @@
 	"itinerary_bigpic"	:text
 	"desc_mappic"	:text
 	"cover"	:string
+	gallery_id:integer
 
 # 行程安排
 ##Itinerary
@@ -181,6 +182,12 @@
 	agent_code:string
 	comment:text
 
+##Customizebooking
+	number:integer
+	destination_id:integer
+	city_id:integer
+	hotel_id:integer
+	days:integer
 
 ##Gbooking
 	mrs_title:string
@@ -221,8 +228,6 @@
 	country:string
 	question:text
 	travel_id:integer
-
-
 
 ##User
 	has_past:boolean

@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  resources :customizebookings
+
   resources :photocontests
 
   resources :gbookingdays
@@ -63,7 +65,10 @@ Erhuamao::Application.routes.draw do
     put "update_setting", :to => "users#update_setting"
     put "update_password", :to => "users#update_password"
     put "update_avatar", :to => "users#update_avatar"
-    get "/users/:id", :to => "users#show", :as => :user # 对外的访问主页，也可作为自己的主页，尚有待完善，字段是否使用login?
+    get "/users/:id", :to => "users#show", :as => :user
+    get "/users/:id/dianpins", :to => "users#dianpins"
+    get "/users/:id/bookings", :to => "users#bookings"
+    get "/users/:id/questions", :to => "users#questions"
   end
 
 

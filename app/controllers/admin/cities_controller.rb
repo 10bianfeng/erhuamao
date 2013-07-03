@@ -29,7 +29,8 @@ class Admin::CitiesController < Admin::BaseController
   # GET /cities/new.xml
   def new
     @city = City.new
-
+    @city.gallery = Gallery.create(:title => @city.name)
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @city }

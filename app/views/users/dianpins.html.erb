@@ -1,0 +1,85 @@
+<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
+  <li>
+    <a href="/">Home</a>
+    &nbsp;&nbsp;/&nbsp;&nbsp;
+  </li>
+  <li>User Center&nbsp;&nbsp;/&nbsp;&nbsp;我的点评</li>
+</ul>
+<div class="self_clear">
+  <div id="secondary_content" class="hide_from_print">
+    <%= render 'users/user_nav' %>
+  </div>
+  <div id="primary_content" class="align_edges">
+    <div id="cs_control_1329" class="">
+      <div class="CS_Element_Schedule" id="CS_Element_content">
+        <a name="customcf1644" id="customcf1644"></a>
+        <a name="CP_JUMP_1644" id="CP_JUMP_1644"></a>
+        <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
+          <div id="CS_CCF_1393_1644">
+            <div id="special_offers">
+              <h1>User Center</h1>
+              <!-- OFFER -->
+			  <h4>Welcome ! <%= @user.login %></h4>
+              <!-- OFFER -->
+              <h3>点评的 Infomation</h3>
+              <p>
+        <% if !@dianpins.empty? %>
+				 <table>
+				 	<tbody class="format_table">
+				 		<tr>
+				 			<th>First name</th>
+				 			<th>Last name</th>
+				 			<th>Email</th>
+				 			<th>Phone</th>
+				 			<th>Country</th>
+				 			<th>City</th>
+				 			<th>Region</th>
+				 			<th>Address</th>
+				 			<th>Post Code</th>
+				 			<th>People Count</th>
+				 		</tr>
+				 		<% @dianpins.each do |dianpin|%>
+				 		<tr>
+				 			<td><%= dianpin.first_name %></td>
+				 			<td><%= dianpin.last_name %></td>
+				 			<td><%= dianpin.email %></td>
+				 			<td><%= dianpin.phone %></td>
+				 			<td><%= dianpin.country %></td>
+				 			<td><%= dianpin.city %></td>
+				 			<td><%= dianpin.region %></td>
+				 			<td><%= dianpin.address %></td>
+				 		</tr>
+				 		<% end %>
+				 	</tbody>
+				 </table>
+				 <% else -%>
+         <table>
+          <tbody class="format_table">
+           <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Country</th>
+              <th>City</th>
+              <th>Region</th>
+              <th>Address</th>
+              <th>Post Code</th>
+              <th>People Count</th>
+              <th>Action</th>
+            </tr>
+            <tr>
+              <td colspan="11">No Dianpin Messages!</td>
+            </tr>
+            </tbody>
+         </table>
+				 <% end -%>
+
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

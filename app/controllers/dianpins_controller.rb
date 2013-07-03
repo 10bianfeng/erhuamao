@@ -19,6 +19,7 @@ class DianpinsController < ApplicationController
   def create
     @dianpin = Dianpin.new(params[:dianpin])
     @dianpin.travel = Travel.find(params[:dianpin][:travel_id])
+    @dianpin.user = current_user if current_user
 
     respond_to do |format|
       if @dianpin.save

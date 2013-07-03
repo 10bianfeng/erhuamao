@@ -42,20 +42,21 @@ class WelcomeController < ApplicationController
     @compares=Travel.find(compares)
   end
 
-  def customize
-      @travels = Travel.all
-  end
-
   def customize_select_destination
-    
+    @destination = Destination.find(params[:id])
+    @citys = @destination.cities
+    render :layout => false
   end
 
   def customize_select_city
-    
+    @city = City.find(params[:id])
+    @hotels = @city.hotels
+    render :layout => false
   end
 
   def customize_select_hotel
-    
+    @hotel = Hotel.find(params[:id])
+    render :layout => false
   end
 
   # weibo authentication
@@ -82,5 +83,27 @@ class WelcomeController < ApplicationController
     sign_in(:user, @account)
     flash[:notice] = '成功登录'
     redirect_to root_path
+  end
+
+  def get_gallery
+    @gallery = Gallery.find(params[:id])
+    render :layout => false
+  end
+
+  def testimg
+    @banner = Editorimg.new
+    @banner.name = params[:Filename]
+    @banner.photo = params[:upfile]
+    @banner.save
+    render :text => '{"url":"'+@banner.photo.url+'", "title":"'+@banner.name+'", "state":"success"}'
+  end
+  # {"param2"=>"value2", "Filename"=>"images_of_indochina.jpg", "pictitle"=>"aaaa", "dir"=>"1", "param1"=>"value1", "fileName"=>"images_of_indochina.jpg", "upfile"=>#<ActionDispatch::Http::UploadedFile:0x346a778 @original_filename="images_of_indochina.jpg", @content_type="application/octet-stream", @headers="Content-Disposition: form-data; name=\"upfile\"; filename=\"images_of_indochina.jpg\"\r\nContent-Type: application/octet-stream\r\n", @tempfile=#<File:C:/DOCUME~1/ADMINI~1/LOCALS~1/Temp/RackMultipart20130703-780-cisho0>>, "Upload"=>"Submit Query", "controller"=>"welcome", "action"=>"testimg"}
+
+  def temp
+    @citys = City.all
+    @citys.each do |city|
+      #city.gallery = Gallery.create(:title => city.name)
+     # city.save
+    end
   end
 end

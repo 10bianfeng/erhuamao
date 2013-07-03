@@ -116,6 +116,7 @@
               </p>
             </div>
             <form action="/bookings" id="booking_request" method="post" name="booking_request" class="uniForm">
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
               <fieldset class="inlineLabels">
                 <h3>Traveller Information</h3>
                 <input name="booking[travel_id]" value="<%= @travel.id %>" type="hidden">

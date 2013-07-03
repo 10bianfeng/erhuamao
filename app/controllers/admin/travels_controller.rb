@@ -46,6 +46,7 @@ class Admin::TravelsController < Admin::BaseController
   # POST /travels.xml
   def create
     @travel = Travel.new(params[:travel])
+    @travel.gallery = Gallery.create(:title => @travel.name)
 
     respond_to do |format|
       if @travel.save

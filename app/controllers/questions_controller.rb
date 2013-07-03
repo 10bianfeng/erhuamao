@@ -30,6 +30,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     @question.travel = Travel.find(params[:question][:travel_id])
+    @question.user = current_user if current_user
 
     respond_to do |format|
       if @question.save
