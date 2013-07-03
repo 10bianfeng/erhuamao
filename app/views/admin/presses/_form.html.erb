@@ -29,3 +29,13 @@
     </div>
   </div>
 <% end %>
+
+<% content_for :footer do %>
+    <script type="text/javascript" src="/plugins/u/editor_config.js"></script>
+    <script type="text/javascript" src="/plugins/u/editor_all.min.js"></script>
+    <link rel="stylesheet" href="/plugins/u/themes/default/css/ueditor.css" />   
+    <script type="text/javascript">
+      var press_cont = new UE.ui.Editor();
+      press_cont.render('press_cont');
+    </script>
+<% end %>

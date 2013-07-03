@@ -48,6 +48,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def dianpins
+    @dianpins = current_user.dianpins
+  end
+
+  def bookings
+    @bookings = current_user.bookings
+    @gbookings = current_user.gbookings
+  end
+
+  def questions
+    @questions = current_user.questions
+  end
+
 private
   # Authenticates the current scope and gets the current resource from the session.
   def authenticate_scope!

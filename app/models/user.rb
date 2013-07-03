@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
 
   has_many :bookings
   has_many :gbookings
-  has_many :asks
+  has_many :questions
   has_many :dianpins
 
   def after_database_authentication

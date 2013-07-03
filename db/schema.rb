@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701180825) do
+ActiveRecord::Schema.define(:version => 20130703090822) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -145,6 +145,13 @@ ActiveRecord::Schema.define(:version => 20130701180825) do
     t.integer  "travel_id"
     t.integer  "user_id"
     t.boolean  "is_show"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "editorimgs", :force => true do |t|
+    t.string   "name"
+    t.string   "photo"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -285,6 +292,7 @@ ActiveRecord::Schema.define(:version => 20130701180825) do
     t.integer  "travel_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "specialoffer_travels", :force => true do |t|
