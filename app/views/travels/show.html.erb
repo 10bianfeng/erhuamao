@@ -1,10 +1,10 @@
 		<ul id="breadcrumb_navigation" class="self_clear clear_list_style hide_from_print">
 			<li>
-				<a href="/">Home</a>
+				<a href="/">首页</a>
 			</li>
 			<li>
 				&nbsp;&nbsp;/&nbsp;&nbsp;
-				<a href="/search">Travels</a>
+				<a href="/search">旅行线路</a>
 			</li>
 			<li>
 				&nbsp;&nbsp;/&nbsp;&nbsp;<%= @travel.name %>
@@ -25,32 +25,29 @@
 				<!-- LINK LIST -->
 				<ul class="attribute_list">
 					<li>
-						<a class="icon download" href="<%= @travel.brochures.first.doc.url %>">Download Trip PDF</a>
+						<a class="icon download" href="<%= @travel.brochures.first.doc.url %>">下载旅行手册</a>
 					</li>
 					<li>
-						<a class="icon share" title="Send this Trip to a Friend" href="/travel/send_trip_to_friend.cfm?tid=5628" onclick="window.open('/travel/send_trip_to_friend.cfm?tid=5628', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=600, height=550'); return false" target="_blank">Send this Trip to a Friend</a>
-					</li>
-					<li>
-						<a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="window.open('/print/dsp_trip.cfm?tid=5628', 'myWindow', 'toolbar=yes, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=1060, height=800'); return false" target="_blank">Print This Trip</a>
+						<a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="javascript:window.print(); return false" target="_blank">打印该线路</a>
 					</li>
 				</ul>
 				<!-- TRIP NAVIGATION -->
 				<div id="trip_navigation_top" class="self_clear padding_6_tabs">
 					<ul>
 						<li class="current">
-							<a href="#tab1" title="Overview">Overview</a>
+							<a href="#tab1" title="Overview">线路介绍</a>
 						</li>
 						<li>
-							<a href="#tab2" title="Itinerary">Itinerary</a>
+							<a href="#tab2" title="Itinerary">行程</a>
 						</li>
 						<li>
-							<a href="#tab3" title="Dates &amp; Prices">Dates &amp; Prices</a>
+							<a href="#tab3" title="Dates &amp; Prices">团期和价格</a>
 						</li>
 						<li>
-							<a href="#tab4" title="Extensions">Extensions</a>
+							<a href="#tab4" title="Extensions">扩展线路</a>
 						</li>
 						<li>
-							<a href="#tab5" title="Ask a Question">Ask a Question</a>
+							<a href="#tab5" title="Ask a Question">提问</a>
 						</li>
 						<li>
 							<a href="#tab6" title="Ask a Question">用户点评</a>
@@ -60,7 +57,7 @@
 
 				<!-- TRIP OVERVIEW -->
 				<div id="tab1" class="tab_item">
-					<h2>Overview</h2>
+					<h2>线路介绍</h2>
 					<div class="trip_overview">
 						<div class="self_clear">
 							<div id="mini_map">
@@ -72,29 +69,29 @@
 									<span>
 										<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
 									</span>
-									Series:
+									系列:
 								</li>
 								<li>
 									<span>$<%= @travel.priced_from %></span>
-									Priced From:
+									最低价格:
 								</li>
 								<li>
 									<span><%= @travel.days_count %></span>
-									Days:
+									天数:
 								</li>
 								<li>
 									<span><%= @travel.departures %></span>
-									Departures:
+									启程:
 								</li>
 								<li>
 									<span><%= @travel.max_group_size %></span>
-									Max Group Size:
+									名额:
 								</li>
 							</ul>
 						</div>
 					</div>
 					<p>
-						<%= @travel.overview_desc %>
+						<%= raw @travel.overview_desc %>
 					</p>
 
 
@@ -124,7 +121,7 @@
 			              </div>
 			              <p class="slide_img_title"></p>           
 			              <p>
-			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides_atn();">View full size gallery</a>
+			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides_atn();">查看大尺寸图片</a>
 			              </p>
 			            </div>
 			          </div>
@@ -135,25 +132,10 @@
 
 					
 					<!-- & MOMENTS -->
-					<h2>A&amp;K Advantages</h2>
-					<ul class="clear_list_indent">
-						<li>
-							Throughout the journey, stay in actual former palaces, including iconic royal residences, such as the Taj Lake Palace in Udaipur and grand Rambagh Palace in Jaipur
-						</li>
-						<li>
-							Experience India by water in three destinations - from Mumbai Harbour to Elephanta Island, Udaipur's serene Lake Pichola and along the holy Ganges River
-						</li>
-						<li>
-							Explore the countryside of Jaipur during an elephant ride conducted by an expert <em>mahout</em>
-							(trainer)
-						</li>
-						<li>
-							Stay two nights in Panna National Park, home to leopards, sloth bears, wolves and the mysterious Bengal tiger
-						</li>
-						<li>
-							Explore some of the world's most impressive UNESCO World Heritage Sites: The Taj Mahal, Khajuraho, Fatehpur Sikri, Agra Fort and the temples of Elephanta Island
-						</li>
-					</ul>
+					<h2>线路特点</h2>
+					<p>
+						<%= raw @travel.overview_advantage %>
+					</p>
 					<div class="text_modal">
 						<a class="close"></a>
 						<div class="overlay-details">
@@ -165,19 +147,7 @@
 					</div>
 				</div>
 				<div id="tab2" class="hide tab_item">
-					<div class="take-private self_clear">
-						<span class="hl4 float_left">Take This Journey Private</span>
-						<p>
-							This itinerary is available as an
-							<a href="/travel/?fuseaction=dsp_itinerary&amp;tid=5669">independent journey</a>
-							led by local guides.
-						</p>
-					</div>
-					<h2>Itinerary</h2>
-					
-
-
-
+					<h2>行程</h2>
 
 					<a href="#" onclick="largeMap(this);return false;"><img class="float_right" src="<%= @travel.itinerary_pic.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="300"><img style="display: none" src="<%= @travel.itinerary_bigpic.url %>"></a>
 
@@ -199,8 +169,8 @@
 					</dl>
 				</div>
 				<div id="tab3" class="hide tab_item">
-					<h2>Dates and Prices</h2>
-					<p>Prices are in USD, per person, based on double occupancy.</p>
+					<h2>团期和价格</h2>
+					<p>价格为人民币单人价格, 标准间。</p>
 					<div id="price_departure_box" class="self_clear">
 						<div>
 							<img src="/images/departure_guarantee_small.gif" width="82" height="27">
@@ -224,7 +194,7 @@
 												<a name="20131008" href="javascript:void(0);"><%= datesprice.start_date.strftime("%d %b %Y") %> - <%= datesprice.end_date.strftime("%d %b %Y") %></a>
 											</th>
 											<th></th>
-											<th class="last_child"><%= datesprice.is_available? ? "Available" : "Not Available" %> </th>
+											<th class="last_child"><%= datesprice.is_available? ? "可预订" : "不可预订" %> </th>
 										</tr>
 									</thead>
 								</table>
@@ -235,10 +205,10 @@
 										<thead>
 											<tr>
 												<th>&nbsp;</th>
-												<th>Price</th>
-												<th>Single Supplement</th>
-												<th>Internal Air (From)</th>
-												<th>Availability</th>
+												<th>价格</th>
+												<th>单程补充</th>
+												<th>机票</th>
+												<th>是否可预订</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -259,25 +229,17 @@
 													<label for="packageDateID_393641">$<%= datesprice.internal_airfare %></label>
 												</td>
 												<td class="width116">
-													<label for="packageDateID_393641">Available</label>
+													<label for="packageDateID_393641"><%= datesprice.is_available? ? "可预订" : "不可预订" %></label>
 												</td>
 											</tr>
 										</tbody>
 									</table>
-									<div class="footnotes">
-										<ul class="clear_margins clear_list_style base_font_size">
-											<li>Optional pre-tour extension available on this departure.</li>
-											<li>
-												&lt;&lt;&lt; This property will use an alternate property in Varanasi.
-											</li>
-										</ul>
-									</div>
 									<% if datesprice.is_available? %>
 									<div class="request_booking">
 										<span>
 											<input type="submit" value="Request Booking"></span>
 										<div id="error_form_393641"></div>
-										How many people are travelling in your group?
+										请输入您预订的人数
 										<input name="people_count" type="text" size="2" maxlength="2"></div>
 									<% end %>
 								</form>
@@ -305,18 +267,15 @@
 					<p></p>
 					<hr>
 					<p></p>
-					<h3 style="font-weight:normal;">Notes:</h3>
+					<h3 style="font-weight:normal;">提示:</h3>
 					<p>
-						<strong>Child Policy:</strong>
-						Minimum age: 10
-						<br>
-						Mumbai/Udaipur; Khajuraho/Varansai/Delhi (from $540)
-						<br></p>
+						<%= @travel.notes %>
+					</p>
 				</div>
 				<div id="tab4" class="hide tab_item">
-					<h2>A&amp;K Recommends</h2>
+					<h2>相关扩展线路推荐</h2>
 					<p>
-						Extend your experience with these add-on itineraries. All extensions are priced and ready to book.
+						您可以选择以下扩展线路，所有可选扩展线路都可预订.
 					</p>
 					<dl id="search_results" class="self_clear line_rule cap_ends">
 						<% @extend_travels.each do |extend_travel| %>
@@ -331,53 +290,44 @@
 										<img src="<%= extend_travel.cover.url %>" alt="View details for <%= extend_travel.name %>" title="View details for <%= extend_travel.name %>" width="125" height="125"></a>
 									<ul class="link_list self_clear clear_list_style">
 										<li>
-											<a class="icon swirl_arrow" href="/travels/<%= extend_travel.id %>" title="View the overview for <%= extend_travel.name %>">Overview</a>
+											<a class="icon swirl_arrow" href="/travels/<%= extend_travel.id %>" title="View the overview for <%= extend_travel.name %>">线路介绍</a>
 										</li>
 										<li>
-											<a class="icon notebook" href="/travels/<%= extend_travel.id %>#tab2" title="View the itinerary for Aurangabad Extension">Itinerary</a>
+											<a class="icon notebook" href="/travels/<%= extend_travel.id %>#tab2" title="View the itinerary for Aurangabad Extension">行程</a>
 										</li>
 										<li>
-											<a class="icon dates" href="/travels/<%= extend_travel.id %>#tab3" title="View the dates &amp; prices for Aurangabad Extension">Dates &amp; Prices</a>
+											<a class="icon dates" href="/travels/<%= extend_travel.id %>#tab3" title="View the dates &amp; prices for Aurangabad Extension">团期和价格</a>
 										</li>
 									</ul>
 									<ul class="align_edges line_rule clear_margins">
 										<li>
 											<span>
-												<a class="icon extensions amp" href="javascript:void(0);"  title="Extension">Extension</a>
+												<a class="icon extensions amp" href="javascript:void(0);"  title="Extension">扩展线路</a>
 											</span>
-											Series:
+											系列:
 										</li>
 										<li>
 											<span><%= extend_travel.priced_from %></span>
-											Priced From:
+											最低价格:
 										</li>
 										<li>
 											<span><%= extend_travel.days_count %></span>
-											Days:
+											天数:
 										</li>
 										<li>
 											<span><%= extend_travel.departures %></span>
-											Departures:
+											启程:
 										</li>
 										<li>
 											<span><%= extend_travel.max_group_size %></span>
-											Max Group Size:
+											最大名额:
 										</li>
 									</ul>
 								</div>
 							</div>
 						</dd>
 						<% end %>
-
 					</dl>
-					<div id="customize_trip">
-						<h3 class="clear_margins">Extend Your Stay</h3>
-						<p></p>
-						<p class="clear_margins">
-							See all A&amp;K Extensions.&nbsp;&nbsp;
-							<a class="icon swirl_arrow" href="/search.cfm?new_search=1&amp;tif=705&amp;scp=1">View all</a>
-						</p>
-					</div>
 				</div>
 				<div id="tab5" class="hide tab_item">
 					<div style="width:80%">
@@ -388,19 +338,19 @@
 						</div>
 						<form action="/questions" id="faq_form" method="post" name="faq_form" class="uniForm">
 							<fieldset class="inlineLabels">
-								<h3>Your Information</h3>
+								<h3>向我们提问</h3>
 								<div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
 									<p class="errorFieldHide" id="contact_preference_err"></p>
-									<p class="label ">Preferred method of contact</p>
+									<p class="label ">最佳联系方式</p>
 									<label for="contact_preference-1" class="inlineLabel">
-										<input name="question[preferred_contact_method]" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">Email</label>
+										<input name="question[preferred_contact_method]" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">邮箱</label>
 									<label for="contact_preference-2" class="inlineLabel">
-										<input name="question[preferred_contact_method]" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">Daytime Phone</label>
+										<input name="question[preferred_contact_method]" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">电话</label>
 								</div>
 								<div id="ctrlHolder_email" class="ctrlHolder">
 									<p class="errorFieldHide" id="email_err">Enter a valid email address</p>
 									<label for="email" class="required"> <em>*</em>
-										Email Address
+										邮箱
 									</label>
 									<input name="question[email]" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
 									<p class="formHint">(one address)</p>
@@ -413,38 +363,27 @@
 									</label>
 									<select name="question[mrs_title]" id="title" class="required" tabindex="3">
 										<option value="0">Select a Title</option>
-										<option value="153">Mr.</option>
-										<option value="154">Mrs.</option>
-										<option value="155">Ms.</option>
-										<option value="157">Dr.</option>
+										<option value="153">男士</option>
+										<option value="154">女士</option>
 									</select>
 								</div>
 								<div id="ctrlHolder_firstName" class="ctrlHolder">
 									<p class="errorFieldHide" id="firstName_err">Enter your first name</p>
 									<label for="firstName" class="required">
 										<em>*</em>
-										First Name
+										您的名字
 									</label>
 									<input name="question[first_name]" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
-									<p class="formHint">(as printed on Passport)</p>
-								</div>
-								<div id="ctrlHolder_lastName" class="ctrlHolder">
-									<p class="errorFieldHide" id="lastName_err">Enter your last name</p>
-									<label for="lastName" class="required">
-										<em>*</em>
-										Last Name
-									</label>
-									<input name="question[last_name]" id="lastName" value="" size="30" type="text" class="required" tabindex="5">          
 									<p class="formHint">(as printed on Passport)</p>
 								</div>
 								<div id="ctrlHolder_country" class="ctrlHolder">
 									<p class="errorFieldHide" id="country_err">Select a country</p>
 									<label for="country" class="required">
 										<em>*</em>
-										Country
+										国家
 									</label>
 									<select name="question[country]" id="country" class="required" tabindex="6">
-										<option value="0">Select a Country</option>
+										<option value="0">请选择国家</option>
 										<option value="226">United States</option>
 										<option value="1">Afghanistan</option>
 										<option value="2">Albania</option>
@@ -685,7 +624,7 @@
 								</div>
 								<div id="ctrlHolder_workphone" class="ctrlHolder">
 									<p class="errorFieldHide" id="workphone_err"></p>
-									<label for="workphone" class="">Daytime Phone</label>
+									<label for="workphone" class="">电话</label>
 									<input name="question[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
 									<p class="formHint">(ex. 2345678901)</p>
 								</div>
@@ -694,14 +633,14 @@
 									<p class="errorFieldHide" id="question_err">Ask your question here:</p>
 									<label for="question" class="required">
 										<em>*</em>
-										Your Question
+										您的问题
 									</label>
 									<textarea name="question[question]" id="question" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
 								</div>
 								<input name="question[travel_id]" id="submitid" value="<%= @travel.id %>" type="hidden">         
 								</fieldset>
 							<div class="buttonHolder">
-								<input type="submit" name="submit_btn" id="submit_btn" value="Submit Your Question" class="uniFormButton" onclick="" tabindex="10"></div>
+								<input type="submit" name="submit_btn" id="submit_btn" value="提交问题" class="uniFormButton" onclick="" tabindex="10"></div>
 						</form>
 					</div>
 				</div>
@@ -729,7 +668,7 @@
 								<h3>你的点评</h3>
 								<div id="ctrlHolder_workphone" class="ctrlHolder">
 									<p class="errorFieldHide" id="workphone_err"></p>
-									<label for="workphone" class="">Name</label>
+									<label for="workphone" class="">您的名字</label>
 									<input name="dianpin[name]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
 								</div>
 								<div id="ctrlHolder_workphone" class="ctrlHolder">
@@ -742,14 +681,14 @@
 									<p class="errorFieldHide" id="question_err">Ask your 点评 here:</p>
 									<label for="dianpin" class="required">
 										<em>*</em>
-										Your 点评
+										点评
 									</label>
 									<textarea name="dianpin[cont]" id="dianpin" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
 								</div>
 								<input name="dianpin[travel_id]" id="submitid" value="<%= @travel.id %>" type="hidden">         
 								</fieldset>
 							<div class="buttonHolder">
-								<input type="submit" name="submit_btn" id="submit_btn" value="Submit Your Question" class="uniFormButton" onclick="" tabindex="10"></div>
+								<input type="submit" name="submit_btn" id="submit_btn" value="提交点评" class="uniFormButton" onclick="" tabindex="10"></div>
 						</form>
 					</div>
 				</div>				

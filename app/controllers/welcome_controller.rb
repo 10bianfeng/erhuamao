@@ -5,6 +5,8 @@ class WelcomeController < ApplicationController
   #before_filter :authenticate_user!, :only => [:barn]
 
   def index
+    @destinations = Destination.all
+    @interests = Interest.all
   end
 
   def search    
