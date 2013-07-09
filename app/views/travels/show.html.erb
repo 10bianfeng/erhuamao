@@ -28,7 +28,7 @@
 						<a class="icon download" href="<%= @travel.brochures.first.doc.url %>">下载旅行手册</a>
 					</li>
 					<li>
-						<a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="javascript:window.print(); return false" target="_blank">打印该线路</a>
+						<a rel="nofollow" class="icon print" title="Print This Trip" href="#" onclick="javascript:window.print(); return false" target="_blank">打印该线路</a>
 					</li>
 				</ul>
 				<!-- TRIP NAVIGATION -->
@@ -237,7 +237,7 @@
 									<% if datesprice.is_available? %>
 									<div class="request_booking">
 										<span>
-											<input type="submit" value="Request Booking"></span>
+											<input type="submit" value="提交订单"></span>
 										<div id="error_form_393641"></div>
 										请输入您预订的人数
 										<input name="people_count" type="text" size="2" maxlength="2"></div>
@@ -353,16 +353,15 @@
 										邮箱
 									</label>
 									<input name="question[email]" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
-									<p class="formHint">(one address)</p>
 								</div>
 								<div id="ctrlHolder_title" class="ctrlHolder">
 									<p class="errorFieldHide" id="title_err">Select your title</p>
 									<label for="title" class="required">
 										<em>*</em>
-										Title
+										性别
 									</label>
 									<select name="question[mrs_title]" id="title" class="required" tabindex="3">
-										<option value="0">Select a Title</option>
+										<option value="0">请选择性别</option>
 										<option value="153">男士</option>
 										<option value="154">女士</option>
 									</select>
@@ -374,7 +373,6 @@
 										您的名字
 									</label>
 									<input name="question[first_name]" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
-									<p class="formHint">(as printed on Passport)</p>
 								</div>
 								<div id="ctrlHolder_country" class="ctrlHolder">
 									<p class="errorFieldHide" id="country_err">Select a country</p>
@@ -625,8 +623,7 @@
 								<div id="ctrlHolder_workphone" class="ctrlHolder">
 									<p class="errorFieldHide" id="workphone_err"></p>
 									<label for="workphone" class="">电话</label>
-									<input name="question[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="7">          
-									<p class="formHint">(ex. 2345678901)</p>
+									<input name="question[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="7">
 								</div>
 								
 								<div id="ctrlHolder_question" class="ctrlHolder">

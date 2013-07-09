@@ -4,7 +4,7 @@
         &nbsp;&nbsp;/&nbsp;&nbsp;
       </li>
       <li>
-        <a href="/destinations">Travel Destinations</a>
+        <a href="/destinations">旅游目的地</a>
         &nbsp;&nbsp;/&nbsp;&nbsp;
       </li>
       <% if @destination.parent %>
@@ -33,30 +33,26 @@
           <div class="CS_Element_Schedule" title="" id="CS_Element_contentleft">
             <% if @destination.brochures.size > 0 %>
             <div id="cs_control_16254" class="cs_control CS_Element_CustomCF"> <div id="CS_CCF_16182_16254"> 
-              <div class="hl3">Related Brochures</div>
+              <div class="hl3">相关旅行手册</div>
             <% @destination.brochures.each do |brochure| %>
             <div class="section">
               <div class="related_brochure self_clear">
                 <p><img src="<%= brochure.cover.url %>" width="93" height="120" alt="<%= brochure.name %>" title="<%= brochure.name %>"><%= brochure.name %></p>
                 <ul>
-                  <li><a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >View</a></li>
-                  <li><a class="icon download" href="<%= brochure.doc.url %>">Download</a></li>
-                  <li><a class="icon request_brochure" href="/travel_brochures/?brid=223">Request</a></li>
+                  <li><a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >阅览</a></li>
+                  <li><a class="icon download" href="<%= brochure.doc.url %>">下载</a></li>
                 </ul>
               </div>
-              <p><a class="icon swirl_arrow" href="/brochures/">View All Brochures</a></p>
+              <p><a class="icon swirl_arrow" href="/brochures/">查看全部旅行手册</a></p>
             </div> 
             <% end %>
             </div> </div>
             <% end %>
 
             <div id="cs_control_13651" class="cs_control CS_Element_Custom">
-              <div class="hl3">Navigate By</div>
+              <div class="hl3">旅游目的地导航</div>
               <!-- travel destinations -->
               <ul class="section cspot_nav" style="padding:0px">
-                <li class="navigation_active icon bullet_arrow">
-                            <a href="/destinations/">Travel Destinations</a>
-                        </li>
                         <% @destinations.each do |destination| %>
                             <% if destination.is_root?  %>
                                 <li class="icon <%= destination.has_children? ?  'expando_show' : 'bullet_arrow' %>">
@@ -93,25 +89,6 @@
                         <% end %>
               </ul>
             </div>
-            <div id="cs_control_16631" class="cs_control CS_Element_CustomCF">
-              <div id="CS_CCF_12275_16631">
-                <div class="hl3">Request Brochures</div>
-                <div class="section">
-                  <div class="related_brochure self_clear" style="border:none;">
-                    <p>
-                      <img src="/images/travel-brochure-2013-fan.jpg" width="80" height="78" alt="asia, india &amp; the pacific 2012 brochure" title="Asia, India &amp; the Pacific 2012 brochure"> <strong>Request a brochure for more information.</strong>
-                    </p>
-                    <ul>
-                      <li>
-                        <a class="icon swirl_arrow" href="/brochures/">All Brochures</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <a name="customcf12107" id="customcf12107"></a>
-            <a name="CP_JUMP_12107" id="CP_JUMP_12107"></a>
             <div id="cs_control_12107" class="cs_control CS_Element_CustomCF">
               <div id="CS_CCF_12275_12107">
                 <div class="end_cap"></div>
@@ -123,7 +100,7 @@
       </div>
       <div id="primary_content" class="align_edges">
         <div class="self_clear">
-          <h1><%= @destination.name %> Safari</h1>
+          <h1><%= @destination.name %> 旅行</h1>
           <div id="right_column_content" class="hide_from_print">
             <% if !@destination.flashmap.blank? %>
             <embed width="250" height="352" src="/flashmap/<%= @destination.flashmap %>" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" play="true" loop="true" scale="showall" wmode="transparent" devicefont="false" bgcolor="#ffffff" name="travel_destinations" menu="true" allowfullscreen="false" allowscriptaccess="sameDomain" salign="" type="application/x-shockwave-flash">
@@ -157,7 +134,7 @@
               </div>
               <p class="slide_img_title"></p>           
               <p>
-                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides();">View full size gallery</a>
+                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides();">查看全尺寸大图</a>
               </p>
             </div>
           </div>
@@ -168,7 +145,7 @@
               <a name="CP_JUMP_12294" id="CP_JUMP_12294"></a>
               <div id="cs_control_12294" class="cs_control CS_Element_Custom">
                 <h4 class="rounded_btn">
-                  <a class="icon search" title="See all <%= @destination.name %> Safaris" href="/search?type=1">See all <%= @destination.name %> Safaris</a>
+                  <a class="icon search" title="查看所有 <%= @destination.name %> 旅行线路" href="/search?destination=<%= @destination.id %>">查看所有 <%= @destination.name %> 旅行线路</a>
                 </h4>
               </div>
               <a name="textblocknohdr12296" id="textblocknohdr12296"></a>

@@ -3,7 +3,7 @@
     <a href="/">首页</a>
     &nbsp;&nbsp;/&nbsp;&nbsp;
   </li>
-  <li>Special Offers</li>
+  <li>特别优惠</li>
 </ul>
 <div class="self_clear">
   <div id="secondary_content" class="hide_from_print">
@@ -13,9 +13,9 @@
         <a name="CP_JUMP_3135" id="CP_JUMP_3135"></a>
         <div id="cs_control_3135" class="cs_control CS_Element_CustomCF">
           <div id="CS_CCF_1393_3135">
-            <h3>Search By</h3>
+            <h3>旅行线路导航</h3>
             <dl class="section clear_list_style">
-              <dt>Travel Destination</dt>
+              <dt>旅行目的地</dt>
               <dd>
                 <ul class="bullet_list">
                   <% Destination.all.each do |destination| %>
@@ -25,7 +25,7 @@
                   <% end %>
                 </ul>
               </dd>
-              <dt>Travel Interest</dt>
+              <dt>旅行系列</dt>
               <dd>
                 <ul class="bullet_list">
                   <% Interest.all.each do |interest| %>
@@ -57,7 +57,7 @@
         <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
           <div id="CS_CCF_1393_1644">
             <div id="special_offers">
-              <h1>Special Offers</h1>
+              <h1>特别优惠</h1>
               <!-- OFFER -->
               <% @specialoffers.each do |specialoffer| %>
               <div class="special_offer self_clear nth-child-first">
@@ -67,10 +67,10 @@
                     <%= specialoffer.title %>
                   </h3>
                   <p>
-                    <%= specialoffer.desc %>
+                    <%= raw specialoffer.desc %>
                   </p>
                   <p>
-                    <a href="javascript:void(0);" class="icon swirl_arrow" onclick="toggle_visibility(this);">View Offer Details</a>
+                    <a href="javascript:void(0);" class="icon swirl_arrow" onclick="toggle_visibility(this);">查看详细优惠信息</a>
                   </p>
                   <span id="a296" style="display:none;">
                     <p>Journeys include:</p>
@@ -82,14 +82,14 @@
                     </p>
                     <% end %>
                     <p>
-                      <%= specialoffer.cont %>
+                      <%= raw specialoffer.cont %>
                     </p>
                   </span>
                 </div>
               </div>
               <% end %>
               <!-- OFFER -->
-              <h3>Terms &amp; Conditions</h3>
+              <h3>用户协议及条款</h3>
               <p>
                 <em>
                   For all Special Offers noted above, all prices are per person, based on double occupancy, unless otherwise stated. All prices are quoted in U.S. Dollars. Prices listed for each offer may pertain to specific departure dates. Restrictions and blackout dates may apply. Special Offers are for new bookings only, are not combinable with any other offer, discount or promotion and are based on availability.

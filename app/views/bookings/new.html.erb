@@ -4,9 +4,12 @@
       </li>
       <li>
         &nbsp;&nbsp;/&nbsp;&nbsp;
-        <a href="/search">Travels</a>
+        <a href="/search">旅行线路</a>
       </li>
-      
+      <li>
+        &nbsp;&nbsp;/&nbsp;&nbsp;
+        <a href="/travels/<%= @travel.id %>"><%= @travel.name %></a>
+      </li>
     </ul>
     <div class="self_clear">
       <%= render :partial => "travels/travel_sidebar", :locals => { :travel => @travel } %>
@@ -22,60 +25,60 @@
         <!-- LINK LIST -->
         <ul class="attribute_list">
           <li>
-            <a class="icon download" href="<%= @travel.brochures.first.doc.url %>">Download Trip PDF</a>
+            <a class="icon download" href="<%= @travel.brochures.first.doc.url %>">下载旅行手册</a>
           </li>
           <li>
-            <a class="icon share" title="Send this Trip to a Friend" href="/travel/send_trip_to_friend.cfm?tid=5628" onclick="window.open('/travel/send_trip_to_friend.cfm?tid=5628', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=600, height=550'); return false" target="_blank">Send this Trip to a Friend</a>
-          </li>
-          <li>
-            <a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="window.open('/print/dsp_trip.cfm?tid=5628', 'myWindow', 'toolbar=yes, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=1060, height=800'); return false" target="_blank">Print This Trip</a>
+            <a rel="nofollow" class="icon print" title="Print This Trip" href="#" onclick="javascript:window.print(); return false" target="_blank">打印该线路</a>
           </li>
         </ul>
         <!-- TRIP NAVIGATION -->
         <div id="trip_navigation_top" class="self_clear padding_6_tabs">
           <ul>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab1" title="Overview">Overview</a>
+              <a href="/travels/<%= @travel.id %>/#tab1" title="Overview">线路介绍</a>
             </li>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab2" title="Itinerary">Itinerary</a>
+              <a href="/travels/<%= @travel.id %>/#tab2" title="Itinerary">行程</a>
             </li>
             <li class="current">
-              <a href="/travels/<%= @travel.id %>/#tab3" title="Dates &amp; Prices">Dates &amp; Prices</a>
+              <a href="/travels/<%= @travel.id %>/#tab3" title="Dates &amp; Prices">团期和价格</a>
             </li>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab4" title="Extensions">Extensions</a>
+              <a href="/travels/<%= @travel.id %>/#tab4" title="Extensions">扩展线路</a>
             </li>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab5" title="Ask a Question">Ask a Question</a>
+              <a href="/travels/<%= @travel.id %>/#tab5" title="Ask a Question">提问</a>
+            </li>
+            <li>
+              <a href="/travels/<%= @travel.id %>/#tab6" title="Ask a Question">用户点评</a>
             </li>
           </ul>
         </div>
 
         <div id="tab3" class="tab_item">
 
-          <h2>Request Booking</h2>
+          <h2>填写并提交订单</h2>
           <p>
-            If you have an account,
-            <a href="/login">login here</a>
-            .
-          </p>
-          <p>To request booking, submit the guest form below.</p>
+              如果您已有账号,请
+              <a href="/login">登录</a>
+              。
+            </p>
+          <p>您同时也可以未注册用户身份提交订单。</p>
           <table class="format_table">
             <thead>
               <tr>
                 <th>
-                  Availability:
-                  Available
+                  是否可预订:
+                  可预订
                 </th>
-                <th>Unit Price</th>
-                <th>Guests</th>
-                <th>Sub-Totals</th>
+                <th>单价</th>
+                <th>人数</th>
+                <th>合计</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td> <strong>Dates:</strong>
+                <td> <strong>日期:</strong>
                   <%= @datesprice.start_date.strftime("%d %b %Y") %> to <%= @datesprice.end_date.strftime("%d %b %Y") %>
                 </td>
                 <td>$<%= @datesprice.prices %></td>
@@ -84,7 +87,7 @@
               </tr>
               <!-- IS INTERNAL AIRFARE INCLUDED IN THIS TRIP -->
               <tr>
-                <td> <strong>Internal&nbsp;Airfare:</strong>
+                <td> <strong>机票:</strong>
                 </td>
                 <td>$<%= @datesprice.internal_airfare %></td>
                 <td><%= @people_count %></td>
@@ -94,7 +97,7 @@
               <!-- ADD PRICE -->
               <tr>
                 <td>
-                  <strong>Priced From (USD):</strong>
+                  <strong>金额 (人民币):</strong>
                 </td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -106,99 +109,78 @@
           </table>
           <ul class="clear_list_style"></ul>
           <p>
-            Availability shown does not reflect real time status and is subject to change. In the case of Sold Out availability, A&amp;K recommends requesting a booking and adding your name to our waitlist. We will contact you if the departure becomes available.
+            请提供此段文本之翻译：Availability shown does not reflect real time status and is subject to change. In the case of Sold Out availability, A&amp;K recommends requesting a booking and adding your name to our waitlist. We will contact you if the departure becomes available.
             Sub-Totals do not include international airfare, upgrades, taxes, seasonal surcharges and optional services not specified in the Inclusions section of the program description or Terms and Conditions.
           </p>
           <div style="width:80%">
             <div class="self-clear">
               <p id="requiredText">
-                Required <em>*</em>
+                必填项 <em>*</em>
               </p>
             </div>
             <form action="/bookings" id="booking_request" method="post" name="booking_request" class="uniForm">
               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
               <fieldset class="inlineLabels">
-                <h3>Traveller Information</h3>
+                <h3>您的信息</h3>
                 <input name="booking[travel_id]" value="<%= @travel.id %>" type="hidden">
                 <input name="booking[datesprice_id]" value="<%= @datesprice.id %>" type="hidden">
                 <input name="booking[people_count]" value="<%= @people_count %>" type="hidden">
                 
                 <div id="ctrlHolder_title" class="ctrlHolder borderTop">
-                  <p class="errorFieldHide" id="title_err">Select your title</p>
                   <label for="title" class="required"> <em>*</em>
-                    Title
+                    性别
                   </label>
                   <select name="booking[mrs_title]" id="title" class="required" tabindex="1" style="">
-                    <option value="0">Select a Title</option>
-                    <option value="153">Mr.</option>
-                    <option value="154">Mrs.</option>
-                    <option value="155">Ms.</option>
-                    <option value="157">Dr.</option>
+                    <option value="0">请选择</option>
+                    <option value="男士">男士</option>
+                    <option value="女士">女士</option>
                   </select>
                 </div>
                 <div id="ctrlHolder_firstName" class="ctrlHolder">
-                  <p class="errorFieldHide" id="firstName_err">Enter your first name</p>
                   <label for="firstName" class="required">
                     <em>*</em>
-                    First Name
+                    名字
                   </label>
                   <input name="booking[first_name]" id="firstName" value="" size="30" type="text" class="required" tabindex="2"></div>
-                <div id="ctrlHolder_lastName" class="ctrlHolder">
-                  <p class="errorFieldHide" id="lastName_err">Enter your last name</p>
-                  <label for="lastName" class="required">
-                    <em>*</em>
-                    Last Name
-                  </label>
-                  <input name="booking[last_name]" id="lastName" value="" size="30" type="text" class="required" tabindex="4"></div>
               </fieldset>
               <fieldset class="inlineLabels">
-                <h3>Contact Information</h3>
+                <h3>联络信息</h3>
                 <div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
                   <p class="errorFieldHide" id="contact_preference_err"></p>
-                  <p class="label ">Preferred method of contact</p>
+                  <p class="label ">最佳联络方式</p>
                   <label for="contact_preference-1" class="inlineLabel">
                     <input name="booking[preferred_contact_method]" id="contact_preference-1" type="radio" value="1" checked="checked" class="" tabindex="5">Email</label>
                   <label for="contact_preference-2" class="inlineLabel">
-                    <input name="booking[preferred_contact_method]" id="contact_preference-2" type="radio" value="2" class="" tabindex="5">Daytime Phone</label>
+                    <input name="booking[preferred_contact_method]" id="contact_preference-2" type="radio" value="2" class="" tabindex="5">电话</label>
                 </div>
                 <div id="ctrlHolder_email" class="ctrlHolder">
-                  <p class="errorFieldHide" id="email_err">Enter a valid email address</p>
                   <label for="email" class="required">
                     <em>*</em>
-                    Email Address
+                    邮箱
                   </label>
                   <input name="booking[email]" id="email" value="" size="30" type="text" class="required email" tabindex="6"></div>
                 <div id="ctrlHolder_address1" class="ctrlHolder borderTop">
-                  <p class="errorFieldHide" id="address1_err">Enter your street address</p>
                   <label for="address1" class="required">
                     <em>*</em>
-                    Address 1
+                    住址
                   </label>
                   <input name="booking[address]" id="address1" value="" size="30" type="text" class="noemail required" tabindex="7"></div>
                 <div id="ctrlHolder_city" class="ctrlHolder">
-                  <p class="errorFieldHide" id="city_err">Enter your city</p>
                   <label for="city" class="required">
                     <em>*</em>
-                    City
+                    所在城市
                   </label>
                   <input name="booking[city]" id="city" value="" size="30" type="text" class="required" tabindex="9"></div>
-                <div id="ctrlHolder_state" class="ctrlHolder">
-                  <p class="errorFieldHide" id="state_err">Enter your state or region</p>
-                  <label for="state" class="required">
-                    <em>*</em>
-                    State/Region
-                  </label>
-                  <input name="booking[region]" id="state" value="" size="30" type="text" class="required" tabindex="10"></div>
                 <div id="ctrlHolder_postal_code" class="ctrlHolder">
                   <p class="errorFieldHide" id="postal_code_err">Enter your postal code</p>
                   <label for="postal_code" class="required">
                     <em>*</em>
-                    Postal Code
+                    邮编
                   </label>
                   <input name="booking[postal_code]" id="postal_code" value="" size="30" type="text" class="required" tabindex="11"></div>
                 <div id="ctrlHolder_country" class="ctrlHolder">
                   <p class="errorFieldHide" id="country_err"></p>
-                  <label for="country">Country</label>
+                  <label for="country">国家</label>
                   <select name="booking[country]" id="country" tabindex="12" style="">
                     <option value="USA" selected="selected">United States</option>
                     <option value="AFG">Afghanistan</option>
@@ -245,7 +227,7 @@
                     <option value="CAF">Central African Republic</option>
                     <option value="TCD">Chad</option>
                     <option value="CHL">Chile</option>
-                    <option value="CHN">China</option>
+                    <option value="CHN">中国</option>
                     <option value="CXR">Christmas Island</option>
                     <option value="CCK">Cocos (Keeling) Islands</option>
                     <option value="COL">Colombia</option>
@@ -441,41 +423,31 @@
                 <%#<link rel="stylesheet" href="/assets_global/css/qas/proweb.css">%>
                 <div id="ctrlHolder_workphone" class="ctrlHolder">
                   <p class="errorFieldHide" id="workphone_err"></p>
-                  <label for="workphone" class="">Daytime Phone</label>
+                  <label for="workphone" class="">联络电话</label>
                   <input name="booking[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="13"></div>
               </fieldset>
               <fieldset class="inlineLabels">
-                <h3>Travel Agent Information</h3>
+                <h3>您的代理商信息</h3>
                 <div id="ctrlHolder_agentName" class="ctrlHolder borderTop">
                   <p class="errorFieldHide" id="agentName_err"></p>
-                  <label for="agentName" class="">Agent Name</label>
+                  <label for="agentName" class="">代理商名称</label>
                   <input name="booking[agent_name]" id="agentName" value="" size="30" type="text" class="" tabindex="14"></div>
                 
                 <div id="ctrlHolder_agencyName" class="ctrlHolder">
                   <p class="errorFieldHide" id="agencyName_err"></p>
-                  <label for="agent_code" class="">Agent Code</label>
+                  <label for="agent_code" class="">代理商代码</label>
                   <input name="booking[agent_code]" id="agent_code" value="" size="30" type="text" class="" tabindex="16"></div>
               </fieldset>
               <fieldset class="inlineLabels">
-                <h3>Extras &amp; Comments</h3>
+                <h3>您的需求</h3>
                 <div id="ctrlHolder_comments" class="ctrlHolder">
                   <p class="errorFieldHide" id="comments_err"></p>
-                  <label for="comments" class="">Comments</label>
+                  <label for="comments" class="">请描述您的旅行需求</label>
                   <textarea name="booking[comment]" id="comments" rows="10" cols="60" class="textInput" tabindex="20"></textarea>
                 </div>
               </fieldset>
-              <fieldset class="inlineLabels">
-                <h3>Subscription Information</h3>
-                <div id="ctrlHolder_e_villas" class="ctrlHolder">
-                  <p class="errorFieldHide" id="e_villas_err"></p>
-                  <p class="label ">A&amp;K Villas Newsletter</p>
-                  <label for="e_villas-1" class="inlineLabel">
-                    <input name="booking[is_subscribe]" id="e_villas-1" value="1" checked="checked" type="checkbox" class="" tabindex="22">Subscribe</label>
-                  <p class="formHint">Includes special offers and announcements monthly.</p>
-                </div>
-              </fieldset>
               <div class="buttonHolder">
-                <input type="submit" name="submit_btn" id="submit_btn" value="Request Booking - Finish" class="uniFormButton" onclick="" tabindex="23"></div>
+                <input type="submit" name="submit_btn" id="submit_btn" value="提交订单 - 完成" class="uniFormButton" onclick="" tabindex="23"></div>
             </form>
           </div>
         </div>

@@ -4,7 +4,7 @@
     &nbsp;&nbsp;/&nbsp;&nbsp;
   </li>
   <li>
-  	<a href="/interests">Interests</a>
+  	<a href="/interests">旅行系列</a>
 		&nbsp;&nbsp;/&nbsp;&nbsp;
   </li>
   <% if @interest.parent %>
@@ -34,30 +34,26 @@
 				
 				<% if @interest.brochures.size > 0 %>
 				<div id="cs_control_16254" class="cs_control CS_Element_CustomCF"> <div id="CS_CCF_16182_16254"> 
-					<div class="hl3">Related Brochures</div>
+					<div class="hl3">相关旅行手册</div>
 				<% @interest.brochures.each do |brochure| %>
 				<div class="section">
 				  <div class="related_brochure self_clear">
 				    <p><img src="<%= brochure.cover.url %>" width="93" height="120" alt="<%= brochure.name %>" title="<%= brochure.name %>"><%= brochure.name %></p>
 				    <ul>
-				      <li><a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >View</a></li>
-				      <li><a class="icon download" href="<%= brochure.doc.url %>">Download</a></li>
-				      <li><a class="icon request_brochure" href="/travel_brochures/?brid=223">Request</a></li>
+				      <li><a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >阅览</a></li>
+				      <li><a class="icon download" href="<%= brochure.doc.url %>">下载</a></li>
 				    </ul>
 				  </div>
-					<p><a class="icon swirl_arrow" href="/brochures/">View All Brochures</a></p>
+					<p><a class="icon swirl_arrow" href="/brochures/">查看所有旅行手册</a></p>
 				</div> 
 				<% end %>
 				</div> </div>
 				<% end %>
 
 				<div id="cs_control_13694" class="cs_control CS_Element_Custom">
-					<div class="hl3">Navigate By</div>
+					<div class="hl3">旅行系列导航</div>
 					<!-- OHSU Nav -->
 					<ul class="section cspot_nav">
-						<li class="navigation_active icon bullet_arrow">
-              <a href="/interests">Interests A&amp;K</a>
-            </li>
 						<% @interests.each do |interest| %>
                 <% if interest.is_root?  %>
                     <li class="icon <%= interest.has_children? ?  'expando_show' : 'bullet_arrow' %>">
@@ -107,66 +103,12 @@
 	</div>
 	<div id="primary_content" class="align_edges">
 		<h1><%= @interest.title %></h1>
-		<div id="right_column_content" class="hide_from_print">
-			<div id="cs_control_9506" class="">
-				<div class="CS_Element_Schedule" title="" id="CS_Element_contentsupplemental">
-					<div id="cs_control_16372" class="cs_control CS_Element_Textblock">
-						<div class="CS_Textblock_Text">
-							<h3 class="clear_margins">A Closer Look at Connections</h3>
-							<br>
-							<div class="round_corners color_f2f2f2 self_clear" style="padding:15px 15px 0;">
-								<div class="ctl"></div>
-								<div class="ctr"></div>
-								<div class="cbr"></div>
-								<div class="cbl"></div>
-								<img class="float_left" style="margin-top:0" src="/assets_global/media/images/brochure_covers/travel-brochure-connections-2013.jpg" alt="Connections Worldwide Group Journeys 2013" title="Connections Worldwide Group Journeys 2013" width="89" height="116">
-								<p class="clear_margins">Connections Worldwide Group Journeys 2013</p>
-								<ul class="clear_list_style attribute_list" style="margin-top:6px;">
-									<li>
-										<a class="icon page_flip" href="/travel_brochures/?fuseaction=act_brochure_view&amp;brid=225" title="Connections Worldwide Group Journeys 2013" rel="Connections Worldwide Group Journeys 2013 [225]" target="_blank" onclick="window.open($(this).attr('href'),'page_flip_win','toolbar=no,fullscreen=yes,channelmode=yes'); pageTracker._trackEvent('Brochure', 'Pageflip', $(this).get('rel')); return false;">View Online</a>
-									</li>
-									<li>
-										<a class="icon download" href="/travel_brochures/?fuseaction=dsp_brochure_download&amp;brid=225&amp;cbc=Connections Worldwide Group Journeys 2013">Download PDF</a>
-									</li>
-									<li>
-										<a class="icon request_brochure" href="/travel_brochures/?brid=225">Request Brochure</a>
-									</li>
-								</ul>
-							</div>
-							<br>
-							<div class="round_corners color_f2f2f2 self_clear" style="padding:15px 15px 0;">
-								<div class="ctl"></div>
-								<div class="ctr"></div>
-								<div class="cbr"></div>
-								<div class="cbl"></div>
-								<a class="akOverlay" href="/assets/overlays/ak-video.cfm?youtube_code=9MN37KWK0KA&amp;youtube_height=300" title="Connections Video Overview" rel="{&quot;width&quot;:480, &quot;background&quot;:&quot;#f4f4f4&quot;}">
-									<img src="/assets/images/discover/connections-video.jpg" width="220" alt="Video introduction to Connections travel"></a>
-								<p>
-									<a id="gkcon" class="akOverlay icon video" href="/assets/overlays/ak-video.cfm?youtube_code=9MN37KWK0KA&amp;youtube_height=300" title="Connections Video Overview" rel="{&quot;width&quot;:480, &quot;background&quot;:&quot;#f4f4f4&quot;}">Watch a short video introduction to Connections travel</a>
-								</p>
-							</div>
-							<br>
-							<div class="round_corners color_f2f2f2 self_clear" style="padding:15px 15px 0;">
-								<div class="ctl"></div>
-								<div class="ctr"></div>
-								<div class="cbr"></div>
-								<div class="cbl"></div>
-								<p>
-									<a class="akOverlay" href="/assets/overlays/youtube_video.cfm?youtube_code=lNyfIc_NVNg" title="Connections Webinar" rel="{&quot;width&quot;:480, &quot;background&quot;:&quot;#f4f4f4&quot;}">
-										<img src="/assets/images/discover/connections-webinar.jpg" width="220" alt="Connections Webinar"></a>
-									<a id="gkcon" class="akOverlay icon video" href="/assets/overlays/youtube_video.cfm?youtube_code=lNyfIc_NVNg" title="Connections Webinar" rel="{&quot;width&quot;:480, &quot;background&quot;:&quot;#f4f4f4&quot;}">Watch the Connections webinar</a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+		
 		<div id="cs_control_1329" class="">
 			<div class="CS_Element_Schedule" title="" id="CS_Element_content">
 				<div id="cs_control_16523" class="cs_control CS_Element_Custom">
 					<h4 class="rounded_btn">
-						<a class="icon search" title="<%= @interest.title %>" href="/search">See all <%= @interest.title %> trips</a>
+						<a class="icon search" title="<%= @interest.title %>" href="/search?interest=<%= @interest.id %>">查看全部 <%= @interest.title %> 旅行线路</a>
 					</h4>
 				</div>
 				<div id="cs_control_16407" class="cs_control CS_Element_Textblock">
@@ -183,5 +125,4 @@
 			</div>
 		</div>
 	</div>
-</div>
 </div>
