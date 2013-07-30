@@ -3,7 +3,7 @@
     <a href="/">首页</a>
     &nbsp;&nbsp;/&nbsp;&nbsp;
   </li>
-  <li>User Center</li>
+  <li>用户中心</li>
 </ul>
 <div class="self_clear">
   <div id="secondary_content" class="hide_from_print">
@@ -17,41 +17,37 @@
         <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
           <div id="CS_CCF_1393_1644">
             <div id="special_offers">
-              <h1>User Center</h1>
+              <h1>用户中心</h1>
               <!-- OFFER -->
-			  <h4>Welcome ! <%= @user.login %></h4>
+			  <h4>欢迎 ! <%= @user.login %></h4>
               <!-- OFFER -->
-              <h3>Bookings Infomation</h3>
+              <h3>我的订单</h3>
               <p>
         <% if !@bookings.empty? %>
 				 <table>
 				 	<tbody class="format_table">
 				 		<tr>
-				 			<th>First name</th>
-				 			<th>Last name</th>
-				 			<th>Email</th>
-				 			<th>Phone</th>
-				 			<th>Country</th>
-				 			<th>City</th>
-				 			<th>Region</th>
-				 			<th>Address</th>
-				 			<th>Post Code</th>
-				 			<th>People Count</th>
-				 			<th>Action</th>
+				 			<th>姓名</th>
+				 			<th>邮箱</th>
+				 			<th>电话</th>
+				 			<th>国家</th>
+				 			<th>城市</th>
+				 			<th>地址</th>
+				 			<th>右边</th>
+				 			<th>人数</th>
+				 			<th>操作</th>
 				 		</tr>
 				 		<% @bookings.each do |booking|%>
 				 		<tr>
 				 			<td><%= booking.first_name %></td>
-				 			<td><%= booking.last_name %></td>
 				 			<td><%= booking.email %></td>
 				 			<td><%= booking.phone %></td>
 				 			<td><%= booking.country %></td>
 				 			<td><%= booking.city %></td>
-				 			<td><%= booking.region %></td>
 				 			<td><%= booking.address %></td>
 				 			<td><%= booking.postal_code %></td>
 				 			<td><%= booking.people_count %></td>
-				 			<td><button>Delete</button></td>
+				 			<td></td>
 				 		</tr>
 				 		<% end %>
 				 	</tbody>
@@ -60,20 +56,18 @@
          <table>
           <tbody class="format_table">
            <tr>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Country</th>
-              <th>City</th>
-              <th>Region</th>
-              <th>Address</th>
-              <th>Post Code</th>
-              <th>People Count</th>
-              <th>Action</th>
+              <th>姓名</th>
+              <th>邮箱</th>
+              <th>电话</th>
+              <th>国家</th>
+              <th>城市</th>
+              <th>地址</th>
+              <th>右边</th>
+              <th>人数</th>
+              <th>操作</th>
             </tr>
             <tr>
-              <td colspan="11">No Booking Messages!</td>
+              <td colspan="9">No Booking Messages!</td>
             </tr>
             </tbody>
          </table>

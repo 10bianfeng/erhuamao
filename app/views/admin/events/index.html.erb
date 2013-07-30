@@ -15,7 +15,7 @@
       <%= event.id %>
     </td>
     <td><%= event.title %></td>
-    <td><%= truncate(event.cont, :length => 600, :omission => '...') %></td>
+    <td><%= raw truncate(event.cont, :length => 600, :omission => '...') %></td>
     <td>
       <%= link_to '查看', [:admin, event] %> | 
       <%= link_to '编辑', edit_admin_event_path(event) %> | 

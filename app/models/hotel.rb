@@ -3,4 +3,5 @@ class Hotel < ActiveRecord::Base
 	belongs_to :destination
 	belongs_to :city
 	has_many :itinerary
+	has_many :customizebookings
 end

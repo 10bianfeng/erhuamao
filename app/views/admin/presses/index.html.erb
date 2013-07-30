@@ -15,7 +15,7 @@
       <%= press.id %>
     </td>
     <td><%= press.title %></td>
-    <td><%= truncate(press.cont, :length => 600, :omission => '...') %></td>
+    <td><%= raw truncate(press.cont, :length => 600, :omission => '...') %></td>
     <td>
       <%= link_to '查看', [:admin, press] %> | 
       <%= link_to '编辑', edit_admin_press_path(press) %> | 

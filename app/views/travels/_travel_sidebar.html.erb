@@ -32,14 +32,18 @@
           <dd>
             <ul class="bullet_list">
               <% @travel.destinations.each do |destination| %>
-                <li>
-                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');"><%= destination.gallery.title  %></a>
-              </li>
+                <% if destination.gallery.photos.size > 0 %>
+                  <li>
+                  <a href="javascript:void(0);" title="Pashan Garh" onclick="modal_slides(<%= destination.gallery.id %>)"><%= destination.gallery.title  %></a>
+                </li>
+                <% end %>
               <% end %>
               <% @travel.itineraries.each do |itinerary| %>
-                <li>
-                <a href="javascript:void(0);" title="Pashan Garh" onclick="getSlideShowImages2('get_photo_gallery','&amp;ci=1-6817');"><%= itinerary.hotel.gallery.title  %></a>
-              </li>
+                  <% if itinerary.hotel.gallery.photos.size > 0 %>
+                  <li>
+                  <a href="javascript:void(0);" title="Pashan Garh" onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.gallery.title  %></a>
+                </li>
+                <% end %>
               <% end %>
             </ul>
           </dd>

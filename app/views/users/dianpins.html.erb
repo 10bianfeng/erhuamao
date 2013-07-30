@@ -3,7 +3,7 @@
     <a href="/">首页</a>
     &nbsp;&nbsp;/&nbsp;&nbsp;
   </li>
-  <li>User Center&nbsp;&nbsp;/&nbsp;&nbsp;我的点评</li>
+  <li>用户中心&nbsp;&nbsp;/&nbsp;&nbsp;我的点评</li>
 </ul>
 <div class="self_clear">
   <div id="secondary_content" class="hide_from_print">
@@ -17,37 +17,27 @@
         <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
           <div id="CS_CCF_1393_1644">
             <div id="special_offers">
-              <h1>User Center</h1>
-              <!-- OFFER -->
-			  <h4>Welcome ! <%= @user.login %></h4>
-              <!-- OFFER -->
-              <h3>点评的 Infomation</h3>
+              <h3>用户中心 / 我的点评</h3>
               <p>
         <% if !@dianpins.empty? %>
 				 <table>
 				 	<tbody class="format_table">
 				 		<tr>
-				 			<th>First name</th>
-				 			<th>Last name</th>
-				 			<th>Email</th>
-				 			<th>Phone</th>
-				 			<th>Country</th>
-				 			<th>City</th>
-				 			<th>Region</th>
-				 			<th>Address</th>
-				 			<th>Post Code</th>
-				 			<th>People Count</th>
+				 			<th>姓名</th>
+				 			<th>旅行代码</th>
+				 			<th>相关线路</th>
+				 			<th>点评内容</th>
+				 			<th>时间</th>
+				 			<th>操作</th>
 				 		</tr>
 				 		<% @dianpins.each do |dianpin|%>
 				 		<tr>
 				 			<td><%= dianpin.first_name %></td>
-				 			<td><%= dianpin.last_name %></td>
-				 			<td><%= dianpin.email %></td>
-				 			<td><%= dianpin.phone %></td>
-				 			<td><%= dianpin.country %></td>
-				 			<td><%= dianpin.city %></td>
-				 			<td><%= dianpin.region %></td>
-				 			<td><%= dianpin.address %></td>
+				 			<td><%= dianpin.travel_code %></td>
+				 			<td><%= dianpin.travel.name %></td>
+				 			<td><%= dianpin.cont %></td>
+				 			<td><%= dianpin.created_at %></td>
+				 			<td></td>
 				 		</tr>
 				 		<% end %>
 				 	</tbody>
@@ -56,20 +46,15 @@
          <table>
           <tbody class="format_table">
            <tr>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Country</th>
-              <th>City</th>
-              <th>Region</th>
-              <th>Address</th>
-              <th>Post Code</th>
-              <th>People Count</th>
-              <th>Action</th>
+              <th>姓名</th>
+              <th>旅行代码</th>
+              <th>相关线路</th>
+              <th>点评内容</th>
+              <th>时间</th>
+              <th>操作</th>
             </tr>
             <tr>
-              <td colspan="11">No Dianpin Messages!</td>
+              <td colspan="6">您还没有任何点评!</td>
             </tr>
             </tbody>
          </table>

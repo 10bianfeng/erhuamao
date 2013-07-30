@@ -3,11 +3,7 @@
 				<a href="/">首页</a>
 				&nbsp;&nbsp;/&nbsp;&nbsp;
 			</li>
-			<li>
-				<a href="/travel-destinations/">Travel Destinations</a>
-				&nbsp;&nbsp;/&nbsp;&nbsp;
-			</li>
-			<li>Africa</li>
+			<li>登录</li>
 		</ul>
 		<div class="self_clear">
 			<div id="secondary_content" class="hide_from_print">
@@ -16,81 +12,50 @@
 						<a name="custom12234" id="custom12234"></a>
 						<a name="CP_JUMP_12234" id="CP_JUMP_12234"></a>
 						<div id="cs_control_12234" class="cs_control CS_Element_Custom">
-							<div class="hl3">Navigate By</div>
+							<div class="hl3">俱乐部导航</div>
 							<!-- OHSU Nav -->		
 							<ul class="section cspot_nav">
-								<li class="icon bullet_arrow">
-									<a href="/marcopoloclub/benefits.cfm">Member Benefits</a>
-								</li>
-								<li class="icon bullet_arrow">
-									<a href="/marcopoloclub/invitation_only_travel.cfm">Invitational Journeys</a>
-								</li>
-								<li class="icon bullet_arrow">
-									<a href="/marcopoloclub/mpc_tour_directors.cfm">Invitational Tour Directors</a>
-								</li>
-								<li class="icon expando_hide">
-									<a href="/marcopoloclub/photo-contest/">Photo Contest</a>
-								</li>
-								<li class="navigation_active icon bullet_arrow">
-									<a href="/marcopoloclub/">Membership Application</a>
-								</li>
-								<li class="icon bullet_arrow">
-									<a href="/marcopoloclub/history_marco_polo.cfm">History of Marco Polo</a>
-								</li>
-								<li class="icon bullet_arrow">
-									<a href="/marcopoloclub/membership_terms_conditions.cfm">Membership Terms &amp; Conditions</a>
-								</li>
-								<li class="icon bullet_arrow">
-									<a href="/marcopoloclub/welcome.cfm">New Member Login</a>
-								</li>
+									<li>
+										<a href="/pages/10">会员权益</a>
+									</li>
+									<li>
+										<a href="/pages/11">旅行邀请</a>
+									</li>
+									<li>
+										<a href="/pages/12">邀请向导</a>
+									</li>
+									<li>
+										<a href="/photocontests">会员旅行照片赏</a>
+									</li>
+									<li>
+										<a href="/signup">会员资格</a>
+									</li>
+									<li>
+										<a href="/pages/14">俱乐部历史</a>
+									</li>
+									<li>
+										<a href="/pages/15">用户协议及条款</a>
+									</li>
+									<li>
+										<a href="/signup">新会员注册</a>
+									</li>
 							</ul>
 						</div>
-						<a name="customcf3475" id="customcf3475"></a>
-						<a name="CP_JUMP_3475" id="CP_JUMP_3475"></a>
-						<div id="cs_control_3475" class="cs_control CS_Element_CustomCF">
-							<div id="CS_CCF_2421_3475">
-								<div class="hl3">Member Login</div>
-								<form class="section" accept-charset="UTF-8" action="/login" class="user_new" id="user_login" method="post">
-									<dl class="clear_list_style base_font_size">
-										<dt style="font-weight:400">
-											<label for="email">Email:</label>
-										</dt>
-										<dd>
-
-											<input id="mpc_username" name="user[email]" type="text" size="30"></dd>
-										<dt style="font-weight:400">
-											<label for="password">Password:</label>
-										</dt>
-										<dd>
-											<input id="mpc_password" name="user[password]" type="password" size="30"></dd>
-									</dl>
-									<input type="submit" value="Login">		
-									<br>		
-									<br></form>
-							</div>
-						</div>
-						<a name="custom14737" id="custom14737"></a>
-						<a name="CP_JUMP_14737" id="CP_JUMP_14737"></a>
 						<div id="cs_control_14737" class="cs_control CS_Element_Custom">
-							<div class="hl3">Related Brochures</div>
+							<div class="hl3">旅行手册</div>
 							<div class="section">
+								<% brochure = Brochure.last %>
 								<div class="related_brochure self_clear">
 									<p>
-										<img src="/images/travel-brochure-mpc-may-dec-2013.jpg" width="93" height="120" alt="Marco Polo Invitational Journeys May-December 2013" title="Marco Polo Invitational Journeys May-December 2013 brochure">Marco Polo Invitational Journeys May-December 2013</p>
+										<img src="<%= brochure.cover.url %>" width="93" height="120" alt="<%= brochure.name %>" title="<%= brochure.name %>"><%= brochure.name %></p>
 									<ul>
-										<li>
-											<a class="icon page_flip" href="/travel_brochures/?fuseaction=act_brochure_view&amp;brid=234" title="View Marco Polo Invitational Journeys May-December 2013" rel="Marco Polo Invitational Journeys May-December 2013 [234]" target="_blank" onclick="window.open($(this).attr('href'),'page_flip_win','toolbar=no,fullscreen=yes,channelmode=yes'); pageTracker._trackEvent('Brochure', 'Pageflip', $(this).attr('rel')); return false;">View</a>
-										</li>
-										<li>
-											<a class="icon download" href="/travel_brochures/?fuseaction=act_brochure_download&amp;brid=234" onclick="recordIt('Brochure Download PDF','','')">Download</a>
-										</li>
-										<li>
-											<a class="icon request_brochure" href="/travel_brochures/?brid=234">Request</a>
+										<li><a class="icon page_flip" href="<%= brochure.doc.url %>" title="View <%= brochure.name %>" rel="<%= brochure.name %>" target="_blank" >阅览</a></li>
+                  	<li><a class="icon download" href="<%= brochure.doc.url %>">下载</a></li>
 										</li>
 									</ul>
 								</div>
 								<p>
-									<a class="icon swirl_arrow" href="/brochures">View All Brochures</a>
+									<a class="icon swirl_arrow" href="/brochures">查看所有旅行手册</a>
 								</p>
 							</div>
 						</div>
@@ -103,24 +68,16 @@
 						</div>
 					</div>
 				</div>
-				<div id="join_mpc" style="">
-					<a class="self_clear" href="/marcopoloclub/membership_application.cfm">
-						<img class="chicken" src="/images/mpc_chicken.gif" width="39" height="38">Become a member</a>
-				</div>
 				<div id="dMainFBContest"></div>
 			</div>
 			<div id="primary_content" class="align_edges">
 			<div id="cs_control_1329" class="">
 				<div class="CS_Element_Schedule" title="" id="CS_Element_content">
-					<a name="textblocknohdr9208" id="textblocknohdr9208"></a>
-					<a name="CP_JUMP_9208" id="CP_JUMP_9208"></a>
 					<div id="cs_control_9208" class="cs_control CS_Element_Textblock">
 						<div class="CS_Textblock_Text">
-							<h1>New Membership Registration</h1>
+							<h1>登录会员俱乐部</h1>
 						</div>
 					</div>
-					<a name="customcf5122" id="customcf5122"></a>
-					<a name="CP_JUMP_5122" id="CP_JUMP_5122"></a>
 					<div id="cs_control_5122" class="cs_control CS_Element_CustomCF">
 						<div id="CS_CCF_3360_5122">
 							<p>
@@ -132,23 +89,21 @@
 							<div style="width:99%">
 								<form class="uniForm" accept-charset="UTF-8" action="/login" class="user_new" id="user_login" method="post">
 									<fieldset class="inlineLabels">
-										<h3>Marco Polo Club Members - Please Register</h3>
+										<h3>登录会员俱乐部</h3>
 										<div id="ctrlHolder_temporary_login" class="ctrlHolder borderTop">
-											<p class="errorFieldHide" id="temporary_login_err">Enter your temporary login. It may only contain numbers.</p>
 											<label for="temporary_login" class="required"> <em>*</em>
-												Temporary Login
+												请输入您登录时的邮箱地址:
 											</label>
 											<input name="user[email]" id="temporary_login" value="" type="text" class="required integer textInput" tabindex="1"></div>
 										<div id="ctrlHolder_temporary_pwd" class="ctrlHolder">
-											<p class="errorFieldHide" id="temporary_pwd_err">Enter your temporary password.</p>
 											<label for="temporary_pwd" class="required">
 												<em>*</em>
-												Password
+												请输入您的密码:
 											</label>
 											<input name="user[password]" id="temporary_pwd" value="" type="password" class="required textInput" tabindex="2"></div>
 									</fieldset>
 									<div class="buttonHolder">
-										<input type="submit" name="submit_btn" id="submit_btn" value="Submit" class="uniFormButton" onclick="" tabindex="3"></div>
+										<input type="submit" name="submit_btn" id="submit_btn" value="登录" class="uniFormButton" onclick="" tabindex="3"></div>
 								</form>
 							</div>
 						</div>

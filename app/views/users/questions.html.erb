@@ -3,7 +3,7 @@
     <a href="/">首页</a>
     &nbsp;&nbsp;/&nbsp;&nbsp;
   </li>
-  <li>User Center&nbsp;&nbsp;/&nbsp;&nbsp;questions</li>
+  <li>用户中心&nbsp;&nbsp;/&nbsp;&nbsp;questions</li>
 </ul>
 <div class="self_clear">
   <div id="secondary_content" class="hide_from_print">
@@ -17,39 +17,25 @@
         <div id="cs_control_1644" class="cs_control CS_Element_CustomCF">
           <div id="CS_CCF_1393_1644">
             <div id="special_offers">
-              <h1>User Center</h1>
-              <!-- OFFER -->
-			  <h4>Welcome ! <%= @user.login %></h4>
-              <!-- OFFER -->
-              <h3>Questions Infomation</h3>
+              <h3>用户中心 / 我的问题</h3>
               <p>
         <% if !@questions.empty? %>
 				 <table>
 				 	<tbody class="format_table">
 				 		<tr>
-				 			<th>First name</th>
-				 			<th>Last name</th>
-				 			<th>Email</th>
-				 			<th>Phone</th>
-				 			<th>Country</th>
-				 			<th>City</th>
-				 			<th>Region</th>
-				 			<th>Address</th>
-				 			<th>Post Code</th>
-				 			<th>People Count</th>
+				 			<th>姓名</th>
+				 			<th>相关旅行线路</th>
+				 			<th>我的问题</th>
+				 			<th>时间</th>
+				 			<th>操作</th>
 				 		</tr>
 				 		<% @questions.each do |question|%>
 				 		<tr>
 				 			<td><%= question.first_name %></td>
-				 			<td><%= question.last_name %></td>
-				 			<td><%= question.email %></td>
-				 			<td><%= question.phone %></td>
-				 			<td><%= question.country %></td>
-				 			<td><%= question.city %></td>
-				 			<td><%= question.region %></td>
-				 			<td><%= question.address %></td>
-				 			<td><%= question.postal_code %></td>
-				 			<td><%= question.people_count %></td>
+				 			<td><%= question.travel.name %></td>
+				 			<td><%= question.question %></td>
+				 			<td><%= question.created_at %></td>
+				 			<td></td>
 				 		</tr>
 				 		<% end %>
 				 	</tbody>
@@ -58,20 +44,14 @@
          <table>
           <tbody class="format_table">
            <tr>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Country</th>
-              <th>City</th>
-              <th>Region</th>
-              <th>Address</th>
-              <th>Post Code</th>
-              <th>People Count</th>
-              <th>Action</th>
+              <th>姓名</th>
+              <th>相关旅行线路</th>
+              <th>我的问题</th>
+              <th>时间</th>
+              <th>操作</th>
             </tr>
             <tr>
-              <td colspan="11">No Questions Messages!</td>
+              <td colspan="5">暂时没有问题!</td>
             </tr>
             </tbody>
          </table>
