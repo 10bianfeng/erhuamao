@@ -84,7 +84,7 @@ class WelcomeController < ApplicationController
 
  
       Rails.logger.error @account.inspect 
-      sign_in(@account)
+      sign_in(:user, User.first)
       flash[:notice] = '成功登录'
       redirect_to root_path
     #rescue
