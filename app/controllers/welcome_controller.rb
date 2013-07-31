@@ -82,8 +82,9 @@ class WelcomeController < ApplicationController
         @account.update_attributes(:profile_url => user_info['profile_url'], :profile_image_url => user_info['profile_image_url'])
       end
 
-
-      sign_in(:user, @account)
+ 
+      Rails.logger.error @account.inspect 
+      sign_in(@account)
       flash[:notice] = '成功登录'
       redirect_to root_path
     #rescue
