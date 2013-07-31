@@ -68,7 +68,7 @@ class WelcomeController < ApplicationController
   end
 
   def weibo_callback
-    begin
+    #begin
       auth = WeiboAuth.new
       auth.callback(params[:code])
       user_info = auth.get_user_info
@@ -86,10 +86,10 @@ class WelcomeController < ApplicationController
       sign_in(:user, @account)
       flash[:notice] = '成功登录'
       redirect_to root_path
-    rescue
-      flash[:notice] = '微博登陆失败， 检查微博账号的权限设置'
-      redirect_to signup_path
-    end
+    #rescue
+      #flash[:notice] = '微博登陆失败， 检查微博账号的权限设置'
+      #redirect_to signup_path
+    #end
   end
 
   def get_gallery

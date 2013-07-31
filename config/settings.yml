@@ -11,7 +11,7 @@ defaults: &defaults
   email_sender: support@xxx.com
   email_password: this-is-password
   weibo_api_key: "1790410102"
-  weibo_api_secret: "a4383c1eaa615b65a0159de287dca2ac"
+  weibo_api_secret: "a439a5fdb62daa51852585939896f507"
   weibo_redirect_uri: "http://infinitytravel.com.cn/weibo_callback"
 
 
