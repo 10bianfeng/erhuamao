@@ -23,7 +23,7 @@ test:
   
 production:  
   <<: *defaults
-  domain: xxx.com
+  domain: http://infinitytravel.com.cn/
   #perform_authentication: true
   #username: admin
   #password: secret
