@@ -86,6 +86,8 @@ class WelcomeController < ApplicationController
       #Rails.logger.error @account.inspect 
       ##sign_in(:user, User.first)
       sign_in(User.first)
+      Rails.logger.debug '1' * 100
+      Rails.logger.debug User.first.inspect
       #flash[:notice] = '成功登录'
       redirect_to root_path
     ##rescue
