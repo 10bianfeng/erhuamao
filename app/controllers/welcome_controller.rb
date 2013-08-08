@@ -84,6 +84,7 @@ class WelcomeController < ApplicationController
 
  
       sign_in(:user, @account)
+      session[:user_id] = @account.id
       #flash[:notice] = '成功登录'
       redirect_to root_path
     rescue

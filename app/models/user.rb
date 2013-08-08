@@ -30,9 +30,9 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :dianpins
 
-  def after_database_authentication
-    #当用户成功登录后会执行此处代码，另有登录后到那个路径的方法
-  end
+  #def after_database_authentication
+    当用户成功登录后会执行此处代码，另有登录后到那个路径的方法
+  #end
 
   # 是否是管理员
   def admin?
