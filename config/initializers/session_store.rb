@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 # Be sure to restart your server when you modify this file.
 
-Erhuamao::Application.config.session_store :cookie_store, :key => '_erhuamao_session', :expire_after => 3.hours
+Erhuamao::Application.config.session_store :cookie_store, :key => '_erhuamrehgeurghreugrao_session', :expire_after => 3.hours
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
