@@ -47,7 +47,7 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink" do
+before "deploy:migrate" do
   run "chmod -R 0666 #{current_path}/log"
 end
 
