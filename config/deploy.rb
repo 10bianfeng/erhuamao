@@ -47,9 +47,6 @@ namespace :deploy do
   end
 end
 
-before "deploy:migrate" do
-  run "chmod -R 0666 #{release_path}/log"
-end
 
 namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
