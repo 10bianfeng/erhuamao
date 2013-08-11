@@ -48,7 +48,7 @@ namespace :deploy do
 end
 
 before "deploy:migrate" do
-  run "chmod -R 0666 #{current_path}/log"
+  run "chmod -R 0666 #{release_path}/log"
 end
 
 namespace :db do
