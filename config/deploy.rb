@@ -45,7 +45,10 @@ namespace :deploy do
   task :update_bundle do
     run "cd #{release_path} && bundle install"
   end
+end
 
+after "deploy:symlink" do
+  run "chmod -R 0666 #{current_path}/log"
 end
 
 namespace :db do
