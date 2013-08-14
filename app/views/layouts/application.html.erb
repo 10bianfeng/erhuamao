@@ -32,10 +32,9 @@
 							</a>
 						</li>
 							<% Rails.logger.error user_signed_in? %>
-							<% Rails.logger.error "1" * 100 %>
 							<% if user_signed_in? %>
               <li class='user_nav'>
-                <a href="/users/<%= current_user.id %>"><%= current_user.login %> <span class="caret"></span></a>
+                <a href="/users/<%= current_user.id %>"><%= current_user.identity %> <span class="caret"></span></a>
               </li>
 	              <% if current_user.admin? %>
 	                <li><a href="/admin">后台管理</a></li>
