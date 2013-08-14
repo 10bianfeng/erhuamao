@@ -87,7 +87,8 @@ class WelcomeController < ApplicationController
       session[:user_id] = @account.id
       #flash[:notice] = '成功登录'
       redirect_to root_path
-    rescue
+    rescue Exception => e
+      Rails.logger.error e 
       flash[:notice] = '微博登陆失败， 检查微博账号的权限设置'
       redirect_to signup_path
     end
