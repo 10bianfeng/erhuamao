@@ -332,3 +332,7 @@ background-position: -15px;
 	clear: both;
 	margin-top: -10px;
 }
+
+.hidden{
+  display: none;
+}

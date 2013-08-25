@@ -4,4 +4,8 @@ module ApplicationHelper
     user ||= current_user
     user.try(:admin?)
   end
+
+  def placeholder(width, height, options = {})
+    "http://placehold.it/#{width}x#{height}&#{options.to_query}"
+  end
 end
