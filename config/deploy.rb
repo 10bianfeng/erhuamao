@@ -62,3 +62,5 @@ before 'deploy:setup', 'rvm:install_rvm'
 before 'deploy:setup', 'rvm:install_ruby'
 
 
+
+load 'deploy/assets'
