@@ -7,7 +7,7 @@ class Admin::DestinationsController < Admin::BaseController
   # GET /destinations
   # GET /destinations.xml
   def index
-    @destinations = Destination.order("updated_at DESC").page(params[:page])
+    @destinations = Destination.order("ancestry ASC").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb
