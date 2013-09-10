@@ -55,9 +55,9 @@
               <ul class="section cspot_nav" style="padding:0px">
                         <% @destinations.each do |destination| %>
                             <% if destination.is_root?  %>
-                                <li class="icon <%= destination.has_children? ?  'expando_show' : 'bullet_arrow' %>">
+                                <li class="icon <%= destination.has_children? ?  'expando_hide' : 'bullet_arrow' %>">
                                     <a href="/destinations/<%= destination.id %>/"><%= destination.name %></a>
-                                    <% if destination.has_children? and  destination.id == @destination.id %>
+                                    <% if destination.has_children? and  destination.id == @destination.root.id %>
                                         <ul>
                                         <% destination.children.each do |destination_2| %>
                                             <li class="icon <%= destination_2.has_children? ?  'expando_show' : 'bullet_arrow' %>">

@@ -10,13 +10,15 @@
 		<dl class="section clear_list_style">
 			<dt>旅行目的地</dt>
 			<dd>
-				<ul class="attribute_list clear_list_style">
-					<% @destinations.each do |destination| %>
-							<li>
-								<a href="/search?destination=<%= destination.id %>" title="<%= destination.name %>"><%= destination.name %> (<%= destination.travels.size %>)</a>
-							</li>
-					<% end %>
-				</ul>
+				<ul class="section cspot_nav">
+                        <% @destinations.each do |destination| %>
+                            <% if destination.is_root?  %>
+                                <li class="icon <%= destination.has_children? ?  'expando_hide' : 'bullet_arrow' %>">
+                                    <a href="/destinations/<%= destination.id %>/"><%= destination.name %></a>
+                                </li>
+                            <% end %>
+                        <% end %>
+                    </ul>
 			</dd>
 			<!-- TRAVEL INTERESTS -->
 			<dt>旅行兴趣点</dt>
@@ -51,7 +53,7 @@
 			<dd>
 				<ul class="attribute_list bullet_list">
 					<li>
-						<a href="/search?price_start=0&price_end=5000" title="Search for Less than $5,000 trips">Less than $5,000</a>
+						<a href="/search?price_start=0&price_end=5000" title="Search for Less than $5,000 trips">小于 $5,000</a>
 					</li>
 					<li>
 						<a href="/search?price_start=5000&price_end=10000" title="Search for $5,000 - $9,999 trips">$5,000 - $9,999</a>
@@ -60,7 +62,7 @@
 						<a href="/search?price_start=10000&price_end=15000" title="Search for $10,000 - $14,999 trips">$10,000 - $14,999</a>
 					</li>
 					<li>
-						<a href="/search?price_start=15000&price_end=1000000" title="Search for $15,000 &amp; Above trips">$15,000 &amp; Above</a>
+						<a href="/search?price_start=15000&price_end=1000000" title="Search for $15,000 &amp; Above trips">$15,000 &amp; 以上</a>
 					</li>
 				</ul>
 			</dd>

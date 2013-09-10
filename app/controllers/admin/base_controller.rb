@@ -5,6 +5,12 @@ class Admin::BaseController < ApplicationController
   before_filter :require_admin	#, :only=> [:index], :except=> [:index]
 
   def index
+    @bookings = Booking.order("updated_at DESC").limit(5)
+    @customizebookings = Customizebooking.order("updated_at DESC").limit(5)
+    @gbookings = Gbooking.order("updated_at DESC").limit(5)
+    @questions = Question.order("updated_at DESC").limit(5)
+    @dianpins = Dianpin.order("updated_at DESC").limit(5)
+
   end
 
   def handle

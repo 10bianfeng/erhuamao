@@ -16,14 +16,15 @@
 				<div class="cbl"></div>
 				<!-- SEARCH FILTERS -->
 				<h2 class="blue-hue">寻找完美假日</h2>
-				<select id="travel_destination_control" name="tdgf">
+				<form id="keword-search-form" class="light-form" action="/search" method="">
+				<select id="travel_destination_control" name="destination">
 					<option value="0">按旅游目的地</option>
 					<% @destinations.each do |destination| %>
 					<option value="<%= destination.id %>"><%= destination.name %></option>
 					<% end %>
 				</select>
 				<p id="travel_destination_control_filter"></p>
-				<select id="travel_interest_control" name="tif">
+				<select id="travel_interest_control" name="interest">
 					<option value="">按旅游兴趣</option>
 					<% @interests.each do |interest| %>
 					<option value="<%= interest.id %>"><%= interest.title %></option>
@@ -31,14 +32,14 @@
 				</select>
 				<p id="travel_interest_control_filter"></p>
 
-				<select id="departure_date_control" name="dryf_drmf">
+				<select id="departure_date_control" name="date">
 					<option value="0_0">按出行日期</option>
 					<% @interests.each do |interest| %>
 					<option value="2013_3">March 2013</option>
 					<% end %>
 				</select>
 				<p id="departure_date_control_filter"></p>
-				<select id="price_range_control" name="prlf_prhf">
+				<select id="price_range_control" name="price_start">
 					<option value="0_0">按价格区间</option>
 					<option value="0_5000">少于 $5,000</option>
 					<option value="5000_9999">$5,000 - $9,999</option>
@@ -48,13 +49,14 @@
 				<p id="price_range_control_filter"></p>
 
 				<!-- :: -->
+										
 				<div class="view_results self_clear">
-					<input type="button" id="search_button_control" value="View Results">
+					<input type="submit" id="search_button_control" value="View Results">
 					<span id="record_count_control" class="trip_count"> <strong>0</strong>
 						Trips
 					</span>
 				</div>
-
+				</form>	
 			</div>
 
 			<!-- CTA -->
