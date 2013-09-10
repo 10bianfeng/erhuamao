@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin galleries title:string travel_id:integer resource:string resource_id:integer 
 
 class Admin::GalleriesController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /galleries
   # GET /galleries.xml

@@ -7,6 +7,7 @@ class WelcomeController < ApplicationController
   def index
     @destinations = Destination.all
     @interests = Interest.all
+    @banners = Banner.limit(5)
   end
 
   def search    

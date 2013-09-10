@@ -26,21 +26,6 @@ class Admin::BaseController < ApplicationController
   	# do something here
   end
 
-  # 查找还没有s3版本的图片，手动启动copy过程
-  def copy_all_to_s3
-    @pages = Page.find_by_s3_status(false)
-    @pages.each do |p|
-      if Rails.env.production? # 产品环境下不开delayed
-        p.delay(:queue => 'cloundinary_to_s3').cloundinary_to_s3
-      else
-        p.cloundinary_to_s3
-        p.s3_status = true
-        p.save
-      end
-    end
-    render :text => "done"
-  end
-
   def test_send_email_nodelay
     @user = User.find_by_email("insub@126.com")
     @msg = "这是一封直接发送的测试邮件"
@@ -61,8 +46,5 @@ class Admin::BaseController < ApplicationController
     @pages = Page.tagged_with("paris", :on => :tags)
     render :text => @page.tags
   end
-
-  def require_admin
-    redirect_to "/login" unless current_user && Setting.admin_emails.include?(current_user.email)
-  end
+  
 end

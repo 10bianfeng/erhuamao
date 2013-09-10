@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin photocontests username:string name:string desc:string photo:string 
 
 class Admin::PhotocontestsController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /photocontests
   # GET /photocontests.xml

@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin specialoffers cover:string title:string desc:text cont:text 
 
 class Admin::SpecialoffersController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /specialoffers
   # GET /specialoffers.xml

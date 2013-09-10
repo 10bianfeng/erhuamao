@@ -4,6 +4,7 @@
 
 class Admin::CustomizebookingsController < ApplicationController
   layout "admin"
+  before_filter :authenticate_user!
   before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /customizebookings

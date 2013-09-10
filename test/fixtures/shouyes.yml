@@ -1,0 +1,59 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  logo: MyString
+  title: MyString
+  lianxi: MyText
+  block_1_tit: MyString
+  block_1_cont: MyText
+  block_2_pic_1: MyString
+  block_2_pic_2: MyString
+  block_2_tit: MyString
+  block_2_cont: MyText
+  block_2_link: MyString
+  block_3_tit: MyString
+  block_3_cont: MyString
+  block_3_pic: MyString
+  block_3_link: MyString
+  block_4_tit: MyString
+  block_4_1_pic: MyString
+  block_4_1_tit: MyString
+  block_4_1_cont: MyText
+  block_4_1_link: MyString
+  block_4_2_pic: MyString
+  block_4_2_tit: MyString
+  block_4_2_cont: MyText
+  block_4_2_link: MyString
+  block_4_3_pic: MyString
+  block_4_3_tit: MyString
+  block_4_3_cont: MyText
+  block_4_3_link: MyString
+
+two:
+  logo: MyString
+  title: MyString
+  lianxi: MyText
+  block_1_tit: MyString
+  block_1_cont: MyText
+  block_2_pic_1: MyString
+  block_2_pic_2: MyString
+  block_2_tit: MyString
+  block_2_cont: MyText
+  block_2_link: MyString
+  block_3_tit: MyString
+  block_3_cont: MyString
+  block_3_pic: MyString
+  block_3_link: MyString
+  block_4_tit: MyString
+  block_4_1_pic: MyString
+  block_4_1_tit: MyString
+  block_4_1_cont: MyText
+  block_4_1_link: MyString
+  block_4_2_pic: MyString
+  block_4_2_tit: MyString
+  block_4_2_cont: MyText
+  block_4_2_link: MyString
+  block_4_3_pic: MyString
+  block_4_3_tit: MyString
+  block_4_3_cont: MyText
+  block_4_3_link: MyString

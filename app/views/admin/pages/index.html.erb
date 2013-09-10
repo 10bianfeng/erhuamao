@@ -7,7 +7,7 @@
     <th>Name</th>
     <th>Title</th>
     <th>Cont</th>
-    <th>page_type</th>
+    <th>页面类型</th>
     <th>操作</th>
   </tr>
 
@@ -22,7 +22,7 @@
     <td><%= page.page_type %></td>
     <td>
       <%= link_to '查看', [:admin, page] %> | 
-      <%= link_to '编辑', edit_admin_page_path(page) %> | 
+      <%= link_to '编辑', edit_admin_page_path(page.id) %> | 
       <%= link_to '删除', [:admin, page], :confirm => '确定要删除么?', :method => :delete %>
     </td>
   </tr>

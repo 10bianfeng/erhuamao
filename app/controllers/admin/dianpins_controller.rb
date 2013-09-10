@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin dianpins name:string cont:text travel_code:string travel_id:integer user_id:integer is_show:boolean 
 
 class Admin::DianpinsController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /dianpins
   # GET /dianpins.xml

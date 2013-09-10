@@ -169,6 +169,7 @@ Erhuamao::Application.routes.draw do
     resources :cities
     resources :photocontests
     resources :dianpins
+    resources :shouyes
   end
 
   match "weibo_login" => "welcome#weibo_login"

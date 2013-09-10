@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin brochures name:string desc:text cover:string doc:string comment:text 
 
 class Admin::BrochuresController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /brochures
   # GET /brochures.xml

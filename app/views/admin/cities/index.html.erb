@@ -5,7 +5,7 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>Destination</th>
+    <th>所属地区</th>
     <th>画廊</th>
     <th>操作</th>
   </tr>
@@ -16,7 +16,7 @@
       <%= city.id %>
     </td>
     <td><%= city.name %></td>
-    <td><%= city.destination_id %></td>
+    <td><%= city.destination.name %></td>
     <td><%= city.gallery.photos.size %> / <a href="/admin/galleries/<%= city.gallery.id %>">管理图片</a></td>
     <td>
       <%= link_to '查看', [:admin, city] %> | 

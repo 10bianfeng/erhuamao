@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin gbookingdays destination_id:integer city_id:integer hotel_id:integer days:integer 
 
 class Admin::GbookingdaysController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /gbookingdays
   # GET /gbookingdays.xml

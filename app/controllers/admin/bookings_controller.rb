@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin bookings mrs_title:string first_name:string last_name:string preferred_contact_method:integer email:string phone:string country:string region:string postal_code:string is_subscribe:boolean user_id:integer travel_id:integer datesprice_id:integer destination_id:integer people_count:integer agent_name:string agent_code:string comment:text has_target:boolean 
 
 class Admin::BookingsController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /bookings
   # GET /bookings.xml

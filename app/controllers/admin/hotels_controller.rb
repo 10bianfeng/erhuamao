@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin hotels name:string destination_id:integer 
 
 class Admin::HotelsController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /hotels
   # GET /hotels.xml

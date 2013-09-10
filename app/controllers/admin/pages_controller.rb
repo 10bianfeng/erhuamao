@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin pages name:string title:string cont:text 
 
 class Admin::PagesController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /pages
   # GET /pages.xml

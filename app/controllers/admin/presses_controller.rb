@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin presses title:string cont:text 
 
 class Admin::PressesController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /presses
   # GET /presses.xml

@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin brochure_travels brochure_id:integer travel_id:integer 
 
 class Admin::BrochureTravelsController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /brochure_travels
   # GET /brochure_travels.xml

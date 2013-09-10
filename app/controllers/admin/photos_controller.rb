@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin photos pic:string desc:string resource:string resource_id:integer 
 
 class Admin::PhotosController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /photos
   # GET /photos.xml

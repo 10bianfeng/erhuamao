@@ -3,6 +3,9 @@
 # rails g scaffold_controller_admin itineraries name:string desc:text travel_id:integer sort:integer hotel_id:integer meals:string start_day_num:integer end_day_num:integer 
 
 class Admin::ItinerariesController < Admin::BaseController
+  layout "admin"
+  before_filter :authenticate_user!
+  before_filter :require_admin  #, :only=> [:index], :except=> [:index]
   
   # GET /itineraries
   # GET /itineraries.xml
