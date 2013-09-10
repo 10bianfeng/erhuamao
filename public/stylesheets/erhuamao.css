@@ -336,3 +336,24 @@ background-position: -15px;
 .hidden{
   display: none;
 }
+.slide_show_banner ul.slidesjs-pagination{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	z-index: 1000;
+}
+.slide_show_banner .slidesjs-navigation{
+	display: none;
+}
+.slide_show_banner ul.slidesjs-pagination li a{
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 0;
+	background: #fff;
+	color: #fff;
+}
+.slide_show_banner ul.slidesjs-pagination li a.active,.slide_show_banner ul.slidesjs-pagination li a:hover{
+	background: #CCDAE5;
+	color: #CCDAE5;
+}

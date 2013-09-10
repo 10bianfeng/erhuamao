@@ -163,13 +163,14 @@
 
 			<!-- BRAND-MARKETING -->
 			<div id="brand_marketing">
-				<div id="cs_control_1580" class="cs_control CS_Element_Image">
+				<div id="cs_control_1580" class="cs_control slide_show_banner" style="width:960px;height:300px;">
 					<!-- Chooes-Banner -->
 					<% @banner = Banner.find_by_imgname(controller.controller_name ) %>
-					<img src="<%= @banner.nil? ? '/images/default_banner.jpg' : @banner.cover.url %>" border="0" class="CS_Image_IMG" title="Africa Safari" alt="Africa Safari" width="960" height="300"></div>
+					<img src="<%= @banner.nil? ? '/images/default_banner.jpg' : @banner.cover.url %>" border="0" class="slide_show_img" title="Africa Safari" alt="Africa Safari" width="960" height="300"/>
+					<img src="<%= @banner.nil? ? '/images/default_banner.jpg' : @banner.cover.url %>" border="0" class="slide_show_img" title="Africa Safari" alt="Africa Safari" width="960" height="300"/>
+				</div>
 			</div>
 		</div>
-
 		<%= yield %>
 
 		<div class="hide_from_print">
@@ -269,6 +270,7 @@
 
 	<script type="text/javascript" src="/javascripts/jquery1.7.2.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.slides.min.js"></script>
 	<script type="text/javascript" src="/javascripts/erhuamao.js"></script>	
 		<!-- INITIALIZE APPLICATION -->
 	<script type="text/javascript">
