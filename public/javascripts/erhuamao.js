@@ -37,12 +37,9 @@ function largeMapClose(){
 function slide_show_banner(){
 	if($(".slide_show_banner img").size()>1){
 	  $(".slide_show_banner").slidesjs({
-	  	width: 960,
-    	height: 300,
 	    pagination: {
 	      active: true,
 	      effect: "fade"
-	        // [string] Can be either "slide" or "fade".
 	    },
 	    play: {
 	      active: true,
@@ -54,7 +51,7 @@ function slide_show_banner(){
 	      restartDelay: 2500
 	    },
 		fade: {
-			speed: 500
+			speed: 1000
 		}
 	  });
 	};
