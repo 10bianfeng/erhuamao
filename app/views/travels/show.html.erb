@@ -38,6 +38,9 @@
 							<a href="#tab1" title="Overview">线路介绍</a>
 						</li>
 						<li>
+							<a href="#tab7" title="景点介绍">景点介绍</a>
+						</li>
+						<li>
 							<a href="#tab2" title="Itinerary">行程</a>
 						</li>
 						<li>
@@ -96,7 +99,32 @@
 
 
 
-					  <% if @travel.gallery.photos.size > 0 %>
+					  
+					<!-- 原景点介绍位置 -->
+
+
+
+					
+					<!-- & MOMENTS -->
+					<h2>线路特点</h2>
+					<p>
+						<%= raw @travel.overview_advantage %>
+					</p>
+					<div class="text_modal">
+						<a class="close"></a>
+						<div class="overlay-details">
+							<div class="overlay-padding">
+								<h3 class="clear_margins"><%= @travel.interests.first.title %></h3>
+								<p style="margin-bottom: 0px;"><%= @travel.interests.first.cont %></p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="tab7" class="hide tab_item">
+					<h2>景点介绍</h2>
+					
+
+					<% if @travel.gallery.photos.size > 0 %>
 			          <div id="inline_gallery" class="float_right hide_from_print round_corners color_f4f4f4">
 			            <div class="ctl"></div>
 			            <div class="ctr"></div>
@@ -127,25 +155,9 @@
 			          </div>
 			          <% end %>
 
-
-
-
-					
-					<!-- & MOMENTS -->
-					<h2>线路特点</h2>
-					<p>
-						<%= raw @travel.overview_advantage %>
-					</p>
-					<div class="text_modal">
-						<a class="close"></a>
-						<div class="overlay-details">
-							<div class="overlay-padding">
-								<h3 class="clear_margins"><%= @travel.interests.first.title %></h3>
-								<p style="margin-bottom: 0px;"><%= @travel.interests.first.cont %></p>
-							</div>
-						</div>
-					</div>
+			          <p><%= raw @travel.jindian %></p>
 				</div>
+
 				<div id="tab2" class="hide tab_item">
 					<h2>行程</h2>
 
@@ -171,7 +183,7 @@
 				<div id="tab3" class="hide tab_item">
 					<h2>团期和价格</h2>
 					<p>价格为人民币单人价格, 标准间。</p>
-					<div id="price_departure_box" class="self_clear">
+					<div id="price_departure_box" class="self_clear hide">
 						<div>
 							<img src="/images/departure_guarantee_small.gif" width="82" height="27">
 							Book with confidence — we guarantee that all small-group journeys will depart as planned.
@@ -250,13 +262,13 @@
 						</dl>
 					</div>
 					<p>
-						Ask us about booking your international flights at our special preferred rates, arranging pre and post-journey hotel nights and safeguarding your journey with the A&amp;K Travel Protection Plan.
+						Ask us about booking your international flights at our special preferred rates, arranging pre and post-journey hotel nights and safeguarding your journey with the Travel Protection Plan.
 					</p>
 					<p>
 						<strong>Take This Journey Private:</strong>
 						This itinerary is also available as an independent journey,
 						<a href="/travel/?tid=5669">Signature India &amp; the Taj Mahal</a>
-						, with A&amp;K local guides.
+						, with local guides.
 					</p>
 					<p>
 						Enhance your journey with a pre-tour small-group extension to Aurangabad (4 days, from $1,295). Available on the Jan 24, Feb 21, Mar 14, Oct 8, Oct 10, Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
@@ -427,7 +439,7 @@
 										<option value="41">Central African Republic</option>
 										<option value="42">Chad</option>
 										<option value="43">Chile</option>
-										<option value="44">China</option>
+										<option value="44" selected="selected">China</option>
 										<option value="45">Christmas Island</option>
 										<option value="46">Cocos (Keeling) Islands</option>
 										<option value="47">Colombia</option>
@@ -644,11 +656,6 @@
 
 				<div id="tab6" class="hide tab_item">
 					<div style="width:80%">
-						<div class="self-clear">
-							<p id="requiredText">
-								Required <em>*</em>
-							</p>
-						</div>
 						<% @travel.dianpins.each do |dianpin| %>
 						<p>
 							<%= dianpin.name %>
@@ -659,6 +666,7 @@
 						<p>
 							<%= dianpin.created_at %>
 						</p>
+						<hr>
 						<% end %>
 						<form action="/dianpins" id="faq_form" method="post" name="faq_form" class="uniForm">
 							<fieldset class="inlineLabels">

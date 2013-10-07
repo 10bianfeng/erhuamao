@@ -10,20 +10,20 @@ class WelcomeController < ApplicationController
     @banners = Banner.limit(5)
   end
 
-  def search    
+  def search
     @destinations = Destination.all
     @interests = Interest.all
     @departure_dates_years = Datesprice.all.map{|d| d.start_date.strftime("%Y")}.uniq.sort
     @departure_dates = Datesprice.all.map{|d| d.start_date.strftime("%Y.%m")}.uniq.sort
-    if !params[:keyword].nil?
+    if !params[:keyword].nil? and params[:keyword] != ""
       @travels = Travel.where("name LIKE ?", "%#{params[:keyword]}%").page(params[:page])
-    elsif !params[:destination].nil?
+    elsif !params[:destination].nil? and params[:destination] != "0"
       @travels = Destination.find(params[:destination]).travels.page(params[:page])
-    elsif !params[:interest].nil?
+    elsif !params[:interest].nil? and params[:interest] != ""
       @travels = Interest.find(params[:interest]).travels.page(params[:page])
-    elsif !params[:date].nil?
+    elsif !params[:date].nil? and params[:date] != "0_0"
       @travels = Travel.where("name LIKE ?", "%#{params[:date]}%").page(params[:page])
-    elsif !params[:price_start].nil?
+    elsif !params[:price_start].nil? and params[:price_start] != "0_0"
       @travels = Travel.where("priced_from > ? and priced_from < ?", "#{params[:price_start]}","#{params[:price_end]}").page(params[:page])
     else
       @travels = Travel.page(params[:page])

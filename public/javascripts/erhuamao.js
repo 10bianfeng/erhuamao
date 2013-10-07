@@ -44,7 +44,7 @@ function slide_show_banner(){
 	    play: {
 	      active: true,
 	      effect: "fade",
-	      interval: 5000,
+	      interval: 10000,
 	      auto: true,
 	      swap: false,
 	      pauseOnHover: false,

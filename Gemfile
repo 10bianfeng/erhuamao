@@ -13,7 +13,7 @@ gem 'postmark-rails', '0.4.1' # 发送邮件
 gem 'kaminari', '0.14.1'	# 分页
 gem 'carrierwave', '0.5.8'	# 文件上传
 gem 'rdoc', '3.12'
-gem 'rake', '10.0.3'
+gem 'rake'
 gem 'sqlite3', '1.3.7'
 gem 'json', '1.5.1'
 gem 'daemons', '1.1.0' # delayed_job依赖

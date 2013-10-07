@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130910085709) do
+ActiveRecord::Schema.define(:version => 20131007144533) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -326,6 +326,7 @@ ActiveRecord::Schema.define(:version => 20130910085709) do
     t.string   "block_4_3_link"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "block_5_cont"
   end
 
   create_table "specialoffer_travels", :force => true do |t|
@@ -363,6 +364,7 @@ ActiveRecord::Schema.define(:version => 20130910085709) do
     t.text     "itinerary_bigpic"
     t.text     "desc_mappic"
     t.integer  "gallery_id"
+    t.text     "jindian"
   end
 
   create_table "users", :force => true do |t|
