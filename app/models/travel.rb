@@ -14,7 +14,7 @@ class Travel < ActiveRecord::Base
 	has_many :brochure_travels
 	has_many :brochures, :through => :brochure_travels
 
-	has_many :bookings
+	has_many :bookings, :dependent => :destroy
 	has_many :questions
 	has_many :dianpins
 

@@ -28,7 +28,7 @@
     <td><%= booking.first_name %></td>
     <td><%= booking.last_name %></td>
     <td><%= booking.phone %></td>
-    <td><%= booking.travel.name %></td>
+    <td><%= booking.travel.try(:name) %></td>
     <td><%= booking.datesprice_id %></td>
     <td><%= booking.destination_id %></td>
     <td><%= booking.people_count %></td>
