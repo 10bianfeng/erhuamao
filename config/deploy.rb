@@ -52,8 +52,8 @@ namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
     run "cp -f #{release_path}/config/database.template #{release_path}/config/database.yml"
     run "cat #{release_path}/config/database.yml"
-    run "rm -fr #{current_path}/public/uploads && ln -s /home/deploy/code/erhuamao/shared/uploads #{current_path}/public/uploads"
-    run "rm -f #{current_path}/db/production.sqlite3 && ln -s /home/deploy/code/erhuamao/shared/production.sqlite3 #{current_path}/db/production.sqlite3"
+    run "rm -fr #{release_path}/public/uploads && ln -s /home/deploy/code/erhuamao/shared/uploads #{release_path}/public/uploads"
+    run "rm -f #{release_path}/db/production.sqlite3 && ln -s /home/deploy/code/erhuamao/shared/production.sqlite3 #{release_path}/db/production.sqlite3"
   end
 end
 
