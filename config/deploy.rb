@@ -53,6 +53,7 @@ namespace :db do
     run "cp -f #{release_path}/config/database.template #{release_path}/config/database.yml"
     run "cat #{release_path}/config/database.yml"
     run "ln -s /home/deploy/code/erhuamao/shared/uploads #{current_path}/public/uploads"
+    run "ln -s /home/deploy/code/erhuamao/shared/production.sqlite3 #{current_path}/db/production.sqlite3"
   end
 end
 
