@@ -19,7 +19,12 @@
     <td><%= hotel.name %></td>
     <td><%= hotel.destination.name if hotel.destination %></td>
     <td><%= hotel.city.name if hotel.city %></td>
-    <td><%= hotel.gallery.try(:photos).try(:size) || 0 %> / <a href="/admin/galleries/<%= hotel.gallery.id %>">管理图片</a></td>
+
+    <td>
+      <% if hotel.gallery %>
+        <%= hotel.gallery.try(:photos).try(:size) || 0 %> / <a href="/admin/galleries/<%= hotel.gallery.id %>">管理图片</a>
+    <% end %>
+    </td>
     <td>
       <%= link_to '查看', [:admin, hotel] %> | 
       <%= link_to '编辑', edit_admin_hotel_path(hotel) %> | 
