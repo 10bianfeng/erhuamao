@@ -10,14 +10,19 @@
     <th>操作</th>
   </tr>
 
-<% @cities.each do |city| %>
-  <tr>
+  <% @cities.each do |city| %>
+    <tr>
     <td>
       <%= city.id %>
     </td>
     <td><%= city.name %></td>
     <td><%= city.destination.name %></td>
-    <td><%= city.gallery.try(:photos).try(:size) || 0 %> / <a href="/admin/galleries/<%= city.gallery.id %>">管理图片</a></td>
+    <td>
+      <% if city.gallery %>
+        <%= city.gallery.try(:photos).try(:size) || 0 %> / <a href="/admin/galleries/<%= city.gallery.id %>">管理图片</a>
+    <% else %>
+      <% end %>
+    </td>
     <td>
       <%= link_to '查看', [:admin, city] %> | 
       <%= link_to '编辑', edit_admin_city_path(city) %> | 
