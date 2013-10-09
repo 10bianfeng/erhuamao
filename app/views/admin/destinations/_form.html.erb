@@ -35,24 +35,7 @@
     <%= f.text_area :desc %>
     </div>
   </div>
-  <div class="control-group">
-    <label class="control-label">banner_pic</label>
-    <div class="controls">
-    <%= f.text_field :banner_pic %>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">map_pic</label>
-    <div class="controls">
-    <%= f.text_field :map_pic %>
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">flash地图文件名</label>
-    <div class="controls">
-    <%= f.text_field :flashmap %>
-    </div>
-  </div>
+  
   <div class="control-group">
     <div class="controls">
       <%= f.submit %>
@@ -67,16 +50,6 @@
     <link rel="stylesheet" href="/plugins/u/themes/default/css/ueditor.css" />   
     <script type="text/javascript">
       var desc = new UE.ui.Editor();
-      var flights = new UE.ui.Editor();
-      var climate = new UE.ui.Editor();
-      var health_requirements = new UE.ui.Editor();
-      var voltage = new UE.ui.Editor();
-      var currency = new UE.ui.Editor();
       desc.render('destination_desc');
-      flights.render('destination_flights');
-      climate.render('destination_climate');
-      health_requirements.render('destination_health_requirements');
-      voltage.render('destination_voltage');
-      currency.render('destination_currency');
     </script>
 <% end %>
