@@ -12,9 +12,10 @@ background: #B18674;
 }
 ul.slidesjs-pagination{
 	position: absolute;
-	top: 25px;
+	top: 5px;
 	margin: 0px;
 	list-style: none;
+	left: 0
 }
 ul.slidesjs-pagination li{
 	float: left;
@@ -31,7 +32,11 @@ ul.slidesjs-pagination li a.active,ul.slidesjs-pagination li a:hover{
 background: #CCDAE5
 }
 #destination_slides .slidesjs-container{
+	position: relative;
 	margin-top: 30px;
+}
+#destination_slides{
+	position: relative;
 }
 p.slide_img_title{
 	text-align: center;
@@ -65,12 +70,15 @@ p.slide_img_title{
 	margin-left: -300px;
 	z-index: 10001;
 }
+#destination_slides_modal{
+	position: relative;
+}
 img#ajaxloader{
 	margin-left: 190px;
 	margin-top: 140px;
 }
 #popout_modal ul.slidesjs-pagination{
-	top: 50px;
+	top: 5px;
 }
 #popout_modal>div{
 	width: 512px;
