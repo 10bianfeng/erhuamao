@@ -7,6 +7,7 @@
     <th>Name</th>
     <th>Imgname</th>
     <th>Cover</th>
+    <th>链接地址</th>
     <th>操作</th>
   </tr>
 
@@ -17,7 +18,10 @@
     </td>
     <td><%= banner.name %></td>
     <td><%= banner.imgname %></td>
-    <td><%= banner.cover %></td>
+    <td>
+      <img src="<%= banner.cover.url %>" style="width:300px;" alt="">
+    </td>
+    <td><%= banner.link %></td>
     <td>
       <%= link_to '查看', [:admin, banner] %> | 
       <%= link_to '编辑', edit_admin_banner_path(banner) %> | 
