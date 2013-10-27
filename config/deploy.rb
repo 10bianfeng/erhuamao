@@ -60,9 +60,11 @@ namespace :db do
   end
 end
 
-after "deploy:update_code", "db:db_config", "deploy:update_bundle", "deploy:migrate"
+after "deploy:update_code", "db:db_config", "deploy:update_bundle"
 
 after "deploy:create_symlink", "db:soft_link"
+
+after "db:soft_link", "deploy:migrate"
 
 
 before 'deploy:setup', 'rvm:install_rvm'
