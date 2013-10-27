@@ -137,9 +137,6 @@
 										<a href="/pages/12">邀请向导</a>
 									</li>
 									<li>
-										<a href="/photocontests">会员旅行照片赏</a>
-									</li>
-									<li>
 										<a href="/signup">会员资格</a>
 									</li>
 									<li>
@@ -170,8 +167,12 @@
 						<a href="<%= banner.link %>"><img src="<%= banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
 						<% end %>
 					<% else %>
-						<% @banner = Banner.find_by_imgname(controller.controller_name ) %>
-						<a href="<%= @banner.link %>"><img src="<%= @banner.nil? ? '/images/default_banner.jpg' : @banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
+						<% @banner = @sbanner || Banner.find_by_imgname(controller.controller_name ) %>
+						<% if @banner %>
+						<a href="<%= @banner.link %>"><img src="<%= @banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
+						<% else %>
+							<img src="/images/default_banner.jpg" border="0" class="slide_show_img" width="960" height="300"/>
+						<% end %>
 					<% end %>
 				</div>
 			</div>

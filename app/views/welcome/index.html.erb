@@ -34,26 +34,28 @@
 
 				<select id="departure_date_control" name="date">
 					<option value="0_0">按出行日期</option>
-					<% @interests.each do |interest| %>
-					<option value="2013_3">March 2013</option>
+
+					<% @months.each do |month| %>
+					<option value="2013_3"><%= month[0] %></option>
 					<% end %>
+
 				</select>
 				<p id="departure_date_control_filter"></p>
 				<select id="price_range_control" name="price_start">
 					<option value="0_0">按价格区间</option>
-					<option value="0_5000">少于 $5,000</option>
-					<option value="5000_9999">$5,000 - $9,999</option>
-					<option value="10000_14999">$10,000 - $14,999</option>
-					<option value="15000_1000000">$15,000 - &amp; 以上</option>
+					<option value="0_5000">少于 ￥5,000</option>
+					<option value="5000_9999">￥5,000 - ￥9,999</option>
+					<option value="10000_14999">￥10,000 - ￥14,999</option>
+					<option value="15000_1000000">￥15,000 - 以上</option>
 				</select>
 				<p id="price_range_control_filter"></p>
 
 				<!-- :: -->
 										
 				<div class="view_results self_clear">
-					<input type="submit" id="search_button_control" value="View Results">
+					<input type="submit" id="search_button_control" value="查看结果">
 					<span id="record_count_control" class="trip_count"> <strong>0</strong>
-						Trips
+						旅游线路
 					</span>
 				</div>
 				</form>	
@@ -84,7 +86,14 @@
 
 			<!-- CTA -->
 			<div class="cta round_corners color_f2f2f2" style="margin-top:15px;">
-				<%= raw Shouye.last.block_5_cont %>
+				<!-- ROUNDED CORNERS -->
+				<div class="ctl"></div>
+				<div class="ctr"></div>
+				<div class="cbr"></div>
+				<div class="cbl"></div>
+				<div class="self_clear">
+					<%= raw Shouye.last.block_5_cont %>
+				</div>
 			</div>
 
 			<!-- END CTA -->

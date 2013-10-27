@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     @ishome = true
     @destinations = Destination.all
     @interests = Interest.all
+    @months = Datesprice.where(["start_date > ?", Date.today]).group_by{|d| d.start_date.strftime("%Y年%m月") }
   end
 
   def search

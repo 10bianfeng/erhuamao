@@ -46,9 +46,11 @@
 						<li>
 							<a href="#tab3" title="Dates &amp; Prices">团期和价格</a>
 						</li>
+						<% if @extend_travels and @extend_travels.size > 0 %>
 						<li>
 							<a href="#tab4" title="Extensions">扩展线路</a>
 						</li>
+						<% end %>
 						<li>
 							<a href="#tab5" title="Ask a Question">提问</a>
 						</li>
@@ -202,8 +204,8 @@
 								<table width="100%">
 									<thead>
 										<tr>
-											<th width="162">
-												<a name="20131008" href="javascript:void(0);"><%= datesprice.start_date.strftime("%d %b %Y") %> - <%= datesprice.end_date.strftime("%d %b %Y") %></a>
+											<th width="362">
+												<a name="20131008" href="javascript:void(0);"><%= datesprice.start_date.strftime("%Y年%m月%d日") %> - <%= datesprice.end_date.strftime("%Y年%m月%d日") %></a>
 											</th>
 											<th></th>
 											<th class="last_child"><%= datesprice.is_available? ? "可预订" : "不可预订" %> </th>
@@ -261,27 +263,11 @@
 
 						</dl>
 					</div>
-					<p>
-						Ask us about booking your international flights at our special preferred rates, arranging pre and post-journey hotel nights and safeguarding your journey with the Travel Protection Plan.
-					</p>
-					<p>
-						<strong>Take This Journey Private:</strong>
-						This itinerary is also available as an independent journey,
-						<a href="/travel/?tid=5669">Signature India &amp; the Taj Mahal</a>
-						, with local guides.
-					</p>
-					<p>
-						Enhance your journey with a pre-tour small-group extension to Aurangabad (4 days, from $1,295). Available on the Jan 24, Feb 21, Mar 14, Oct 8, Oct 10, Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
-					</p>
-					<p>
-						Enhance your journey with a post-tour small-group extension to Nepal (4 days, priced from $1,395). Available on the Oct 17, Nov 8, Nov 10, Nov 21, Dec 19 and Dec 21 departures.
-					</p>
-					<p></p>
 					<hr>
 					<p></p>
 					<h3 style="font-weight:normal;">提示:</h3>
 					<p>
-						<%= @travel.notes %>
+						<%= raw @travel.notes %>
 					</p>
 				</div>
 				<div id="tab4" class="hide tab_item">

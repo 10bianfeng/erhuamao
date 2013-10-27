@@ -16,6 +16,9 @@ class PagesController < ApplicationController
   # GET /pages/1.xml
   def show
     @page = Page.find(params[:id])
+    if [10,11,12,14,15].include? @page.id
+      @sbanner = Banner.find_by_imgname("users")
+    end
 
     respond_to do |format|
       format.html # show.html.erb

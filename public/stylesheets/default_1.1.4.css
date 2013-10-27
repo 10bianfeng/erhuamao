@@ -421,8 +421,8 @@ a.mw:hover	{color:#0000FF;font-family:Verdana,Arial,Helvetica;font-weight:bold;f
 #branding-content {margin:20px 0 15px; position:relative; z-index:4;}
 #branding-content .logo img {display:inline;}
 #branding-content #contact {position:absolute; right:0; text-align:right;}
-#branding-content #contact span.phone {position:absolute; top:0; right:0; font-size:18px; color:#898f91;}
-#branding-content #contact ul {margin:5px 110px 10px 0;}
+#branding-content #contact span.phone {position:absolute; top:3px; right:0; font-size:18px; color:#898f91;}
+#branding-content #contact ul {margin:5px 120px 10px 0;}
 #branding-content #contact li {float:right; padding:0 10px; border-left:1px solid #a7a9ac; font-size:11px; line-height:18px;
 	$clear:expression(
 		(!nextSibling)? style.borderLeft = "none" : 0,

@@ -27,8 +27,8 @@
         </div>
         <!-- DOWNLOAD TRIP FACTS -->
         <!-- RELATED INFORMATION-->
+        <div class="hl3">相关画廊</div>
         <dl class="section clear_list_style">
-          <dt>相关画廊</dt>
           <dd>
             <ul class="bullet_list">
               <% @travel.destinations.each do |destination| %>
@@ -38,13 +38,13 @@
                 </li>
                 <% end %>
               <% end %>
-              <% @travel.itineraries.each do |itinerary| %>
+            <!--   <% @travel.itineraries.each do |itinerary| %>
                   <% if itinerary.hotel.gallery.photos.size > 0 %>
                   <li>
                   <a href="javascript:void(0);" title="Pashan Garh" onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.gallery.title  %></a>
                 </li>
                 <% end %>
-              <% end %>
+              <% end %> -->
             </ul>
           </dd>
         </dl>

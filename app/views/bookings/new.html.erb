@@ -59,9 +59,12 @@
 
           <h2>填写并提交订单</h2>
           <p>
-              如果您已有账号,请
-              <a href="/login">登录</a>
-              。
+            <p>
+              <% if user_signed_in? %>
+                欢迎参加我们的旅行，<%= current_user.identity %>
+              <% else %>
+                如果您已有账号,请<a href="/login">登录</a>。
+              <% end %>
             </p>
           <p>您同时也可以未注册用户身份提交订单。</p>
           <table class="format_table">

@@ -52,9 +52,11 @@
 				<div id="cs_control_9078" class="cs_control CS_Element_CustomCF">
 					<div id="CS_CCF_9059_9078">
 						<p>
-							如果您已有账号,请
-							<a href="/login">登录</a>
-							.
+							<% if user_signed_in? %>
+				              欢迎参加我们的旅行，<%= current_user.identity %>
+				            <% else %>
+				              如果您已有账号,请<a href="/login">登录</a>。
+				            <% end %>
 						</p>
 						<div style="width:80%">
 							<div class="self-clear">

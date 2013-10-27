@@ -4,6 +4,7 @@ class PhotocontestsController < ApplicationController
   # GET /photocontests.xml
   def index
     @photocontests = Photocontest.all
+    @sbanner = Banner.find_by_imgname("users")
 
     respond_to do |format|
       format.html # index.html.erb
