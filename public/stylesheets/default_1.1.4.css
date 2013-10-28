@@ -587,9 +587,9 @@ absolute image paths.
 	/*IE6; Hide menu*/
 	visibility:hidden;
 }
-#primary_navigation td > div{
+#primary_navigation td > div.block{
 	/*Not IE6; Hide menu*/
-	visibility:hidden;
+	display:none;
 }
 #primary_navigation ul{
 	/*IE7; Registers entire block area of nested anchor element*/
@@ -616,7 +616,7 @@ absolute image paths.
 }
 #primary_navigation div.show_menu{
 	/*Show menu*/
-	visibility:visible;	
+	display:block;	
 }
 /*@END--------------------------------*/
 /*@CORE BLOCK ELEMENTS
@@ -2606,9 +2606,9 @@ absolute image paths.
 	/*IE6; Hide menu*/
 	visibility:hidden;
 }
-#primary_navigation td > div{
+#primary_navigation td > div.menu{
 	/*Not IE6; Hide menu*/
-	visibility:hidden;
+	display:none;
 }
 #primary_navigation ul{
 	/*IE7; Registers entire block area of nested anchor element*/
@@ -2629,9 +2629,9 @@ absolute image paths.
 	/*Dark gray*/
 	background-color:#888;
 }
-#primary_navigation div.show_menu{
+#primary_navigation div.show_menu.menu{
 	/*Show menu*/
-	visibility:visible;	
+	display:block;	
 }
 /*@END--------------------------------*/
 /*@CORE BLOCK ELEMENTS

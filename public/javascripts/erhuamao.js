@@ -1,7 +1,8 @@
 $("#primary_navigation tbody tr td").hover(function(){
-	$(this).children(":first").addClass("show_menu");
-	$inner_menu=$(this).find("ul");
-	$(this).find(".menu").addClass("show_menu").html("<div class='outset_content'><div class='inset_content'></div></div>").find(".inset_content").append($inner_menu).parents(".menu").append("<div class='corner_top_left'></div><div class='corner_top_right'></div><div class='corner_bottom_right'></div><div class='corner_bottom_left'></div><div class='side_top'></div><div class='side_right'></div><div class='side_bottom'></div><div class='side_left'></div>");
+	$(this).children().addClass("show_menu");
+	$inner_menu=$(this).find("ul").html();
+	var appendEle="<div class='corner_top_left'></div><div class='corner_top_right'></div><div class='corner_bottom_right'></div><div class='corner_bottom_left'></div><div class='side_top'></div><div class='side_right'></div><div class='side_bottom'></div><div class='side_left'></div>";
+	$(this).find(".menu").addClass("show_menu").html("<div class='outset_content'><div class='inset_content'></div></div>").find(".inset_content").html("<ul>"+$inner_menu+"</ul>").parents(".menu").append(appendEle);
 },function(){
 	$(this).children().removeClass("show_menu");
 	$inner_menu=$(this).find("ul");
