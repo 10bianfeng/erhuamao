@@ -2638,7 +2638,7 @@ absolute image paths.
 --------------------------------------*/
 .block.menu{
 	/*position:absolute;*/
-	z-index:3 !important;
+	z-index:3000 !important;
 	margin:0 0 0 -10px;
 	padding:10px 10px 30px 10px;
 	
