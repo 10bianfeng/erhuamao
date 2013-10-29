@@ -21,7 +21,7 @@ class Admin::PagesController < Admin::BaseController
   # GET /pages/1
   # GET /pages/1.xml
   def show
-    @page = Page.find_by_name params[:id]|| Page.find_by_id(params[:id])
+    @page = Page.find_by_name(params[:id]) || Page.find_by_id(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,7 +42,8 @@ class Admin::PagesController < Admin::BaseController
 
   # GET /pages/1/edit
   def edit
-    @page = Page.find_by_name params[:id] || Page.find_by_id(params[:id])
+    @page = Page.find_by_name(params[:id]) || Page.find_by_id(params[:id])
+    ap  @page
   end
 
   # POST /pages
@@ -64,8 +65,7 @@ class Admin::PagesController < Admin::BaseController
   # PUT /pages/1
   # PUT /pages/1.xml
   def update
-    @page = Page.find_by_name params[:id] || Page.find_by_id(params[:id])
-    ap Page.find_by_name(params[:id])
+    @page = Page.find_by_name(params[:id])|| Page.find_by_id(params[:id])
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
@@ -81,7 +81,7 @@ class Admin::PagesController < Admin::BaseController
   # DELETE /pages/1
   # DELETE /pages/1.xml
   def destroy
-    @page = Page.find_by_name params[:id] || Page.find_by_id(params[:id])
+    @page = Page.find_by_name(params[:id]) || Page.find_by_id(params[:id])
     @page.destroy
 
     respond_to do |format|
