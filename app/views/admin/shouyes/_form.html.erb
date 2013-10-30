@@ -83,7 +83,7 @@
   <div class="control-group">
     <label class="control-label">模块_3_内容</label>
     <div class="controls">
-    <%= f.text_field :block_3_cont %>
+    <%= f.text_area :block_3_cont %>
     </div>
   </div>
   <div class="control-group">
@@ -206,6 +206,12 @@
     <script type="text/javascript">
       var page_cont = new UE.ui.Editor();
       page_cont.render('shouye_lianxi');
+      page_cont.render('shouye_block_1_cont');
+      page_cont.render('shouye_block_2_cont');
+      page_cont.render('shouye_block_3_cont');
+      page_cont.render('shouye_block_4_1_cont');
+      page_cont.render('shouye_block_4_2_cont');
+      page_cont.render('shouye_block_4_3_cont');
       page_cont.render('shouye_block_5_cont');
     </script>
 <% end %>
