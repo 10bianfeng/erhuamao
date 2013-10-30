@@ -16,51 +16,25 @@
 
           <% if @page.page_type==0 %>
           <ul class="section cspot_nav">
-            <li class="icon bullet_arrow">
-              <a href="/pages/1">关于我们</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/2">我们的历史</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/3">荣誉和奖项</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/4">全球分支</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/5">我们的指南</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/6">慈善事业</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/7">诚聘英才</a>
-            </li>
+            <% Page.where(:page_type => 0).each do |page| %>
+                <li class="icon bullet_arrow">
+                  <a href="/pages/<%= page.id %>"><%= page.name %></a>
+                </li>
+            <% end %>
           </ul>
           <% else %>
 
           <ul class="section cspot_nav">
-            <li class="icon bullet_arrow">
-              <a href="/pages/10">会员权益</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/11">旅行邀请</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/12">邀请向导</a>
-            </li>
+            <% Page.where(:page_type => 1).each do |page| %>
+                <li class="icon bullet_arrow">
+                  <a href="/pages/<%= page.id %>"><%= page.name %></a>
+                </li>
+            <% end %>
             <li class="icon bullet_arrow">
               <a href="/photocontests">会员旅行照片赏</a>
             </li>
             <li class="icon bullet_arrow">
               <a href="/signup">会员资格</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/14">俱乐部历史</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/15">用户协议及条款</a>
             </li>
             <li class="icon bullet_arrow">
               <a href="/login">新会员登录</a>

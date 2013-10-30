@@ -15,27 +15,11 @@
           <div class="hl3">文章导航</div>
 
           <ul class="section cspot_nav">
-            <li class="icon bullet_arrow">
-              <a href="/pages/1">关于我们</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/2">我们的历史</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/3">荣誉和奖项</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/4">全球分支</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/5">我们的指南</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/6">慈善事业</a>
-            </li>
-            <li class="icon bullet_arrow">
-              <a href="/pages/7">诚聘英才</a>
-            </li>
+            <% Page.where(:page_type => 0).each do |page| %>
+                <li class="icon bullet_arrow">
+                  <a href="/pages/<%= page.id %>"><%= page.name %></a>
+                </li>
+            <% end %>
           </ul>
         </div>
         <a name="customcf4702" id="customcf4702"></a>
