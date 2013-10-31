@@ -126,13 +126,9 @@
     <script type="text/javascript" src="/plugins/u/editor_all.min.js"></script>
     <link rel="stylesheet" href="/plugins/u/themes/default/css/ueditor.css" />   
     <script type="text/javascript">
-      var overview_desc = new UE.ui.Editor();
-      var overview_advantage = new UE.ui.Editor();
-      var notes = new UE.ui.Editor();
-      var jindian = new UE.ui.Editor();
-      overview_desc.render('travel_overview_desc');
-      overview_advantage.render('travel_overview_advantage');
-      notes.render('travel_notes');
-      jindian.render('travel_jindian');
+      new UE.ui.Editor().render('travel_overview_desc');
+      new UE.ui.Editor().render('travel_overview_advantage');
+      new UE.ui.Editor().render('travel_notes');
+      new UE.ui.Editor().render('travel_jindian');
     </script>
 <% end %>
