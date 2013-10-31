@@ -77,7 +77,7 @@
         ,getMovieUrl:URL+"php/getMovie.php"                   //视频数据获取地址
 
         //工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义
-        ,toolbars:[["paragraph","forecolor","bold","italic","underline","removeformat","undo","redo","insertunorderedlist","insertorderedlist","justifyleft","justifycenter","justifyright","justifyjustify","horizontal","inserttable","deletetable","insertimage","insertvideo","link","unlink","map","gmap","blockquote","fullscreen"]]
+        ,toolbars:[["paragraph","forecolor","bold","italic","underline","removeformat","undo","redo","insertunorderedlist","insertorderedlist","justifyleft","justifycenter","justifyright","justifyjustify","horizontal","inserttable","deletetable","insertimage","insertvideo","link","unlink","map","gmap","blockquote","source","fullscreen"]]
         //当鼠标放在工具栏上时显示的tooltip提示,留空支持自动多语言配置，否则以配置值为准
         ,labelMap:{
             'anchor':'', 'undo':''
@@ -109,7 +109,7 @@
 
         ,initialContent:''    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
 
-        ,initialFrameWidth:710  //初始化编辑器宽度,默认1000
+        ,initialFrameWidth:740  //初始化编辑器宽度,默认1000
         ,initialFrameHeight:120  //初始化编辑器高度,默认320
 
         //,autoClearinitialContent:true //是否自动清除编辑器初始内容，注意：如果focus属性设置为true,这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了

@@ -347,6 +347,10 @@ background-position: -15px;
 .hidden{
   display: none;
 }
+.slide_show_banner>a{
+	position: absolute;
+	top: 0;
+}
 .slide_show_banner ul.slidesjs-pagination{
 	position: absolute;
 	top: 20px;
