@@ -350,6 +350,10 @@ background-position: -15px;
 .slide_show_banner>a{
 	position: absolute;
 	top: 0;
+	z-index: 1
+}
+.slide_show_banner>a:first-child{
+	z-index: 2
 }
 .slide_show_banner ul.slidesjs-pagination{
 	position: absolute;
