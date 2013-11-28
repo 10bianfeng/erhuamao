@@ -39,7 +39,7 @@
                 <% end %>
               <% end %>
             <!--   <% @travel.itineraries.each do |itinerary| %>
-                  <% if itinerary.hotel.gallery.photos.size > 0 %>
+                  <% if ititinerary.hotel && ititinerary.hotel.gallery && ititinerary.hotel.gallery.photos.size > 0 %>
                   <li>
                   <a href="javascript:void(0);" title="Pashan Garh" onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.gallery.title  %></a>
                 </li>
