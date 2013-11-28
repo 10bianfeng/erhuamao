@@ -173,9 +173,12 @@
 							<p>
 								<%= itinerary.desc %>
 							</p>
-							<em><a class="icon camera_white" href="javascript:void(0);" onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.name %></a></em> 
+              <%- if itinerary.hotel.gallery %>
+                <em><a class="icon camera_white" href="javascript:void(0);"
+              onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.name %></a></em> 
 							&nbsp;&nbsp;|&nbsp;&nbsp;
 							<em>Meals: <%= itinerary.meals %></em>
+            <% end %>
 							<!-- popout modals  -->
 
 						</dd>
