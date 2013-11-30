@@ -134,6 +134,15 @@ Erhuamao::Application.routes.draw do
       end
       resources :itineraries
       resources :datesprices
+      resources :pages do
+        collection do
+          put :assign
+        end
+
+        member do
+          delete :detach
+        end
+      end
     end
     resources :datesprices
     resources :itineraries

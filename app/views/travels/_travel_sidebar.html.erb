@@ -48,6 +48,24 @@
             </ul>
           </dd>
         </dl>
+
+
+
+        <% @travel.pages.group_by(&:category).each do |category, pages| %>
+        <div class="hl3"><%= category %></div>
+        <dl class="section clear_list_style">
+          <dd>
+            <ul class="bullet_list">
+              <% pages.each do |page| %>
+                  <li>
+                  <a href="/pages/<%= page.id %>"><%= page.title  %></a>
+                </li>
+              <% end %>
+            </ul>
+          </dd>
+        </dl>
+      <% end %>
+
         <div class="end_cap"></div>
         <a href="/search.cfm?scrs=70" onclick="pageTracker._trackEvent('Banner', 'click', 'Signature Series Banner');"></a>
         <div id="dMainFBContest"></div>
