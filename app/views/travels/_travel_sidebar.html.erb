@@ -39,7 +39,7 @@
                 <% end %>
               <% end %>
             <!--   <% @travel.itineraries.each do |itinerary| %>
-                  <% if itinerary.hotel.gallery.photos.size > 0 %>
+                  <% if itinerary.hotel && itinerary.hotel.gallery && itinerary.hotel.gallery.photos.size > 0 %>
                   <li>
                   <a href="javascript:void(0);" title="Pashan Garh" onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.gallery.title  %></a>
                 </li>
@@ -48,6 +48,24 @@
             </ul>
           </dd>
         </dl>
+
+
+
+        <% @travel.travel_pages.group_by(&:category).each do |category, pages| %>
+        <div class="hl3"><%= category %></div>
+        <dl class="section clear_list_style">
+          <dd>
+            <ul class="bullet_list">
+              <% pages.each do |page| %>
+                  <li>
+                  <a href="<%= page.url %>"><%= page.name  %></a>
+                </li>
+              <% end %>
+            </ul>
+          </dd>
+        </dl>
+      <% end %>
+
         <div class="end_cap"></div>
         <a href="/search.cfm?scrs=70" onclick="pageTracker._trackEvent('Banner', 'click', 'Signature Series Banner');"></a>
         <div id="dMainFBContest"></div>

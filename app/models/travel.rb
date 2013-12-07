@@ -20,6 +20,8 @@ class Travel < ActiveRecord::Base
 
 	belongs_to :gallery
 
+  has_many :travel_pages
+
 	# 上传
 	mount_uploader :cover, CoverUploader
 	mount_uploader :desc_mappic, CoverUploader

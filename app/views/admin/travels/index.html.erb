@@ -12,6 +12,7 @@
     <th>优惠信息</th>
     <th>Pdf小册子</th>
     <th>画廊</th>
+    <th>文章</th>
     <th>操作</th>
   </tr>
 
@@ -109,6 +110,20 @@
       </table>
     </td>
     <td><%= travel.gallery.photos.size %> / <a href="/admin/galleries/<%= travel.gallery.id %>">管理图片</a></td>
+
+    <td>
+      <h5><a href="/admin/travels/<%= travel.id %>/travel_pages">绑定文章</a></h5>
+      <table>
+        <tbody>
+          <% travel.travel_pages.each do |page| %>
+          <tr>
+            <td><a href="/admin/travel_pages/<%= page.id %>"><%= page.name %></a></td>
+            <td></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </td>
     <td>
       <%= link_to '查看', [:admin, travel] %> | 
       <%= link_to '编辑', edit_admin_travel_path(travel) %> | 
