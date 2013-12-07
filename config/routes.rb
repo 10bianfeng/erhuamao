@@ -1,6 +1,8 @@
 # -*- encoding : utf-8 -*-
 Erhuamao::Application.routes.draw do
   
+  get "travel_pages/index"
+
   resources :customizebookings
 
   resources :photocontests
@@ -134,7 +136,7 @@ Erhuamao::Application.routes.draw do
       end
       resources :itineraries
       resources :datesprices
-      resources :pages do
+      resources :travel_pages do
         collection do
           put :assign
         end

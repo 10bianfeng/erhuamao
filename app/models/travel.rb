@@ -20,7 +20,7 @@ class Travel < ActiveRecord::Base
 
 	belongs_to :gallery
 
-  has_many :pages, :as => :attachable
+  has_many :travel_pages
 
 	# 上传
 	mount_uploader :cover, CoverUploader

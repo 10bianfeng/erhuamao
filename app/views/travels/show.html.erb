@@ -86,11 +86,11 @@
 								</li>
 								<li>
 									<span><%= @travel.departures %></span>
-									启程:
+									发团数量:
 								</li>
 								<li>
 									<span><%= @travel.max_group_size %></span>
-									名额:
+									团队规模:
 								</li>
 							</ul>
 						</div>
@@ -168,12 +168,11 @@
 
 					<dl class="itinerary">
 						<% @travel.itineraries.each do |itinerary| %>
-						<dt><%= itinerary.name %></dt>
+						<dt><%= raw(itinerary.name.gsub(" ", "&nbsp;")) %></dt>
 						<dd>
 							<p>
 								<%= itinerary.desc %>
-							<
-              <%- if itinerary.hotel.gallery %>
+              <%- if itinerary.hotel && itinerary.hotel.gallery %>
                 <em><a class="icon camera_white" href="javascript:void(0);"
               onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.name %></a></em> 
 							&nbsp;&nbsp;|&nbsp;&nbsp;
