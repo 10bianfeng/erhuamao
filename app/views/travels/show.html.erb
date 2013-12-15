@@ -108,7 +108,7 @@
 
 					
 					<!-- & MOMENTS -->
-					<h2>独家优势/h2>
+					<h2>独家优势</h2>
 					<p>
 						<%= raw @travel.overview_advantage %>
 					</p>
@@ -173,6 +173,7 @@
 							<p>
 								<%= itinerary.desc %>
               <%- if itinerary.hotel && itinerary.hotel.gallery %>
+                <br />
                 <em><a class="icon camera_white" href="javascript:void(0);"
               onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.name %></a></em> 
 							&nbsp;&nbsp;|&nbsp;&nbsp;
