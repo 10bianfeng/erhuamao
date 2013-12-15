@@ -3,25 +3,25 @@
 		<a href="/">首页</a>
 		&nbsp;&nbsp;/&nbsp;&nbsp;
 	</li>
-	<li>Compare Trips</li>
+	<li>线路比较</li>
 </ul>
 <div class="self_clear">
 	<div id="primary_content" class="align_edges">
-		<h1>Compare Trips</h1>
+		<h1>&nbsp;&nbsp;</h1>
 		<div style="position:relative; float:right; font-weight: bold; top: -30px;">
-			<a href="/travel/send-compare-trips-to-a-friend.cfm" onclick="window.open('/travel/Share-These-Trips.cfm', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=540, height=570'); return false;" target="_blank">Share These Trips with a Friend</a>
+			
 		</div>
 		<table id="compare_trips" style="position:relative;top:-16px;">
 			<tbody>
 				<tr>
 					<td>
-						<h3>Trip 1</h3>
+						<h3>线路 1</h3>
 					</td>
 					<td>
-						<h3>Trip 2</h3>
+						<h3>线路 2</h3>
 					</td>
 					<td>
-						<h3>Trip 3</h3>
+						<h3>线路 3</h3>
 					</td>
 				</tr>
 				<!-- SELECT BOXES -->
@@ -36,7 +36,7 @@
 						<% else %>
 						<td>
 						<select name="saved_trip_3" id="saved_trip_3">
-							<option value="0">Not trip</option>
+							<option value="0">没有线路</option>
 						</select>
 						</td>
 						<% end %>
@@ -63,23 +63,23 @@
 							<ul class="clear_list_style line_rule">
 								<li class="self_clear">
 									<span><%= @compares[i].sub_name %></span>
-									Travel Interest:
+									旅行系列:
 								</li>
 								<li class="self_clear">
 									<span><%= @compares[i].days_count %></span>
-									Days:
+									天数:
 								</li>
 								<li class="self_clear">
 									<span>$<%= @compares[i].priced_from %></span>
-									Priced From:
+									最低价格:
 								</li>
 								<li class="self_clear">
 									<span><%= @compares[i].max_group_size %></span>
-									Max Group Size:
+									团队规模:
 								</li>
 								<li class="self_clear">
 									<span><%= @compares[i].departures %></span>
-									Departures:
+									发团数量:
 								</li>
 							</ul>
 						</td>
@@ -92,7 +92,7 @@
 					<% (0..2).each do |i| %>
 						<% if @compares[i] %>
 						<td>
-							<h3>Private Jet Journeys</h3>
+							<h3>行程交通</h3>
 						</td>
 						<% else %>
 						<td></td>
@@ -116,7 +116,7 @@
 					<% (0..2).each do |i| %>
 						<% if @compares[i] %>
 						<td>
-							<h3>Description</h3>
+							<h3>线路介绍</h3>
 						</td>
 						<% else %>
 						<td></td>
@@ -140,7 +140,7 @@
 					<% (0..2).each do |i| %>
 						<% if @compares[i] %>
 						<td>
-							<h3>Itinerary Highlights</h3>
+							<h3>线路亮点</h3>
 						</td>
 						<% else %>
 						<td></td>
@@ -168,7 +168,7 @@
 					<% (0..2).each do |i| %>
 						<% if @compares[i] %>
 						<td>
-							<h3>Dates &amp; Prices</h3>
+							<h3>团期和价格</h3>
 						</td>
 						<% else %>
 						<td></td>
