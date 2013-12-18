@@ -155,7 +155,7 @@
 								<dt><%= itine.name %></dt>
 								<dd>
 									<p><%= itine.desc %></p>
-									<em><%= itine.hotel.name %> <%= itine.meals %></em>
+									<em><%= itine.hotel.try(:name) %> <%= itine.meals %></em>
 								</dd>
 							<% end -%>
 						</td>
