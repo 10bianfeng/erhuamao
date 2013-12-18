@@ -137,21 +137,10 @@
 			                <% @travel.gallery.photos.each do |photo| %>
 			                <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
 			                <% end %>
-			              </div>  
-			              <div id="popout_modal" style="display: none;" class="alt">
-			                <div class="close_modal" onclick="modal_close();">X</div>
-			                <strong class="title"><%= Destination.find(3).gallery.title %></strong>
-			                <div id="destination_slides_modal">
-
-			                  <% @travel.gallery.photos.each do |photo| %>
-			                    <img src="<%= photo.pic.url %>" alt="<%= photo.desc %>" >
-			                  <% end %>
-			                </div>
-			                <p class="slide_img_title"></p>
 			              </div>
 			              <p class="slide_img_title"></p>           
 			              <p>
-			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides_atn();">查看大尺寸图片</a>
+			                <a class="icon open_window" href="javascript:void(0);" onclick="modal_slides(<%= @travel.gallery.id %>);">查看大尺寸图片</a>
 			              </p>
 			            </div>
 			          </div>
@@ -719,7 +708,7 @@ if (("onhashchange" in window) && !($.browser.msie)) {
 			 if ($(window.location.hash).length>0) {
 				getTabActive();
 				return false;
-			 };     
+			 }
 		 }
 }
 else {
@@ -734,7 +723,7 @@ else {
 var getSeriesOverlay=function(a){
 	$(".text_modal").show();
 	$('<div id="popout_modal_mask"></div>').appendTo("body");
-}
+};
 $(".text_modal .close").click(function(){
 	$(".text_modal").hide();
 	$('#popout_modal_mask').remove();
@@ -744,17 +733,13 @@ $("#popout_modal_mask").live("click",function(){
 	$(".popout_modal").hide();
 	$('#largeMap').remove();
 	$(this).remove();
-})
-
-
-
-
-
+});
 
 
 
 $(function() {
 	  var max_p=7;
+    var $slide = $("#destination_slides");
       $('#destination_slides').slidesjs({
         width: 260,
         height: 228,
@@ -768,7 +753,7 @@ $(function() {
 			swap: true,
 			pauseOnHover: true,
 			restartDelay: 2500
-		},        
+		},
         pagination: {
           effect: "fade"
         },
@@ -779,61 +764,31 @@ $(function() {
         },
         callback:{
           loaded: function(number) {
-              $('#destination_slides p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
-              number>max_p? $('#destination_slides ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $('#destination_slides ul.slidesjs-pagination').animate({left: 0})
+              $slide.parent().find('p.slide_img_title').text($slide.find("img.slidesjs-slide").eq(number-1).attr("alt"));
+              number>max_p? $slide.find('ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $slide.find('ul.slidesjs-pagination').animate({left: 0});
             },
           complete: function(number) {
-              $('#destination_slides p.slide_img_title').text($("#destination_slides img.slidesjs-slide").eq(number-1).attr("alt"));
-              number>max_p? $('#destination_slides ul.slidesjs-pagination').animate({left: -(number-max_p)*25}) : $('#destination_slides ul.slidesjs-pagination').animate({left: 0})
+              $slide.parent().find('p.slide_img_title').text($slide.find("img.slidesjs-slide").eq(number-1).attr("alt"));
+              number>max_p? $slide.find('ul.slidesjs-pagination').animate({left: -(number-max_p)*25}) : $slide.find('ul.slidesjs-pagination').animate({left: 0});
           }
         }
       });
-	$('#destination_slides_modal').slidesjs({
-		width: 514,
-		height: 344,
-		navigation: false,
-		pagination: {
-		effect: "fade"
-		},
-		play: {
-			active: true,
-			auto: true,
-			interval: 4000,
-			swap: true,
-			pauseOnHover: true,
-			restartDelay: 2500
-		},
-		effect: {
-		fade: {
-		  speed: 800
-		}
-		},
-		callback:{
-		  loaded: function(number) {
-		        $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
-		        number>max_p? $('#popout_modal ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $('#popout_modal ul.slidesjs-pagination').animate({left: 0})
-		      },
-		  complete: function(number) {
-		        $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
-		        number>max_p? $('#popout_modal ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $('#popout_modal ul.slidesjs-pagination').animate({left: 0})
-		  }
-		}
-	});
 });
 var modal_slides_atn=function(){
   $("#popout_modal.alt").show();
   $('<div id="popout_modal_mask"></div>').appendTo("body");
-}
+};
 var modal_close=function(){
   $("#popout_modal").hide();
   $("#popout_modal.alt").hide();
   $('#popout_modal_mask').remove();
-}
-
+};
 
 var initslide=function(){
+    var $pop = $('#destination_slides_modal');
+    var $modal = $("#popout_modal");
 	var max_p=7;
-	$("#popout_modal").show().find('#destination_slides_modal').slidesjs({
+	$modal.show().find('#destination_slides_modal').slidesjs({
 		width: 514,
 		height: 344,
 		navigation: false,
@@ -853,17 +808,18 @@ var initslide=function(){
 			pauseOnHover: true,
 			restartDelay: 2500
 		},
-		callback:{
-			loaded: function(number) {
-		        $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
-		        number>max_p? $('#popout_modal ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $('#popout_modal ul.slidesjs-pagination').animate({left: 0})
-					},
-			complete: function(number) {
-		        $('#popout_modal p.slide_img_title').text($("#destination_slides_modal img.slidesjs-slide").eq(number-1).attr("alt"));
-		        number>max_p? $('#popout_modal ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $('#popout_modal ul.slidesjs-pagination').animate({left: 0})			}
-		}
+        callback:{
+            loaded: function(number) {
+                $modal.find('p.slide_img_title').text($pop.find("img.slidesjs-slide").eq(number-1).attr("alt"));
+                number>max_p? $pop.find('ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $pop.find('ul.slidesjs-pagination').animate({left: 0})
+            },
+            complete: function(number) {
+                $modal.find('p.slide_img_title').text($pop.find("img.slidesjs-slide").eq(number-1).attr("alt"));
+                number>max_p? $pop.find('ul.slidesjs-pagination').animate({left: -(number-max_p)*25}): $pop.find('ul.slidesjs-pagination').animate({left: 0})
+            }
+        }
 	});
-}
+};
 var modal_slides=function(a){
 	if($('#popout_modal').size()>0){
 		$('#popout_modal').remove();
