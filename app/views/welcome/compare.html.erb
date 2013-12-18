@@ -181,8 +181,8 @@
 						<td>
 							<ul class="clear_list_style line_rule">
 								<li>
-									<%= @compares[i].datesprices[0].start_date %> - <%= @compares[i].datesprices[0].end_date %>
-									<br> <strong><%= @compares[i].datesprices[0].prices %></strong>
+									<%= @compares[i].datesprices[0].try(:start_date) %> - <%= @compares[i].datesprices[0].try(:end_date) %>
+									<br> <strong><%= @compares[i].datesprices[0].try(:prices) %></strong>
 								</li>
 							</ul>
 						</td>
