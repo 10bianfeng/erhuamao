@@ -181,7 +181,7 @@
 						<td>
 							<ul class="clear_list_style line_rule">
 								<li>
-									<%= @compares[i].datesprices[0].try(:start_date) %> - <%= @compares[i].datesprices[0].try(:end_date) %>
+									<%= @compares[i].datesprices[0].try(:start_date).try(:strftime, "%Y-%m-%d") %> - <%= @compares[i].datesprices[0].try(:end_date).try(:strftime, "%Y-%m-%d") %>
 									<br> <strong><%= @compares[i].datesprices[0].try(:prices) %></strong>
 								</li>
 							</ul>
