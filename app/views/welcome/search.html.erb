@@ -100,8 +100,9 @@
 					最低价格 
                       ￥<%= travel.priced_from %>
 				</span>
-				<span>
-					<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay(this)" title="<%= travel.interests.first.title %>"><%= travel.interests.first.title %></a>
+				<span style='line-height: 15px'>
+          <img src="images/<%= rand(8) + 1 %>.jpg" alt="" height="10" width="10"  style="width:15px;height:15px;margin-right: 7px;" />
+					<a class="" href="javascript:void(0);" onclick="getSeriesOverlay(this)" title="<%= travel.interests.first.title %>"><%= travel.interests.first.title %></a>
 				</span>
 				<ul class="self_clear clear_list_style clear_margins">
 					<li class="search-description">

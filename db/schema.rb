@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131207012133) do
+ActiveRecord::Schema.define(:version => 20131219125414) do
 
   create_table "banners", :force => true do |t|
     t.string   "name"
@@ -375,6 +375,7 @@ ActiveRecord::Schema.define(:version => 20131207012133) do
     t.text     "desc_mappic"
     t.integer  "gallery_id"
     t.text     "jindian"
+    t.string   "travel_type"
   end
 
   create_table "users", :force => true do |t|

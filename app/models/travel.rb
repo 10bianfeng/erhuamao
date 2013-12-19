@@ -30,4 +30,10 @@ class Travel < ActiveRecord::Base
 
 	# 默认排序
 	default_scope order('created_at DESC')
+
+  def travel_type_icon
+    case self.travel_type
+    when condition
+    end
+  end
 end
