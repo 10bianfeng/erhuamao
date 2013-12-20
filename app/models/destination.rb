@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Destination < ActiveRecord::Base
 	has_ancestry
 	has_many :destination_travels

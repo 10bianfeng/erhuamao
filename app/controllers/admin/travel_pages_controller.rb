@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Admin::TravelPagesController < Admin::BaseController
   before_filter :load_travel
 

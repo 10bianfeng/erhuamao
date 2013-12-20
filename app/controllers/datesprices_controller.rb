@@ -82,3 +82,4 @@ class DatespricesController < ApplicationController
     end
   end
 end
+

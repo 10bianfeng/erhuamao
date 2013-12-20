@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveSeriesNameFromTravel < ActiveRecord::Migration
   def self.up
     remove_column :travels, :series_name

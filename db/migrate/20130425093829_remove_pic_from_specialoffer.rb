@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemovePicFromSpecialoffer < ActiveRecord::Migration
   def self.up
     remove_column :specialoffers, :pic

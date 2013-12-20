@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSpecialoffers < ActiveRecord::Migration
   def self.up
     create_table :specialoffers do |t|

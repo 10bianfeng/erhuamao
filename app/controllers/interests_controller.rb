@@ -24,3 +24,4 @@ class InterestsController < ApplicationController
   end
 
 end
+

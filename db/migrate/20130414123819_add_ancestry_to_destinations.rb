@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAncestryToDestinations < ActiveRecord::Migration
   def self.up
     add_column :destinations, :ancestry, :string

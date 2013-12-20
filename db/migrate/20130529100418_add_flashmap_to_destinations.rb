@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddFlashmapToDestinations < ActiveRecord::Migration
   def self.up
     add_column :destinations, :flashmap, :string

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Customizebooking < ActiveRecord::Base
 	belongs_to :gbooking
 	belongs_to :destination

@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding : utf-8 -*-
 require 'timeout'
 
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE

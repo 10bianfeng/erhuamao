@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddGalleryIdToCity < ActiveRecord::Migration
   def self.up
     add_column :cities, :gallery_id, :integer

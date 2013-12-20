@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Datesprice < ActiveRecord::Base
 	belongs_to :travel
 	has_many :bookings

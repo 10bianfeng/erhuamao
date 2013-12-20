@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePhotocontests < ActiveRecord::Migration
   def self.up
     create_table :photocontests do |t|

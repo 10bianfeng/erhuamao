@@ -88,3 +88,4 @@ class Admin::<%= controller_class_name %>Controller < ApplicationController
     end
   end
 end
+

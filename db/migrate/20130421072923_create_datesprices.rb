@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDatesprices < ActiveRecord::Migration
   def self.up
     create_table :datesprices do |t|

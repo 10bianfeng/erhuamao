@@ -227,3 +227,4 @@ class Admin::TravelsController < Admin::BaseController
   end
 
 end
+

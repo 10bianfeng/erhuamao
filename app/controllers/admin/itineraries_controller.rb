@@ -95,3 +95,4 @@ class Admin::ItinerariesController < Admin::BaseController
     end
   end
 end
+

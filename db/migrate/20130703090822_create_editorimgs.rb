@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateEditorimgs < ActiveRecord::Migration
   def self.up
     create_table :editorimgs do |t|

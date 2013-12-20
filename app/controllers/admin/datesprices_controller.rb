@@ -95,3 +95,4 @@ class Admin::DatespricesController < Admin::BaseController
     end
   end
 end
+

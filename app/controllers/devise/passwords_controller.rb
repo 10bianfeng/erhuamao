@@ -57,3 +57,4 @@ class Devise::PasswordsController < ApplicationController
     end
 
 end
+

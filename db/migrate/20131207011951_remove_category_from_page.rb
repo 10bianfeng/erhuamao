@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveCategoryFromPage < ActiveRecord::Migration
   def self.down
     add_column :pages, :attachable_type, :string

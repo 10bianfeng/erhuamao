@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SpecialofferTravel < ActiveRecord::Base
 	validates_presence_of :specialoffer_id
   validates_presence_of :travel_id

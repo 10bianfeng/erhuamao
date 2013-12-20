@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RemoveResourceTypeFromPhoto < ActiveRecord::Migration
   def self.up
     remove_column :photos, :resource_type

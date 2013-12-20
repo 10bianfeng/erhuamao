@@ -124,3 +124,4 @@ class Admin::InterestsController < Admin::BaseController
   end
 
 end
+

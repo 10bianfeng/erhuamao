@@ -45,3 +45,4 @@ class Devise::ConfirmationsController < ApplicationController
     end
 
 end
+

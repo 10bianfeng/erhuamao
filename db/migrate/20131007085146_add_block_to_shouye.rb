@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddBlockToShouye < ActiveRecord::Migration
   def self.up
     add_column :shouyes, :block_5_cont, :text

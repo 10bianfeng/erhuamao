@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddSomeToUser < ActiveRecord::Migration
   def self.up
     add_column :users, :name, :string

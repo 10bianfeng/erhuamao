@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateBrochureDestinations < ActiveRecord::Migration
   def self.up
     create_table :brochure_destinations do |t|

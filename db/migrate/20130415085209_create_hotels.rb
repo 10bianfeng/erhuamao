@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateHotels < ActiveRecord::Migration
   def self.up
     create_table :hotels do |t|

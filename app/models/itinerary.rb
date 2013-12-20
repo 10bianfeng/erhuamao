@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Itinerary < ActiveRecord::Base
 	belongs_to :travel
 	belongs_to :hotel

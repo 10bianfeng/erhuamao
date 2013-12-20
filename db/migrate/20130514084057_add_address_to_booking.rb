@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAddressToBooking < ActiveRecord::Migration
   def self.up
     add_column :bookings, :address, :string

@@ -93,3 +93,4 @@ class Admin::PhotosController < Admin::BaseController
     end
   end
 end
+

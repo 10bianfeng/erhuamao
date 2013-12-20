@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddCategoryForPage < ActiveRecord::Migration
   def self.up
     add_column :pages, :attachable_type, :string

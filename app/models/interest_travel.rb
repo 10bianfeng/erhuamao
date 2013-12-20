@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class InterestTravel < ActiveRecord::Base
 	validates_presence_of :interest_id
   validates_presence_of :travel_id

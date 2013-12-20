@@ -9,3 +9,4 @@ module ApplicationHelper
     "http://placehold.it/#{width}x#{height}&#{options.to_query}"
   end
 end
+

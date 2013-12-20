@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddJindianToTravels < ActiveRecord::Migration
   def self.up
     add_column :travels, :jindian, :text

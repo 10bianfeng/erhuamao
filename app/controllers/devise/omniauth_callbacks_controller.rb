@@ -25,3 +25,4 @@ class Devise::OmniauthCallbacksController < ApplicationController
     new_session_path(scope)
   end
 end
+

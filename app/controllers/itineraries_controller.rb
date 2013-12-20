@@ -82,3 +82,4 @@ class ItinerariesController < ApplicationController
     end
   end
 end
+

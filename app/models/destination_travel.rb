@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DestinationTravel < ActiveRecord::Base
 	validates_presence_of :destination_id
   validates_presence_of :travel_id

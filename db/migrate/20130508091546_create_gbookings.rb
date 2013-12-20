@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateGbookings < ActiveRecord::Migration
   def self.up
     create_table :gbookings do |t|

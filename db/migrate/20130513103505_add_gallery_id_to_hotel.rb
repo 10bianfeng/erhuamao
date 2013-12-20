@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddGalleryIdToHotel < ActiveRecord::Migration
   def self.up
     add_column :hotels, :gallery_id, :integer

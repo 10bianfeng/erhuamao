@@ -82,3 +82,4 @@ class SpecialoffersController < ApplicationController
     end
   end
 end
+

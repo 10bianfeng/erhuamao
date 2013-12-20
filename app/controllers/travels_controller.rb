@@ -87,3 +87,4 @@ class TravelsController < ApplicationController
     end
   end
 end
+

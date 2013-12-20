@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddTravelAgentToUser < ActiveRecord::Migration
   def self.up
     add_column :users, :travel_agent, :string

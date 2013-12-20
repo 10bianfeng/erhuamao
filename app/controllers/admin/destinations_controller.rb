@@ -125,3 +125,4 @@ class Admin::DestinationsController < Admin::BaseController
   end
   
 end
+

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateInterests < ActiveRecord::Migration
   def self.up
     create_table :interests do |t|

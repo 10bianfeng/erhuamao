@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateShouyes < ActiveRecord::Migration
   def self.up
     create_table :shouyes do |t|

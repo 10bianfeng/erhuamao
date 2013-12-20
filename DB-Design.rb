@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # 旅游线路
 ##Travel
 	have right top pic
