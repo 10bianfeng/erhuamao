@@ -17,14 +17,14 @@
 				<!-- SEARCH FILTERS -->
 				<h2 class="blue-hue">寻找完美假日</h2>
 				<form id="keword-search-form" class="light-form" action="/search" method="">
-				<select id="travel_destination_control" name="destination">
+				<select id="travel_destination_control" name="destination" onchange="changeTravelCount()">
 					<option value="0">按旅游目的地</option>
 					<% @destinations.each do |destination| %>
 					<option value="<%= destination.id %>"><%= destination.name %></option>
 					<% end %>
 				</select>
 				<p id="travel_destination_control_filter"></p>
-				<select id="travel_interest_control" name="interest">
+				<select id="travel_interest_control" name="interest" onchange="changeTravelCount()">
 					<option value="">按旅游兴趣</option>
 					<% @interests.each do |interest| %>
 					<option value="<%= interest.id %>"><%= interest.title %></option>
@@ -32,7 +32,7 @@
 				</select>
 				<p id="travel_interest_control_filter"></p>
 
-				<select id="departure_date_control" name="date">
+				<select id="departure_date_control" name="date" onchange="changeTravelCount()">
 					<option value="0_0">按出行日期</option>
 
 					<% @months.each do |month| %>
@@ -41,7 +41,7 @@
 
 				</select>
 				<p id="departure_date_control_filter"></p>
-				<select id="price_range_control" name="price_start">
+				<select id="price_range_control" name="price_start" onchange="changeTravelCount()">
 					<option value="0_0">按价格区间</option>
 					<option value="0_5000">少于 ￥5,000</option>
 					<option value="5000_9999">￥5,000 - ￥9,999</option>
@@ -191,5 +191,4 @@
 	</div>
 </div>
 
-<%= content_for :footer do %>
-<% end %>
+

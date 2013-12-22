@@ -195,6 +195,7 @@ Erhuamao::Application.routes.draw do
   get 'admin' => 'admin/base#index'
   get 'admin/handle' => 'admin/base#handle'
   get 'search' => 'welcome#search'
+  get 'travel_count' => 'welcome#travel_count'
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
