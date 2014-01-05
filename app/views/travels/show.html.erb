@@ -64,6 +64,9 @@
 				<div id="tab1" class="tab_item">
 					<h2>线路介绍</h2>
 					<div class="trip_overview">
+						<p>
+							帝国旅行可根据您的品味，围绕您想访问的名胜古迹及热衷参与的活动类型为您创建个性化的订制旅行线路。请拨打4000-917-321我们的客服热线或填写以下表格来开启创建您专属的私家旅程。我们的资深线路设计专家将与您进一步沟通并为您奉上合意的订制行程。
+						</p>
 						<div class="self_clear">
 							<div id="mini_map">
 								<img width="205px" title="<%= @travel.name %>" alt="<%= @travel.name %>" src="<%= @travel.desc_mappic.url %>">
@@ -85,11 +88,11 @@
 									天数:
 								</li>
 								<li>
-									<span><%= @travel.departures %></span>
+									<span><%= @travel.departures.size == 0 ? "订制发团" : @travel.departures.size %></span>
 									发团数量:
 								</li>
 								<li>
-									<span><%= @travel.max_group_size %></span>
+									<span><%=  @travel.max_group_size == 0 ? "按需订制" : @travel.max_group_size %></span>
 									团队规模:
 								</li>
 							</ul>
@@ -176,6 +179,42 @@
 				</div>
 				<div id="tab3" class="hide tab_item">
 					<h2>团期和价格</h2>
+					<div class="trip_overview">
+						<p>
+							帝国旅行可根据您的品味，围绕您想访问的名胜古迹及热衷参与的活动类型为您创建个性化的订制旅行线路。请拨打4000-917-321我们的客服热线或填写以下表格来开启创建您专属的私家旅程。我们的资深线路设计专家将与您进一步沟通并为您奉上合意的订制行程。
+						</p>
+						<div class="self_clear">
+							<div id="mini_map">
+								<img width="205px" title="<%= @travel.name %>" alt="<%= @travel.name %>" src="<%= @travel.desc_mappic.url %>">
+							</div>
+							<img src="<%= @travel.cover.url %>" alt="<%= @travel.name %>" title="View <%= @travel.name %>" width="125" height="125">
+							<ul class="align_edges line_rule clear_margins">
+								<li>
+									<span>
+										<a class="icon luxury amp" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
+									</span>
+									系列:
+								</li>
+								<li>
+									<span>￥<%= @travel.priced_from %></span>
+									最低价格:
+								</li>
+								<li>
+									<span><%= @travel.days_count %></span>
+									天数:
+								</li>
+								<li>
+									<span><%= @travel.departures.size == 0 ? "订制发团" : @travel.departures.size %></span>
+									发团数量:
+								</li>
+								<li>
+									<span><%=  @travel.max_group_size == 0 ? "按需订制" : @travel.max_group_size %></span>
+									团队规模:
+								</li>
+							</ul>
+						</div>
+					</div>
+
 					<p>价格为人民币单人价格, 标准间。</p>
 					<div id="price_departure_box" class="self_clear hide">
 						<div>
@@ -255,6 +294,208 @@
 
 						</dl>
 					</div>
+					<% if @travel.departures.size == 0 %>
+					<hr>
+					<p>我们在努力为您提供贴心的个性化订制服务的同时也尊重您的个人隐私及保护您所提供的个人信息。请注明帝国旅行与您的首选联系方式。
+						<br><span style="font-style:italic;">
+您还可以通过帝国旅行预订前往目的地国家的国际或内陆航班机票、安排行程开启前或行程结束后的宾馆住宿及机场接送等贴心服务；或购买帝国“安达”旅行保障计划来确保您的顺利出行或进一步升级您的出行体验。了解更多（斜字体）
+					</span>
+					</p>
+					<p>
+						<form action="/questions" id="faq_form" method="post" name="faq_form" class="uniForm">
+							<fieldset class="inlineLabels">
+								<h3>向我们提问</h3>
+								<div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
+									<p class="errorFieldHide" id="contact_preference_err"></p>
+									<p class="label ">最佳联系方式</p>
+									<label for="contact_preference-1" class="inlineLabel">
+										<input name="question[preferred_contact_method]" id="contact_preference-1" type="radio" value="Email" checked="checked" class="" tabindex="1">邮箱</label>
+									<label for="contact_preference-2" class="inlineLabel">
+										<input name="question[preferred_contact_method]" id="contact_preference-2" type="radio" value="Daytime Phone" class="" tabindex="1">电话</label>
+								</div>
+								<div id="ctrlHolder_email" class="ctrlHolder">
+									<p class="errorFieldHide" id="email_err">Enter a valid email address</p>
+									<label for="email" class="required"> <em>*</em>
+										邮箱
+									</label>
+									<input name="question[email]" id="email" value="" size="30" type="text" class="required email" tabindex="2">          
+								</div>
+								<div id="ctrlHolder_title" class="ctrlHolder">
+									<p class="errorFieldHide" id="title_err">Select your title</p>
+									<label for="title" class="required">
+										<em>*</em>
+										性别
+									</label>
+									<select name="question[mrs_title]" id="title" class="required" tabindex="3">
+										<option value="0">请选择性别</option>
+										<option value="153">男士</option>
+										<option value="154">女士</option>
+									</select>
+								</div>
+								<div id="ctrlHolder_firstName" class="ctrlHolder">
+									<p class="errorFieldHide" id="firstName_err">Enter your first name</p>
+									<label for="firstName" class="required">
+										<em>*</em>
+										您的名字
+									</label>
+									<input name="question[first_name]" id="firstName" value="" size="30" type="text" class="required" tabindex="4">          
+								</div>
+								<div id="ctrlHolder_country" class="ctrlHolder">
+									<p class="errorFieldHide" id="country_err">Select a country</p>
+									<label for="country" class="required">
+										<em>*</em>
+										国家
+									</label>
+									<select name="question[country]" id="country" class="required" tabindex="6">
+										<option value="0">请选择国家</option>
+										<option>阿尔及利亚</option>
+        <option>阿富汗</option>
+        <option>阿根廷</option>
+        <option>阿联酋</option>
+        <option>阿曼</option>
+        <option>阿塞拜疆</option>
+        <option>埃及</option>
+        <option>埃塞俄比亚</option>
+        <option>爱尔兰</option>
+        <option>安哥拉</option>
+        <option>奥地利</option>
+        <option>澳大利亚</option>
+        <option>巴布亚新几内亚</option>
+        <option>巴基斯坦</option>
+        <option>巴林</option>
+        <option>巴西</option>
+        <option>白俄罗斯</option>
+        <option>保加利亚</option>
+        <option>贝宁</option>
+        <option>比利时</option>
+        <option>冰岛</option>
+        <option>波黑</option>
+        <option>波兰</option>
+        <option>博茨瓦纳</option>
+        <option>朝鲜</option>
+        <option>赤道几内亚</option>
+        <option>大溪地</option>
+        <option>丹麦</option>
+        <option>德国</option>
+        <option>多哥</option>
+        <option>俄罗斯</option>
+        <option>厄瓜多尔</option>
+        <option>厄立特里亚</option>
+        <option>法国</option>
+        <option>菲律宾</option>
+        <option>斐济</option>
+        <option>芬兰</option>
+        <option>佛得角</option>
+        <option>刚果(布)</option>
+        <option>刚果(金)</option>
+        <option>高棉</option>
+        <option>古巴</option>
+        <option>圭亚那</option>
+        <option>哈萨克斯坦</option>
+        <option>韩国</option>
+        <option>荷兰</option>
+        <option>吉尔吉斯斯坦</option>
+        <option>几内亚</option>
+        <option>加拿大</option>
+        <option>加纳</option>
+        <option>柬埔寨</option>
+        <option>捷克</option>
+        <option>津巴布韦</option>
+        <option>喀麦隆</option>
+        <option>卡塔尔</option>
+        <option>科威特</option>
+        <option>肯尼亚</option>
+        <option>老挝</option>
+        <option>黎巴嫩</option>
+        <option>立陶宛</option>
+        <option>利比亚</option>
+        <option>罗马尼亚</option>
+        <option>马达加斯加</option>
+        <option>马来西亚</option>
+        <option>马里</option>
+        <option>马其顿</option>
+        <option>毛里求斯</option>
+        <option>毛里塔尼亚</option>
+        <option>美国</option>
+        <option>蒙古</option>
+        <option>孟加拉国</option>
+        <option>秘鲁</option>
+        <option>缅甸</option>
+        <option>摩洛哥</option>
+        <option>摩洛哥公国</option>
+        <option>莫桑比克</option>
+        <option>墨西哥</option>
+        <option>纳米比亚</option>
+        <option>南非</option>
+        <option>尼泊尔</option>
+        <option>尼日利亚</option>
+        <option>葡萄牙</option>
+        <option>日本</option>
+        <option>瑞典</option>
+        <option>瑞士</option>
+        <option>沙特阿拉伯</option>
+        <option>斯里兰卡</option>
+        <option>斯洛伐克</option>
+        <option>苏丹</option>
+        <option>塔吉克斯坦</option>
+        <option>泰国</option>
+        <option>坦桑尼亚</option>
+        <option>突尼斯</option>
+        <option>土耳其</option>
+        <option>土库曼斯坦</option>
+        <option>委内瑞拉</option>
+        <option>文莱</option>
+        <option>乌干达</option>
+        <option>乌克兰</option>
+        <option>乌拉圭</option>
+        <option>乌兹别克斯坦</option>
+        <option>西班牙</option>
+        <option>希腊</option>
+        <option>新加坡</option>
+        <option>新西兰</option>
+        <option>匈牙利</option>
+        <option>叙利亚</option>
+        <option>牙买加</option>
+        <option>亚美尼亚</option>
+        <option>也门</option>
+        <option>伊拉克</option>
+        <option>伊朗</option>
+        <option>以色列</option>
+        <option>意大利</option>
+        <option>印度</option>
+        <option>印尼</option>
+        <option>英国</option>
+        <option>约旦</option>
+        <option>越南</option>
+        <option>赞比亚</option>
+        <option selected="selected">中国</option>
+        <option>中国澳门</option>
+        <option>中国台湾</option>
+        <option>中国香港</option> 
+									</select>
+								</div>
+								<div id="ctrlHolder_workphone" class="ctrlHolder">
+									<p class="errorFieldHide" id="workphone_err"></p>
+									<label for="workphone" class="">电话</label>
+									<input name="question[phone]" id="workphone" value="" size="30" type="text" class="" tabindex="7">
+								</div>
+								
+								<div id="ctrlHolder_question" class="ctrlHolder">
+									<p class="errorFieldHide" id="question_err">Ask your question here:</p>
+									<label for="question" class="required">
+										<em>*</em>
+										您的问题
+									</label>
+									<textarea name="question[question]" id="question" rows="7" cols="60" class="required textInput" tabindex="9">我想咨询关于<%= @travel.name %>
+									</textarea>
+								</div>
+								<input name="question[travel_id]" id="submitid" value="<%= @travel.id %>" type="hidden">         
+								</fieldset>
+							<div class="buttonHolder">
+								<input type="submit" name="submit_btn" id="submit_btn" value="提交问题" class="uniFormButton" onclick="" tabindex="10"></div>
+						</form>
+					</p>
+					<% end %>
 					<hr>
 					<p></p>
 					<h3 style="font-weight:normal;">提示:</h3>
@@ -305,11 +546,11 @@
 											天数:
 										</li>
 										<li>
-											<span><%= extend_travel.departures %></span>
+											<span><%= extend_travel.departures.size == 0 ? "按需订制" : extend_travel.departures.size %></span>
 											发团数量:
 										</li>
 										<li>
-											<span><%= extend_travel.max_group_size %></span>
+											<span><%= extend_travel.max_group_size == 0 ? "按需订制" : extend_travel.max_group_size %></span>
 											最大团队规模:
 										</li>
 									</ul>
@@ -372,242 +613,130 @@
 									</label>
 									<select name="question[country]" id="country" class="required" tabindex="6">
 										<option value="0">请选择国家</option>
-										<option value="226">United States</option>
-										<option value="1">Afghanistan</option>
-										<option value="2">Albania</option>
-										<option value="3">Algeria</option>
-										<option value="4">American Samoa</option>
-										<option value="5">Andorra</option>
-										<option value="6">Angola</option>
-										<option value="7">Anguilla</option>
-										<option value="8">Antarctica</option>
-										<option value="9">Antigua and Barbuda</option>
-										<option value="245">Arctic</option>
-										<option value="10">Argentina</option>
-										<option value="11">Armenia</option>
-										<option value="12">Aruba</option>
-										<option value="13">Australia</option>
-										<option value="14">Austria</option>
-										<option value="15">Azerbaijan</option>
-										<option value="16">Bahamas</option>
-										<option value="17">Bahrain</option>
-										<option value="18">Bangladesh</option>
-										<option value="19">Barbados</option>
-										<option value="20">Belarus</option>
-										<option value="21">Belgium</option>
-										<option value="22">Belize</option>
-										<option value="23">Benin</option>
-										<option value="24">Bermuda</option>
-										<option value="25">Bhutan</option>
-										<option value="26">Bolivia</option>
-										<option value="27">Bosnia and Herzegovina</option>
-										<option value="28">Botswana</option>
-										<option value="29">Bouvet Island</option>
-										<option value="30">Brazil</option>
-										<option value="31">British Indian Ocean Territory</option>
-										<option value="32">Brunei Darussalam</option>
-										<option value="33">Bulgaria</option>
-										<option value="34">Burkina Faso</option>
-										<option value="35">Burundi</option>
-										<option value="36">Cambodia</option>
-										<option value="37">Cameroon</option>
-										<option value="38">Canada</option>
-										<option value="39">Cape Verde</option>
-										<option value="40">Cayman Islands</option>
-										<option value="41">Central African Republic</option>
-										<option value="42">Chad</option>
-										<option value="43">Chile</option>
-										<option value="44" selected="selected">China</option>
-										<option value="45">Christmas Island</option>
-										<option value="46">Cocos (Keeling) Islands</option>
-										<option value="47">Colombia</option>
-										<option value="48">Comoros</option>
-										<option value="49">Congo</option>
-										<option value="50">Congo, the Democratic Republic of the</option>
-										<option value="51">Cook Islands</option>
-										<option value="52">Costa Rica</option>
-										<option value="53">Cote D'Ivoire</option>
-										<option value="54">Croatia</option>
-										<option value="55">Cuba</option>
-										<option value="56">Cyprus</option>
-										<option value="57">Czech Republic</option>
-										<option value="58">Denmark</option>
-										<option value="59">Djibouti</option>
-										<option value="60">Dominica</option>
-										<option value="61">Dominican Republic</option>
-										<option value="62">Ecuador &amp; Galápagos</option>
-										<option value="63">Egypt</option>
-										<option value="64">El Salvador</option>
-										<option value="65">Equatorial Guinea</option>
-										<option value="66">Eritrea</option>
-										<option value="67">Estonia</option>
-										<option value="68">Ethiopia</option>
-										<option value="69">Falkland Islands (Malvinas)</option>
-										<option value="70">Faroe Islands</option>
-										<option value="71">Fiji</option>
-										<option value="72">Finland</option>
-										<option value="73">France</option>
-										<option value="74">French Guiana</option>
-										<option value="75">French Polynesia</option>
-										<option value="76">French Southern Territories</option>
-										<option value="77">Gabon</option>
-										<option value="78">Gambia</option>
-										<option value="79">Georgia</option>
-										<option value="80">Germany</option>
-										<option value="81">Ghana</option>
-										<option value="82">Gibraltar</option>
-										<option value="83">Greece</option>
-										<option value="84">Greenland</option>
-										<option value="85">Grenada</option>
-										<option value="86">Guadeloupe</option>
-										<option value="87">Guam</option>
-										<option value="88">Guatemala</option>
-										<option value="89">Guinea</option>
-										<option value="90">Guinea-Bissau</option>
-										<option value="91">Guyana</option>
-										<option value="92">Haiti</option>
-										<option value="93">Heard Island and McDonald Islands</option>
-										<option value="94">Holy See (Vatican City State)</option>
-										<option value="95">Honduras</option>
-										<option value="96">Hong Kong</option>
-										<option value="97">Hungary</option>
-										<option value="98">Iceland</option>
-										<option value="99">India</option>
-										<option value="100">Indonesia</option>
-										<option value="101">Iran</option>
-										<option value="102">Iraq</option>
-										<option value="103">Ireland</option>
-										<option value="104">Israel</option>
-										<option value="105">Italy</option>
-										<option value="106">Jamaica</option>
-										<option value="107">Japan</option>
-										<option value="108">Jordan</option>
-										<option value="109">Kazakhstan</option>
-										<option value="110">Kenya</option>
-										<option value="111">Kiribati</option>
-										<option value="114">Kuwait</option>
-										<option value="115">Kyrgyzstan</option>
-										<option value="116">Laos</option>
-										<option value="117">Latvia</option>
-										<option value="118">Lebanon</option>
-										<option value="119">Lesotho</option>
-										<option value="120">Liberia</option>
-										<option value="121">Libya</option>
-										<option value="122">Liechtenstein</option>
-										<option value="123">Lithuania</option>
-										<option value="124">Luxembourg</option>
-										<option value="125">Macau</option>
-										<option value="126">Macedonia</option>
-										<option value="127">Madagascar</option>
-										<option value="128">Malawi</option>
-										<option value="129">Malaysia</option>
-										<option value="130">Maldives</option>
-										<option value="131">Mali</option>
-										<option value="132">Malta</option>
-										<option value="133">Marshall Islands</option>
-										<option value="134">Martinique</option>
-										<option value="135">Mauritania</option>
-										<option value="136">Mauritius</option>
-										<option value="137">Mayotte</option>
-										<option value="138">Mexico</option>
-										<option value="139">Micronesia, Federated States of</option>
-										<option value="140">Moldova</option>
-										<option value="141">Monaco</option>
-										<option value="142">Mongolia</option>
-										<option value="143">Montserrat</option>
-										<option value="144">Morocco</option>
-										<option value="145">Mozambique</option>
-										<option value="146">Myanmar (Burma)</option>
-										<option value="147">Namibia</option>
-										<option value="148">Nauru</option>
-										<option value="149">Nepal</option>
-										<option value="150">Netherlands</option>
-										<option value="151">Netherlands Antilles</option>
-										<option value="152">New Caledonia</option>
-										<option value="153">New Zealand</option>
-										<option value="154">Nicaragua</option>
-										<option value="155">Niger</option>
-										<option value="156">Nigeria</option>
-										<option value="157">Niue</option>
-										<option value="158">Norfolk Island</option>
-										<option value="112">North Korea</option>
-										<option value="159">Northern Mariana Islands</option>
-										<option value="160">Norway</option>
-										<option value="161">Oman</option>
-										<option value="162">Pakistan</option>
-										<option value="163">Palau</option>
-										<option value="165">Panama</option>
-										<option value="166">Papua New Guinea</option>
-										<option value="167">Paraguay</option>
-										<option value="168">Peru</option>
-										<option value="169">Philippines</option>
-										<option value="170">Pitcairn Islands</option>
-										<option value="171">Poland</option>
-										<option value="172">Portugal</option>
-										<option value="174">Qatar</option>
-										<option value="175">Reunion</option>
-										<option value="176">Romania</option>
-										<option value="177">Russia</option>
-										<option value="178">Rwanda</option>
-										<option value="179">Saint Helena</option>
-										<option value="180">Saint Kitts and Nevis</option>
-										<option value="181">Saint Lucia</option>
-										<option value="182">Saint Pierre and Miquelon</option>
-										<option value="183">Saint Vincent and the Grenadines</option>
-										<option value="184">Samoa</option>
-										<option value="185">San Marino</option>
-										<option value="186">Sao Tome and Principe</option>
-										<option value="187">Saudi Arabia</option>
-										<option value="188">Senegal</option>
-										<option value="190">Seychelles</option>
-										<option value="191">Sierra Leone</option>
-										<option value="192">Singapore</option>
-										<option value="193">Slovakia</option>
-										<option value="194">Slovenia</option>
-										<option value="195">Solomon Islands</option>
-										<option value="196">Somalia</option>
-										<option value="197">South Africa</option>
-										<option value="198">South Georgia and the South Sandwich Islands</option>
-										<option value="113">South Korea</option>
-										<option value="199">Spain</option>
-										<option value="200">Sri Lanka</option>
-										<option value="201">Sudan</option>
-										<option value="202">Suriname</option>
-										<option value="203">Svalbard and Jan Mayen</option>
-										<option value="204">Swaziland</option>
-										<option value="205">Sweden</option>
-										<option value="206">Switzerland</option>
-										<option value="207">Syria</option>
-										<option value="208">Taiwan</option>
-										<option value="209">Tajikistan</option>
-										<option value="210">Tanzania</option>
-										<option value="211">Thailand</option>
-										<option value="213">Togo</option>
-										<option value="214">Tokelau</option>
-										<option value="215">Tonga</option>
-										<option value="216">Trinidad and Tobago</option>
-										<option value="217">Tunisia</option>
-										<option value="218">Turkey</option>
-										<option value="219">Turkmenistan</option>
-										<option value="220">Turks and Caicos Islands</option>
-										<option value="221">Tuvalu</option>
-										<option value="222">Uganda</option>
-										<option value="223">Ukraine</option>
-										<option value="224">United Arab Emirates</option>
-										<option value="225">United Kingdom</option>
-										<option value="227">United States Minor Outlying Islands</option>
-										<option value="228">Uruguay</option>
-										<option value="229">Uzbekistan</option>
-										<option value="230">Vanuatu</option>
-										<option value="231">Venezuela</option>
-										<option value="232">Vietnam</option>
-										<option value="233">Virgin Islands, British</option>
-										<option value="234">Virgin Islands, U.S.</option>
-										<option value="235">Wallis and Futuna</option>
-										<option value="236">Western Sahara</option>
-										<option value="237">Yemen</option>
-										<option value="238">Zambia</option>
-										<option value="239">Zimbabwe</option>
+										<option>阿尔及利亚</option>
+        <option>阿富汗</option>
+        <option>阿根廷</option>
+        <option>阿联酋</option>
+        <option>阿曼</option>
+        <option>阿塞拜疆</option>
+        <option>埃及</option>
+        <option>埃塞俄比亚</option>
+        <option>爱尔兰</option>
+        <option>安哥拉</option>
+        <option>奥地利</option>
+        <option>澳大利亚</option>
+        <option>巴布亚新几内亚</option>
+        <option>巴基斯坦</option>
+        <option>巴林</option>
+        <option>巴西</option>
+        <option>白俄罗斯</option>
+        <option>保加利亚</option>
+        <option>贝宁</option>
+        <option>比利时</option>
+        <option>冰岛</option>
+        <option>波黑</option>
+        <option>波兰</option>
+        <option>博茨瓦纳</option>
+        <option>朝鲜</option>
+        <option>赤道几内亚</option>
+        <option>大溪地</option>
+        <option>丹麦</option>
+        <option>德国</option>
+        <option>多哥</option>
+        <option>俄罗斯</option>
+        <option>厄瓜多尔</option>
+        <option>厄立特里亚</option>
+        <option>法国</option>
+        <option>菲律宾</option>
+        <option>斐济</option>
+        <option>芬兰</option>
+        <option>佛得角</option>
+        <option>刚果(布)</option>
+        <option>刚果(金)</option>
+        <option>高棉</option>
+        <option>古巴</option>
+        <option>圭亚那</option>
+        <option>哈萨克斯坦</option>
+        <option>韩国</option>
+        <option>荷兰</option>
+        <option>吉尔吉斯斯坦</option>
+        <option>几内亚</option>
+        <option>加拿大</option>
+        <option>加纳</option>
+        <option>柬埔寨</option>
+        <option>捷克</option>
+        <option>津巴布韦</option>
+        <option>喀麦隆</option>
+        <option>卡塔尔</option>
+        <option>科威特</option>
+        <option>肯尼亚</option>
+        <option>老挝</option>
+        <option>黎巴嫩</option>
+        <option>立陶宛</option>
+        <option>利比亚</option>
+        <option>罗马尼亚</option>
+        <option>马达加斯加</option>
+        <option>马来西亚</option>
+        <option>马里</option>
+        <option>马其顿</option>
+        <option>毛里求斯</option>
+        <option>毛里塔尼亚</option>
+        <option>美国</option>
+        <option>蒙古</option>
+        <option>孟加拉国</option>
+        <option>秘鲁</option>
+        <option>缅甸</option>
+        <option>摩洛哥</option>
+        <option>摩洛哥公国</option>
+        <option>莫桑比克</option>
+        <option>墨西哥</option>
+        <option>纳米比亚</option>
+        <option>南非</option>
+        <option>尼泊尔</option>
+        <option>尼日利亚</option>
+        <option>葡萄牙</option>
+        <option>日本</option>
+        <option>瑞典</option>
+        <option>瑞士</option>
+        <option>沙特阿拉伯</option>
+        <option>斯里兰卡</option>
+        <option>斯洛伐克</option>
+        <option>苏丹</option>
+        <option>塔吉克斯坦</option>
+        <option>泰国</option>
+        <option>坦桑尼亚</option>
+        <option>突尼斯</option>
+        <option>土耳其</option>
+        <option>土库曼斯坦</option>
+        <option>委内瑞拉</option>
+        <option>文莱</option>
+        <option>乌干达</option>
+        <option>乌克兰</option>
+        <option>乌拉圭</option>
+        <option>乌兹别克斯坦</option>
+        <option>西班牙</option>
+        <option>希腊</option>
+        <option>新加坡</option>
+        <option>新西兰</option>
+        <option>匈牙利</option>
+        <option>叙利亚</option>
+        <option>牙买加</option>
+        <option>亚美尼亚</option>
+        <option>也门</option>
+        <option>伊拉克</option>
+        <option>伊朗</option>
+        <option>以色列</option>
+        <option>意大利</option>
+        <option>印度</option>
+        <option>印尼</option>
+        <option>英国</option>
+        <option>约旦</option>
+        <option>越南</option>
+        <option>赞比亚</option>
+        <option selected="selected">中国</option> 
+        <option>中国澳门</option>
+        <option>中国台湾</option>
+        <option>中国香港</option> 
 									</select>
 								</div>
 								<div id="ctrlHolder_workphone" class="ctrlHolder">
@@ -617,12 +746,12 @@
 								</div>
 								
 								<div id="ctrlHolder_question" class="ctrlHolder">
-									<p class="errorFieldHide" id="question_err">Ask your question here:</p>
 									<label for="question" class="required">
 										<em>*</em>
 										您的问题
 									</label>
-									<textarea name="question[question]" id="question" rows="7" cols="60" class="required textInput" tabindex="9"></textarea>
+									<textarea name="question[question]" id="question" rows="7" cols="60" class="required textInput" tabindex="9">我想咨询关于<%= @travel.name %>
+									</textarea>
 								</div>
 								<input name="question[travel_id]" id="submitid" value="<%= @travel.id %>" type="hidden">         
 								</fieldset>

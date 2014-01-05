@@ -40,6 +40,6 @@ class Travel < ActiveRecord::Base
 
   def interest_icon
     iname = self.interests.first.title
-    (["奢华小众游", "经典团队游", "私家定制游", "邮轮旅游", "非洲游猎", "求婚&蜜月", "心灵疗养", "亲子假期", "居游"].index(iname) || 0) + 1
+    (["奢华小众游", "经典团队游", "私家订制游", "邮轮旅游", "非洲游猎", "求婚&蜜月", "心灵疗养", "亲子假期", "居游"].index(iname) || 0) + 1
   end
 end

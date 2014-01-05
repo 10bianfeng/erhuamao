@@ -138,7 +138,7 @@ class WelcomeController < ApplicationController
       @travels = Travel.page(params[:page])
     end
 
-    render :inline => "<strong>#{@travels.count} 旅游线路</strong>"
+    render :inline => "<strong>#{@travels.count} </strong>"
   end
 end
 
