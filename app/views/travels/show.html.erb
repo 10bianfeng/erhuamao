@@ -183,7 +183,7 @@
           <% end %>
           </dl>
         </div>
-        <div id="tab3" class="hide tab_item">
+        <div id="tab3" class="hide tab_item round_corners color_f2f2f2" style='padding: 15px'>
           <h2>团期和价格</h2>
           <div class="trip_overview">
             <p>
@@ -241,7 +241,7 @@
               If the price goes down after you book, we will refund the difference — guaranteed.
             </div>
           </div>
-          <div id="dates_prices">
+          <div id="dates_prices" class='round_corners color_f2f2f2'>
             <dl class="expando">
 
               <% @travel.datesprices.each_with_index do |datesprice, index| %>
@@ -308,17 +308,14 @@
 
             </dl>
           </div>
-          <% if @travel.departures.blank? %>
-            <hr>
-          <p>我们在努力为您提供贴心的个性化订制服务的同时也尊重您的个人隐私及保护您所提供的个人信息。请注明帝国旅行与您的首选联系方式。
-          <br><span style="font-style:italic;">
-            您还可以通过帝国旅行预订前往目的地国家的国际或内陆航班机票、安排行程开启前或行程结束后的宾馆住宿及机场接送等贴心服务；或购买帝国“安达”旅行保障计划来确保您的顺利出行或进一步升级您的出行体验。了解更多（斜字体）
-          </span>
+          <% if true || @travel.departures.blank? %>
           </p>
           <p>
           <form action="/questions" id="faq_form" method="post" name="faq_form" class="uniForm">
             <fieldset class="inlineLabels">
               <h3>向我们提问</h3>
+
+            <p>我们在努力为您提供贴心的个性化订制服务的同时也尊重您的个人隐私及保护您所提供的个人信息。请注明帝国旅行与您的首选联系方式。 </p>
               <div id="ctrlHolder_contact_preference" class="ctrlHolder borderTop">
                 <p class="errorFieldHide" id="contact_preference_err"></p>
                 <p class="label ">最佳联系方式</p>
@@ -507,6 +504,11 @@
             </fieldset>
             <div class="buttonHolder">
               <input type="submit" name="submit_btn" id="submit_btn" value="提交问题" class="uniFormButton" onclick="" tabindex="10"></div>
+            
+              <p> 您还可以通过帝国旅行预订前往目的地国家的国际或内陆航班机票、安排行程开启前或行程结束后的宾馆住宿及机场接送等贴心服务；或购买帝国“安达”旅行保障计划来确保您的顺利出行或进一步升级您的出行体验。
+
+              <%= link_to "了解更多", "http://www.infinitytravel.com.cn/pages/1" %>
+               </p> 
           </form>
           </p>
         <% end %>
@@ -779,7 +781,8 @@
               </fieldset>
               <div class="buttonHolder">
                 <input type="submit" name="submit_btn" id="submit_btn" value="提交问题" class="uniFormButton" onclick="" tabindex="10"></div>
-            </form>
+
+          </form>
           </div>
         </div>
 
