@@ -174,7 +174,7 @@
               <br />
             <em><a class="icon camera_white" href="javascript:void(0);"
                 onclick="modal_slides(<%= itinerary.hotel.gallery.id %>)"><%= itinerary.hotel.name %></a></em> 
-            &nbsp;&nbsp;|&nbsp;&nbsp;
+            
             <em>餐食: <%= itinerary.meals %></em>
           <% end %>
             <!-- popout modals  -->
@@ -183,12 +183,14 @@
           <% end %>
           </dl>
         </div>
-        <div id="tab3" class="hide tab_item round_corners color_f2f2f2" style='padding: 15px'>
+        <div id="tab3" class="hide tab_item">
           <h2>团期和价格</h2>
-          <div class="trip_overview">
             <p>
             帝国旅行可根据您的品味，围绕您想访问的名胜古迹及热衷参与的活动类型为您创建个性化的订制旅行线路。请拨打4000-917-321我们的客服热线或填写以下表格来开启创建您专属的私家旅程。我们的资深线路设计专家将与您进一步沟通并为您奉上合意的订制行程。
             </p>
+            <div class='round_corners color_f2f2f2' style='padding: 15px'>
+              
+          <div class="trip_overview">
             <div class="self_clear">
               <div id="mini_map">
                 <img width="205px" title="<%= @travel.name %>" alt="<%= @travel.name %>" src="<%= @travel.desc_mappic.url %>">
@@ -831,6 +833,7 @@
         </div>				
         <!-- TRIP NAVIGATION BOTTOM -->
       </div>
+      </div>
     </div>
 
 
@@ -997,3 +1000,4 @@ $('<p>Someting goes wrong, please try again later.</p>').appendTo('#popout_modal
 }
     </script>
   <% end %>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
