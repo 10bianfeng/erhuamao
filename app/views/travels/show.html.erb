@@ -89,7 +89,7 @@
 								</li>
 								<li>
                 <span>
-                  <%= (@travel.departures && @travel.departures.size == 0) ? "订制发团" : @travel.departures.size %>
+                  <%= (@travel.departures && (@travel.departures.try(:size) == 0)) ? "订制发团" : @travel.departures.size %>
               </span>
 									发团数量:
 								</li>
