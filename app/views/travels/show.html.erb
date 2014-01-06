@@ -210,7 +210,15 @@
                 天数:
                 </li>
                 <li>
-                <span><%= @travel.departures.size == 0 ? "订制发团" : @travel.departures.size %></span>
+
+                <span>
+                  <% if @travel.departures.present? %>
+                    <%= @travel.departures.size %>
+                <% else %>
+                    订制发团
+                <% end %>
+                </span>
+
                 发团数量:
                 </li>
                 <li>
