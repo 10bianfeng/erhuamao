@@ -560,7 +560,15 @@
                   天数:
                   </li>
                   <li>
-                  <span><%= extend_travel.departures.size == 0 ? "按需订制" : extend_travel.departures.size %></span>
+                  <span>
+
+                  <% if extend_travel.departures.present? %>
+                    <%= extend_travel.departures.size %>
+                <% else %>
+                    订制发团
+                <% end %>
+
+                </span>
                   发团数量:
                   </li>
                   <li>
