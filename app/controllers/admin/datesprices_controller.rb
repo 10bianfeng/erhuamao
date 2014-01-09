@@ -90,7 +90,13 @@ class Admin::DatespricesController < Admin::BaseController
     @datesprice.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_datesprices_url) }
+      format.html { 
+        if params[:travel_id]
+          redirect_to(admin_travels_path) 
+        else
+          redirect_to(admin_datesprices_url) 
+        end
+      }
       format.xml  { head :ok }
     end
   end

@@ -32,7 +32,10 @@
           <tr>
             <td><%= itinerary.sort %></td>
             <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>"><%= itinerary.name %></a></td>
-            <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/itineraries/<%= itinerary.id %>/edit">编辑</a> /
+             
+              <%= link_to "删除", admin_travel_itinerary_path(travel, itinerary), :method => :delete %>
+              </td>
             <td></td>
           </tr>
           <% end %>
@@ -46,7 +49,9 @@
           <% travel.datesprices.each do |datesprice| %>
           <tr>
             <td><a href="/admin/travels/<%= travel.id %>/datesprices/<%= datesprice.id %>"><%= datesprice.start_date %></a></td>
-            <td><a href="/admin/travels/<%= travel.id %>/datesprices/<%= datesprice.id %>/edit">编辑</a> / <a href="">删除</a></td>
+            <td><a href="/admin/travels/<%= travel.id %>/datesprices/<%= datesprice.id %>/edit">编辑</a> / 
+              <%= link_to "删除", admin_travel_datesprice_path(travel, datesprice), :method => :delete %>
+            </td>
             <td></td>
           </tr>
           <% end %>

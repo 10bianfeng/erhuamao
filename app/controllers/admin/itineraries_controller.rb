@@ -90,7 +90,13 @@ class Admin::ItinerariesController < Admin::BaseController
     @itinerary.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_itineraries_url) }
+      format.html { 
+        if params[:travel_id]
+          redirect_to admin_travels_path
+        else
+        redirect_to(admin_itineraries_url)
+        end
+      }
       format.xml  { head :ok }
     end
   end
