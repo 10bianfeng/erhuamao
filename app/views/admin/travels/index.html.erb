@@ -4,6 +4,7 @@
 <table class="table table-striped table-bordered"> 
   <tr>
     <th>ID</th>
+    <th>POSITION</th>
     <th>Name</th>
     <th>日程</th>
     <th>团期</th>
@@ -20,6 +21,10 @@
   <tr>
     <td>
       <%= travel.id %>
+    </td>
+
+    <td>
+      <%= travel.position %>
     </td>
     <td>
       <img src="<%= travel.cover.url %>" width="100"> <br>

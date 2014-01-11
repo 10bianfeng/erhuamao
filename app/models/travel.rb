@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Travel < ActiveRecord::Base
+
+  default_scope order("id desc, position desc")
 	has_many :itineraries
 	has_many :datesprices
 
