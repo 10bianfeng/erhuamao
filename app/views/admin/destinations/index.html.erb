@@ -25,7 +25,11 @@
     <td><%= destination.banner_pic %></td>
     <td><%= destination.map_pic %></td>
     <td><%= destination.ancestry %></td>
-    <td><%= destination.gallery ? destination.gallery.photos.try(:size) : 0 %> / <a href="/admin/galleries/<%= destination.gallery.id %>">管理图片</a></td>
+    <td>
+      <% if destination.gallery  %>
+      <%= destination.gallery.photos.size %> / <a href="/admin/galleries/<%= destination.gallery.id %>">管理图片</a>
+    <% end %>
+  </td>
     <td>
       <h5><a href="/admin/destinations/<%= destination.id %>/new_brochure_destination">绑定相关Pdf</a></h5>
       <table>
