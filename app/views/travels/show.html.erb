@@ -64,9 +64,6 @@
 				<div id="tab1" class="tab_item">
 					<h2>线路介绍</h2>
 					<div class="trip_overview">
-						<p>
-							帝国旅行可根据您的品味，围绕您想访问的名胜古迹及热衷参与的活动类型为您创建个性化的订制旅行线路。请拨打4000-917-321我们的客服热线或填写以下表格来开启创建您专属的私家旅程。我们的资深线路设计专家将与您进一步沟通并为您奉上合意的订制行程。
-						</p>
 						<div class="self_clear">
 							<div id="mini_map">
 								<img width="205px" title="<%= @travel.name %>" alt="<%= @travel.name %>" src="<%= @travel.desc_mappic.url %>">
@@ -89,8 +86,8 @@
 								</li>
 								<li>
                 <span>
-                  <% if @travel.departures.present? %>
-                    <%= @travel.departures.size %>
+                  <% if @travel.departures.present? and @travel.departures > 0 %>
+                    <%= @travel.departures %>
                 <% else %>
                     订制发团
                 <% end %>
@@ -185,9 +182,11 @@
         </div>
         <div id="tab3" class="hide tab_item">
           <h2>团期和价格</h2>
+            <% unless @travel.departures.present? and @travel.departures > 0 %>
             <p>
             帝国旅行可根据您的品味，围绕您想访问的名胜古迹及热衷参与的活动类型为您创建个性化的订制旅行线路。请拨打4000-917-321我们的客服热线或填写以下表格来开启创建您专属的私家旅程。我们的资深线路设计专家将与您进一步沟通并为您奉上合意的订制行程。
             </p>
+            <% end %>
             <div class='round_corners color_f2f2f2' style='padding: 15px'>
               
           <div class="trip_overview">
@@ -214,8 +213,8 @@
                 <li>
 
                 <span>
-                  <% if @travel.departures.present? %>
-                    <%= @travel.departures.size %>
+                  <% if @travel.departures.present? and @travel.departures > 0 %>
+                    <%= @travel.departures %>
                 <% else %>
                     订制发团
                 <% end %>
@@ -268,7 +267,7 @@
                       <th>&nbsp;</th>
                       <th>价格</th>
                       <th>单人补差</th>
-                      <th>内陆航空</th>
+                      <th>内陆航空(起)</th>
                       <th>预定状态</th>
                     </tr>
                   </thead>
@@ -834,7 +833,6 @@
         </div>				
         <!-- TRIP NAVIGATION BOTTOM -->
       </div>
-      </div>
     </div>
 
 
@@ -1001,4 +999,3 @@ $('<p>Someting goes wrong, please try again later.</p>').appendTo('#popout_modal
 }
     </script>
   <% end %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;

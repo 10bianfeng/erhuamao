@@ -6,7 +6,7 @@ html, textarea{
 	overflow-y:scroll;
 }
 body, textarea{
-	font:11px/1.455em Arial, Helvetica, Sans-serif, Verdana !important;
+	font:12px/1.455em Arial, Helvetica, Sans-serif, Verdana !important;
 }
 h1, h2, h3, h4, h5, h6,
 .hl2, .hl3, .hl4, .hl5, .hl6{
@@ -61,7 +61,7 @@ textarea{
 	border-radius:0;
 }
 input, select{
-	font:11px Arial, Helvetica, Sans-serif, Verdana;
+	font:12px Arial, Helvetica, Sans-serif, Verdana;
 }
 input[type="text"],
 input[type="password"]{

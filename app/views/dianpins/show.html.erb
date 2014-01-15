@@ -25,35 +25,38 @@
         <!-- LINK LIST -->
         <ul class="attribute_list">
           <li>
-            <a class="icon download" href="<%= @travel.brochures.first.doc.url %>">Download Trip PDF</a>
+            <a class="icon download" href="<%= @travel.brochures.first.doc.url %>">下载旅行手册</a>
           </li>
           <li>
-            <a class="icon share" title="Send this Trip to a Friend" href="/travel/send_trip_to_friend.cfm?tid=5628" onclick="window.open('/travel/send_trip_to_friend.cfm?tid=5628', 'myWindow', 'toolbar=no, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=600, height=550'); return false" target="_blank">Send this Trip to a Friend</a>
-          </li>
-          <li>
-            <a rel="nofollow" class="icon print" title="Print This Trip" href="/print/dsp_trip.cfm?tid=5628" onclick="window.open('/print/dsp_trip.cfm?tid=5628', 'myWindow', 'toolbar=yes, directories=no, location=no, status=yes, menubar=no, resizable=yes, scrollbars=yes, width=1060, height=800'); return false" target="_blank">Print This Trip</a>
+            <a rel="nofollow" class="icon print" title="Print This Trip" href="#" onclick="javascript:window.print(); return false" target="_blank">打印该线路</a>
           </li>
         </ul>
         <!-- TRIP NAVIGATION -->
+        <!-- TRIP NAVIGATION -->
         <div id="trip_navigation_top" class="self_clear padding_6_tabs">
           <ul>
-            <li>
-              <a href="/travels/<%= @travel.id %>/#tab1" title="Overview">Overview</a>
+            <li >
+              <a href="#tab1" title="Overview">线路介绍</a>
             </li>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab2" title="Itinerary">Itinerary</a>
+              <a href="#tab7" title="景点介绍">景点介绍</a>
             </li>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab3" title="Dates &amp; Prices">Dates &amp; Prices</a>
+              <a href="#tab2" title="Itinerary">行程</a>
             </li>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab4" title="Extensions">Extensions</a>
+              <a href="#tab3" title="Dates &amp; Prices">团期和价格</a>
             </li>
+            <% if @extend_travels and @extend_travels.size > 0 %>
             <li>
-              <a href="/travels/<%= @travel.id %>/#tab5" title="Ask a Question">Ask a Question</a>
+              <a href="#tab4" title="Extensions">扩展线路</a>
+            </li>
+            <% end %>
+            <li>
+              <a href="#tab5" title="Ask a Question">提问</a>
             </li>
             <li class="current">
-              <a href="/travels/<%= @travel.id %>/#tab6" title="用户点评">用户点评</a>
+              <a href="#tab6" title="Ask a Question">用户点评</a>
             </li>
           </ul>
         </div>

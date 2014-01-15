@@ -8,7 +8,7 @@ html, textarea{
 }
 body, textarea{
 
-	font:11px/1.455em Arial, Helvetica, Sans-serif, Verdana !important;
+	font:12px/1.455em Arial, Helvetica, Sans-serif, Verdana !important;
 }
 h1, h2, h3, h4, h5, h6,
 .hl2, .hl3, .hl4, .hl5, .hl6{
@@ -95,7 +95,7 @@ input, select{
 	DO NOT set line-height values for input elements, use the elements natural line-height. Use
 	padding to set interior spacing for elements.
 	*/
-	font:11px Arial, Helvetica, Sans-serif, Verdana;
+	font:12px Arial, Helvetica, Sans-serif, Verdana;
 }
 input[type="text"],
 input[type="password"]{
@@ -603,7 +603,7 @@ absolute image paths.
 }
 #primary_navigation li{
 	/*Override default font-size*/
-	font-size:11px;
+	font-size:12px;
 }
 #primary_navigation .right-last {
 	/* fix dropdown for far right button */
@@ -726,7 +726,7 @@ absolute image paths.
 	/*Override default margins*/
 	margin:15px 0;
 	/*Override default font-size*/
-	font-size:11px;
+	font-size:12px;
 }
 #breadcrumb_navigation li{
 	float:left;
@@ -836,7 +836,7 @@ absolute image paths.
 }
 #secondary_content p{
 	/*Override default font-size*/
-	font-size:11px;
+	font-size:12px;
 	/*Make text italics so its prominent*/
 	/*font-style:italic;*/
 	/*Make text darker so its prominent*/
@@ -889,7 +889,7 @@ absolute image paths.
 	text-align:center;
 	vertical-align:middle;
 	line-height:22px;
-	font-size:11px;
+	font-size:12px;
 }
 #secondary_content th{
 	font-weight:normal;
@@ -999,7 +999,7 @@ absolute image paths.
 #country_information .facts dt,
 #country_information .facts dd,
 #country_information .facts a{
-	font-size:11px;
+	font-size:12px;
 	line-height:15px;
 	
 }
@@ -1048,7 +1048,7 @@ absolute image paths.
 	
 }
 .featured_trips li a{
-	font-size:11px;
+	font-size:12px;
 	
 }
 /*@END--------------------------------*/
