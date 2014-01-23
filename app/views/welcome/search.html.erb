@@ -166,7 +166,7 @@
 $("#search-results li.search-description span.float_right input.select_trip").change(function(){
 	var compare=$.cookie("trip_compare").split(","); //先将cookie 转换为数组
 	if($(this).is(":checked")){ //判断添加或删除
-		$(this).parent().find("span").html("<a href='/compare'>加入比较</a>");
+		$(this).parent().find("span").html("<a href='/welcome/compare'>加入比较</a>");
 		for(i=0;i<compare.length;i++){ //枚举,去重
 			if(compare[i]==$(this).val()){
 				return false;
