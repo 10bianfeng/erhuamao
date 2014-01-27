@@ -72,7 +72,7 @@
 							<ul class="align_edges line_rule clear_margins">
 								<li>
 									<span>
-<img src="/images/<%= @travel.interest_icon %>.jpg" alt="" height="10" width="10"  style="width:15px;height:15px;margin-right: 7px;" />
+                    <img src="/images/<%= @travel.interest_icon %>.jpg" alt="" height="10" width="10"  style="width:15px;height:15px;margin-right: 7px;" />
 										<a class="" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
 									</span>
 									系列:
@@ -553,9 +553,8 @@
                 <ul class="align_edges line_rule clear_margins">
                   <li>
                   <span>
-
           <img src="/images/<%= @travel.interest_icon %>.jpg" alt="" height="10" width="10"  style="width:15px;height:15px;margin-right: 7px;" />
-                    <a class="" href="javascript:void(0);"  title="Extension">扩展线路</a>
+										<a class="" href="javascript:void(0);" onclick="getSeriesOverlay('54')" title="<%= @travel.interests.first.title %>"><%= @travel.interests.first.title %></a>
                   </span>
                   系列:
                   </li>

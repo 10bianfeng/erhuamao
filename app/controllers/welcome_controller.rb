@@ -133,9 +133,7 @@ class WelcomeController < ApplicationController
     elsif !params[:date].nil? and params[:date] != "0_0"
       @travels = Travel.where("name LIKE ?", "%#{params[:date]}%").page(params[:page])
     elsif !params[:price_start].nil? and params[:price_start] != "0_0"
-      @travels = Travel.where("priced_from > ? and priced_from < ?", "#{params[:price_start]}","#{params[:price_end]}").page(params[:page])
-    elsif !params[:price_start].nil? and params[:price_start] =~ /_/
-      @travels = Travel.where("priced_from > ? and priced_from < ?", "#{params[:price_start].split('_')[0]}","#{params[:price_].split('_')[1]}").page(params[:page])
+      @travels = Travel.where("priced_from > ? and priced_from <= ?", "#{params[:price_start].split('_')[0]}","#{params[:price_start].split('_')[1]}").page(params[:page])
     end
 
     render :inline => "<strong>#{(@travels || []).count} </strong>"
