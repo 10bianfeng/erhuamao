@@ -50,7 +50,7 @@
                 <a href="/login">登录</a>
                 </li>
                 <li class="">
-                <a href="/weibo_login"><%= image_tag "loginbtn_04.png" %></a>
+                <a href="/weibo_login"><img src="/images/loginbtn_04.png"><%#= image_tag "loginbtn_04.png" %></a>
                 </li>
               <% end %>
 					</ul>
@@ -151,11 +151,14 @@
 						<a href="<%= banner.link %>"><img src="<%= banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
 						<% end %>
 					<% else %>
-						<% @banner = @sbanner || Banner.find_by_imgname(controller.controller_name ) %>
-						<% if @banner %>
-						<a href="<%= @banner.link %>"><img src="<%= @banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
-						<% else %>
-							<img src="/images/default_banner.jpg" border="0" class="slide_show_img" width="960" height="300"/>
+                      <% @banner = @sbanner || Banner.find_by_imgname(controller.controller_name) %>
+						<% if controller.controller_name == "destinations" && @banner %>
+                          <% banner = Banner.where("destination_id LIKE ?", "%#{params[:id]}%").first %>
+						  <a href="<%= banner.link %>"><img src="<%= banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
+						<% elsif controller.controller_name != "destinations" &&  @banner %>
+                          <a href="<%= @banner.link %>"><img src="<%= @banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
+                        <% else %>
+                          <img src="/images/default_banner.jpg" border="0" class="slide_show_img" width="960" height="300"/>
 						<% end %>
 					<% end %>
 				</div>

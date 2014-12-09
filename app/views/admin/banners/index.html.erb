@@ -17,7 +17,7 @@
       <%= banner.id %>
     </td>
     <td><%= banner.name %></td>
-    <td><%= banner.imgname %></td>
+    <td><%= banner.imgname %><% if banner.destination_id.present? %>(<%= banner.destination.name%>)<% end %> </td>
     <td>
       <img src="<%= banner.cover.url %>" style="width:300px;" alt="">
     </td>

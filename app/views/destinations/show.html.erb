@@ -172,7 +172,8 @@
 
 
 <% content_for :footer do %>
-<%= javascript_include_tag "jquery.slides.min.js" %>
+<%#= javascript_include_tag "jquery.slides.min.js" %>
+        <script type="text/javascript" src="/javascripts/jquery.slides.min.js"></script>
 <script>
 $(function() {
       var max_p=7;

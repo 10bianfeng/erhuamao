@@ -9,8 +9,11 @@
   <meta name="author" content="insub">
 
   <!-- Le styles -->
-  <%= stylesheet_link_tag "bootstrap-min.css" %>
-  <%= stylesheet_link_tag "admin.css" %>
+  <link href="/stylesheets/bootstrap-min.css?1394082640" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/stylesheets/admin.css?1394082640" media="screen" rel="stylesheet" type="text/css" />
+
+  <%#= stylesheet_link_tag "bootstrap-min.css" %>
+  <%#= stylesheet_link_tag "admin.css" %>
 
   <%= csrf_meta_tag %>
 
@@ -74,10 +77,15 @@
     </footer>
   </div>
 
-  <%= javascript_include_tag "jquery1.7.2.js" %>
-  <%= javascript_include_tag "jquery.rails.js" %>
-  <%= javascript_include_tag "bootstrap.min.js" %>
-  <%= javascript_include_tag "admin.js" %>
+  <script src="/javascripts/jquery1.7.2.js?1394082640" type="text/javascript"></script>
+  <script src="/javascripts/jquery.rails.js?1394082640" type="text/javascript"></script>
+  <script src="/javascripts/bootstrap.min.js?1394082640" type="text/javascript"></script>
+  <script src="/javascripts/admin.js?1394082640" type="text/javascript"></script>
+
+  <%#= javascript_include_tag "jquery1.7.2.js" %>
+  <%#= javascript_include_tag "jquery.rails.js" %>
+  <%#= javascript_include_tag "bootstrap.min.js" %>
+  <%#= javascript_include_tag "admin.js" %>
   <%= yield :footer %>
 </body>
 </html>

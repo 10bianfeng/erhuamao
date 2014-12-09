@@ -53,6 +53,7 @@ class Admin::DestinationsController < Admin::BaseController
 
     respond_to do |format|
       if @destination.save
+        @banner = Banner.create(:name => '地区页', imgname: 'destinations', destination_id: @destination.id)
         format.html { redirect_to(admin_destinations_url, :notice => 'Destination was successfully created.') }
         format.xml  { render :xml => @destination, :status => :created, :location => @destination }
       else
