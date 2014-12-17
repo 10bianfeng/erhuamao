@@ -523,7 +523,8 @@
 
 
 <% content_for :footer do %>
-<%= javascript_include_tag "jquery.slides.min.js" %>
+    <script type="text/javascript" src="/javascripts/jquery.slides.min.js></script>
+    <%#= javascript_include_tag "jquery.slides.min.js" %>
 <script>
 var modal_slides_init=function(){
 	$('#destination_slides').slidesjs({

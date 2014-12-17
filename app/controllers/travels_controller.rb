@@ -15,11 +15,22 @@ class TravelsController < ApplicationController
   # GET /travels/1.xml
   def show
     @travel = Travel.find(params[:id])
+    @extend_travels = Travel.find(@travel.extensions_ids.split(",").map { |s| s.to_i })
     @photo_gallerys = []
 #    @travel.destinations.each do |destination|
 #      @photo_gallerys << destination.photo
 #    end
-    @extend_travels = Travel.find(@travel.extensions_ids.split(",").map { |s| s.to_i })
+
+    @hotel_ids = []
+    @travel.itineraries.each do |itinerarie|
+      @hotel_ids << itinerarie.hotel_id
+      @hotel_ids << itinerarie.hotel_id2
+      @hotel_ids << itinerarie.hotel_id3
+      @hotel_ids << itinerarie.hotel_id4
+      @hotel_ids << itinerarie.hotel_id5
+    end
+
+    @hotels = Hotel.where(id: @hotel_ids.compact!.uniq!)
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,33 +1,47 @@
-<%= form_for([:admin, @banner],:html => {:class => "form-horizontal", :multipart => true }) do |f| %>
+<%= form_for([:admin, @banner], :html => {:class => "form-horizontal", :multipart => true}) do |f| %>
 
-  <div class="control-group">
-    <label class="control-label">name</label>
-    <div class="controls">
-    <%= f.text_field :name %>
+    <div class="control-group">
+      <label class="control-label">name</label>
+
+      <div class="controls">
+        <%= f.text_field :name %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">图片所在位置(不要修改)</label>
-    <div class="controls">
-    <%= f.text_field :imgname %>
+    <div class="control-group">
+      <label class="control-label">地区</label>
+
+      <div class="controls">
+        <%= f.select :destination_id, Destination.find(:all, :order => 'id').collect { |c| [c.name, c.id] }, {:include_blank => true} %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">图片</label>
-    <div class="controls">
-    <img src="<%= @banner.cover.url %>" alt=""> <br>
-    <%= f.file_field :cover %>
+    <div class="control-group">
+      <label class="control-label">图片所在位置(不要修改)</label>
+
+      <div class="controls">
+        <%= f.text_field :imgname %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label">链接地址</label>
-    <div class="controls">
-    <%= f.text_field :link %>
+    <div class="control-group">
+      <label class="control-label">图片</label>
+
+      <div class="controls">
+        <img src="<%= @banner.cover.url %>" alt=""> <br>
+        <%= f.file_field :cover %>
+      </div>
     </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <%= f.submit %>
+    <div class="control-group">
+      <label class="control-label">链接地址</label>
+
+      <div class="controls">
+        <%= f.text_field :link %>
+      </div>
     </div>
-  </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit %>
+      </div>
+    </div>
 <% end %>
+
+<script type="text/javascript">
+</script>
