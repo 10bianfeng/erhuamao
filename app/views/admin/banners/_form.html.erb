@@ -4,10 +4,10 @@
       <label class="control-label">name</label>
 
       <div class="controls">
-        <%= f.text_field :name %>
+        <input type="text" id="banner_name" name="banner[name]" value="<%= @banner.name %>" onblur="isShowDestination(this)"/>
       </div>
     </div>
-    <div class="control-group">
+    <div class="control-group" id="destination_id" style=" <% if @banner.name != '地区页' %> display: none; <% end %>">
       <label class="control-label">地区</label>
 
       <div class="controls">
@@ -44,4 +44,11 @@
 <% end %>
 
 <script type="text/javascript">
+    function isShowDestination(ele) {
+        if ($(ele).val() == '地区页') {
+            $('#destination_id').show();
+        } else {
+            $('#destination_id').hide();
+        }
+    }
 </script>
