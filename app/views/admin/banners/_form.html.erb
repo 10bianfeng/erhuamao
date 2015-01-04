@@ -4,7 +4,7 @@
       <label class="control-label">name</label>
 
       <div class="controls">
-        <input type="text" id="banner_name" name="banner[name]" value="<%= @banner.name %>" onblur="isShowDestination(this)"/>
+        <input type="text" id="banner_name" name="banner[name]" value="<%= @banner.name %>" onblur="isShowSelector(this)"/>
       </div>
     </div>
     <div class="control-group" id="destination_id" style=" <% if @banner.name != '地区页' %> display: none; <% end %>">
@@ -12,6 +12,13 @@
 
       <div class="controls">
         <%= f.select :destination_id, Destination.find(:all, :order => 'id').collect { |c| [c.name, c.id] }, {:include_blank => true} %>
+      </div>
+    </div>
+    <div class="control-group" id="travel_id" style=" <% if @banner.name != '旅行线路页' %> display: none; <% end %>">
+      <label class="control-label">旅行线路</label>
+
+      <div class="controls">
+        <%= f.select :travel_id, Travel.find(:all, :order => 'id').collect { |c| [c.name, c.id] }, {:include_blank => true} %>
       </div>
     </div>
     <div class="control-group">
@@ -44,11 +51,16 @@
 <% end %>
 
 <script type="text/javascript">
-    function isShowDestination(ele) {
+    function isShowSelector(ele) {
         if ($(ele).val() == '地区页') {
             $('#destination_id').show();
+            $('#travel_id').hide();
+        } else if ($(ele).val() == '旅行线路页') {
+            $('#travel_id').show();
+            $('#destination_id').hide();
         } else {
             $('#destination_id').hide();
+            $('#travel_id').hide();
         }
     }
 </script>
