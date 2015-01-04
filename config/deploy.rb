@@ -5,7 +5,8 @@ require "bundler/capistrano"
 
 set :application, "erhuamao"
 #set :repository,  "git@github.com:cmingxu/erhuamao.git"
-set :repository,  "git@bitbucket.org:bianfeng111/erhuamao.git"
+# set :repository,  "git@github.com:10bianfeng/erhuamao.git"
+set :repository,  "/home/deploy/test/erhuamao"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
