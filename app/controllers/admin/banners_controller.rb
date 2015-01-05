@@ -10,7 +10,7 @@ class Admin::BannersController < Admin::BaseController
   # GET /banners
   # GET /banners.xml
   def index
-    @banners = Banner.order("destination_id DESC,updated_at DESC").page(params[:page])
+    @banners = Banner.order("destination_id DESC, travel_id DESC, updated_at DESC").page(params[:page])
 
     respond_to do |format|
       format.html # index.html.erb

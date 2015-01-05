@@ -30,7 +30,7 @@ class TravelsController < ApplicationController
       @hotel_ids << itinerarie.hotel_id5
     end
 
-    @hotels = Hotel.where(id: @hotel_ids.compact!.uniq!)
+    @hotels = Hotel.where("hotels.id in (?)", @hotel_ids.uniq!.compact!)
 
     respond_to do |format|
       format.html # show.html.erb
