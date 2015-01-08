@@ -66,8 +66,9 @@ class Admin::HotelsController < Admin::BaseController
   # PUT /hotels/1
   # PUT /hotels/1.xml
   def update
+    puts "------#{params[:hotel]}"
     @hotel = Hotel.find(params[:id])
-    @hotel.gallery.update_attributes(:title => @hotel.name)
+    @hotel.gallery.update_attributes(:title => params[:hotel][:name])
 
     respond_to do |format|
       if @hotel.update_attributes(params[:hotel])
