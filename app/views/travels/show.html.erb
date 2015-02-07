@@ -176,42 +176,42 @@
                     <% if hotel && hotel.gallery %>
                         <em><a class="icon camera_white" href="javascript:void(0);"
                                onclick="modal_slides(<%= hotel.gallery.id %>)"><%= hotel.name %></a></em>
-                        <br/>
+                        &nbsp;/
                     <% end %>
                 <% end %>
                 <% if itinerary.hotel_id2.present? %>
                     <% hotel = Hotel.where("id = ?", itinerary.hotel_id2).first %>
                     <% if hotel && hotel.gallery %>
-                        <em><a class="icon camera_white" href="javascript:void(0);"
+                        &nbsp;<em><a class="icon camera_white" href="javascript:void(0);"
                                onclick="modal_slides(<%= hotel.gallery.id %>)"><%= hotel.name %></a></em>
-                        <br/>
+                        &nbsp;/
                     <% end %>
                 <% end %>
                 <% if itinerary.hotel_id3.present? %>
                     <% hotel = Hotel.where("id = ?", itinerary.hotel_id3).first %>
                     <% if hotel && hotel.gallery %>
-                        <em><a class="icon camera_white" href="javascript:void(0);"
+                        &nbsp;<em><a class="icon camera_white" href="javascript:void(0);"
                                onclick="modal_slides(<%= hotel.gallery.id %>)"><%= hotel.name %></a></em>
-                        <br/>
+                        &nbsp;/
                     <% end %>
                 <% end %>
                 <% if itinerary.hotel_id4.present? %>
                     <% hotel = Hotel.where("id = ?", itinerary.hotel_id4).first %>
                     <% if hotel && hotel.gallery %>
-                        <em><a class="icon camera_white" href="javascript:void(0);"
+                        &nbsp;<em><a class="icon camera_white" href="javascript:void(0);"
                                onclick="modal_slides(<%= hotel.gallery.id %>)"><%= hotel.name %></a></em>
-                        <br/>
+                        &nbsp;/
                     <% end %>
                 <% end %>
                 <% if itinerary.hotel_id5.present? %>
                     <% hotel = Hotel.where("id = ?", itinerary.hotel_id5).first %>
                     <% if hotel && hotel.gallery %>
-                        <em><a class="icon camera_white" href="javascript:void(0);"
+                        &nbsp;<em><a class="icon camera_white" href="javascript:void(0);"
                                onclick="modal_slides(<%= hotel.gallery.id %>)"><%= hotel.name %></a></em>
-                        <br/>
+                        &nbsp;
                     <% end %>
                 <% end %>
-                <em>餐食: <%= itinerary.meals %></em>
+               <em>餐食: <%= itinerary.meals %></em>
               </p>
             </dd>
         <% end %>

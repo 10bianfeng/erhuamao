@@ -29,9 +29,10 @@
     <td><%= itinerary.start_day_num %></td>
     <td><%= itinerary.end_day_num %></td>
     <td>
-      <%= link_to '查看', [:admin, itinerary] %> | 
-      <%= link_to '编辑', edit_admin_itinerary_path(itinerary) %> | 
-      <%= link_to '删除', [:admin, itinerary], :confirm => '确定要删除么?', :method => :delete %>
+      <%= link_to '查看', [:admin, @travel, itinerary] %> |
+      <a href="/admin/travels/<%= itinerary.travel_id %>/itineraries/<%= itinerary.id %>/edit">编辑</a> |
+      <%#= link_to '编辑', edit_admin_itinerary_path(itinerary) %> |
+      <%= link_to '删除', [:admin, @travel, itinerary], :confirm => '确定要删除么?', :method => :delete %>
     </td>
   </tr>
 <% end %>

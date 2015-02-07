@@ -29,9 +29,10 @@
     <td><%= datesprice.availability_status %></td>
     <td><%= datesprice.available_people_count %></td>
     <td>
-      <%= link_to '查看', [:admin, datesprice] %> | 
-      <%= link_to '编辑', edit_admin_datesprice_path(datesprice) %> | 
-      <%= link_to '删除', [:admin, datesprice], :confirm => '确定要删除么?', :method => :delete %>
+      <%= link_to '查看', [:admin, @travel, datesprice] %> |
+      <a href="/admin/travels/<%= datesprice.travel_id %>/datesprices/<%= datesprice.id %>/edit">编辑</a> |
+      <%#= link_to '编辑', edit_admin_travel_datesprice_path(@travel, datesprice) %> |
+      <%= link_to '删除', [:admin, @travel, datesprice], :confirm => '确定要删除么?', :method => :delete %>
     </td>
   </tr>
 <% end %>
