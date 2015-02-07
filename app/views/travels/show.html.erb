@@ -208,10 +208,10 @@
                     <% if hotel && hotel.gallery %>
                         &nbsp;<em><a class="icon camera_white" href="javascript:void(0);"
                                onclick="modal_slides(<%= hotel.gallery.id %>)"><%= hotel.name %></a></em>
-                        &nbsp;
+                        &nbsp;/
                     <% end %>
                 <% end %>
-               <em>餐食: <%= itinerary.meals %></em>
+                &nbsp;<em>餐食: <%= itinerary.meals %></em>
               </p>
             </dd>
         <% end %>
