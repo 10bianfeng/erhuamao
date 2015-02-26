@@ -19,9 +19,9 @@
     <td><%= banner.name %></td>
     <td><%= banner.imgname %>
       <% if banner.destination_id.present? %>
-          (<%= banner.destination.name%>)
+          (<%= banner.destination.name || nil%>)
       <% elsif banner.travel_id.present?%>
-          (<%= banner.travel.name%>)
+          (<%= banner.travel.name || nil%>)
       <% end %>
     </td>
     <td>
