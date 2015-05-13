@@ -166,6 +166,13 @@
                           <% else %>
                               <img src="/images/default_banner.jpg" border="0" class="slide_show_img" width="960" height="300"/>
                           <% end %>
+                      <% elsif controller.controller_name == "welcome" && @banner %>
+                          <% banner = Banner.where("destination_id = ?", "#{params[:destination]}").first %>
+                          <% if banner.present? %>
+                              <a href="<%= banner.link %>"><img src="<%= banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
+                          <% else %>
+                              <img src="/images/default_banner.jpg" border="0" class="slide_show_img" width="960" height="300"/>
+                          <% end %>
                       <% elsif @banner %>
                           <a href="<%= @banner.link %>"><img src="<%= @banner.cover.url %>" border="0" class="slide_show_img" width="960" height="300"/></a>
                       <% else %>
